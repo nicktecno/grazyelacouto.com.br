@@ -23,21 +23,27 @@ function HomePage(props) {
   const history = useRouter();
 
   useEffect(() => {
-    const promotions = props.banners.web.map((banner, key) => ({
-      id: banner.alt,
-      name: banner.title,
-      creative: banner.img,
-      position: `Position ${key} of the Slider`, // Pode ser desde uma área do site ou até mesmo uma posição em um slider
-    }));
-    window.dataLayer &&
-      window.dataLayer.push({
-        event: "promoView",
-        ecommerce: {
-          promoView: {
-            promotions,
+    if (
+      props.banners !== false &&
+      props.banners !== undefined &&
+      props.banners.web.length > 0
+    ) {
+      const promotions = props.banners.web.map((banner, key) => ({
+        id: banner.alt,
+        name: banner.title,
+        creative: banner.img,
+        position: `Position ${key} of the Slider`, // Pode ser desde uma área do site ou até mesmo uma posição em um slider
+      }));
+      window.dataLayer &&
+        window.dataLayer.push({
+          event: "promoView",
+          ecommerce: {
+            promoView: {
+              promotions,
+            },
           },
-        },
-      });
+        });
+    }
   }, []);
 
   function SampleNextArrow(props) {
@@ -464,7 +470,6 @@ function HomePage(props) {
       </S.SecondaryBanner>
 
       <S.SliderCategory>
-        {console.log(props.menu[0].image_detail)}
         <h2 className="labelShowCase">Categorias</h2>
         <Slider {...settings}>
           {props?.menu?.map((attr) => (

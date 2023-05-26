@@ -20,7 +20,7 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { data: response } = await apiUnlogged.get("/descendant-categories");
   const menuFilter = response.data.filter((filtro) => filtro.name !== "Root");
 
