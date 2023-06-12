@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet";
 
 import ProductList from "../../components/ProductList";
 import * as S from "./style";
@@ -15,9 +14,6 @@ import Slider from "react-slick";
 import Link from "next/link";
 
 import { useRouter } from "next/router";
-
-const mktName = process.env.NEXT_PUBLIC_REACT_APP_NAME;
-const appImagesUrl = process.env.NEXT_PUBLIC_REACT_APP_IMAGES_URL;
 
 function HomePage(props) {
   const history = useRouter();
@@ -318,14 +314,6 @@ function HomePage(props) {
 
   return (
     <S.ContainerGeneral>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <meta
-          name="description"
-          content={process.env.NEXT_PUBLIC_REACT_APP_DESCRIPTION}
-        />
-        <title>{process.env.NEXT_PUBLIC_REACT_APP_TITLE}</title>
-      </Helmet>
       {props.banners !== false && props.banners !== undefined && (
         <S.BannerContainer>
           <S.SliderDesktop>
