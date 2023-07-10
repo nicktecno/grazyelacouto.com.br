@@ -776,9 +776,9 @@ export const ConjuntoMid = styled.div`
   display: flex;
   justify-content: space-evenly;
   gap: 20px;
-  width: 90%;
+  width: 100%;
   max-width: 1920px;
-  margin: 0px auto;
+  margin: 30px auto;
   ${customMedia.lessThan("notebook")` 
     flex-direction: column;
   `}

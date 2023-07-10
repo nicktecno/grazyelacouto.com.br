@@ -18,6 +18,9 @@ import { useRouter } from "next/router";
 function HomePage(props) {
   const history = useRouter();
 
+  const photobookModuleActive =
+    process.env.NEXT_PUBLIC_REACT_APP_PHOTOBOOK_MODULE_ACTIVE;
+
   useEffect(() => {
     if (
       props.banners !== false &&
@@ -504,28 +507,30 @@ function HomePage(props) {
         </S.SearchButton>
       </S.SearchSellersContainer>
 
-      {/* <S.ConjuntoMid>
-        <S.BlocoExplore onClick={() => history.push("/inspire")}>
-          <div className="blocoImage">
-            <img
-              src="/images/fotooo.png"
-              loading="lazy"
-              alt="Sala com sofá azul no centro"
-            />
-          </div>
-          <span>Inspire-se</span>
-        </S.BlocoExplore>
-        <S.BlocoExplore onClick={() => history.push("/findpromoters")}>
-          <div className="blocoImage">
-            <img
-              loading="lazy"
-              src="/images/encontre.png"
-              alt="Arquiteto desenhando"
-            />
-          </div>
-          <span>Encontre profissionais</span>
-        </S.BlocoExplore>
-      </S.ConjuntoMid> */}
+      {photobookModuleActive && (
+        <S.ConjuntoMid>
+          <S.BlocoExplore onClick={() => history.push("/inspire")}>
+            <div className="blocoImage">
+              <img
+                src="/images/fotooo.png"
+                loading="lazy"
+                alt="Sala com sofá azul no centro"
+              />
+            </div>
+            <span>Inspire-se</span>
+          </S.BlocoExplore>
+          <S.BlocoExplore onClick={() => history.push("/findpromoters")}>
+            <div className="blocoImage">
+              <img
+                loading="lazy"
+                src="/images/encontre.png"
+                alt="Arquiteto desenhando"
+              />
+            </div>
+            <span>Encontre profissionais</span>
+          </S.BlocoExplore>
+        </S.ConjuntoMid>
+      )}
 
       <InstantSearch {...props}>
         <Configure hitsPerPage={12} />
