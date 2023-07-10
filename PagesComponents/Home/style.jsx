@@ -186,7 +186,7 @@ export const BannerContainer = styled.div`
 `;
 export const ImageBannerWeb = styled.img`
   width: 100%;
-  height: auto;
+  height: 400px;
 `;
 export const ImageBannerMobile = styled.img`
   width: 100%;
@@ -213,7 +213,7 @@ export const SliderDesktop = styled.div`
     transition: 0.3s;
 
     :hover {
-      background-color: #fec0149e;
+      background-color: #ffffff4a;
     }
   }
   .slick-next {
@@ -221,7 +221,7 @@ export const SliderDesktop = styled.div`
     transition: 0.3s;
 
     :hover {
-      background-color: #fec0149e;
+      background-color: #ffffff4a;
     }
   }
 
