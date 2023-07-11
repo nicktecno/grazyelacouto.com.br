@@ -859,7 +859,7 @@ export const ContainerGeneral = styled.div`
   .labelShowCase {
     align-self: flex-start;
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     margin-top: 20px;
     font-size: 25px;
     font-weight: bold;
@@ -868,7 +868,7 @@ export const ContainerGeneral = styled.div`
    font-size: 20px;
   `}
     &.noSlider {
-      margin-bottom: 5px;
+      margin-bottom: 20px;
     }
   }
 `;
