@@ -28,18 +28,15 @@ function HomePage(props) {
       props.banners.web.length > 0
     ) {
       const promotions = props.banners.web.map((banner, key) => ({
-        id: banner.alt,
-        name: banner.title,
-        creative: banner.img,
-        position: `Position ${key} of the Slider`, // Pode ser desde uma área do site ou até mesmo uma posição em um slider
+        creative_name: banner.alt,
+        item_name: banner.title,
+        index: key,
       }));
       window.dataLayer &&
         window.dataLayer.push({
-          event: "promoView",
+          event: "view_promotion",
           ecommerce: {
-            promoView: {
-              promotions,
-            },
+            items: promotions,
           },
         });
     }
@@ -329,18 +326,15 @@ function HomePage(props) {
                     onClick={() => {
                       window?.dataLayer &&
                         window?.dataLayer.push({
-                          event: "promotionClick",
+                          event: "select_promotion",
                           ecommerce: {
-                            promoClick: {
-                              promotions: [
-                                {
-                                  id: item.alt,
-                                  name: item.title,
-                                  creative: item.img,
-                                  position: index,
-                                },
-                              ],
-                            },
+                            items: [
+                              {
+                                creative_name: item.alt,
+                                item_name: item.title,
+                                index: index,
+                              },
+                            ],
                           },
                         }),
                         item.url !== "" && redirect(item.url);
@@ -367,18 +361,15 @@ function HomePage(props) {
                     onClick={() => {
                       window?.dataLayer &&
                         window.dataLayer.push({
-                          event: "promotionClick",
+                          event: "select_promotion",
                           ecommerce: {
-                            promoClick: {
-                              promotions: [
-                                {
-                                  id: item.alt,
-                                  name: item.title,
-                                  creative: item.img,
-                                  position: index,
-                                },
-                              ],
-                            },
+                            items: [
+                              {
+                                creative_name: item.alt,
+                                item_name: item.title,
+                                index: index,
+                              },
+                            ],
                           },
                         }),
                         item.url !== "" && redirect(item.url);
@@ -512,7 +503,7 @@ function HomePage(props) {
           <S.BlocoExplore onClick={() => history.push("/inspire")}>
             <div className="blocoImage">
               <img
-                src="/images/fotooo.png"
+                src="/images/inspire.png"
                 loading="lazy"
                 alt="Sala com sofá azul no centro"
               />
@@ -523,7 +514,7 @@ function HomePage(props) {
             <div className="blocoImage">
               <img
                 loading="lazy"
-                src="/images/encontre.png"
+                src="/images/findpromoters.png"
                 alt="Arquiteto desenhando"
               />
             </div>
