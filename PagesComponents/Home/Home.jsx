@@ -18,9 +18,6 @@ import { useRouter } from "next/router";
 function HomePage(props) {
   const history = useRouter();
 
-  const photobookModuleActive =
-    process.env.NEXT_PUBLIC_REACT_APP_PHOTOBOOK_MODULE_ACTIVE;
-
   useEffect(() => {
     if (
       props.banners !== false &&
@@ -311,7 +308,7 @@ function HomePage(props) {
   function redirect(url) {
     window.location.href = url;
   }
-
+  console.log(props);
   return (
     <S.ContainerGeneral>
       {props.banners !== false && props.banners !== undefined && (
@@ -498,7 +495,7 @@ function HomePage(props) {
         </S.SearchButton>
       </S.SearchSellersContainer>
 
-      {photobookModuleActive && (
+      {props.photobookModuleActive === "true" && (
         <S.ConjuntoMid>
           <S.BlocoExplore onClick={() => history.push("/inspire")}>
             <div className="blocoImage">

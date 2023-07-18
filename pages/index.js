@@ -20,6 +20,7 @@ export default function Home(props) {
       banners={props.banners}
       sellers={props.sellers}
       promotions={props.promotions}
+      photobookModuleActive={props.photobookModuleActive}
     />
   );
 }
@@ -45,6 +46,9 @@ export async function getStaticProps({ resolvedUrl }) {
   const metaDescription = process.env.NEXT_PUBLIC_REACT_APP_GENERAL_DESCRIPTION;
   const metaKdt = `${process.env.NEXT_PUBLIC_REACT_APP_NAME} - Home`;
 
+  const photobookModuleActive =
+    process.env.NEXT_PUBLIC_REACT_APP_PHOTOBOOK_MODULE_ACTIVE;
+
   return {
     props: {
       seo: {
@@ -57,6 +61,7 @@ export async function getStaticProps({ resolvedUrl }) {
       menu: menuFilter,
       sellers: responseSellers[0],
       promotions: responsePromotions,
+      photobookModuleActive: photobookModuleActive,
     },
     revalidate: 600,
   };
