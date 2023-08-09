@@ -56,9 +56,9 @@ export const BoxNextArrow = styled.div`
 
   .slick-next:before {
     display: flex;
-    width: 20px;
-    height: 20px;
-
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
     background-size: 20px 20px;
     color: var(--font-color);
   }
@@ -69,9 +69,9 @@ export const BoxPrevArrow = styled.div`
 
   .slick-prev:before {
     display: flex;
-    width: 20px;
-    height: 20px;
-
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
     background-size: 20px 20px;
     color: var(--font-color);
   }

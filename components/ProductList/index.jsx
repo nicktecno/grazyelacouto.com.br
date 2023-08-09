@@ -1,4 +1,3 @@
-import { connectInfiniteHits } from "react-instantsearch-dom";
 import * as S from "./style";
 
 import Slider from "react-slick";
@@ -15,14 +14,7 @@ const ProductCardMicro = dynamic(
   }
 );
 
-const Hits = ({
-  mktName,
-  appImagesUrl,
-  hits,
-  hasMore,
-  refineNext,
-  ...rest
-}) => {
+const ProductList = ({ mktName, hits, page }) => {
   const history = useRouter();
 
   function SampleNextArrow(props) {
@@ -82,7 +74,7 @@ const Hits = ({
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     variableWidth: true,
-    slidesToShow: hits.length > 7 ? 7.3 : hits.length,
+    slidesToShow: hits.products.length > 7 ? 7.3 : hits.products.length,
     slidesToScroll: 2,
     responsive: [
       {
@@ -92,7 +84,7 @@ const Hits = ({
           infinite: false,
           arrows: true,
           speed: 500,
-          slidesToShow: hits.length > 7 ? 6 : hits.length,
+          slidesToShow: hits.products.length > 7 ? 6 : hits.products.length,
           slidesToScroll: 2,
         },
       },
@@ -268,7 +260,7 @@ const Hits = ({
 
   useEffect(() => {
     if (window.dataLayer !== undefined) {
-      if (hits.length > 0) {
+      if (hits.products.length > 0) {
         dataLayerTrigger();
       }
     } else {
@@ -277,7 +269,7 @@ const Hits = ({
   }, [dataLayerState]);
 
   async function dataLayerTrigger() {
-    if (rest.page === "home") {
+    if (page === "home") {
       const DadosProdutos = hits.map((produto, i) => ({
         name: produto.son_name,
         id: String(produto.id),
@@ -303,14 +295,14 @@ const Hits = ({
           localStorage.getItem(`${mktName}_userId`) !== null
             ? parseInt(localStorage.getItem(`${mktName}_userId`))
             : "Sem Login",
-        pageCategory: rest.page,
-        pageTitle: rest.page,
+        pageCategory: page,
+        pageTitle: page,
         ecommerce: {
           currencyCode: "BRL",
           impressions: DadosProdutos,
         },
       });
-    } else if (rest.page === "search") {
+    } else if (page === "search") {
       const DadosProdutos = hits.map((produto) => ({
         name: produto.name,
         id: String(produto.id),
@@ -335,7 +327,7 @@ const Hits = ({
           localStorage.getItem(`${mktName}_userId`) !== null
             ? parseInt(localStorage.getItem(`${mktName}_userId`))
             : "Sem Login",
-        pageCategory: rest.page,
+        pageCategory: page,
         pageTitle: "Result search page",
 
         impressions: DadosProdutos,
@@ -345,76 +337,46 @@ const Hits = ({
 
   return (
     <>
-      {hits !== undefined &&
-        hits !== null &&
-        hits !== [] &&
-        hits.length > 0 && (
-          <>
-            {rest.slider === "slider" ? (
-              <Slider {...settingsProducts}>
-                {hits.map((hit, index) => (
-                  <ProductCardMicro
-                    key={index}
-                    hit={hit}
-                    slider={rest.slider}
-                    page={
-                      history.pathname.replace("/", "") === ""
-                        ? "home"
-                        : history.pathname.replace("/", "")
-                    }
-                    appImagesUrl={appImagesUrl}
-                  />
-                ))}
-              </Slider>
-            ) : (
-              <S.ProductsContainer page={rest.page}>
-                {hits.map((hit, index) => (
-                  <ProductCardMicro
-                    key={index}
-                    hit={hit}
-                    slider={rest.slider}
-                    page={
-                      history.pathname.replace("/", "") === ""
-                        ? "home"
-                        : history.pathname.replace("/", "")
-                    }
-                    appImagesUrl={appImagesUrl}
-                  />
-                ))}
-              </S.ProductsContainer>
-            )}
+      {hits !== undefined && hits !== null && (
+        <>
+          {hits.display === "carousel" ? (
+            <Slider {...settingsProducts}>
+              {hits.products.map((hit, index) => (
+                <ProductCardMicro
+                  key={index}
+                  hit={hit}
+                  slider={"slider"}
+                  page={page}
+                />
+              ))}
+            </Slider>
+          ) : (
+            <S.ProductsContainer page={page}>
+              {hits.products.map((hit, index) => (
+                <ProductCardMicro
+                  key={index}
+                  hit={hit}
+                  page={page}
+                  slider={""}
+                />
+              ))}
+            </S.ProductsContainer>
+          )}
 
-            {hasMore && rest.page === "search" && (
-              <S.ContainerSeeMoreAlgolia>
-                {hasMore && (
-                  <button
-                    className="positiveButton"
-                    disabled={!hasMore}
-                    onClick={refineNext}
-                  >
-                    VER MAIS
-                  </button>
-                )}
-              </S.ContainerSeeMoreAlgolia>
-            )}
-            {rest.page === "home" && (
-              <S.SearchButton>
-                <button
-                  className="positiveButton"
-                  onClick={() =>
-                    history.push(`/seemore/${rest.category}/${rest.attribute}`)
-                  }
-                >
-                  VER MAIS
-                </button>{" "}
-              </S.SearchButton>
-            )}
-          </>
-        )}
+          {hits.see_more && (
+            <S.SearchButton>
+              <button
+                className="positiveButton"
+                onClick={() => history.push(hits.see_more)}
+              >
+                VER MAIS
+              </button>
+            </S.SearchButton>
+          )}
+        </>
+      )}
     </>
   );
 };
-
-const ProductList = connectInfiniteHits(Hits);
 
 export default ProductList;

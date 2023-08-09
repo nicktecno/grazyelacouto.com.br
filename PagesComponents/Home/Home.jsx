@@ -5,11 +5,6 @@ import * as S from "./style";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import {
-  Configure,
-  InstantSearch,
-  RefinementList,
-} from "react-instantsearch-dom";
 import Slider from "react-slick";
 import Link from "next/link";
 
@@ -17,6 +12,13 @@ import { useRouter } from "next/router";
 
 function HomePage(props) {
   const history = useRouter();
+
+  const carouselShowcase = props.showcases.data.filter(
+    (hit) => hit.display === "carousel"
+  )[0];
+  const lowerShowcase = props.showcases.data.filter(
+    (hit) => hit.display === "lower"
+  )[0];
 
   useEffect(() => {
     if (
@@ -393,21 +395,15 @@ function HomePage(props) {
         </Slider>
       </S.SliderPromotions>
 
-      <InstantSearch {...props}>
-        <Configure hitsPerPage={12} />
-        <S.HideElement>
-          <RefinementList attribute="son_new" defaultRefinement={["Sim"]} />
-        </S.HideElement>
-        <S.ContainerBottom>
-          <h2 className="labelShowCase">Lançamentos</h2>
-          <ProductList
-            slider="slider"
-            attribute="son_new"
-            category="Lancamentos"
-            page="home"
-          />
-        </S.ContainerBottom>
-      </InstantSearch>
+      <S.ContainerBottom>
+        <h2 className="labelshowcase">{carouselShowcase.showcase_title}</h2>
+        <ProductList
+          hits={carouselShowcase}
+          page="home"
+          mktName={props.mktName}
+        />
+      </S.ContainerBottom>
+
       <S.SecondaryBanner>
         <S.BannerDesktop>
           {props.banners !== false &&
@@ -449,7 +445,7 @@ function HomePage(props) {
       </S.SecondaryBanner>
 
       <S.SliderCategory>
-        <h2 className="labelShowCase">Categorias</h2>
+        <h2 className="labelshowcase">Categorias</h2>
         <Slider {...settings}>
           {props?.menu?.map((attr) => (
             <Link key={attr.id} href={`/category/${attr.name}`}>
@@ -463,7 +459,7 @@ function HomePage(props) {
       </S.SliderCategory>
 
       <S.SliderCategory>
-        <h2 className="labelShowCase">Lojas Destaque</h2>
+        <h2 className="labelshowcase">Lojas Destaque</h2>
         <Slider {...settingsSellers}>
           {props?.sellers !== undefined &&
             props?.sellers?.map((attr) => (
@@ -520,24 +516,12 @@ function HomePage(props) {
         </S.ConjuntoMid>
       )}
 
-      <InstantSearch {...props}>
-        <Configure hitsPerPage={12} />
-        <S.HideElement>
-          <RefinementList
-            attribute="son_featured"
-            defaultRefinement={["Sim"]}
-          />
-        </S.HideElement>
-        <S.ContainerBottom>
-          <h2 className="labelShowCase noSlider">Recomendados</h2>
-          <ProductList
-            slider="noSlider"
-            attribute="son_featured"
-            category="Recomendados"
-            page="home"
-          />
-        </S.ContainerBottom>
-      </InstantSearch>
+      <S.ContainerBottom>
+        <h2 className="labelshowcase noSlider">
+          {lowerShowcase.showcase_title}
+        </h2>
+        <ProductList hits={lowerShowcase} page="home" mktName={props.mktName} />
+      </S.ContainerBottom>
     </S.ContainerGeneral>
   );
 }
