@@ -378,20 +378,24 @@ function HomePage(props) {
         </S.BannerContainer>
       )}
 
-      <S.SliderPromotions lengthPromotions={props.promotions?.web?.length}>
-        <Slider {...settingsPromotions}>
-          {props?.promotions?.web?.map((attr, index) => (
-            <Link key={index} href={attr.url ? attr.url : "/search"}>
-              <S.PromotionContainer>
-                <img
-                  src={attr.img && attr.img}
-                  alt={attr.alt ? attr.alt : "promoções"}
-                />
-              </S.PromotionContainer>
-            </Link>
-          ))}
-        </Slider>
-      </S.SliderPromotions>
+      {props.promotions &&
+        props.promotions.web &&
+        props.promotions.web.length > 0 && (
+          <S.SliderPromotions lengthPromotions={props.promotions?.web?.length}>
+            <Slider {...settingsPromotions}>
+              {props?.promotions?.web?.map((attr, index) => (
+                <Link key={index} href={attr.url ? attr.url : "/search"}>
+                  <S.PromotionContainer>
+                    <img
+                      src={attr.img && attr.img}
+                      alt={attr.alt ? attr.alt : "promoções"}
+                    />
+                  </S.PromotionContainer>
+                </Link>
+              ))}
+            </Slider>
+          </S.SliderPromotions>
+        )}
 
       <InstantSearch {...props}>
         <Configure hitsPerPage={12} />
