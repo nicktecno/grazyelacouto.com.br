@@ -38,7 +38,7 @@ const nextConfig = {
       new NextFederationPlugin({
         name: "homePage",
         remotes: {
-          generalProductCards: `generalProductCards@http://localhost:3019//_next/static/${
+          generalProductCards: `generalProductCards@https://modules-generalproductcards.vercel.app//_next/static/${
             isServer ? "ssr" : "chunks"
           }/remoteEntry.js`,
         },
