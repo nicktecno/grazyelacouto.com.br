@@ -293,6 +293,22 @@ export const SliderCategory = styled.div`
     margin: 0px;
     margin-bottom: 20px;
   }
+  .slick-next:before {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+    background-size: 20px 20px;
+    color: var(--font-color);
+  }
+  .slick-prev:before {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+    background-size: 20px 20px;
+    color: var(--font-color);
+  }
 
   .category {
     display: flex;

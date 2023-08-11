@@ -1,26 +1,20 @@
 import HomePage from "../PagesComponents/Home/Home";
 
-import algoliasearch from "algoliasearch/lite";
 import apiUnlogged from "../services/apiUnlogged";
 
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_REACT_APP_ALGOLIA_APP_ID,
-  process.env.NEXT_PUBLIC_REACT_APP_ALGOLIA_SEARCH_API_KEY
-);
-
-const DEFAULT_PROPS = {
-  searchClient,
-  indexName: process.env.NEXT_PUBLIC_REACT_APP_ALGOLIA_INDEX_SEARCH,
-};
 export default function Home(props) {
+  const photobookModuleActive =
+    process.env.NEXT_PUBLIC_REACT_APP_PHOTOBOOK_MODULE_ACTIVE;
+  const mktName = process.env.NEXT_PUBLIC_REACT_APP_NAME;
   return (
     <HomePage
-      {...DEFAULT_PROPS}
       menu={props.menu}
       banners={props.banners}
       sellers={props.sellers}
       promotions={props.promotions}
-      photobookModuleActive={props.photobookModuleActive}
+      photobookModuleActive={photobookModuleActive}
+      showcases={props.showcases}
+      mktName={mktName}
     />
   );
 }
@@ -31,6 +25,10 @@ export async function getStaticProps({ resolvedUrl }) {
   const { data: responseSellers } = await apiUnlogged.get(
     "/seller/public/home"
   );
+  const { data: responseshowcase } = await apiUnlogged.get(
+    "/showcase/products"
+  );
+
   const menuFilter = response.data.filter((filtro) => filtro.name !== "Root");
 
   let banners = false;
@@ -46,9 +44,6 @@ export async function getStaticProps({ resolvedUrl }) {
   const metaDescription = process.env.NEXT_PUBLIC_REACT_APP_GENERAL_DESCRIPTION;
   const metaKdt = `${process.env.NEXT_PUBLIC_REACT_APP_NAME} - Home`;
 
-  const photobookModuleActive =
-    process.env.NEXT_PUBLIC_REACT_APP_PHOTOBOOK_MODULE_ACTIVE;
-
   return {
     props: {
       seo: {
@@ -57,11 +52,11 @@ export async function getStaticProps({ resolvedUrl }) {
         metaKdt,
         metaKeywords,
       },
+      showcases: responseshowcase,
       banners,
       menu: menuFilter,
       sellers: responseSellers[0],
       promotions: responsePromotions,
-      photobookModuleActive: photobookModuleActive,
     },
     revalidate: 600,
   };
