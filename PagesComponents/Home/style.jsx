@@ -186,7 +186,7 @@ export const BannerContainer = styled.div`
 `;
 export const ImageBannerWeb = styled.img`
   width: 100%;
-  height: 400px;
+  height: auto;
 `;
 export const ImageBannerMobile = styled.img`
   width: 100%;
