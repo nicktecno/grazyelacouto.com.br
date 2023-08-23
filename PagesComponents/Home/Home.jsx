@@ -13,10 +13,10 @@ import { useRouter } from "next/router";
 function HomePage(props) {
   const history = useRouter();
 
-  const carouselShowcase = props.showcases.data.filter(
+  const carouselShowcase = props.showcases.data?.filter(
     (hit) => hit.display === "carousel"
   )[0];
-  const lowerShowcase = props.showcases.data.filter(
+  const lowerShowcase = props.showcases.data?.filter(
     (hit) => hit.display === "lower"
   )[0];
 
@@ -398,15 +398,16 @@ function HomePage(props) {
             </Slider>
           </S.SliderPromotions>
         )}
-
-      <S.ContainerBottom>
-        <h2 className="labelshowcase">{carouselShowcase.showcase_title}</h2>
-        <ProductList
-          hits={carouselShowcase}
-          page="home"
-          mktName={props.mktName}
-        />
-      </S.ContainerBottom>
+      {carouselShowcase && (
+        <S.ContainerBottom>
+          <h2 className="labelshowcase">{carouselShowcase.showcase_title}</h2>
+          <ProductList
+            hits={carouselShowcase}
+            page="home"
+            mktName={props.mktName}
+          />
+        </S.ContainerBottom>
+      )}
 
       <S.SecondaryBanner>
         <S.BannerDesktop>
@@ -520,12 +521,18 @@ function HomePage(props) {
         </S.ConjuntoMid>
       )}
 
-      <S.ContainerBottom>
-        <h2 className="labelshowcase noSlider">
-          {lowerShowcase.showcase_title}
-        </h2>
-        <ProductList hits={lowerShowcase} page="home" mktName={props.mktName} />
-      </S.ContainerBottom>
+      {lowerShowcase && (
+        <S.ContainerBottom>
+          <h2 className="labelshowcase noSlider">
+            {lowerShowcase.showcase_title}
+          </h2>
+          <ProductList
+            hits={lowerShowcase}
+            page="home"
+            mktName={props.mktName}
+          />
+        </S.ContainerBottom>
+      )}
     </S.ContainerGeneral>
   );
 }
