@@ -325,15 +325,15 @@ export const SliderCategory = styled.div`
 
     ${customMedia.lessThan("notebook")`
       width:170px;
-      height:170px;
+
     `}
     ${customMedia.lessThan("tablet")`
-      width:150px;
-      height:150px;`}
+      width:130px;
+      height:170px;`}
 
 ${customMedia.lessThan("irico")`
       width:115px;
-      height:115px;`}
+`}
 
   img {
       width: 100%;
