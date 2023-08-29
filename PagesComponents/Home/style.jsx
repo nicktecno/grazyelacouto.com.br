@@ -134,6 +134,7 @@ export const SliderPromotions = styled.div`
     display: flex;
     justify-content: center;
     padding: 0px 4%;
+    width: 100% !important;
   }
 `;
 
@@ -191,6 +192,7 @@ export const BannerAndPromotionsContainer = styled.div`
     padding: 0px 12%;
   `}
 `;
+
 export const BannerContainer = styled.div`
   max-width: 1920px;
   width: 100%;
