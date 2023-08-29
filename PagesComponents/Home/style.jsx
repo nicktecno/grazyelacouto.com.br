@@ -181,6 +181,16 @@ export const CaixaProduto = styled.div`
   }
 `;
 
+export const BannerAndPromotionsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ${customMedia.greaterThan("1921px")`
+    padding: 0px 12%;
+  `}
+`;
 export const BannerContainer = styled.div`
   max-width: 1920px;
   width: 100%;

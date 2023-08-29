@@ -313,91 +313,95 @@ function HomePage(props) {
 
   return (
     <>
-      {props.banners !== false && props.banners !== undefined && (
-        <S.BannerContainer>
-          <S.SliderDesktop>
-            <Slider {...settings1}>
-              {props.banners.web !== undefined &&
-                props.banners.web.length > 0 &&
-                props.banners.web.map((item, index) => (
-                  <S.ImageBannerWeb
-                    key={index}
-                    onClick={() => {
-                      window?.dataLayer &&
-                        window?.dataLayer.push({
-                          event: "select_promotion",
-                          ecommerce: {
-                            items: [
-                              {
-                                creative_name: item.alt,
-                                item_name: item.title,
-                                index: index,
-                              },
-                            ],
-                          },
-                        }),
-                        item.url !== "" && redirect(item.url);
-                    }}
-                    alt={item.alt}
-                    title={item.title}
-                    src={item.img}
-                  />
-                ))}
-            </Slider>
-          </S.SliderDesktop>
-
-          <S.SliderMobile>
-            <Slider {...settings1}>
-              {props.banners.mobile !== undefined &&
-                props.banners.mobile.length > 0 &&
-                props.banners.mobile.map((item, index) => (
-                  <S.ImageBannerMobile
-                    alt={item.alt}
-                    title={item.title}
-                    src={item.img}
-                    key={index}
-                    style={{ cursor: "pointer" }}
-                    onClick={() => {
-                      window?.dataLayer &&
-                        window.dataLayer.push({
-                          event: "select_promotion",
-                          ecommerce: {
-                            items: [
-                              {
-                                creative_name: item.alt,
-                                item_name: item.title,
-                                index: index,
-                              },
-                            ],
-                          },
-                        }),
-                        item.url !== "" && redirect(item.url);
-                    }}
-                  />
-                ))}
-            </Slider>
-          </S.SliderMobile>
-        </S.BannerContainer>
-      )}
-
-      {props.promotions &&
-        props.promotions.web &&
-        props.promotions.web.length > 0 && (
-          <S.SliderPromotions lengthPromotions={props.promotions?.web?.length}>
-            <Slider {...settingsPromotions}>
-              {props?.promotions?.web?.map((attr, index) => (
-                <Link key={index} href={attr.url ? attr.url : "/search"}>
-                  <S.PromotionContainer>
-                    <img
-                      src={attr.img && attr.img}
-                      alt={attr.alt ? attr.alt : "promoções"}
+      <S.BannerAndPromotionsContainer>
+        {props.banners !== false && props.banners !== undefined && (
+          <S.BannerContainer>
+            <S.SliderDesktop>
+              <Slider {...settings1}>
+                {props.banners.web !== undefined &&
+                  props.banners.web.length > 0 &&
+                  props.banners.web.map((item, index) => (
+                    <S.ImageBannerWeb
+                      key={index}
+                      onClick={() => {
+                        window?.dataLayer &&
+                          window?.dataLayer.push({
+                            event: "select_promotion",
+                            ecommerce: {
+                              items: [
+                                {
+                                  creative_name: item.alt,
+                                  item_name: item.title,
+                                  index: index,
+                                },
+                              ],
+                            },
+                          }),
+                          item.url !== "" && redirect(item.url);
+                      }}
+                      alt={item.alt}
+                      title={item.title}
+                      src={item.img}
                     />
-                  </S.PromotionContainer>
-                </Link>
-              ))}
-            </Slider>
-          </S.SliderPromotions>
+                  ))}
+              </Slider>
+            </S.SliderDesktop>
+
+            <S.SliderMobile>
+              <Slider {...settings1}>
+                {props.banners.mobile !== undefined &&
+                  props.banners.mobile.length > 0 &&
+                  props.banners.mobile.map((item, index) => (
+                    <S.ImageBannerMobile
+                      alt={item.alt}
+                      title={item.title}
+                      src={item.img}
+                      key={index}
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        window?.dataLayer &&
+                          window.dataLayer.push({
+                            event: "select_promotion",
+                            ecommerce: {
+                              items: [
+                                {
+                                  creative_name: item.alt,
+                                  item_name: item.title,
+                                  index: index,
+                                },
+                              ],
+                            },
+                          }),
+                          item.url !== "" && redirect(item.url);
+                      }}
+                    />
+                  ))}
+              </Slider>
+            </S.SliderMobile>
+          </S.BannerContainer>
         )}
+
+        {props.promotions &&
+          props.promotions.web &&
+          props.promotions.web.length > 0 && (
+            <S.SliderPromotions
+              lengthPromotions={props.promotions?.web?.length}
+            >
+              <Slider {...settingsPromotions}>
+                {props?.promotions?.web?.map((attr, index) => (
+                  <Link key={index} href={attr.url ? attr.url : "/search"}>
+                    <S.PromotionContainer>
+                      <img
+                        src={attr.img && attr.img}
+                        alt={attr.alt ? attr.alt : "promoções"}
+                      />
+                    </S.PromotionContainer>
+                  </Link>
+                ))}
+              </Slider>
+            </S.SliderPromotions>
+          )}
+      </S.BannerAndPromotionsContainer>
       <S.ContainerGeneral>
         {carouselShowcase && (
           <S.ContainerBottom>
