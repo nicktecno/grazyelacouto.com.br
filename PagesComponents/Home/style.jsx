@@ -91,9 +91,10 @@ export const ErrorCheck = styled.div`
 
 export const SliderPromotions = styled.div`
   max-width: 1920px;
-
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
 
   .slick-slide {
     margin: 5px 3px;
@@ -131,8 +132,8 @@ export const SliderPromotions = styled.div`
 
   .slick-track {
     display: flex;
-    justify-content: ${(props) =>
-      props.lengthPromotions >= 6 ? "flex-start" : "center"};
+    justify-content: center;
+    padding: 0px 4%;
   }
 `;
 

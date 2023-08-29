@@ -312,7 +312,7 @@ function HomePage(props) {
   }
 
   return (
-    <S.ContainerGeneral>
+    <>
       {props.banners !== false && props.banners !== undefined && (
         <S.BannerContainer>
           <S.SliderDesktop>
@@ -398,142 +398,146 @@ function HomePage(props) {
             </Slider>
           </S.SliderPromotions>
         )}
-      {carouselShowcase && (
-        <S.ContainerBottom>
-          <h2 className="labelshowcase">{carouselShowcase.showcase_title}</h2>
-          <ProductList
-            hits={carouselShowcase}
-            page="home"
-            mktName={props.mktName}
-          />
-        </S.ContainerBottom>
-      )}
+      <S.ContainerGeneral>
+        {carouselShowcase && (
+          <S.ContainerBottom>
+            <h2 className="labelshowcase">{carouselShowcase.showcase_title}</h2>
+            <ProductList
+              hits={carouselShowcase}
+              page="home"
+              mktName={props.mktName}
+            />
+          </S.ContainerBottom>
+        )}
 
-      <S.SecondaryBanner>
-        <S.BannerDesktop>
-          {props.banners !== false &&
-          props.banners !== undefined &&
-          props.banners["web-secondary"] !== undefined ? (
-            <a
-              style={{ cursor: "pointer" }}
-              onClick={() => redirect(props.banners["web-secondary"][0].url)}
-            >
-              <S.ImageBannerWeb
-                alt={props.banners["web-secondary"][0].alt}
-                title={props.banners["web-secondary"][0].title}
-                src={props.banners["web-secondary"][0].img}
-              />
-            </a>
-          ) : (
-            ""
-          )}
-        </S.BannerDesktop>
+        <S.SecondaryBanner>
+          <S.BannerDesktop>
+            {props.banners !== false &&
+            props.banners !== undefined &&
+            props.banners["web-secondary"] !== undefined ? (
+              <a
+                style={{ cursor: "pointer" }}
+                onClick={() => redirect(props.banners["web-secondary"][0].url)}
+              >
+                <S.ImageBannerWeb
+                  alt={props.banners["web-secondary"][0].alt}
+                  title={props.banners["web-secondary"][0].title}
+                  src={props.banners["web-secondary"][0].img}
+                />
+              </a>
+            ) : (
+              ""
+            )}
+          </S.BannerDesktop>
 
-        <S.BannerMobile>
-          {props.banners !== false &&
-          props.banners !== undefined &&
-          props.banners["mobile-secondary"] !== undefined ? (
-            <a
-              style={{ cursor: "pointer" }}
-              onClick={() => redirect(props.banners["mobile-secondary"][0].url)}
-            >
-              <S.ImageBannerMobile
-                alt={props.banners["mobile-secondary"][0].alt}
-                title={props.banners["mobile-secondary"][0].title}
-                src={props.banners["mobile-secondary"][0].img}
-              />
-            </a>
-          ) : (
-            ""
-          )}
-        </S.BannerMobile>
-      </S.SecondaryBanner>
+          <S.BannerMobile>
+            {props.banners !== false &&
+            props.banners !== undefined &&
+            props.banners["mobile-secondary"] !== undefined ? (
+              <a
+                style={{ cursor: "pointer" }}
+                onClick={() =>
+                  redirect(props.banners["mobile-secondary"][0].url)
+                }
+              >
+                <S.ImageBannerMobile
+                  alt={props.banners["mobile-secondary"][0].alt}
+                  title={props.banners["mobile-secondary"][0].title}
+                  src={props.banners["mobile-secondary"][0].img}
+                />
+              </a>
+            ) : (
+              ""
+            )}
+          </S.BannerMobile>
+        </S.SecondaryBanner>
 
-      <S.SliderCategory>
-        <h2 className="labelshowcase">Categorias</h2>
-        <Slider {...settings}>
-          {props?.menu?.map((attr) => (
-            <Link key={attr.id} href={`/category/${attr.name}`}>
-              <div className="category">
-                <img src={attr.image_detail} alt={attr.name} />
-                <div className="nameSeller">{attr.name}</div>
-              </div>
-            </Link>
-          ))}
-        </Slider>
-      </S.SliderCategory>
-
-      <S.SliderCategory>
-        <h2 className="labelshowcase">Lojas Destaque</h2>
-        <Slider {...settingsSellers}>
-          {props?.sellers !== undefined &&
-            props?.sellers?.map((attr) => (
-              <Link key={attr.id} href={`/seller/${attr.url}`}>
-                <S.SellerContainer>
-                  <img
-                    src={
-                      attr.logo !== null
-                        ? `${"https://plataz.net/storage"}/${attr.logo}`
-                        : "/images/produto-marcacao.png"
-                    }
-                    alt={attr.name}
-                  />
+        <S.SliderCategory>
+          <h2 className="labelshowcase">Categorias</h2>
+          <Slider {...settings}>
+            {props?.menu?.map((attr) => (
+              <Link key={attr.id} href={`/category/${attr.name}`}>
+                <div className="category">
+                  <img src={attr.image_detail} alt={attr.name} />
                   <div className="nameSeller">{attr.name}</div>
-                </S.SellerContainer>
+                </div>
               </Link>
             ))}
-        </Slider>
-      </S.SliderCategory>
+          </Slider>
+        </S.SliderCategory>
 
-      <S.SearchSellersContainer>
-        <S.SearchButton>
-          <button
-            className="positiveButton"
-            onClick={() => history.push(`/allsellers`)}
-          >
-            VER MAIS
-          </button>{" "}
-        </S.SearchButton>
-      </S.SearchSellersContainer>
+        <S.SliderCategory>
+          <h2 className="labelshowcase">Lojas Destaque</h2>
+          <Slider {...settingsSellers}>
+            {props?.sellers !== undefined &&
+              props?.sellers?.map((attr) => (
+                <Link key={attr.id} href={`/seller/${attr.url}`}>
+                  <S.SellerContainer>
+                    <img
+                      src={
+                        attr.logo !== null
+                          ? `${"https://plataz.net/storage"}/${attr.logo}`
+                          : "/images/produto-marcacao.png"
+                      }
+                      alt={attr.name}
+                    />
+                    <div className="nameSeller">{attr.name}</div>
+                  </S.SellerContainer>
+                </Link>
+              ))}
+          </Slider>
+        </S.SliderCategory>
 
-      {props.photobookModuleActive === "true" && (
-        <S.ConjuntoMid>
-          <S.BlocoExplore onClick={() => history.push("/inspire")}>
-            <div className="blocoImage">
-              <img
-                src="/images/inspire.png"
-                loading="lazy"
-                alt="Sala com sofá azul no centro"
-              />
-            </div>
-            <span>Inspire-se</span>
-          </S.BlocoExplore>
-          <S.BlocoExplore onClick={() => history.push("/findpromoters")}>
-            <div className="blocoImage">
-              <img
-                loading="lazy"
-                src="/images/findpromoters.png"
-                alt="Arquiteto desenhando"
-              />
-            </div>
-            <span>Encontre profissionais</span>
-          </S.BlocoExplore>
-        </S.ConjuntoMid>
-      )}
+        <S.SearchSellersContainer>
+          <S.SearchButton>
+            <button
+              className="positiveButton"
+              onClick={() => history.push(`/allsellers`)}
+            >
+              VER MAIS
+            </button>{" "}
+          </S.SearchButton>
+        </S.SearchSellersContainer>
 
-      {lowerShowcase && (
-        <S.ContainerBottom>
-          <h2 className="labelshowcase noSlider">
-            {lowerShowcase.showcase_title}
-          </h2>
-          <ProductList
-            hits={lowerShowcase}
-            page="home"
-            mktName={props.mktName}
-          />
-        </S.ContainerBottom>
-      )}
-    </S.ContainerGeneral>
+        {props.photobookModuleActive === "true" && (
+          <S.ConjuntoMid>
+            <S.BlocoExplore onClick={() => history.push("/inspire")}>
+              <div className="blocoImage">
+                <img
+                  src="/images/inspire.png"
+                  loading="lazy"
+                  alt="Sala com sofá azul no centro"
+                />
+              </div>
+              <span>Inspire-se</span>
+            </S.BlocoExplore>
+            <S.BlocoExplore onClick={() => history.push("/findpromoters")}>
+              <div className="blocoImage">
+                <img
+                  loading="lazy"
+                  src="/images/findpromoters.png"
+                  alt="Arquiteto desenhando"
+                />
+              </div>
+              <span>Encontre profissionais</span>
+            </S.BlocoExplore>
+          </S.ConjuntoMid>
+        )}
+
+        {lowerShowcase && (
+          <S.ContainerBottom>
+            <h2 className="labelshowcase noSlider">
+              {lowerShowcase.showcase_title}
+            </h2>
+            <ProductList
+              hits={lowerShowcase}
+              page="home"
+              mktName={props.mktName}
+            />
+          </S.ContainerBottom>
+        )}
+      </S.ContainerGeneral>
+    </>
   );
 }
 
