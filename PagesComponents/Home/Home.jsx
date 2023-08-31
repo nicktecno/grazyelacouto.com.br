@@ -184,7 +184,9 @@ export default function HomePage() {
           alt="imagem de Grazyela Couto segurando uma máquina de costura"
         />
       </S.Container02>
-      <S.Subtitle id="choose">Escolha o curso perfeito para você</S.Subtitle>
+      <S.Subtitle id="choose">
+        Vem ver o que as agulhinhas estão fazendo!
+      </S.Subtitle>
       <S.ContainerSliderCategory>
         <Slider {...settings}>
           {imagesList01.map((img, index) => (

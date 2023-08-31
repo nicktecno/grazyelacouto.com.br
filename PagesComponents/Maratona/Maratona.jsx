@@ -1,21 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import cover01 from "../../public/images/capa01.jpg";
-import cover02 from "../../public/images/capa02.jpg";
-import cover03 from "../../public/images/capa03.jpg";
-import cover04 from "../../public/images/capa04.jpg";
-import cover05 from "../../public/images/capa05.png";
+import cover01 from "../../public/images/capaM01.jpg";
+import cover02 from "../../public/images/capaM02.jpg";
+import cover03 from "../../public/images/capaM03.jpg";
+import cover04 from "../../public/images/capaM04.png";
+import cover05 from "../../public/images/capaM05.png";
+
+import cover07 from "../../public/images/capa05.png";
 
 import * as S from "./style";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import Slider from "react-slick";
+import { Telegram } from "@styled-icons/boxicons-logos/Telegram";
+import { Whatsapp } from "@styled-icons/boxicons-logos/Whatsapp";
 import Link from "next/link";
 
-import { useRouter } from "next/router";
-
-export default function HomePage() {
+export default function MaratonaPage() {
   function importAll(r) {
     let images = {};
     r.keys().map((item, index) => {
@@ -106,121 +107,124 @@ export default function HomePage() {
     <S.GeneralContainer>
       <S.Container01>
         <div className="containerData">
-          <span>— Bem Vindas</span>
+          <span>Maratona Vestido Glamour</span>
           <span className="upperCase">
-            Realize seu Sonho de Fazer Suas Próprias Roupas!
+            Comece sua nova jornada por aqui, com mais de 900 agulhinhas
           </span>
-          <a href={"/#choose"}>Quero agora meu curso!</a>
+          <div className="date">Dos dias 16/10 a 28/10</div>
         </div>
         <S.ImageCover01
           src={cover01}
           priority={true}
-          alt="imagem de Grazyela Couto com uma agulha de costura na mão"
+          alt="imagem de Grazyela Couto com o vestido glamour"
         />
       </S.Container01>
-      <S.Subtitle id="choose">Escolha o curso perfeito para você</S.Subtitle>
-      <S.Container02>
+      <S.Container01 className="secondary">
         <div className="containerData">
-          <span className="title">Aprenda a Costurar</span>
-          <span className="modified">
-            Nesse curso mesmo que você saiba pouco ou nada sobre costura, vamos
-            aprender juntinhas, Costurar e Modelar seus moldes base, para
-            modelos de blusa, saia, vestidos! Transformaremos esses moldes para
-            executar outras lindas peças do mesmo nicho. Com todo o meu auxilio
-            e mostro como você pode se apaixonar por esse mundo da Costura.
-          </span>
-          <a
-            href={
-              "https://pay.hotmart.com/M72976409H?checkoutMode=10&bid=1664317482025"
-            }
-          >
-            Quero agora!
-          </a>
+          <span className="upperCase">Quero agora meu acesso</span>
+          <a href={"/#choose"}>Clique Aqui</a>
         </div>
-        <S.ImageCover02
+        <S.ImageCover01
           src={cover02}
           priority={false}
-          alt="imagem de Grazyela Couto costurando em uma máquina de costura industrial"
+          alt="imagem de Grazyela Couto com o vestido glamour"
         />
-      </S.Container02>
-      <S.Container02>
+      </S.Container01>
+      <S.Container01 className="third">
         <div className="containerData">
-          <span className="title">Seja Você sua Própria Estilista de Moda</span>
-          <span className="modified">
-            Quer desenvolver suas habilidades na costura, produzindo peças de
-            alfaiataria, como um blazer, uma calça e uma salopete? Você irá
-            aprender tudo isso nesse curso, desde a modelagem, corte e costura e
-            até mesmo aprender a fazer seu desenho fashion, o famoso croqui de
-            moda. Esse curso tem o nível intermediário para avançado. Você não
-            vai perder esssa oportunidade né?
+          <span>Onde vou assistir?</span>
+          <span className="regular">
+            Assim que você realizar a inscrição a plataforma HOTMART onde
+            hospedamos nossos cursos lhe enviará no seu email. O acesso da nossa
+            maratona ! E você assistirá por meio do site ou app, e só dar play
+            nas aulas .
           </span>
-          <a
-            href={
-              "https://hotmart.com/pt-br/marketplace/produtos/seja-voce-sua-propria-estilista-de-moda/M70669236F"
-            }
-          >
-            Quero agora!
-          </a>
         </div>
-        <S.ImageCover03
+        <S.ImageCover01
           src={cover03}
-          alt="imagem de Grazyela Couto ao lado de um manequim com uma tesoura na mão"
+          priority={false}
+          alt="imagem de Grazyela Couto com o vestido glamour batendo palmas"
         />
-      </S.Container02>
-      <S.Container02>
+      </S.Container01>
+      <S.Container01 className="third">
         <div className="containerData">
-          <span className="title">Combo Torne-se uma Estilista do Zero</span>
-          <span className="modified">
-            Sabe aquele famoso 2 em 1? É exatamente o que esse combo significa.
-            Nele você terá acesso aos meus dois cursos, você vai sair do total
-            zero e chegar ao nível de fazer peças alfaiataria.
-          </span>
-          <a href={"https://pay.hotmart.com/X73383978V?bid=1662333320804"}>
-            Quero agora!
-          </a>
+          <span>O que vou aprender ? ...."</span>
+          <S.ContainerBoxes>
+            <div className="box">
+              - Nos primeiros dias vamos ver nossas medidas, entender o modelo,
+              tecidos croqui de moda e iniciar a modelagem.
+            </div>
+            <div className="box">
+              - Entender as possibilidades com o seu novo vestido glamour, e
+              começar o corte do tecido e claro um papo bem legal com a prof
+              aqui
+            </div>
+            <div className="box">
+              - E nos últimos dias veremos TUDO sobre a costura, o passo a passo
+              do completo Zero !! E claro que aulas bônus também.
+            </div>
+          </S.ContainerBoxes>
         </div>
-        <S.ImageCover02
-          src={cover04}
+      </S.Container01>
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05
+            src={cover04}
+            alt="Montagem com 3 Grazyelas com o vestido Glamour"
+          />
+        </div>
+      </S.Container01>
+
+      <S.Container01 className="secondary">
+        <div className="containerDataTextOnly">
+          <span className="upperCase">Um evento totalmente online</span>
+          <span className="upperCase boxed">Por apenas 12 reais</span>
+          <a href={"/#choose"}>Quero Participar</a>
+        </div>
+      </S.Container01>
+
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05
+            src={cover05}
+            alt="Montagem com 3 Grazyelas com o vestido Glamour"
+          />
+        </div>
+      </S.Container01>
+      <S.ContainerSocialMedia>
+        <div className="title">O lema da Prof é:</div>
+        <div className="title">
+          "Sozinhas podemos andar, mas acompanhadas vamos mais longe..."
+        </div>
+        <div className="normal">
+          Dito isso, entrem nos grupos de suporte para conversarmos sobre nossas
+          dúvidas, dicas, ideias, depoimentos, experiências, sugestões e Muitooo
+          mais ...
+        </div>
+        <div className="containerLinks">
+          <Link href={"https://chat.whatsapp.com/Cb6bMW1TNl3HYmOAQjaNHh"}>
+            <Whatsapp />
+          </Link>
+          <Link href={"https://t.me/+JVToDD5513MyYjVh"}>
+            <Telegram />
+          </Link>
+        </div>
+      </S.ContainerSocialMedia>
+      <S.Container03>
+        <S.ImageCover04
+          src={cover07}
           alt="imagem de Grazyela Couto segurando uma máquina de costura"
         />
-      </S.Container02>
-      <S.Subtitle id="choose">Escolha o curso perfeito para você</S.Subtitle>
-      <S.ContainerSliderCategory>
-        <Slider {...settings}>
-          {imagesList01.map((img, index) => (
-            <div key={index} className="category">
-              <img src={img.default.src} alt={`foto da aluna ${index + 1}`} />
-            </div>
-          ))}
-        </Slider>
-      </S.ContainerSliderCategory>
-      <S.Subtitle id="choose">
-        Algumas das peças que você irá aprender
-      </S.Subtitle>
-      <S.ContainerSliderCategory>
-        <Slider {...settings}>
-          {imagesList02.map((img, index) => (
-            <div key={index} className="category">
-              <img src={img.default.src} alt={`peça de roupa ${index + 1}`} />
-            </div>
-          ))}
-        </Slider>
-        <S.Container03>
-          <S.ImageCover04
-            src={cover05}
-            alt="imagem de Grazyela Couto segurando uma máquina de costura"
-          />
-          <div className="containerData">
-            <div className="title">Quem será a Prof?</div>
-            <div className="data">
-              Grazyela Couto, Estilista, Modelista e Costureira, a mais de 4
-              anos trabalhando nesse rumo, onde teve sua marca de roupas
-              durantes 2 anos, e encontrou a paixão em ensinar, e diz e deixa o
-              incentivo que costurar não é dom ! Vem comigo Agulhinha !!
-            </div>
+        <div className="containerData">
+          <div className="title">Quem será a Prof?</div>
+          <div className="data">
+            Grazyela Couto, Estilista, Modelista e Costureira, a mais de 4 anos
+            trabalhando nesse rumo, onde teve sua marca de roupas durantes 2
+            anos, e encontrou a paixão em ensinar, e diz e deixa o incentivo que
+            costurar não é dom ! Vem comigo Agulhinha !!
           </div>
-        </S.Container03>
-      </S.ContainerSliderCategory>
+        </div>
+      </S.Container03>
     </S.GeneralContainer>
   );
 }
