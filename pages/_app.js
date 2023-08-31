@@ -4,6 +4,7 @@ import defaultLayout from "../jover";
 import { ToastContainer } from "react-toastify";
 import Header from "../components/header/header";
 import Head from "next/head";
+import Footer from "../components/footer/footer";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -43,6 +44,7 @@ function MyApp({ Component, pageProps }) {
         }
       />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }
