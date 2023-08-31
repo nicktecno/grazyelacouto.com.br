@@ -15,10 +15,7 @@ const customMedia = generateMedia({
 });
 
 const GlobalStyles = createGlobalStyle`
-@font-face {
-  font-family: 'Nunito', sans-serif;
-    src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;700&display=swap');
-}
+
 
 :root {
 
@@ -126,8 +123,8 @@ const GlobalStyles = createGlobalStyle`
 
 --payment-method-card: ${(props) => props.colors[0]["payment-method-card"]};
     //fonts
-    --main-font: 'Nunito', sans-serif;
-    --title-font: bold 'Nunito', sans-serif;
+    --main-font: 'Raleway', sans-serif;
+    --title-font: bold 'Raleway', sans-serif;
 
   }
 
@@ -183,6 +180,8 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         outline: none;
         font-family:  var(--main-font) !important;
+        color:var(--font-color);
+     
     }
 
     body {
@@ -191,15 +190,22 @@ const GlobalStyles = createGlobalStyle`
         line-height: 1;
         width:100%;
         overflow-x: hidden;
-        padding-top: 60px;
-        padding-bottom: 50px;
-         margin:0px;
+        margin:0px;
         height:100%;
+        width:100%;
+        justify-content:center;
 
 
         ${customMedia.lessThan("tablet")`
             // padding-top: 80px;
         `}
+    }
+
+    #__next{
+      display:flex;
+      width:100%;
+      justify-content:center;
+      flex-direction:column;
     }
 
     input,button,textarea,html,body{

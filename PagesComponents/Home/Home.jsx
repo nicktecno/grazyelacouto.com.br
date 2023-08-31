@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 
+import Image from "next/image";
+
 import * as S from "./style";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -9,7 +11,7 @@ import Link from "next/link";
 
 import { useRouter } from "next/router";
 
-function HomePage() {
+export default function HomePage() {
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -72,7 +74,22 @@ function HomePage() {
     prevArrow: <SamplePrevArrow />,
   };
 
-  return <></>;
+  return (
+    <S.GeneralContainer>
+      <S.Container01>
+        <div className="containerData">
+          <span>— Bem Vindas</span>
+          <span className="upperCase">
+            Realize seu Sonho de Fazer Suas Próprias Roupas!
+          </span>
+        </div>
+        <Image
+          src="/images/capa01.jpg"
+          alt="imagem de Grazyela Couto com uma agulha de costura na mão"
+          width={500}
+          height={500}
+        />
+      </S.Container01>
+    </S.GeneralContainer>
+  );
 }
-
-export default HomePage;

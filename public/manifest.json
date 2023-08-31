@@ -1,0 +1,15 @@
+{
+  "short_name": "Grazyela Couto",
+  "name": "Grazyela Couto - Cursos de modelagem e costura",
+  "start_url": "https://grazyelacouto.com.br",
+  "icons": [
+    {
+      "src": "/images/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
