@@ -1,5 +1,3 @@
-const { NextFederationPlugin } = require("@module-federation/nextjs-mf");
-
 const withImages = require("next-images");
 
 module.exports = withImages({
@@ -25,35 +23,3 @@ module.exports = {
     return config;
   },
 };
-
-const nextConfig = {
-  webpack: (config, options) => {
-    const { isServer } = options;
-    config.experiments = {
-      topLevelAwait: true,
-      asyncWebAssembly: true,
-      layers: true,
-    };
-    config.plugins.push(
-      new NextFederationPlugin({
-        name: "homePage",
-        remotes: {
-          generalProductCards: `generalProductCards@https://modules-generalproductcards.vercel.app//_next/static/${
-            isServer ? "ssr" : "chunks"
-          }/remoteEntry.js`,
-        },
-        filename: "static/chunks/remoteEntry.js",
-        exposes: {
-          "./home": "./PagesComponents/Home/Home.jsx",
-        },
-
-        extraOptions: {
-          exposePages: true,
-        },
-      })
-    );
-    return config;
-  },
-};
-
-module.exports = nextConfig;
