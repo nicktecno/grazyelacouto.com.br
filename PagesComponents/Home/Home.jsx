@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 
-import Image from "next/image";
 import cover01 from "../../public/images/capa01.jpg";
 import cover02 from "../../public/images/capa02.jpg";
+import cover03 from "../../public/images/capa03.jpg";
+import cover04 from "../../public/images/capa04.jpg";
 
 import * as S from "./style";
 import "slick-carousel/slick/slick.css";
@@ -14,6 +15,24 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function HomePage() {
+  function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => {
+      images[index] = r(item);
+    });
+    return images;
+  }
+
+  const imagesList01 = Object.values(
+    importAll(
+      require.context(
+        "../../public/images/carousel01",
+        false,
+        /\.(png|jpe?g|svg)$/
+      )
+    )
+  );
+
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -62,18 +81,14 @@ export default function HomePage() {
     );
   }
 
-  const settings1 = {
-    dots: true,
-    autoplay: true,
-    autoplaySpeed: 5000,
+  let settings = {
+    dots: false,
     arrows: true,
-    speed: 500,
-
-    slidesToShow: 1,
-    slidesToScroll: 1,
-
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    variableWidth: true,
   };
 
   return (
@@ -88,6 +103,7 @@ export default function HomePage() {
         </div>
         <S.ImageCover01
           src={cover01}
+          priority={true}
           alt="imagem de Grazyela Couto com uma agulha de costura na mão"
         />
       </S.Container01>
@@ -102,13 +118,71 @@ export default function HomePage() {
             executar outras lindas peças do mesmo nicho. Com todo o meu auxilio
             e mostro como você pode se apaixonar por esse mundo da Costura.
           </span>
-          <a href={"#choose"}>Quero agora!</a>
+          <a
+            href={
+              "https://pay.hotmart.com/M72976409H?checkoutMode=10&bid=1664317482025"
+            }
+          >
+            Quero agora!
+          </a>
         </div>
         <S.ImageCover02
           src={cover02}
+          priority={false}
           alt="imagem de Grazyela Couto costurando em uma máquina de costura industrial"
         />
       </S.Container02>
+      <S.Container02>
+        <div className="containerData">
+          <span className="title">Seja Você sua Própria Estilista de Moda</span>
+          <span className="modified">
+            Quer desenvolver suas habilidades na costura, produzindo peças de
+            alfaiataria, como um blazer, uma calça e uma salopete? Você irá
+            aprender tudo isso nesse curso, desde a modelagem, corte e costura e
+            até mesmo aprender a fazer seu desenho fashion, o famoso croqui de
+            moda. Esse curso tem o nível intermediário para avançado. Você não
+            vai perder esssa oportunidade né?
+          </span>
+          <a
+            href={
+              "https://hotmart.com/pt-br/marketplace/produtos/seja-voce-sua-propria-estilista-de-moda/M70669236F"
+            }
+          >
+            Quero agora!
+          </a>
+        </div>
+        <S.ImageCover03
+          src={cover03}
+          alt="imagem de Grazyela Couto ao lado de um manequim com uma tesoura na mão"
+        />
+      </S.Container02>
+      <S.Container02>
+        <div className="containerData">
+          <span className="title">Combo Torne-se uma Estilista do Zero</span>
+          <span className="modified">
+            Sabe aquele famoso 2 em 1? É exatamente o que esse combo significa.
+            Nele você terá acesso aos meus dois cursos, você vai sair do total
+            zero e chegar ao nível de fazer peças alfaiataria.
+          </span>
+          <a href={"https://pay.hotmart.com/X73383978V?bid=1662333320804"}>
+            Quero agora!
+          </a>
+        </div>
+        <S.ImageCover02
+          src={cover04}
+          alt="imagem de Grazyela Couto segurando uma máquina de costura"
+        />
+      </S.Container02>
+      <S.Subtitle id="choose">Escolha o curso perfeito para você</S.Subtitle>
+      <S.ContainerSliderCategory>
+        <Slider {...settings}>
+          {imagesList01.map((img, index) => (
+            <div key={index} className="category">
+              <img src={img.default.src} alt={`foto da aluna ${index + 1}`} />
+            </div>
+          ))}
+        </Slider>
+      </S.ContainerSliderCategory>
     </S.GeneralContainer>
   );
 }

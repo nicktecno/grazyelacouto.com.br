@@ -13,6 +13,30 @@ const customMedia = generateMedia({
   pobre: "330px",
 });
 
+export const BoxNextArrow = styled.div`
+  display: flex;
+
+  .slick-next:before {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    color: var(--font-color);
+    background-size: 20px 20px;
+  }
+`;
+
+export const BoxPrevArrow = styled.div`
+  display: flex;
+
+  .slick-prev:before {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    color: var(--font-color);
+    background-size: 20px 20px;
+  }
+`;
+
 export const GeneralContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -24,13 +48,8 @@ export const GeneralContainer = styled.div`
 
 export const ImageCover01 = styled(Image)`
   object-fit: cover;
-  width: auto;
+  width: 40%;
   height: auto;
-
-  ${customMedia.lessThan("notebook")`
-          width:40%;
-          
-        `}
 `;
 
 export const Container01 = styled.div`
@@ -168,11 +187,27 @@ export const ImageCover02 = styled(Image)`
   width: 40%;
   height: auto;
 
-  ${customMedia.lessThan("notebook")`
+  ${customMedia.lessThan("desktop")`
           object-fit:contain;
           
         `}
-  ${customMedia.lessThan("notebook")`
+  ${customMedia.lessThan("tablet")`
+          width:80%;
+          
+        `}
+`;
+
+export const ImageCover03 = styled(Image)`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+
+  ${customMedia.lessThan("desktop")`
+          object-fit:contain;
+          
+        `}
+  ${customMedia.lessThan("tablet")`
           width:80%;
           
         `}
@@ -229,12 +264,13 @@ export const Container02 = styled.div`
       
       
       .title {
-      font-family: "Metal" !important;
-      font-size: 45px;
+      font-family: "Cinzel" !important;
+      font-weight: bold;
+      font-size: 35px;
       margin-bottom: 10px;
 
       ${customMedia.lessThan("notebook")`
-          font-size:40px;
+          font-size:30px;
           
         `}
 
@@ -244,7 +280,7 @@ export const Container02 = styled.div`
         `}
 
       ${customMedia.lessThan("mobile")`
-          font-size:30px;
+          font-size:20px;
           
         `}
     }
@@ -290,6 +326,73 @@ ${customMedia.lessThan("mobile")`
         background: var(--bt-positive-color-hover);
         color: var(--bt-positive-text-color-hover) !important;
       }
+    }
+  }
+`;
+
+export const ContainerSliderCategory = styled.div`
+  display: block;
+
+  width: 100%;
+  position: relative;
+  max-width: 1920px;
+  margin-top: 50px;
+
+  .slick-list {
+    padding: 0px;
+  }
+
+  .slick-slide {
+    margin: 0px;
+    margin-bottom: 20px;
+  }
+  .slick-next:before {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+    background-size: 20px 20px;
+    color: var(--font-color);
+  }
+  .slick-prev:before {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+    background-size: 20px 20px;
+    color: var(--font-color);
+  }
+
+  .category {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    width: 160px;
+    height: 320px;
+
+    margin-right: 14px;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+
+    ${customMedia.lessThan("notebook")`
+      width:170px;
+
+    `}
+    ${customMedia.lessThan("tablet")`
+      width:130px;
+      height:170px;`}
+
+${customMedia.lessThan("irico")`
+      width:115px;
+`}
+
+  img {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      object-fit: contain;
     }
   }
 `;
