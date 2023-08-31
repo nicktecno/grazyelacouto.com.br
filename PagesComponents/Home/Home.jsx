@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 
 import Image from "next/image";
+import cover01 from "../../public/images/capa01.jpg";
+import cover02 from "../../public/images/capa02.jpg";
 
 import * as S from "./style";
 import "slick-carousel/slick/slick.css";
@@ -82,14 +84,31 @@ export default function HomePage() {
           <span className="upperCase">
             Realize seu Sonho de Fazer Suas Próprias Roupas!
           </span>
+          <a href={"/#choose"}>Quero agora meu curso!</a>
         </div>
-        <Image
-          src="/images/capa01.jpg"
+        <S.ImageCover01
+          src={cover01}
           alt="imagem de Grazyela Couto com uma agulha de costura na mão"
-          width={500}
-          height={500}
         />
       </S.Container01>
+      <S.Subtitle id="choose">Escolha o curso perfeito para você</S.Subtitle>
+      <S.Container02>
+        <div className="containerData">
+          <span className="title">Aprenda a Costurar</span>
+          <span className="modified">
+            Nesse curso mesmo que você saiba pouco ou nada sobre costura, vamos
+            aprender juntinhas, Costurar e Modelar seus moldes base, para
+            modelos de blusa, saia, vestidos! Transformaremos esses moldes para
+            executar outras lindas peças do mesmo nicho. Com todo o meu auxilio
+            e mostro como você pode se apaixonar por esse mundo da Costura.
+          </span>
+          <a href={"#choose"}>Quero agora!</a>
+        </div>
+        <S.ImageCover02
+          src={cover02}
+          alt="imagem de Grazyela Couto costurando em uma máquina de costura industrial"
+        />
+      </S.Container02>
     </S.GeneralContainer>
   );
 }
