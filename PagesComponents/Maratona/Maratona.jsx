@@ -192,7 +192,7 @@ export default function MaratonaPage() {
         </div>
       </S.Container01>
       <S.ContainerSocialMedia>
-        <div className="title">O lema da Prof é:</div>
+        <div className="title">O lema da Prof:</div>
         <div className="title">
           "Sozinhas podemos andar, mas acompanhadas vamos mais longe..."
         </div>

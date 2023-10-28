@@ -31,7 +31,7 @@ const defaultLayout = [
     "explore-block-text-color-hover": "#ffffff",
     "font-color": "#000000",
     "font-color-hover": "#292929",
-    "footer-background-color": "#85a9cd",
+    "footer-background-color": "#b1b0b0",
     "footer-text-color": "#000000",
     "footer-text-color-hover": "#292929",
     "footer-title-color": "#000000",
