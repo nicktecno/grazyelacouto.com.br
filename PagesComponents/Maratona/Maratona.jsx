@@ -219,9 +219,9 @@ export default function MaratonaPage() {
           <div className="title">Quem será a Prof?</div>
           <div className="data">
             Grazyela Couto, Estilista, Modelista e Costureira, a mais de 4 anos
-            trabalhando nesse rumo, onde teve sua marca de roupas durantes 2
-            anos, e encontrou a paixão em ensinar, e diz e deixa o incentivo que
-            costurar não é dom ! Vem comigo Agulhinha !!
+            trabalhando nesse ramo, onde teve sua marca de roupas durantes 2
+            anos e encontrou a paixão em ensinar. Ela diz e deixa o incentivo
+            que costurar não é dom ! Vem comigo Agulhinha !!
           </div>
         </div>
       </S.Container03>

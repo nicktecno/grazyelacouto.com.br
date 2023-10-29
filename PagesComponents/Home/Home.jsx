@@ -129,11 +129,7 @@ export default function HomePage() {
             executar outras lindas peças do mesmo nicho. Com todo o meu auxilio
             e mostro como você pode se apaixonar por esse mundo da Costura.
           </span>
-          <a
-            href={
-              "https://pay.hotmart.com/M72976409H?checkoutMode=10&bid=1664317482025"
-            }
-          >
+          <a href={"https://pay.hotmart.com/M72976409H?checkoutMode=10"}>
             Quero agora!
           </a>
         </div>
@@ -154,11 +150,7 @@ export default function HomePage() {
             moda. Esse curso tem o nível intermediário para avançado. Você não
             vai perder esssa oportunidade né?
           </span>
-          <a
-            href={
-              "https://hotmart.com/pt-br/marketplace/produtos/seja-voce-sua-propria-estilista-de-moda/M70669236F"
-            }
-          >
+          <a href={"https://pay.hotmart.com/M70669236F?checkoutMode=10"}>
             Quero agora!
           </a>
         </div>
@@ -172,12 +164,10 @@ export default function HomePage() {
           <span className="title">Combo Torne-se uma Estilista do Zero</span>
           <span className="modified">
             Sabe aquele famoso 2 em 1? É exatamente o que esse combo significa.
-            Nele você terá acesso aos meus dois cursos, você vai sair do total
-            zero e chegar ao nível de fazer peças alfaiataria.
+            Nele você terá acesso aos meus dois cursos, vai sair do total zero e
+            chegar ao nível de fazer peças alfaiataria.
           </span>
-          <a href={"https://pay.hotmart.com/X73383978V?bid=1662333320804"}>
-            Quero agora!
-          </a>
+          <a href={"https://pay.hotmart.com/X73383978V"}>Quero agora!</a>
         </div>
         <S.ImageCover02
           src={cover04}
@@ -216,8 +206,8 @@ export default function HomePage() {
             <div className="title">Quem será a Prof?</div>
             <div className="data">
               Grazyela Couto, Estilista, Modelista e Costureira, a mais de 4
-              anos trabalhando nesse rumo, onde teve sua marca de roupas
-              durantes 2 anos, e encontrou a paixão em ensinar, e diz e deixa o
+              anos trabalhando nesse ramo, onde teve sua marca de roupas
+              durantes 2 anos e encontrou a paixão em ensinar. Ela diz e deixa o
               incentivo que costurar não é dom ! Vem comigo Agulhinha !!
             </div>
           </div>
