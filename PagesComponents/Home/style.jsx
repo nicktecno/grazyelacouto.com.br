@@ -214,6 +214,40 @@ export const ImageCover03 = styled(Image)`
         `}
 `;
 
+export const ContainerVideo = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: var(--default-color-hover);
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 50px;
+  align-items: center;
+  gap: 20px;
+
+  iframe {
+    width: 48%;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  .containerData {
+    display: flex;
+    width: 48%;
+    flex-direction: column;
+  }
+  img {
+    width: auto;
+    content: url(/images/arrow.jpg);
+
+    ${customMedia.lessThan("tablet")`
+         content: url(/images/arrow2.jpeg);
+        `}
+  }
+`;
+
 export const Container02 = styled.div`
   display: flex;
   width: 100%;

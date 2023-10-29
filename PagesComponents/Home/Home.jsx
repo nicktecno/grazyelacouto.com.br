@@ -118,7 +118,24 @@ export default function HomePage() {
           alt="imagem de Grazyela Couto com uma agulha de costura na mão"
         />
       </S.Container01>
+
       <S.Subtitle id="choose">Escolha o curso perfeito para você</S.Subtitle>
+
+      <S.ContainerVideo>
+        <div className="containerData">
+          <img alt="seta para a direita" />
+        </div>
+
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/BeonVXHBz1U?si=h0KOCVQBWBVzbHjx"
+          title="Conheça os cursos"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </S.ContainerVideo>
       <S.Container02>
         <div className="containerData">
           <span className="title">Aprenda a Costurar</span>
