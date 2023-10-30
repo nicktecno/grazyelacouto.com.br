@@ -191,7 +191,7 @@ export const ImageCover02 = styled(Image)`
           object-fit:contain;
           
         `}
-  ${customMedia.lessThan("tablet")`
+  ${customMedia.lessThan("notebook")`
           width:80%;
           
         `}
@@ -208,7 +208,7 @@ export const ImageCover03 = styled(Image)`
           object-fit:contain;
           
         `}
-  ${customMedia.lessThan("tablet")`
+  ${customMedia.lessThan("notebook")`
           width:80%;
           
         `}
@@ -225,8 +225,16 @@ export const ContainerVideo = styled.div`
   align-items: center;
   gap: 20px;
 
+  ${customMedia.lessThan("tablet")`
+         flex-direction:column;
+        `}
+
   iframe {
     width: 48%;
+
+    ${customMedia.lessThan("tablet")`
+          width: 100%;
+        `}
   }
 
   h3 {
@@ -237,13 +245,17 @@ export const ContainerVideo = styled.div`
     display: flex;
     width: 48%;
     flex-direction: column;
+
+    ${customMedia.lessThan("tablet")`
+          width: 100%;
+        `}
   }
   img {
     width: auto;
     content: url(/images/arrow.jpg);
 
     ${customMedia.lessThan("tablet")`
-         content: url(/images/arrow2.jpeg);
+         content: url(/images/arrow2.jpg);
         `}
   }
 `;
@@ -257,7 +269,7 @@ export const Container02 = styled.div`
 
   margin-top: 50px;
 
-  ${customMedia.lessThan("tablet")`
+  ${customMedia.lessThan("notebook")`
           flex-direction:column-reverse;
           justify-content:center;
           align-items:center;
