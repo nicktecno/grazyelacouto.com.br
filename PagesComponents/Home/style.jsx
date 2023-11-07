@@ -413,7 +413,6 @@ export const ContainerSliderCategory = styled.div`
   .category {
     display: flex;
     cursor: pointer;
-    flex-direction: column;
     width: 160px;
     height: 320px;
 
@@ -429,14 +428,14 @@ export const ContainerSliderCategory = styled.div`
     `}
     ${customMedia.lessThan("tablet")`
       width:130px;
-      height:200px;
+      height:210px;
       `}
 
-${customMedia.lessThan("irico")`
+    ${customMedia.lessThan("irico")`
       width:115px;
-`}
+    `}
 
-  img {
+    img {
       width: 100%;
       height: 100%;
       margin: 0px;
