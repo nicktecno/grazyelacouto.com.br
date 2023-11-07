@@ -439,7 +439,7 @@ export const ContainerSliderCategory = styled.div`
       width: 160px;
       height: 320px;
       margin: 0px;
-      object-fit: contain;
+      object-fit: cover;
 
       ${customMedia.lessThan("notebook")`
       width:170px;
