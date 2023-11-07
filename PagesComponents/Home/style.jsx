@@ -436,10 +436,23 @@ export const ContainerSliderCategory = styled.div`
     `}
 
     img {
-      width: 100%;
-      height: 100%;
+      width: 160px;
+      height: 320px;
       margin: 0px;
-      object-fit: cover;
+      object-fit: contain;
+
+      ${customMedia.lessThan("notebook")`
+      width:170px;
+
+    `}
+      ${customMedia.lessThan("tablet")`
+      width:130px;
+      height:210px;
+      `}
+
+    ${customMedia.lessThan("irico")`
+      width:115px;
+    `}
     }
   }
 `;
