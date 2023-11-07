@@ -429,7 +429,8 @@ export const ContainerSliderCategory = styled.div`
     `}
     ${customMedia.lessThan("tablet")`
       width:130px;
-      height:170px;`}
+      height:200px;
+      `}
 
 ${customMedia.lessThan("irico")`
       width:115px;

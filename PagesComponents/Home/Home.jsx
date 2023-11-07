@@ -97,7 +97,7 @@ export default function HomePage() {
     infinite: false,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
     variableWidth: true,
   };
