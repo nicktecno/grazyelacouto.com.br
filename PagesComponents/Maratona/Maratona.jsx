@@ -1,12 +1,14 @@
 import React from "react";
 
 import cover01 from "../../public/images/capaM01.jpg";
-import cover02 from "../../public/images/capaM02.jpg";
 import cover03 from "../../public/images/capaM03.jpg";
-import cover04 from "../../public/images/capaM04.png";
+import cover04 from "../../public/images/capaM04.jpg";
 import cover05 from "../../public/images/capaM05.png";
+import cover06 from "../../public/images/capaM06.jpg";
 
 import cover07 from "../../public/images/capa05.png";
+import cover08 from "../../public/images/capaM08.jpg";
+import cover09 from "../../public/images/capaM09.jpg";
 
 import * as S from "./style";
 import "slick-carousel/slick/slick.css";
@@ -106,101 +108,72 @@ export default function MaratonaPage() {
   return (
     <S.GeneralContainer>
       <S.Container01>
-        <div className="containerData">
-          <span>Maratona Vestido Glamour</span>
-          <span className="upperCase">
-            Comece sua nova jornada por aqui, com mais de 900 agulhinhas
-          </span>
-          <div className="date">Dos dias 16/10 a 28/10</div>
+        <div className="primary">
+          <S.ImageCover01
+            src={cover01}
+            priority={true}
+            alt="imagem de Grazyela Couto com a blusa pinterest"
+          />
+          <div className="containerText">
+            <span className="bold">Maratona</span>
+            <span>Blusa Pinterest</span>
+            <span className="lemon">Especial</span>
+          </div>
         </div>
-        <S.ImageCover01
-          src={cover01}
-          priority={true}
-          alt="imagem de Grazyela Couto com o vestido glamour"
-        />
       </S.Container01>
       <S.Container01 className="secondary">
-        <div className="containerData">
-          <span className="upperCase">Quero agora meu acesso</span>
-          <a href={"/#choose"}>Clique Aqui</a>
+        <div className="containerData secondary">
+          <a target="_blank" href={"https://go.hotmart.com/R88548272P?dp=1"}>
+            Inscreva-se
+          </a>
         </div>
-        <S.ImageCover01
-          src={cover02}
-          priority={false}
-          alt="imagem de Grazyela Couto com o vestido glamour"
-        />
       </S.Container01>
       <S.Container01 className="third">
-        <div className="containerData">
-          <span>Onde vou assistir?</span>
-          <span className="regular">
-            Assim que você realizar a inscrição a plataforma HOTMART onde
-            hospedamos nossos cursos lhe enviará no seu email. O acesso da nossa
-            maratona ! E você assistirá por meio do site ou app, e só dar play
-            nas aulas .
-          </span>
-        </div>
-        <S.ImageCover01
+        <S.ImageCoverFill
           src={cover03}
           priority={false}
-          alt="imagem de Grazyela Couto com o vestido glamour batendo palmas"
+          alt="imagem de Grazyela Couto com a blusa Pinterest anunciando a data da maratona de 22 a 25 de dezembro com mais 30 dias de acesso"
         />
       </S.Container01>
-      <S.Container01 className="third">
-        <div className="containerData">
-          <span>O que vou aprender ? ...."</span>
-          <S.ContainerBoxes>
-            <div className="box">
-              - Nos primeiros dias vamos ver nossas medidas, entender o modelo,
-              tecidos croqui de moda e iniciar a modelagem.
-            </div>
-            <div className="box">
-              - Entender as possibilidades com o seu novo vestido glamour, e
-              começar o corte do tecido e claro um papo bem legal com a prof
-              aqui
-            </div>
-            <div className="box">
-              - E nos últimos dias veremos TUDO sobre a costura, o passo a passo
-              do completo Zero !! E claro que aulas bônus também.
-            </div>
-          </S.ContainerBoxes>
-        </div>
-      </S.Container01>
+
       <S.Container01 className="third">
         <div className="containerImageOnly">
           <S.ImageCover05
             src={cover04}
-            alt="Montagem com 3 Grazyelas com o vestido Glamour"
+            alt="Montagem com 3 Grazyelas usando a blusa Pinterest representando os processos de modelagem, corte e costura"
           />
-        </div>
-      </S.Container01>
-
-      <S.Container01 className="secondary">
-        <div className="containerDataTextOnly">
-          <span className="upperCase">Um evento totalmente online</span>
-          <span className="upperCase boxed">Por apenas 12 reais</span>
-          <a href={"/#choose"}>Quero Participar</a>
         </div>
       </S.Container01>
 
       <S.Container01 className="third">
         <div className="containerImageOnly">
           <S.ImageCover05
-            src={cover05}
-            alt="Montagem com 3 Grazyelas com o vestido Glamour"
+            src={cover06}
+            alt="Duas imagens da Grazyela Couto usando a blusa Pinterest"
           />
         </div>
       </S.Container01>
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05 src={cover08} alt="Cronograma das aulas" />
+        </div>
+      </S.Container01>
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05
+            src={cover05}
+            alt="Esse evento é para você que é iniciante na costura ou quer se profissionalizar!"
+          />
+        </div>
+      </S.Container01>
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05 src={cover09} alt="Aulas 100% online na Hotmart!" />
+        </div>
+      </S.Container01>
       <S.ContainerSocialMedia>
-        <div className="title">O lema da Prof:</div>
-        <div className="title">
-          "Sozinhas podemos andar, mas acompanhadas vamos mais longe..."
-        </div>
-        <div className="normal">
-          Dito isso, entrem nos grupos de suporte para conversarmos sobre nossas
-          dúvidas, dicas, ideias, depoimentos, experiências, sugestões e Muitooo
-          mais ...
-        </div>
+        <div className="title">Entrem nos grupos de suporte:</div>
+
         <div className="containerLinks">
           <Link href={"https://chat.whatsapp.com/Cb6bMW1TNl3HYmOAQjaNHh"}>
             <Whatsapp />

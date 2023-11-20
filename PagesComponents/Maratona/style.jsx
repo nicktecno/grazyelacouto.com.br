@@ -49,7 +49,12 @@ export const GeneralContainer = styled.div`
 export const ImageCover01 = styled(Image)`
   object-fit: cover;
   width: 40%;
-  height: auto;
+  height: 400px;
+
+  ${customMedia.lessThan("notebook")`
+          height: 250px;
+
+        `}
 `;
 
 export const ImageCover05 = styled(Image)`
@@ -60,23 +65,68 @@ export const ImageCover05 = styled(Image)`
 
 export const Container01 = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 100%;
 
   background: var(--default-color);
   justify-content: space-between;
+
+  .primary {
+    display: flex;
+    flex-direction: row !important;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px;
+
+    .containerText {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1;
+      padding: 5px;
+    }
+
+    span {
+      text-align: center;
+      font-family: "Seasons" !important;
+      font-size: 25px;
+      line-height: 30px;
+      font-weight: 300;
+
+      &.bold {
+        font-weight: bold;
+        border-bottom: 2px solid black;
+        font-size: 40px;
+        line-height: 60px;
+        text-align: center;
+      }
+
+      &.lemon {
+        font-family: "Lemon" !important;
+        font-weight: 300;
+        font-size: 20px;
+        margin-top: 50px;
+        text-align: end;
+      }
+    }
+
+    ${customMedia.lessThan("desktop")`
+         
+          align-items:center;
+        `}
+
+    img {
+      border-radius: 60px;
+    }
+  }
+
   &.third {
     margin-top: 50px;
   }
   &.secondary {
     margin-top: 50px;
-
-    .containerData {
-      text-align: center;
-      ${customMedia.lessThan("desktop")`
-         
-          align-items:center;
-        `}
-    }
   }
 
   .containerDataTextOnly {
@@ -228,6 +278,22 @@ export const Container01 = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    &.secondary {
+      width: 100%;
+      justify-content: center !important;
+      align-items: center !important;
+      background-image: url("/images/capaM02.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 350px;
+
+      ${customMedia.lessThan("mobile")`
+         height: 200px;
+
+        `}
+    }
     ${customMedia.lessThan("desktop")`
           font-size:40px;
           text-align:left;
@@ -284,35 +350,13 @@ export const Container01 = styled.div`
       padding: 5px 5px;
       margin-top: 50px;
 
-      ${customMedia.lessThan("notebook")`
-          margin-top:30px;
-          
-        `}
-
-      ${customMedia.lessThan("tablet")`
-          margin-top:10px;
-          min-width: 225px;
-          
-        `}
-
-${customMedia.lessThan("mobile")`
-          min-width:auto;
+      ${customMedia.lessThan("mobile")`
+          min-width:250px;
           padding:10px;
           font-size:14px;
           line-height:14px;
         `}
 
-${customMedia.lessThan("400px")`
-          font-size:12px;
-          padding:10px;
-          
-        `}
-
-${customMedia.lessThan("350px")`
-          font-size:12px;
-          padding:5px;
-          
-        `}
       :hover {
         background: var(--bt-positive-color-hover);
         color: var(--bt-positive-text-color-hover) !important;
@@ -394,6 +438,12 @@ export const ImageCover02 = styled(Image)`
         `}
 `;
 
+export const ImageCoverFill = styled(Image)`
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+`;
+
 export const ImageCover03 = styled(Image)`
   object-fit: cover;
   width: 100%;
@@ -436,6 +486,7 @@ export const Container02 = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
+
     ${customMedia.lessThan("desktop")`
           font-size:20px;
          
@@ -655,7 +706,7 @@ export const ContainerSocialMedia = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background: var(--default-color-hover);
+  background: #fff9f4;
   justify-content: center;
   align-items: center;
   padding: 30px;

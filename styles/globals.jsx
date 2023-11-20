@@ -16,6 +16,16 @@ const customMedia = generateMedia({
 
 const GlobalStyles = createGlobalStyle`
 
+@font-face {
+    font-family: 'Seasons';
+    src:url('/fonts/seasons.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Lemon';
+    src:url('/fonts/lemon.otf') format('opentype');
+}
+
 
 :root {
 
