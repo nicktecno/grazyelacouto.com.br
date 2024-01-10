@@ -112,18 +112,21 @@ export default function MaratonaPage() {
           <S.ImageCover01
             src={cover01}
             priority={true}
-            alt="imagem de Grazyela Couto com a blusa pinterest"
+            alt="imagem de Grazyela Couto com o vestido Summer"
           />
           <div className="containerText">
             <span className="bold">Maratona</span>
-            <span>Blusa Pinterest</span>
-            <span className="lemon">Especial</span>
+            <span>Vestido Summer</span>
+            {/* <span className="lemon">Especial</span> */}
           </div>
         </div>
       </S.Container01>
       <S.Container01 className="secondary">
         <div className="containerData secondary">
-          <a target="_blank" href={"https://go.hotmart.com/R88548272P?dp=1"}>
+          <a
+            target="_blank"
+            href={"https://pay.hotmart.com/N89824613D?bid=1704913549893"}
+          >
             Inscreva-se
           </a>
         </div>

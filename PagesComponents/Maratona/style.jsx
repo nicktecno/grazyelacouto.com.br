@@ -52,7 +52,8 @@ export const ImageCover01 = styled(Image)`
   height: 400px;
 
   ${customMedia.lessThan("notebook")`
-          height: 250px;
+          width:100%;
+          height: 100%;
 
         `}
 `;
@@ -79,6 +80,10 @@ export const Container01 = styled.div`
     width: 100%;
     justify-content: space-between;
     padding: 20px;
+
+    ${customMedia.lessThan("mobile")`
+        flex-direction: column-reverse !important;     
+        `}
 
     .containerText {
       display: flex;
@@ -118,7 +123,7 @@ export const Container01 = styled.div`
         `}
 
     img {
-      border-radius: 60px;
+      border-radius: 0px;
     }
   }
 
@@ -283,7 +288,8 @@ export const Container01 = styled.div`
       width: 100%;
       justify-content: center !important;
       align-items: center !important;
-      background-image: url("/images/capaM02.jpg");
+      background: #bfd5df;
+      /* background-image: url("/images/capaM02.jpg"); */
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
