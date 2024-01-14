@@ -135,7 +135,7 @@ export default function MaratonaPage() {
         <S.ImageCoverFill
           src={cover03}
           priority={false}
-          alt="imagem de Grazyela Couto com a blusa Pinterest anunciando a data da maratona de 22 a 25 de dezembro com mais 30 dias de acesso"
+          alt="imagem de Grazyela Couto com o vestido Summer anunciando a data da maratona de 19 a 31 de fevereiro"
         />
       </S.Container01>
 
@@ -143,7 +143,7 @@ export default function MaratonaPage() {
         <div className="containerImageOnly">
           <S.ImageCover05
             src={cover04}
-            alt="Montagem com 3 Grazyelas usando a blusa Pinterest representando os processos de modelagem, corte e costura"
+            alt="Montagem com 3 Grazyelas usando o vestido Summer representando os processos de modelagem, corte e costura"
           />
         </div>
       </S.Container01>
@@ -152,7 +152,7 @@ export default function MaratonaPage() {
         <div className="containerImageOnly">
           <S.ImageCover05
             src={cover06}
-            alt="Duas imagens da Grazyela Couto usando a blusa Pinterest"
+            alt="Duas imagens da Grazyela Couto usando a vestido Summer"
           />
         </div>
       </S.Container01>
