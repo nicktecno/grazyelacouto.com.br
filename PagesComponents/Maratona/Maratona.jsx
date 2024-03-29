@@ -112,11 +112,11 @@ export default function MaratonaPage() {
           <S.ImageCover01
             src={cover01}
             priority={true}
-            alt="imagem de Grazyela Couto com o vestido Summer"
+            alt="imagem de Grazyela Couto com jaquetinha Zara"
           />
           <div className="containerText">
             <span className="bold">Maratona</span>
-            <span>Vestido Summer</span>
+            <span>Jaquetinha Zara</span>
             {/* <span className="lemon">Especial</span> */}
           </div>
         </div>
@@ -125,7 +125,7 @@ export default function MaratonaPage() {
         <div className="containerData secondary">
           <a
             target="_blank"
-            href={"https://pay.hotmart.com/N89824613D?bid=1704913549893"}
+            href={"https://pay.hotmart.com/K92040509C?bid=1711744627073"}
           >
             Inscreva-se
           </a>
@@ -135,7 +135,7 @@ export default function MaratonaPage() {
         <S.ImageCoverFill
           src={cover03}
           priority={false}
-          alt="imagem de Grazyela Couto com o vestido Summer anunciando a data da maratona de 19 a 31 de fevereiro"
+          alt="imagem de Grazyela Couto com a jaquetinha Zara anunciando a data da maratona de 19 a 31 de fevereiro"
         />
       </S.Container01>
 
@@ -143,7 +143,7 @@ export default function MaratonaPage() {
         <div className="containerImageOnly">
           <S.ImageCover05
             src={cover04}
-            alt="Montagem com 3 Grazyelas usando o vestido Summer representando os processos de modelagem, corte e costura"
+            alt="Montagem com 3 Grazyelas usando a jaquetinha Zara representando os processos de modelagem, corte e costura"
           />
         </div>
       </S.Container01>
@@ -152,7 +152,7 @@ export default function MaratonaPage() {
         <div className="containerImageOnly">
           <S.ImageCover05
             src={cover06}
-            alt="Duas imagens da Grazyela Couto usando a vestido Summer"
+            alt="Duas imagens da Grazyela Couto usando a jaquetinha Zara"
           />
         </div>
       </S.Container01>
