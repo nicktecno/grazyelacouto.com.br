@@ -167,13 +167,17 @@ export default function HomePage() {
             moda. Esse curso tem o nível intermediário para avançado. Você não
             vai perder esssa oportunidade né?
           </span>
-          <a href={"https://pay.hotmart.com/M70669236F?checkoutMode=10"}>
+          <a
+            href={
+              "https://grazyela1467.kpages.online/pagina-de-vendas-0d6785df-66ec-4cfb-929f-d37e4340020a"
+            }
+          >
             Quero agora!
           </a>
         </div>
         <S.ImageCover03
           src={cover03}
-          alt="imagem de Grazyela Couto ao lado de um manequim com uma tesoura na mão"
+          alt="imagem de Grazyela Couto ao lado de um manequim costurando"
         />
       </S.Container02>
       <S.Container02>
