@@ -158,7 +158,7 @@ export default function HomePage() {
       </S.Container02>
       <S.Container02>
         <div className="containerData">
-          <span className="title">Seja Você sua Própria Estilista de Moda</span>
+          <span className="title">Peças de Alfaiataria</span>
           <span className="modified">
             Quer desenvolver suas habilidades na costura, produzindo peças de
             alfaiataria, como um blazer, uma calça e uma salopete? Você irá
