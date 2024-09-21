@@ -113,18 +113,21 @@ export default function MaratonaPage() {
           <S.ImageCover01
             src={cover01}
             priority={true}
-            alt="imagem de Grazyela Couto com vestido Flower"
+            alt="imagem de Grazyela Couto com vestido Coreana"
           />
           <div className="containerText">
             <span className="bold">Maratona</span>
-            <span>Vestido Flower</span>
+            <span>Vestido Coreana</span>
             {/* <span className="lemon">Especial</span> */}
           </div>
         </div>
       </S.Container01>
       <S.Container01 className="secondary">
         <div className="containerData secondary">
-          <a target="_blank" href={"https://pay.hotmart.com/N94173239L"}>
+          <a
+            target="_blank"
+            href={"https://pay.hotmart.com/B95626228B?bid=1726919184125"}
+          >
             Clique Aqui
             <br />
             Acesso Imediato
@@ -135,31 +138,8 @@ export default function MaratonaPage() {
         <S.ImageCoverFill
           src={cover03}
           priority={false}
-          alt="imagem de Grazyela Couto com o vestido Flower anunciando a data da maratona de 19 a 31 de fevereiro"
+          alt="imagem de Grazyela Couto com o vestido Coreana anunciando a data da maratona de 18 a 30 de novembro"
         />
-      </S.Container01>
-
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05
-            src={cover04}
-            alt="Montagem com 3 Grazyelas usando o vestido Flower representando os processos de modelagem, corte e costura"
-          />
-        </div>
-      </S.Container01>
-
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05
-            src={cover06}
-            alt="Duas imagens da Grazyela Couto usando vestido Flower"
-          />
-        </div>
-      </S.Container01>
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05 src={cover08} alt="Cronograma das aulas" />
-        </div>
       </S.Container01>
       <S.Container01 className="third">
         <div className="containerImageOnly">
@@ -169,16 +149,40 @@ export default function MaratonaPage() {
           />
         </div>
       </S.Container01>
+
       <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05
+            src={cover04}
+            alt="Montagem com 3 Grazyelas usando o vestido Coreana representando os processos de modelagem, corte e costura"
+          />
+        </div>
+      </S.Container01>
+
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05
+            src={cover06}
+            alt="Onde vou assistir, imagem da Grazyela batendo palmas"
+          />
+        </div>
+      </S.Container01>
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05 src={cover08} alt="Onde vou assistir" />
+        </div>
+      </S.Container01>
+
+      {/* <S.Container01 className="third">
         <div className="containerImageOnly">
           <S.ImageCover05 src={cover10} alt="Inspirações para o evento" />
         </div>
-      </S.Container01>
-      <S.Container01 className="third">
+      </S.Container01> */}
+      {/* <S.Container01 className="third">
         <div className="containerImageOnly">
           <S.ImageCover05 src={cover09} alt="Aulas 100% online na Hotmart!" />
         </div>
-      </S.Container01>
+      </S.Container01> */}
       <S.ContainerSocialMedia>
         <div className="title">Entrem nos grupos de suporte:</div>
 

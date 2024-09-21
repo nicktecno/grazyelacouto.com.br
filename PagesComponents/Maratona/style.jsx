@@ -288,7 +288,7 @@ export const Container01 = styled.div`
       width: 100%;
       justify-content: center !important;
       align-items: center !important;
-      background: #d1cec6;
+      background: #ffdcf3;
       /* background-image: url("/images/capaM02.jpg"); */
       background-repeat: no-repeat;
       background-position: center;
