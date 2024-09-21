@@ -115,11 +115,11 @@ export default function MaratonaPage() {
             priority={true}
             alt="imagem de Grazyela Couto com vestido Coreana"
           />
-          <div className="containerText">
+          {/* <div className="containerText">
             <span className="bold">Maratona</span>
-            <span>Vestido Coreana</span>
-            {/* <span className="lemon">Especial</span> */}
-          </div>
+            <span>Vestido Coreana</span> */}
+          {/* <span className="lemon">Especial</span> */}
+          {/* </div> */}
         </div>
       </S.Container01>
       <S.Container01 className="secondary">
