@@ -8,7 +8,7 @@ import cover06 from "../../public/images/capaM06.jpg";
 
 import cover07 from "../../public/images/capa05.png";
 import cover08 from "../../public/images/capaM08.jpg";
-import cover09 from "../../public/images/CapaM09.jpg";
+import cover09 from "../../public/images/capaM09.jpg";
 import cover10 from "../../public/images/CapaM10.jpg";
 
 import * as S from "./style";
