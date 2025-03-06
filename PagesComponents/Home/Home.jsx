@@ -146,7 +146,11 @@ export default function HomePage() {
             executar outras lindas peças do mesmo nicho. Com todo o meu auxilio
             e mostro como você pode se apaixonar por esse mundo da Costura.
           </span>
-          <a href={"https://pay.hotmart.com/M72976409H?checkoutMode=10"}>
+          <a
+            href={
+              "https://hotmart.com/pt-br/marketplace/produtos/aprenda-a-costurar-iniciante/M72976409H"
+            }
+          >
             Quero agora!
           </a>
         </div>
