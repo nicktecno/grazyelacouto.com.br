@@ -48,7 +48,7 @@ export const GeneralContainer = styled.div`
 
 export const ImageCover01 = styled(Image)`
   object-fit: cover;
-  width: 40%;
+  width: 100%;
   height: 700px;
 
   ${customMedia.lessThan("notebook")`

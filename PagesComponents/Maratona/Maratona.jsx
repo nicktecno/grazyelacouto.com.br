@@ -113,7 +113,7 @@ export default function MaratonaPage() {
           <S.ImageCover01
             src={cover01}
             priority={true}
-            alt="imagem de Grazyela Couto com colete alfaiataria"
+            alt="imagem de Grazyela Couto com casaqueto Lady"
           />
           {/* <div className="containerText">
             <span className="bold">Maratona</span>
@@ -135,10 +135,10 @@ export default function MaratonaPage() {
         </div>
       </S.Container01> */}
       <S.Container01
+        style={{ cursor: "pointer" }}
         className="third"
         onClick={() => {
-          window.location.href =
-            "https://pay.hotmart.com/E97432060I?bid=1736426068459";
+          window.location.href = "https://pay.hotmart.com/O98768345H";
         }}
       >
         <S.ImageCoverFill
@@ -160,11 +160,11 @@ export default function MaratonaPage() {
         <div className="containerImageOnly">
           <S.ImageCover05
             src={cover04}
-            alt="Colete alfaiataria representando os processos de modelagem, corte e costura"
+            alt="Casaqueto Lady representando os processos de modelagem, corte e costura"
           />
         </div>
       </S.Container01>
-
+      {/* 
       <S.Container01 className="third">
         <div className="containerImageOnly">
           <S.ImageCover05
@@ -172,7 +172,7 @@ export default function MaratonaPage() {
             alt="Onde vou assistir, imagem da Grazyela batendo palmas"
           />
         </div>
-      </S.Container01>
+      </S.Container01> */}
       <S.Container01 className="third">
         <div className="containerImageOnly">
           <S.ImageCover05 src={cover08} alt="Onde vou assistir" />
