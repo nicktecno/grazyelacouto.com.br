@@ -146,7 +146,11 @@ export default function HomePage() {
             executar outras lindas peças do mesmo nicho. Com todo o meu auxilio
             e mostro como você pode se apaixonar por esse mundo da Costura.
           </span>
-          <a href={"https://pay.hotmart.com/M72976409H?checkoutMode=10"}>
+          <a
+            href={
+              "https://hotmart.com/pt-br/marketplace/produtos/aprenda-a-costurar-iniciante/M72976409H"
+            }
+          >
             Quero agora!
           </a>
         </div>
@@ -158,7 +162,7 @@ export default function HomePage() {
       </S.Container02>
       <S.Container02>
         <div className="containerData">
-          <span className="title">Seja Você sua Própria Estilista de Moda</span>
+          <span className="title">Peças de Alfaiataria</span>
           <span className="modified">
             Quer desenvolver suas habilidades na costura, produzindo peças de
             alfaiataria, como um blazer, uma calça e uma salopete? Você irá
@@ -167,13 +171,17 @@ export default function HomePage() {
             moda. Esse curso tem o nível intermediário para avançado. Você não
             vai perder esssa oportunidade né?
           </span>
-          <a href={"https://pay.hotmart.com/M70669236F?checkoutMode=10"}>
+          <a
+            href={
+              "https://grazyela1467.kpages.online/pagina-de-vendas-0d6785df-66ec-4cfb-929f-d37e4340020a"
+            }
+          >
             Quero agora!
           </a>
         </div>
         <S.ImageCover03
           src={cover03}
-          alt="imagem de Grazyela Couto ao lado de um manequim com uma tesoura na mão"
+          alt="imagem de Grazyela Couto ao lado de um manequim costurando"
         />
       </S.Container02>
       <S.Container02>

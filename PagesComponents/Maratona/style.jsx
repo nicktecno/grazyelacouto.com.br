@@ -48,8 +48,8 @@ export const GeneralContainer = styled.div`
 
 export const ImageCover01 = styled(Image)`
   object-fit: cover;
-  width: 40%;
-  height: 400px;
+  width: 100%;
+  height: 700px;
 
   ${customMedia.lessThan("notebook")`
           width:100%;
@@ -288,7 +288,7 @@ export const Container01 = styled.div`
       width: 100%;
       justify-content: center !important;
       align-items: center !important;
-      background: #96765c;
+      background: #ffdcf3;
       /* background-image: url("/images/capaM02.jpg"); */
       background-repeat: no-repeat;
       background-position: center;
@@ -348,7 +348,7 @@ export const Container01 = styled.div`
       background: var(--bt-positive-color);
       transition: 0.3s;
       color: var(--bt-positive-text-color) !important;
-      font-size: 18px;
+      font-size: 25px;
       text-align: center;
       max-width: 400px;
       min-width: 300px;
@@ -359,8 +359,8 @@ export const Container01 = styled.div`
       ${customMedia.lessThan("mobile")`
           min-width:250px;
           padding:10px;
-          font-size:14px;
-          line-height:14px;
+          font-size:20px;
+          line-height:30px;
         `}
 
       :hover {

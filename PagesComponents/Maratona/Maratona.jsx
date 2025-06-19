@@ -9,6 +9,7 @@ import cover06 from "../../public/images/capaM06.jpg";
 import cover07 from "../../public/images/capa05.png";
 import cover08 from "../../public/images/capaM08.jpg";
 import cover09 from "../../public/images/capaM09.jpg";
+import cover10 from "../../public/images/CapaM10.jpg";
 
 import * as S from "./style";
 import "slick-carousel/slick/slick.css";
@@ -112,54 +113,39 @@ export default function MaratonaPage() {
           <S.ImageCover01
             src={cover01}
             priority={true}
-            alt="imagem de Grazyela Couto com jaquetinha Zara"
+            alt="imagem de Grazyela Couto com casaqueto Lady"
           />
-          <div className="containerText">
+          {/* <div className="containerText">
             <span className="bold">Maratona</span>
-            <span>Jaquetinha Zara</span>
-            {/* <span className="lemon">Especial</span> */}
-          </div>
+            <span>Vestido Coreana</span> */}
+          {/* <span className="lemon">Especial</span> */}
+          {/* </div> */}
         </div>
       </S.Container01>
-      <S.Container01 className="secondary">
+      {/* <S.Container01 className="secondary">
         <div className="containerData secondary">
           <a
             target="_blank"
-            href={"https://pay.hotmart.com/K92040509C?bid=1711744627073"}
+            href={"https://pay.hotmart.com/E97432060I?bid=1736426068459"}
           >
-            Inscreva-se
+            Clique Aqui
+            <br />
+            Acesso Imediato
           </a>
         </div>
-      </S.Container01>
-      <S.Container01 className="third">
+      </S.Container01> */}
+      <S.Container01
+        style={{ cursor: "pointer" }}
+        className="third"
+        onClick={() => {
+          window.location.href = "https://pay.hotmart.com/O98768345H";
+        }}
+      >
         <S.ImageCoverFill
           src={cover03}
           priority={false}
-          alt="imagem de Grazyela Couto com a jaquetinha Zara anunciando a data da maratona de 19 a 31 de fevereiro"
+          alt="acesso imediato"
         />
-      </S.Container01>
-
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05
-            src={cover04}
-            alt="Montagem com 3 Grazyelas usando a jaquetinha Zara representando os processos de modelagem, corte e costura"
-          />
-        </div>
-      </S.Container01>
-
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05
-            src={cover06}
-            alt="Duas imagens da Grazyela Couto usando a jaquetinha Zara"
-          />
-        </div>
-      </S.Container01>
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05 src={cover08} alt="Cronograma das aulas" />
-        </div>
       </S.Container01>
       <S.Container01 className="third">
         <div className="containerImageOnly">
@@ -169,6 +155,35 @@ export default function MaratonaPage() {
           />
         </div>
       </S.Container01>
+
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05
+            src={cover04}
+            alt="Casaqueto Lady representando os processos de modelagem, corte e costura"
+          />
+        </div>
+      </S.Container01>
+      {/* 
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05
+            src={cover06}
+            alt="Onde vou assistir, imagem da Grazyela batendo palmas"
+          />
+        </div>
+      </S.Container01> */}
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05 src={cover08} alt="Onde vou assistir" />
+        </div>
+      </S.Container01>
+
+      {/* <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05 src={cover10} alt="Inspirações para o evento" />
+        </div>
+      </S.Container01> */}
       <S.Container01 className="third">
         <div className="containerImageOnly">
           <S.ImageCover05 src={cover09} alt="Aulas 100% online na Hotmart!" />
