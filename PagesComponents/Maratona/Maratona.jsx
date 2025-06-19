@@ -125,7 +125,7 @@ export default function MaratonaPage() {
         <div className="containerData secondary">
           <a
             target="_blank"
-            href={"https://pay.hotmart.com/K92040509C?bid=1711744627073"}
+            href={"https://hotmart.com/pt-br/marketplace/produtos/maratona-jaquetinha-zara/K92040509C"}
           >
             Inscreva-se
           </a>
