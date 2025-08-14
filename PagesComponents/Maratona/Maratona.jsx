@@ -112,7 +112,7 @@ export default function MaratonaPage() {
     <S.GeneralContainer>
       <S.Container01>
         <div className="primary">
-          <S.ImageCover01
+          <S.ImageCoverFill
             src={cover01}
             priority={true}
             alt="imagem de Grazyela Couto com Vestido Verona"

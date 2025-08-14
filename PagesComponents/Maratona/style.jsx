@@ -79,7 +79,7 @@ export const Container01 = styled.div`
     flex-direction: row !important;
     width: 100%;
     justify-content: space-between;
-    padding: 20px;
+  
 
     ${customMedia.lessThan("mobile")`
         flex-direction: column-reverse !important;     
