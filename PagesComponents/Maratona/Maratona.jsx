@@ -146,7 +146,7 @@ export default function MaratonaPage() {
         <S.ImageCoverFill
           src={cover03}
           priority={false}
-          alt="imagem de Grazyela Couto com a Vestido Verona anunciando a data da maratona"
+          alt="imagem de Grazyela Couto com a Vestido Verona anunciando a data da maratona que vai ser um sucesso"
         />
       </S.Container01>
 
