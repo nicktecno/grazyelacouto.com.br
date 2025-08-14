@@ -120,7 +120,7 @@ export default function MaratonaPage() {
           {/* <div className="containerText">
             <span className="bold">Maratona</span>
             <span>Vestido Verona</span> */}
-            {/* <span className="lemon">Especial</span> */}
+            {/* <span className="lemon">Especiall</span> */}
           {/* </div> */}
         </div>
       </S.Container01>
