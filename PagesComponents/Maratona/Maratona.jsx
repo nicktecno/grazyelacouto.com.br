@@ -1,14 +1,17 @@
 import React from "react";
 
 import cover01 from "../../public/images/capaM01.jpg";
+import cover02 from "../../public/images/capaM02.jpg";
 import cover03 from "../../public/images/capaM03.jpg";
 import cover04 from "../../public/images/capaM04.jpg";
 import cover05 from "../../public/images/capaM05.png";
 import cover06 from "../../public/images/capaM06.jpg";
 
-import cover07 from "../../public/images/capa05.png";
+import cover07 from "../../public/images/capaM07.jpg";
 import cover08 from "../../public/images/capaM08.jpg";
-import cover09 from "../../public/images/capaM09.jpg";
+import cover09 from "../../public/images/capa05.png";
+import cover10 from "../../public/images/capaM10.jpg";
+import cover11 from "../../public/images/capaM09.jpg";
 
 import * as S from "./style";
 import "slick-carousel/slick/slick.css";
@@ -112,66 +115,96 @@ export default function MaratonaPage() {
           <S.ImageCover01
             src={cover01}
             priority={true}
-            alt="imagem de Grazyela Couto com jaquetinha Zara"
+            alt="imagem de Grazyela Couto com Vestido Verona"
           />
-          <div className="containerText">
+          {/* <div className="containerText">
             <span className="bold">Maratona</span>
-            <span>Jaquetinha Zara</span>
+            <span>Vestido Verona</span> */}
             {/* <span className="lemon">Especial</span> */}
-          </div>
+          {/* </div> */}
         </div>
       </S.Container01>
-      <S.Container01 className="secondary">
+      {/* <S.Container01 className="secondary">
         <div className="containerData secondary">
           <a
             target="_blank"
-            href={"https://hotmart.com/pt-br/marketplace/produtos/maratona-jaquetinha-zara/K92040509C"}
+            href={"https://pay.hotmart.com/B101360900J"}
           >
             Inscreva-se
           </a>
         </div>
-      </S.Container01>
+      </S.Container01> */}
       <S.Container01 className="third">
         <S.ImageCoverFill
-          src={cover03}
+          src={cover02}
           priority={false}
-          alt="imagem de Grazyela Couto com a jaquetinha Zara anunciando a data da maratona de 19 a 31 de fevereiro"
+          alt="imagem de Grazyela Couto com a Vestido Verona anunciando a data da maratona"
         />
       </S.Container01>
 
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05
-            src={cover04}
-            alt="Montagem com 3 Grazyelas usando a jaquetinha Zara representando os processos de modelagem, corte e costura"
-          />
-        </div>
+       <S.Container01 className="third">
+        <S.ImageCoverFill
+          src={cover03}
+          priority={false}
+          alt="imagem de Grazyela Couto com a Vestido Verona anunciando a data da maratona"
+        />
       </S.Container01>
 
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
+      <S.Container01 className="third">       
+        <a 
+            target="_blank"
+            href={"https://pay.hotmart.com/B101360900J"} className="containerImageOnly">
+          
           <S.ImageCover05
-            src={cover06}
-            alt="Duas imagens da Grazyela Couto usando a jaquetinha Zara"
+            src={cover04}
+            alt="Montagem com 3 Grazyelas usando a Vestido Verona representando os processos de modelagem, corte e costura"
           />
-        </div>
+        </a>
       </S.Container01>
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05 src={cover08} alt="Cronograma das aulas" />
-        </div>
-      </S.Container01>
+
       <S.Container01 className="third">
         <div className="containerImageOnly">
           <S.ImageCover05
             src={cover05}
+            alt="Tres imagens da Grazyela Couto usando a Vestido Verona"
+          />
+        </div>
+      </S.Container01>
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05 src={cover06} alt="A verdade é: nunca deixamos de aprender" />
+        </div>
+      </S.Container01>
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05
+            src={cover07}
             alt="Esse evento é para você que é iniciante na costura ou quer se profissionalizar!"
           />
         </div>
       </S.Container01>
       <S.Container01 className="third">
+        <a 
+            target="_blank"
+            href={"https://pay.hotmart.com/B101360900J"} className="containerImageOnly">
+          
+          <S.ImageCover05 src={cover08} alt="Clique aqui!" />
+        </a>
+      </S.Container01>
+       <S.Container01 className="third">
         <div className="containerImageOnly">
-          <S.ImageCover05 src={cover09} alt="Aulas 100% online na Hotmart!" />
+          <S.ImageCover05
+            src={cover10}
+            alt="Inspiração para o Vestido Verona"
+          />
+        </div>
+      </S.Container01>
+      <S.Container01 className="third">
+        <div className="containerImageOnly">
+          <S.ImageCover05
+            src={cover11}
+            alt="Aulas 100% online na plataforma Hotmart"
+          />
         </div>
       </S.Container01>
       <S.ContainerSocialMedia>
@@ -188,7 +221,7 @@ export default function MaratonaPage() {
       </S.ContainerSocialMedia>
       <S.Container03>
         <S.ImageCover04
-          src={cover07}
+          src={cover09}
           alt="imagem de Grazyela Couto segurando uma máquina de costura"
         />
         <div className="containerData">
