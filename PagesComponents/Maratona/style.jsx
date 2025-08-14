@@ -128,10 +128,10 @@ export const Container01 = styled.div`
   }
 
   &.third {
-    margin-top: 50px;
+    /* margin-top: 50px; */
   }
   &.secondary {
-    margin-top: 50px;
+    /* margin-top: 50px; */
   }
 
   .containerDataTextOnly {
@@ -196,7 +196,7 @@ export const Container01 = styled.div`
       max-width: 400px;
       min-width: 300px;
       align-self: center;
-      padding: 15px 5px;
+      /* padding: 15px 5px; */
       margin-top: 20px;
 
       ${customMedia.lessThan("notebook")`
@@ -230,7 +230,7 @@ export const Container01 = styled.div`
   .containerImageOnly {
     display: flex;
     width: 100%;
-    padding: 20px;
+    /* padding: 20px; */
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -353,7 +353,7 @@ export const Container01 = styled.div`
       max-width: 400px;
       min-width: 300px;
       align-self: center;
-      padding: 5px 5px;
+      /* padding: 5px 5px; */
       margin-top: 50px;
 
       ${customMedia.lessThan("mobile")`
@@ -555,7 +555,7 @@ export const Container02 = styled.div`
       max-width: 400px;
       min-width: 300px;
       align-self: center;
-      padding: 5px 5px;
+      /* padding: 5px 5px; */
       margin-top: 50px;
 
       ${customMedia.lessThan("notebook")`
