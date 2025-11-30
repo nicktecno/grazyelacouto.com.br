@@ -146,20 +146,15 @@ export default function MaratonaPage() {
         <S.ImageCoverFill
           src={cover03}
           priority={false}
-          alt="imagem da Grazyela Couto com o Short Alfaiataria anunciando a data da maratona que vai ser um sucesso"
+          alt="imagem de Grazyela Couto com o Short Alfaiataria anunciando a data da maratona que vai ser um sucesso"
         />
       </S.Container01>
 
-      <S.Container01 className="third">       
-        <a 
-            target="_blank"
-            href={"https://pay.hotmart.com/M103204490K"} className="containerImageOnly">
-          
+      <S.Container01 className="third">                
           <S.ImageCover05
             src={cover04}
             alt="Montagem com 3 Grazyelas usando o Short Alfaiataria representando os processos de modelagem, corte e costura"
           />
-        </a>
       </S.Container01>
 
       <S.Container01 className="third">
@@ -171,9 +166,11 @@ export default function MaratonaPage() {
         </div>
       </S.Container01>
       <S.Container01 className="third">
-        <div className="containerImageOnly">
+         <a 
+            target="_blank"
+            href={"https://pay.hotmart.com/M103204490K"} className="containerImageOnly">
           <S.ImageCover05 src={cover06} alt="A verdade é: nunca deixamos de aprender" />
-        </div>
+        </a>
       </S.Container01>
       <S.Container01 className="third">
         <div className="containerImageOnly">
