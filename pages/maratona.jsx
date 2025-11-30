@@ -4,10 +4,10 @@ export default function Home(props) {
   return <MaratonaPage />;
 }
 export async function getStaticProps({ resolvedUrl }) {
-  const title = `${process.env.NEXT_PUBLIC_REACT_APP_GENERAL_TITLE} - Maratona Vestido Verona`;
+  const title = `${process.env.NEXT_PUBLIC_REACT_APP_GENERAL_TITLE} - Maratona Short Alfaiataria`;
   const metaKeywords = process.env.NEXT_PUBLIC_REACT_APP_GENERAL_KEYWORDS;
   const metaDescription =
-    "Venha aprender a modelar e costurar essa linda Vestido Verona!";
+    "Venha aprender a modelar e costurar esse lindo Short Alfaiataria!";
 
   return {
     props: {
