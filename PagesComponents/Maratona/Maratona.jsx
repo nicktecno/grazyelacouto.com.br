@@ -35,18 +35,18 @@ export default function MaratonaPage() {
       require.context(
         "../../public/images/carousel01",
         false,
-        /\.(png|jpe?g|svg)$/
-      )
-    )
+        /\.(png|jpe?g|svg)$/,
+      ),
+    ),
   );
   const imagesList02 = Object.values(
     importAll(
       require.context(
         "../../public/images/carousel02",
         false,
-        /\.(png|jpe?g|svg)$/
-      )
-    )
+        /\.(png|jpe?g|svg)$/,
+      ),
+    ),
   );
 
   function SampleNextArrow(props) {
@@ -115,12 +115,12 @@ export default function MaratonaPage() {
           <S.ImageCoverFill
             src={cover01}
             priority={true}
-            alt="imagem de Grazyela Couto com Short Alfaiataria"
+            alt="imagem de Grazyela Couto com Colete Alfaiataria"
           />
           {/* <div className="containerText">
             <span className="bold">Maratona</span>
-            <span>Short Alfaiataria</span> */}
-            {/* <span className="lemon">Especial</span> */}
+            <span>Colete Alfaiataria</span> */}
+          {/* <span className="lemon">Especial</span> */}
           {/* </div> */}
         </div>
       </S.Container01>
@@ -138,42 +138,44 @@ export default function MaratonaPage() {
         <S.ImageCoverFill
           src={cover02}
           priority={false}
-          alt="imagem de Grazyela Couto com o Short Alfaiataria anunciando a data da maratona"
+          alt="imagem de Grazyela Couto com o Colete Alfaiataria anunciando a data da maratona"
         />
       </S.Container01>
 
-       <S.Container01 className="third">
+      <S.Container01 className="third">
         <S.ImageCoverFill
           src={cover03}
           priority={false}
-          alt="imagem de Grazyela Couto com o Short Alfaiataria anunciando a data da maratona que vai ser um sucesso"
+          alt="imagem de Grazyela Couto com o Colete Alfaiataria anunciando a data da maratona que vai ser um sucesso"
         />
       </S.Container01>
 
-      <S.Container01 className="third">       
-        <a 
-            target="_blank"
-            href={"https://pay.hotmart.com/M103204490K"} className="containerImageOnly">
-          
-          <S.ImageCover05
-            src={cover04}
-            alt="Montagem com 3 Grazyelas usando o Short Alfaiataria representando os processos de modelagem, corte e costura"
-          />
-        </a>
+      <S.Container01 className="third">
+        <S.ImageCover05
+          src={cover04}
+          alt="Montagem com 3 Grazyelas usando o Colete Alfaiataria representando os processos de modelagem, corte e costura"
+        />
       </S.Container01>
 
       <S.Container01 className="third">
         <div className="containerImageOnly">
           <S.ImageCover05
             src={cover05}
-            alt="Tres imagens da Grazyela Couto usando o Short Alfaiataria"
+            alt="Tres imagens da Grazyela Couto usando o Colete Alfaiataria"
           />
         </div>
       </S.Container01>
       <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05 src={cover06} alt="A verdade é: nunca deixamos de aprender" />
-        </div>
+        <a
+          target="_blank"
+          href={"https://pay.hotmart.com/E97432060I"}
+          className="containerImageOnly"
+        >
+          <S.ImageCover05
+            src={cover06}
+            alt="A verdade é: nunca deixamos de aprender"
+          />
+        </a>
       </S.Container01>
       <S.Container01 className="third">
         <div className="containerImageOnly">
@@ -184,18 +186,19 @@ export default function MaratonaPage() {
         </div>
       </S.Container01>
       <S.Container01 className="third">
-        <a 
-            target="_blank"
-            href={"https://pay.hotmart.com/M103204490K"} className="containerImageOnly">
-          
+        <a
+          target="_blank"
+          href={"https://pay.hotmart.com/E97432060I"}
+          className="containerImageOnly"
+        >
           <S.ImageCover05 src={cover08} alt="Clique aqui!" />
         </a>
       </S.Container01>
-       {/* <S.Container01 className="third">
+      {/* <S.Container01 className="third">
         <div className="containerImageOnly">
           <S.ImageCover05
             src={cover10}
-            alt="Inspiração para o Short Alfaiataria"
+            alt="Inspiração para o Colete Alfaiataria"
           />
         </div>
       </S.Container01> */}
