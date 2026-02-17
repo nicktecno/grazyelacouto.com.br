@@ -233,7 +233,7 @@ export default function MaratonaPage() {
             Grazyela Couto, Estilista, Modelista e Costureira, a mais de 4 anos
             trabalhando nesse ramo, onde teve sua marca de roupas durantes 2
             anos e encontrou a paixão em ensinar. Ela diz e deixa o incentivo
-            que costurar não é dom! Vem comigo Agulhinha !!
+            que costurar não é dom! Vem comigo Agulhinha!!
           </div>
         </div>
       </S.Container03>
