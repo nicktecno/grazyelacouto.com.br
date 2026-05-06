@@ -14,6 +14,8 @@ export async function getStaticProps({ resolvedUrl }) {
         title,
         metaDescription,
         metaKeywords,
+        canonicalPath: "/",
+        ogImagePath: "/images/capa01.jpg",
       },
     },
     revalidate: 3600,

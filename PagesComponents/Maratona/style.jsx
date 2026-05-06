@@ -64,6 +64,63 @@ export const ImageCover05 = styled(Image)`
   height: auto;
 `;
 
+/** Wrapper para posicionar link invisível sobre o botão desenhado na arte. */
+export const ImageHitboxWrap = styled.div`
+  position: relative;
+  display: block;
+  width: 100%;
+  line-height: 0;
+
+  span {
+    display: block !important;
+    line-height: 0;
+  }
+
+  img {
+    position: relative;
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+  }
+`;
+
+/** Área clicável alinhada em % ao layout da imagem (top/left ou bottom/left + width/height). */
+export const CtaHitArea = styled.a`
+  position: absolute;
+  z-index: 3;
+  cursor: pointer;
+  text-decoration: none;
+  background: transparent !important;
+  border: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  overflow: hidden;
+
+  ${(p) => p.$top != null && `top: ${p.$top};`}
+  ${(p) => p.$bottom != null && `bottom: ${p.$bottom};`}
+  ${(p) => p.$left != null && `left: ${p.$left};`}
+  ${(p) => p.$right != null && `right: ${p.$right};`}
+  ${(p) => p.$width != null && `width: ${p.$width};`}
+  ${(p) => p.$height != null && `height: ${p.$height};`}
+  ${(p) => p.$radius && `border-radius: ${p.$radius};`}
+
+  &:focus-visible {
+    outline: 3px solid #cc201f;
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    background: transparent !important;
+    color: transparent !important;
+  }
+`;
+
 export const Container01 = styled.div`
   display: flex;
   justify-content: center;
