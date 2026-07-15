@@ -35,9 +35,12 @@ export const Header = styled.nav`
     display: flex;
     gap: 20px;
     font-size: 18px;
+    font-family: var(--ui-font, "DM Sans", system-ui, sans-serif);
 
     a {
       transition: 0.3s;
+      font-weight: 500;
+      letter-spacing: 0.04em;
 
       :hover {
         color: var(--font-color-hover) !important;

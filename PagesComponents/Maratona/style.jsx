@@ -735,7 +735,7 @@ export const Container03 = styled.div`
   .title {
     display: flex;
     font-size: 50px;
-    font-family: "Bodoni" !important;
+    font-family: "Cormorant Garamond", Georgia, serif !important;
     font-weight: bold;
     line-height: 50px;
 
@@ -755,7 +755,7 @@ export const Container03 = styled.div`
     font-size: 25px;
     margin-top: 25px;
     line-height: 35px;
-    font-family: "Bodoni" !important;
+    font-family: "Cormorant Garamond", Georgia, serif !important;
 
     ${customMedia.lessThan("mobile")`
     line-height:25px;
@@ -789,7 +789,7 @@ export const ContainerSocialMedia = styled.div`
   }
 
   .normal {
-    font-family: "Bodoni";
+    font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 30px;
     line-height: 30px;
 

@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&family=Cinzel:wght@400;500;600;700&family=Forum&family=Metal&family=Raleway:wght@200;300;400;500;600;700;800&family=Roboto:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Forum&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Metal&display=swap"
             rel="stylesheet"
           />
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />

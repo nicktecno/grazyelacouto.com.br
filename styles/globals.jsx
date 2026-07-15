@@ -133,8 +133,9 @@ const GlobalStyles = createGlobalStyle`
 
 --payment-method-card: ${(props) => props.colors[0]["payment-method-card"]};
     //fonts
-    --main-font: 'Raleway', sans-serif;
-    --title-font: bold 'Raleway', sans-serif;
+    --main-font: "Lora", Georgia, "Times New Roman", serif;
+    --title-font: "Cormorant Garamond", Georgia, serif;
+    --ui-font: "DM Sans", system-ui, sans-serif;
 
   }
 
@@ -142,7 +143,7 @@ const GlobalStyles = createGlobalStyle`
 
   .positiveButton {
     background-color: var(--bt-positive-color);
-    font-family: var(--main-font);
+    font-family: var(--ui-font);
     font-weight: bold;
     box-shadow:   var(--box-shadow);
     color: var(--bt-positive-text-color);
@@ -159,7 +160,7 @@ const GlobalStyles = createGlobalStyle`
 
   .negativeButton {
     background-color: var(--bt-negative-color);
-    font-family: var(--main-font);
+    font-family: var(--ui-font);
     font-weight: bold;
     box-shadow:   var(--box-shadow);
     color: var(--bt-negative-text-color);
@@ -189,21 +190,21 @@ const GlobalStyles = createGlobalStyle`
   *{
         box-sizing: border-box;
         outline: none;
-        font-family:  var(--main-font) !important;
-        color:var(--font-color);
      
     }
 
     body {
         display:flex;
         flex-direction:column;
-        line-height: 1;
+        line-height: 1.5;
         width:100%;
         overflow-x: hidden;
         margin:0px;
         height:100%;
         width:100%;
         justify-content:center;
+        font-family: var(--main-font);
+        color: var(--font-color);
 
 
         ${customMedia.lessThan("tablet")`

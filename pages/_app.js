@@ -7,15 +7,16 @@ import Head from "next/head";
 import Footer from "../components/footer/footer";
 import { absoluteUrl, getSiteOrigin } from "../lib/siteUrl";
 
-function organizationJsonLd() {
+function buildJsonLd(extraNodes = []) {
   const origin = getSiteOrigin();
+  const brand = "Grazyela Couto";
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
         "@id": `${origin}/#organization`,
-        name: process.env.NEXT_PUBLIC_REACT_APP_GENERAL_TITLE || "Grazyela Couto",
+        name: brand,
         url: origin,
         logo: absoluteUrl("/images/192.png"),
         sameAs: [
@@ -28,10 +29,13 @@ function organizationJsonLd() {
         "@type": "WebSite",
         "@id": `${origin}/#website`,
         url: origin,
-        name: process.env.NEXT_PUBLIC_REACT_APP_GENERAL_TITLE || "Grazyela Couto",
+        name: brand,
+        description:
+          "Cursos online de modelagem, costura e alfaiataria com a Grazyela Couto.",
         publisher: { "@id": `${origin}/#organization` },
         inLanguage: "pt-BR",
       },
+      ...(Array.isArray(extraNodes) ? extraNodes : []),
     ],
   };
 }
@@ -59,7 +63,7 @@ function MyApp({ Component, pageProps }) {
   const ogImageUrl = absoluteUrl(ogImagePath);
   const shareable = Boolean(canonicalUrl && seo?.title);
 
-  const jsonLd = organizationJsonLd();
+  const jsonLd = buildJsonLd(seo?.jsonLd);
 
   return (
     <>
