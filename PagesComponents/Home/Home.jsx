@@ -125,10 +125,16 @@ export default function HomePage() {
   const [motionReady, setMotionReady] = React.useState(false);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const isNarrow = window.matchMedia("(max-width: 768px)").matches;
+    const skipReveal = reduceMotion || isCoarsePointer || isNarrow;
+
     const nodes = document.querySelectorAll(".reveal");
 
-    if (reduce) {
+    if (skipReveal) {
       nodes.forEach((node) => node.classList.add("is-visible"));
       setMotionReady(false);
       return undefined;

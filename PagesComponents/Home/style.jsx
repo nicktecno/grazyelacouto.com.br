@@ -146,6 +146,27 @@ export const GeneralContainer = styled.main`
       transition: none !important;
     }
   }
+
+  /* Mobile / touch: sem animações de imagem que atrapalham o scroll */
+  ${customMedia.lessThan("tablet")`
+    .reveal,
+    .reveal:not(.is-visible),
+    .reveal.is-visible {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  `}
+
+  @media (hover: none), (pointer: coarse) {
+    .reveal,
+    .reveal:not(.is-visible),
+    .reveal.is-visible {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
 `;
 
 export const Hero = styled.section`
@@ -199,6 +220,14 @@ export const HeroImage = styled(Image)`
   object-position: center top;
   animation: ${heroKenBurns} 2.4s ${easeOutExpo} both;
   ${reducedMotion}
+
+  ${customMedia.lessThan("tablet")`
+    animation: none;
+  `}
+
+  @media (hover: none), (pointer: coarse) {
+    animation: none;
+  }
 `;
 
 export const HeroShade = styled.div`
@@ -228,6 +257,20 @@ export const HeroContent = styled.div`
     opacity: 0;
     animation: ${fadeUp} 1s ${easeOutExpo} both;
     ${reducedMotion}
+  }
+
+  ${customMedia.lessThan("tablet")`
+    > * {
+      opacity: 1;
+      animation: none;
+    }
+  `}
+
+  @media (hover: none), (pointer: coarse) {
+    > * {
+      opacity: 1;
+      animation: none;
+    }
   }
 
   .welcome {
@@ -332,6 +375,19 @@ export const HeroContent = styled.div`
       }
     }
 
+    ${customMedia.lessThan("tablet")`
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+
+      &:hover {
+        transform: none;
+        box-shadow: none;
+
+        &::after {
+          animation: none;
+        }
+      }
+    `}
+
     &:focus-visible {
       outline: 2px solid var(--atelier-gold-bright);
       outline-offset: 3px;
@@ -433,8 +489,15 @@ export const VideoSection = styled.section`
       img {
         content: url(/images/arrow2.jpg);
         width: min(100%, 340px);
+        animation: none;
       }
     `}
+
+    @media (hover: none), (pointer: coarse) {
+      img {
+        animation: none;
+      }
+    }
   }
 
   .videoFrame {
@@ -448,12 +511,18 @@ export const VideoSection = styled.section`
       0 28px 70px rgba(16, 14, 12, 0.22);
     transition: transform 0.7s ${easeOutExpo}, box-shadow 0.7s ${easeOutExpo};
 
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow:
-        0 1px 0 rgba(196, 164, 106, 0.5),
-        0 34px 80px rgba(16, 14, 12, 0.28);
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow:
+          0 1px 0 rgba(196, 164, 106, 0.5),
+          0 34px 80px rgba(16, 14, 12, 0.28);
+      }
     }
+
+    ${customMedia.lessThan("tablet")`
+      transition: none;
+    `}
 
     iframe {
       position: absolute;
@@ -516,6 +585,19 @@ const ctaLuxury = css`
 
     &::after {
       animation: ${ctaSheen} 0.85s ${easeOutExpo};
+    }
+  }
+
+  @media (max-width: 768px) {
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+
+      &::after {
+        animation: none;
+      }
     }
   }
 
@@ -597,10 +679,20 @@ export const CourseSection = styled.section`
     transition: transform 0.9s ${easeOutExpo}, filter 0.9s ${easeOutExpo};
   }
 
-  &:hover .courseMedia {
-    transform: scale(1.015);
-    filter: contrast(1.03) saturate(1.04);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover .courseMedia {
+      transform: scale(1.015);
+      filter: contrast(1.03) saturate(1.04);
+    }
   }
+
+  ${customMedia.lessThan("tablet")`
+    .courseMedia {
+      transition: none;
+      transform: none !important;
+      filter: none !important;
+    }
+  `}
 `;
 
 export const CourseImage = styled(Image).attrs({ className: "courseMedia" })`
@@ -637,6 +729,7 @@ export const ContainerSliderCategory = styled.div`
   .slick-list {
     margin: 0 -9px;
     overflow: hidden;
+    touch-action: pan-y pinch-zoom;
   }
 
   .slick-track {
@@ -684,11 +777,6 @@ export const ContainerSliderCategory = styled.div`
     overflow: hidden;
     background: rgba(16, 14, 12, 0.04);
 
-    ${customMedia.lessThan("tablet")`
-      min-height: 240px;
-      height: clamp(240px, 55vw, 340px);
-    `}
-
     img {
       display: block;
       width: 100%;
@@ -696,16 +784,31 @@ export const ContainerSliderCategory = styled.div`
       margin: 0;
       object-fit: contain;
       object-position: center;
+      -webkit-user-drag: none;
+      touch-action: pan-y;
       transition:
         transform 0.7s ${easeOutExpo},
         filter 0.55s ease;
       filter: saturate(0.94) contrast(1.02);
 
-      &:hover {
-        transform: scale(1.02);
-        filter: saturate(1.05) contrast(1.04);
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: scale(1.02);
+          filter: saturate(1.05) contrast(1.04);
+        }
       }
     }
+
+    ${customMedia.lessThan("tablet")`
+      min-height: 240px;
+      height: clamp(240px, 55vw, 340px);
+
+      img {
+        transition: none !important;
+        transform: none !important;
+        filter: saturate(0.94) contrast(1.02);
+      }
+    `}
   }
 `;
 
@@ -768,9 +871,16 @@ export const AboutPortrait = styled(Image)`
   filter: drop-shadow(0 22px 44px rgba(16, 14, 12, 0.22));
   transition: transform 0.9s ${easeOutExpo};
 
-  &:hover {
-    transform: translateY(-6px);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-6px);
+    }
   }
+
+  ${customMedia.lessThan("tablet")`
+    transition: none;
+    transform: none !important;
+  `}
 `;
 
 export const GeoFacts = styled.section`
