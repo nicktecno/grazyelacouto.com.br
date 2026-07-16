@@ -14,6 +14,7 @@ function Header() {
       />
       <div className="containerLinks">
         <Link href={"/"}>Início</Link>
+        <Link href={"/modulo-blazer"}>Módulo Blazer</Link>
         <Link href={"/maratona"}>Maratona</Link>
       </div>
     </S.Header>
