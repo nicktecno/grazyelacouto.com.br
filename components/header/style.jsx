@@ -29,6 +29,11 @@ export const Header = styled.nav`
     width: 125px;
     height: 125px;
     object-fit: contain;
+
+    ${customMedia.lessThan("mobile")`
+      width: 80px;
+      height: 80px;
+    `}
   }
 
   .containerLinks {
@@ -36,6 +41,16 @@ export const Header = styled.nav`
     gap: 20px;
     font-size: 18px;
     font-family: var(--ui-font, "DM Sans", system-ui, sans-serif);
+
+    ${customMedia.lessThan("mobile")`
+      gap: 12px;
+      font-size: 13px;
+    `}
+
+    ${customMedia.lessThan("ipobre")`
+      gap: 8px;
+      font-size: 11px;
+    `}
 
     a {
       transition: 0.3s;

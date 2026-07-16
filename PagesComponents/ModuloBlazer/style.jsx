@@ -184,12 +184,17 @@ export const ManifestoEyebrow = styled.span`
 
 export const ManifestoTitle = styled.h2`
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2.75rem, 6vw, 5.5rem);
+  font-size: clamp(2rem, 6vw, 5.5rem);
   font-weight: 600;
   font-style: italic;
   color: ${PRETO};
-  line-height: 1.15;
+  line-height: 1.2;
   margin: 0 0 2.25rem;
+
+  ${media.lessThan("mobile")`
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.3;
+  `}
 `;
 
 export const ManifestoText = styled.p`
@@ -295,11 +300,16 @@ export const DarkEyebrow = styled.span`
 
 export const DarkTitle = styled.h2`
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2.25rem, 6vw, 5.5rem);
   font-weight: 600;
   color: ${BRANCO};
-  line-height: 1.05;
+  line-height: 1.1;
   margin: 0;
+
+  ${media.lessThan("mobile")`
+    font-size: clamp(1.85rem, 8vw, 2.5rem);
+    line-height: 1.2;
+  `}
 `;
 
 export const DarkTitleAccent = styled.span`
@@ -364,12 +374,17 @@ export const CompleteEyebrow = styled.span`
 
 export const CompleteTitle = styled.h2`
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2.25rem, 6vw, 5.5rem);
   font-weight: 600;
   font-style: italic;
   color: ${PRETO};
   margin: 0;
-  line-height: 1.05;
+  line-height: 1.1;
+
+  ${media.lessThan("mobile")`
+    font-size: clamp(1.85rem, 8vw, 2.5rem);
+    line-height: 1.2;
+  `}
 `;
 
 export const CompleteBody = styled.p`
@@ -473,10 +488,16 @@ export const ContentEyebrow = styled.span`
 
 export const ContentTitle = styled.h2`
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2.75rem, 5.5vw, 5rem);
+  font-size: clamp(2rem, 5.5vw, 5rem);
   font-weight: 600;
   color: ${PRETO};
   margin: 0;
+  line-height: 1.2;
+
+  ${media.lessThan("mobile")`
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.3;
+  `}
 `;
 
 export const ContentGrid = styled.div`
@@ -535,10 +556,16 @@ export const CtaSection = styled.section`
 
 export const CtaTitle = styled.h2`
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2.75rem, 5.5vw, 5.5rem);
+  font-size: clamp(2rem, 5.5vw, 5.5rem);
   font-weight: 600;
   color: ${BRANCO};
   margin: 0;
+  line-height: 1.2;
+
+  ${media.lessThan("mobile")`
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.3;
+  `}
 `;
 
 export const CtaSub = styled.p`
