@@ -38,7 +38,7 @@ export default function ModuloBlazerPage() {
       <S.Hero>
         <S.HeroBg>
           <Image
-            src="/images/modulo-blazer/img5.jpg"
+            src="/images/modulo-blazer/img5.png"
             alt="Grazyela Couto"
             fill
             priority
@@ -47,7 +47,7 @@ export default function ModuloBlazerPage() {
           <S.HeroOverlay />
         </S.HeroBg>
         <S.HeroContent>
-          <S.HeroEyebrow>Grazyela Couto apresenta</S.HeroEyebrow>
+          <S.HeroEyebrow>Por Grazyela Couto · CURSO 100% online</S.HeroEyebrow>
           <S.HeroTitle>
             Módulo<br />
             <S.HeroItalic>Blazer</S.HeroItalic>
