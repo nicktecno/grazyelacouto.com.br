@@ -91,7 +91,7 @@ function SamplePrevArrow(props) {
 }
 
 const sliderSettings = {
-  dots: false,
+  dots: true,
   arrows: true,
   infinite: false,
   speed: 450,

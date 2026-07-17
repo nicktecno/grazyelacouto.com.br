@@ -717,7 +717,7 @@ export const ContainerSliderCategory = styled.div`
   width: 100%;
   position: relative;
   max-width: 1920px;
-  padding: 0 clamp(1.5rem, 4vw, 3rem);
+  padding: 0 clamp(1.5rem, 4vw, 3rem) 3rem;
   box-sizing: border-box;
   color: ${(p) =>
     p.$light ? "var(--atelier-text-on-dark)" : "var(--atelier-ink)"};
@@ -767,6 +767,18 @@ export const ContainerSliderCategory = styled.div`
     opacity: 0.9;
   }
 
+  .slick-dots {
+    bottom: -2rem;
+    li button:before {
+      font-size: 8px;
+      color: currentColor;
+      opacity: 0.3;
+    }
+    li.slick-active button:before {
+      opacity: 1;
+    }
+  }
+
   .category {
     display: flex;
     align-items: center;
@@ -782,7 +794,7 @@ export const ContainerSliderCategory = styled.div`
       width: 100%;
       height: 100%;
       margin: 0;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
       -webkit-user-drag: none;
       touch-action: pan-y;
