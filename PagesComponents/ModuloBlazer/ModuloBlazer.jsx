@@ -38,7 +38,7 @@ export default function ModuloBlazerPage() {
       <S.Hero>
         <S.HeroBg>
           <Image
-            src="/images/modulo-blazer/img5.png"
+            src="/images/modulo-blazer/img5.jpg"
             alt="Grazyela Couto"
             fill
             priority
