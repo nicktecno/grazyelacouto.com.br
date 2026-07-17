@@ -705,7 +705,7 @@ export const CourseImage = styled(Image).attrs({ className: "courseMedia" })`
 
 export const GalleryBlock = styled.section`
   width: 100%;
-  overflow: hidden;
+  overflow-x: clip;
   padding-bottom: clamp(3rem, 6vw, 5rem);
   background: ${(p) =>
     p.$ink ? "var(--atelier-ink-soft)" : "var(--atelier-paper)"};
@@ -765,15 +765,15 @@ export const ContainerSliderCategory = styled.div`
   }
 
   .slick-slider {
-    padding-bottom: 2.5rem;
+    padding-bottom: 3rem;
   }
 
   .slick-dots {
-    bottom: 0;
+    bottom: 0.5rem;
     li button:before {
-      font-size: 8px;
+      font-size: 10px;
       color: currentColor;
-      opacity: 0.3;
+      opacity: 0.35;
     }
     li.slick-active button:before {
       opacity: 1;
