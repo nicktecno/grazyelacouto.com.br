@@ -198,7 +198,7 @@ const GlobalStyles = createGlobalStyle`
         flex-direction:column;
         line-height: 1.5;
         width:100%;
-        overflow-x: hidden;
+        overflow-x: clip;
         margin:0px;
         height:100%;
         width:100%;

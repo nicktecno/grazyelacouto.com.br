@@ -89,7 +89,7 @@ export const GeneralContainer = styled.main`
   background: var(--atelier-paper);
   color: var(--atelier-ink);
   font-family: var(--atelier-body);
-  overflow-x: hidden;
+  overflow-x: clip;
 
   .reveal {
     opacity: 1;
