@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 
 import cover01 from "../../public/images/capa01.jpg";
 import cover02 from "../../public/images/capa02.jpg";
@@ -7,10 +8,6 @@ import cover04 from "../../public/images/capa04.jpg";
 import cover05 from "../../public/images/capa05.png";
 
 import * as S from "./style";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-import Slider from "react-slick";
 
 const COURSE_SEWING = "https://pay.hotmart.com/M72976409H?checkoutMode=10";
 const COURSE_TAILORING =
@@ -44,82 +41,93 @@ const imagesList02 = Object.values(
   ),
 );
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+function GalleryCarousel({ images, light, altPrefix }) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    align: "start",
+    skipSnaps: false,
+    dragFree: false,
+    slidesToScroll: 1,
+    containScroll: "trimSnaps",
+    breakpoints: {
+      "(min-width: 1400px)": { slidesToScroll: 1 },
+    },
+  });
+
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [scrollSnaps, setScrollSnaps] = React.useState([]);
+
+  const onInit = useCallback((api) => {
+    setScrollSnaps(api.scrollSnapList());
+  }, []);
+
+  const onSelect = useCallback((api) => {
+    setSelectedIndex(api.selectedScrollSnap());
+  }, []);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onInit(emblaApi);
+    onSelect(emblaApi);
+    emblaApi.on("reInit", onInit);
+    emblaApi.on("reInit", onSelect);
+    emblaApi.on("select", onSelect);
+  }, [emblaApi, onInit, onSelect]);
+
+  const scrollTo = useCallback(
+    (index) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi],
+  );
+
+  const scrollPrev = useCallback(
+    () => emblaApi && emblaApi.scrollPrev(),
+    [emblaApi],
+  );
+  const scrollNext = useCallback(
+    () => emblaApi && emblaApi.scrollNext(),
+    [emblaApi],
+  );
+
   return (
-    <S.BoxNextArrow>
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: "flex",
-          position: "absolute",
-          height: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "30px",
-          zIndex: 1,
-          right: "0px",
-        }}
-        onClick={onClick}
-      />
-    </S.BoxNextArrow>
+    <S.EmblaRoot>
+      <S.EmblaViewport ref={emblaRef}>
+        <S.EmblaContainer>
+          {images.map((img, index) => (
+            <S.EmblaSlide key={index}>
+              <div className="category">
+                <img
+                  src={img.default.src}
+                  alt={`${altPrefix} ${index + 1}`}
+                  loading="lazy"
+                />
+              </div>
+            </S.EmblaSlide>
+          ))}
+        </S.EmblaContainer>
+      </S.EmblaViewport>
+
+      <S.EmblaControls>
+        <S.EmblaButton onClick={scrollPrev} $light={light} aria-label="Anterior">
+          ‹
+        </S.EmblaButton>
+        <S.EmblaDots>
+          {scrollSnaps.map((_, index) => (
+            <S.EmblaDot
+              key={index}
+              $active={index === selectedIndex}
+              $light={light}
+              onClick={() => scrollTo(index)}
+              aria-label={`Ir para slide ${index + 1}`}
+            />
+          ))}
+        </S.EmblaDots>
+        <S.EmblaButton onClick={scrollNext} $light={light} aria-label="Próximo">
+          ›
+        </S.EmblaButton>
+      </S.EmblaControls>
+    </S.EmblaRoot>
   );
 }
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <S.BoxPrevArrow>
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: "flex",
-          position: "absolute",
-          height: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "30px",
-          zIndex: 1,
-          left: "0px",
-        }}
-        onClick={onClick}
-      />
-    </S.BoxPrevArrow>
-  );
-}
-
-const sliderSettings = {
-  dots: true,
-  arrows: true,
-  infinite: false,
-  speed: 450,
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  swipeToSlide: true,
-  adaptiveHeight: false,
-  responsive: [
-    {
-      breakpoint: 1400,
-      settings: { slidesToShow: 4 },
-    },
-    {
-      breakpoint: 1100,
-      settings: { slidesToShow: 3 },
-    },
-    {
-      breakpoint: 768,
-      settings: { slidesToShow: 2 },
-    },
-    {
-      breakpoint: 480,
-      settings: { slidesToShow: 1 },
-    },
-  ],
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-};
 
 export default function HomePage() {
   const [motionReady, setMotionReady] = React.useState(false);
@@ -274,21 +282,11 @@ export default function HomePage() {
           <S.SectionLabel>Comunidade</S.SectionLabel>
           <h2>Vem ver o que as agulhinhas estão fazendo!</h2>
         </S.SectionIntro>
-        <S.ContainerSliderCategory>
-          <Slider {...sliderSettings}>
-            {imagesList01.map((img, index) => (
-              <div key={`aluna-${index}`}>
-                <div className="category">
-                  <img
-                    src={img.default.src}
-                    alt={`Foto da aluna ${index + 1} — trabalhos e peças da comunidade Grazyela Couto`}
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </S.ContainerSliderCategory>
+        <GalleryCarousel
+          images={imagesList01}
+          altPrefix="Foto da aluna — trabalhos e peças da comunidade Grazyela Couto"
+          light={false}
+        />
       </S.GalleryBlock>
 
       <S.GalleryBlock $ink>
@@ -296,21 +294,11 @@ export default function HomePage() {
           <S.SectionLabel $light>Coleção</S.SectionLabel>
           <h2>Algumas das peças que você irá aprender</h2>
         </S.SectionIntro>
-        <S.ContainerSliderCategory $light>
-          <Slider {...sliderSettings}>
-            {imagesList02.map((img, index) => (
-              <div key={`peca-${index}`}>
-                <div className="category">
-                  <img
-                    src={img.default.src}
-                    alt={`Peça de roupa ${index + 1} que você aprende nos cursos de modelagem e costura`}
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </S.ContainerSliderCategory>
+        <GalleryCarousel
+          images={imagesList02}
+          altPrefix="Peça de roupa que você aprende nos cursos de modelagem e costura"
+          light={true}
+        />
       </S.GalleryBlock>
 
       <S.AboutSection className="reveal" aria-labelledby="prof-title">

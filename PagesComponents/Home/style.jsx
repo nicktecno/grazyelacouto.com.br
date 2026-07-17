@@ -61,29 +61,6 @@ const reducedMotion = css`
   }
 `;
 
-export const BoxNextArrow = styled.div`
-  display: flex;
-
-  .slick-next:before {
-    display: flex;
-    width: 20px;
-    height: 20px;
-    color: currentColor;
-    background-size: 20px 20px;
-  }
-`;
-
-export const BoxPrevArrow = styled.div`
-  display: flex;
-
-  .slick-prev:before {
-    display: flex;
-    width: 20px;
-    height: 20px;
-    color: currentColor;
-    background-size: 20px 20px;
-  }
-`;
 
 export const GeneralContainer = styled.main`
   /* Mesma família cromática, calibrada para contraste WCAG */
@@ -705,7 +682,6 @@ export const CourseImage = styled(Image).attrs({ className: "courseMedia" })`
 
 export const GalleryBlock = styled.section`
   width: 100%;
-  overflow-x: clip;
   padding-bottom: clamp(3rem, 6vw, 5rem);
   background: ${(p) =>
     p.$ink ? "var(--atelier-ink-soft)" : "var(--atelier-paper)"};
@@ -713,79 +689,50 @@ export const GalleryBlock = styled.section`
     p.$ink ? "var(--atelier-text-on-dark)" : "var(--atelier-ink)"};
 `;
 
-export const ContainerSliderCategory = styled.div`
-  display: block;
+export const EmblaRoot = styled.div`
   width: 100%;
-  position: relative;
-  max-width: 1920px;
-  padding: 0 clamp(1.5rem, 4vw, 3rem) 3rem;
+  padding: 0 clamp(1.5rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem);
   box-sizing: border-box;
-  color: ${(p) =>
-    p.$light ? "var(--atelier-text-on-dark)" : "var(--atelier-ink)"};
+`;
 
-  .slick-list {
-    margin: 0 -9px;
-    overflow: hidden;
-    touch-action: pan-y pinch-zoom;
+export const EmblaViewport = styled.div`
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+`;
+
+export const EmblaContainer = styled.div`
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+  will-change: transform;
+
+  @media (min-width: 1400px) {
+    & > * { flex: 0 0 calc((100% - 18px * 4) / 5); }
   }
-
-  .slick-track {
-    display: flex !important;
-    align-items: stretch;
-    margin-left: 0;
+  @media (min-width: 1100px) and (max-width: 1399px) {
+    & > * { flex: 0 0 calc((100% - 18px * 3) / 4); }
   }
-
-  .slick-slide {
-    height: auto;
-    margin: 0 0 1.5rem;
-
-    > div {
-      height: 100%;
-      padding: 0 9px;
-      box-sizing: border-box;
-    }
+  @media (min-width: 768px) and (max-width: 1099px) {
+    & > * { flex: 0 0 calc((100% - 18px * 2) / 3); }
   }
-
-  .slick-next,
-  .slick-prev {
-    z-index: 2;
-    width: 36px;
-    height: 36px;
+  @media (min-width: 480px) and (max-width: 767px) {
+    & > * { flex: 0 0 calc((100% - 18px) / 2); }
   }
-
-  .slick-next:before,
-  .slick-prev:before {
-    display: flex;
-    width: 28px;
-    height: 28px;
-    font-size: 28px;
-    background-size: 24px 24px;
-    color: currentColor;
-    opacity: 0.9;
+  @media (max-width: 479px) {
+    & > * { flex: 0 0 100%; }
   }
+`;
 
-  .slick-slider {
-    padding-bottom: 3rem;
-  }
-
-  .slick-dots {
-    bottom: 0.5rem;
-    li button:before {
-      font-size: 10px;
-      color: currentColor;
-      opacity: 0.35;
-    }
-    li.slick-active button:before {
-      opacity: 1;
-    }
-  }
+export const EmblaSlide = styled.div`
+  min-width: 0;
+  flex-shrink: 0;
 
   .category {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 280px;
     height: clamp(300px, 42vw, 440px);
     overflow: hidden;
     background: rgba(16, 14, 12, 0.04);
@@ -794,11 +741,9 @@ export const ContainerSliderCategory = styled.div`
       display: block;
       width: 100%;
       height: 100%;
-      margin: 0;
       object-fit: cover;
       object-position: center;
       -webkit-user-drag: none;
-      touch-action: pan-y;
       transition:
         transform 0.7s ${easeOutExpo},
         filter 0.55s ease;
@@ -813,17 +758,93 @@ export const ContainerSliderCategory = styled.div`
     }
 
     ${customMedia.lessThan("tablet")`
-      min-height: 240px;
       height: clamp(240px, 55vw, 340px);
-
       img {
-        transition: none !important;
+        transition: none;
         transform: none !important;
-        filter: saturate(0.94) contrast(1.02);
       }
     `}
   }
 `;
+
+export const EmblaControls = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+`;
+
+export const EmblaButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1.5px solid
+    ${(p) =>
+      p.$light
+        ? "rgba(250,249,247,0.45)"
+        : "rgba(16,14,12,0.25)"};
+  background: transparent;
+  color: ${(p) =>
+    p.$light ? "var(--atelier-text-on-dark)" : "var(--atelier-ink)"};
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    background: ${(p) =>
+      p.$light
+        ? "rgba(250,249,247,0.12)"
+        : "rgba(16,14,12,0.07)"};
+    border-color: ${(p) =>
+      p.$light
+        ? "rgba(250,249,247,0.7)"
+        : "rgba(16,14,12,0.5)"};
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--atelier-gold);
+    outline-offset: 2px;
+  }
+`;
+
+export const EmblaDots = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+export const EmblaDot = styled.button`
+  width: ${(p) => (p.$active ? "1.8rem" : "0.5rem")};
+  height: 0.5rem;
+  border-radius: 99px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: ${(p) => {
+    if (p.$light) {
+      return p.$active
+        ? "var(--atelier-gold-bright)"
+        : "rgba(250,249,247,0.35)";
+    }
+    return p.$active ? "var(--atelier-accent)" : "rgba(16,14,12,0.22)";
+  }};
+  transition: width 0.3s ${easeOutExpo}, background 0.3s ease;
+
+  &:focus-visible {
+    outline: 2px solid var(--atelier-gold);
+    outline-offset: 2px;
+  }
+`;
+
+/* Back-compat — kept so Maratona/style.jsx doesn't break */
+export const ContainerSliderCategory = EmblaRoot;
 
 export const AboutSection = styled.section`
   display: grid;
