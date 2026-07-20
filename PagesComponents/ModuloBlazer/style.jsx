@@ -65,9 +65,12 @@ export const Hero = styled.section`
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  background: ${PRETO};
 
   ${media.lessThan("tablet")`
-    min-height: 90vh;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: unset;
   `}
 `;
 
@@ -75,6 +78,14 @@ export const HeroBg = styled.div`
   position: absolute;
   inset: 0;
   z-index: 0;
+
+  ${media.lessThan("tablet")`
+    position: relative;
+    inset: unset;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+  `}
 `;
 
 /* overlay mais escuro na base para garantir leitura do texto */
@@ -87,6 +98,10 @@ export const HeroOverlay = styled.div`
     rgba(5, 0, 0, 0.72) 40%,
     rgba(5, 0, 0, 0.42) 100%
   );
+
+  ${media.lessThan("tablet")`
+    display: none;
+  `}
 `;
 
 export const HeroContent = styled.div`
@@ -99,7 +114,9 @@ export const HeroContent = styled.div`
   animation: ${fadeUp} 0.9s ease both;
 
   ${media.lessThan("tablet")`
-    padding: 0 1.5rem 4.5rem;
+    padding: 2.5rem 1.5rem 4.5rem;
+    background: ${PRETO};
+    width: 100%;
   `}
 `;
 
