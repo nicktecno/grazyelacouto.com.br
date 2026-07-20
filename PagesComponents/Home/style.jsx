@@ -84,8 +84,6 @@ export const GeneralContainer = styled.main`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1920px;
-  align-self: center;
   background: var(--atelier-paper);
   color: var(--atelier-ink);
   font-family: var(--atelier-body);
@@ -148,7 +146,7 @@ export const GeneralContainer = styled.main`
 
 export const Hero = styled.section`
   position: relative;
-  min-height: min(94vh, 960px);
+  min-height: 100vh;
   width: 100%;
   display: flex;
   align-items: flex-end;
@@ -156,7 +154,7 @@ export const Hero = styled.section`
   isolation: isolate;
 
   ${customMedia.lessThan("tablet")`
-    min-height: 82vh;
+    min-height: 100vh;
     align-items: center;
   `}
 `;
@@ -174,17 +172,15 @@ export const HeroMedia = styled.div`
     inset: 0;
     background:
       radial-gradient(
-        ellipse 65% 50% at 78% 30%,
-        transparent 0%,
-        rgba(16, 14, 12, 0.25) 50%,
-        rgba(16, 14, 12, 0.72) 100%
+        ellipse 100% 100% at 50% 50%,
+        rgba(95, 30, 52, 0.32) 0%,
+        rgba(68, 16, 36, 0.62) 100%
       ),
       linear-gradient(
-        108deg,
-        rgba(16, 14, 12, 0.92) 0%,
-        rgba(16, 14, 12, 0.72) 38%,
-        rgba(16, 14, 12, 0.35) 62%,
-        rgba(16, 14, 12, 0.55) 100%
+        180deg,
+        rgba(78, 20, 42, 0.48) 0%,
+        rgba(88, 26, 48, 0.38) 50%,
+        rgba(58, 12, 30, 0.65) 100%
       );
     pointer-events: none;
     animation: ${fadeIn} 1.1s ${easeOutExpo} both;
@@ -213,8 +209,8 @@ export const HeroShade = styled.div`
   height: 42%;
   background: linear-gradient(
     to top,
-    rgba(16, 14, 12, 0.88),
-    rgba(16, 14, 12, 0.35),
+    rgba(50, 10, 28, 0.55),
+    rgba(68, 16, 36, 0.18),
     transparent
   );
   pointer-events: none;
@@ -237,17 +233,11 @@ export const HeroContent = styled.div`
   }
 
   ${customMedia.lessThan("tablet")`
-    > * {
-      opacity: 1;
-      animation: none;
-    }
+    > * { opacity: 1; animation: none; }
   `}
 
   @media (hover: none), (pointer: coarse) {
-    > * {
-      opacity: 1;
-      animation: none;
-    }
+    > * { opacity: 1; animation: none; }
   }
 
   .welcome {
@@ -292,8 +282,7 @@ export const HeroContent = styled.div`
     font-size: clamp(1.2rem, 2.4vw, 1.65rem);
     line-height: 1.5;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
-    max-width: 28ch;
+    max-width: 32ch;
     color: var(--atelier-muted-on-dark);
   }
 
@@ -359,9 +348,7 @@ export const HeroContent = styled.div`
         transform: none;
         box-shadow: none;
 
-        &::after {
-          animation: none;
-        }
+        &::after { animation: none; }
       }
     `}
 
@@ -374,9 +361,7 @@ export const HeroContent = styled.div`
   ${customMedia.lessThan("mobile")`
     max-width: 100%;
 
-    h1 {
-      max-width: none;
-    }
+    h1 { max-width: none; }
 
     .cta {
       align-self: stretch;
@@ -438,11 +423,7 @@ export const VideoSection = styled.section`
   width: 100%;
   padding: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 6vw, 5rem)
     clamp(3rem, 6vw, 5rem);
-  background: linear-gradient(
-    180deg,
-    var(--atelier-mist) 0%,
-    var(--atelier-paper) 100%
-  );
+  background: var(--atelier-paper);
 
   ${customMedia.lessThan("tablet")`
     grid-template-columns: 1fr;
@@ -450,30 +431,51 @@ export const VideoSection = styled.section`
 
   .videoCue {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-inline: clamp(0.5rem, 2vw, 1rem);
 
-    img {
-      width: min(100%, 520px);
-      height: auto;
-      content: url(/images/arrow.jpg);
-      filter: grayscale(0.15) contrast(1.08);
-      animation: ${softFloat} 5.5s ease-in-out infinite;
+    .cueLabel {
+      margin: 0;
+      font-family: var(--atelier-ui);
+      font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+      font-weight: 600;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--atelier-accent);
+    }
+
+    .cueHeading {
+      margin: 0;
+      font-family: var(--atelier-display);
+      font-weight: 500;
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      line-height: 1.1;
+      color: var(--atelier-ink);
+    }
+
+    .cueArrow {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--atelier-gold-deep);
+      line-height: 1;
+      animation: ${softFloat} 3s ease-in-out infinite;
+      display: inline-block;
       ${reducedMotion}
     }
 
     ${customMedia.lessThan("tablet")`
-      img {
-        content: url(/images/arrow2.jpg);
-        width: min(100%, 340px);
+      align-items: center;
+      text-align: center;
+      .cueArrow {
+        transform: rotate(90deg);
         animation: none;
       }
     `}
 
     @media (hover: none), (pointer: coarse) {
-      img {
-        animation: none;
-      }
+      .cueArrow { animation: none; }
     }
   }
 
@@ -680,13 +682,160 @@ export const CourseImage = styled(Image).attrs({ className: "courseMedia" })`
   object-position: center;
 `;
 
+export const ShirtSection = styled.section`
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  min-height: clamp(600px, 84vh, 960px);
+  background: #2c4a38;
+  overflow: hidden;
+
+  ${customMedia.lessThan("notebook")`
+    grid-template-columns: 1fr;
+    min-height: auto;
+  `}
+`;
+
+export const ShirtGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: clamp(0.6rem, 1.2vw, 1rem);
+  padding: clamp(2rem, 3.5vw, 3rem) 0 clamp(2rem, 3.5vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+
+  ${customMedia.lessThan("notebook")`
+    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3rem) 0;
+  `}
+`;
+
+export const ShirtCard = styled.div`
+  position: relative;
+  width: 100%;
+  ${(p) =>
+    p.$main
+      ? "grid-row: 1 / 3; align-self: stretch;"
+      : "aspect-ratio: 3 / 4;"}
+  margin-top: ${(p) => (p.$offset ? "clamp(1rem, 2vw, 1.5rem)" : "0")};
+  overflow: hidden;
+  box-shadow: 0 20px 52px rgba(16, 14, 12, 0.1), 0 3px 10px rgba(16, 14, 12, 0.06);
+  transition: transform 0.8s ${easeOutExpo}, box-shadow 0.8s ${easeOutExpo};
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-6px) scale(1.012);
+      box-shadow: 0 28px 68px rgba(16, 14, 12, 0.16), 0 5px 16px rgba(16, 14, 12, 0.08);
+    }
+  }
+
+  ${customMedia.lessThan("tablet")`
+    transition: none;
+    transform: none !important;
+    margin-top: ${(p) => (p.$offset ? "clamp(1rem, 2vw, 1.5rem)" : "0")};
+  `}
+`;
+
+export const ShirtImg = styled(Image)`
+  object-fit: cover;
+  object-position: center center;
+`;
+
+export const ShirtCopy = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(3.5rem, 7vw, 6.5rem) clamp(2.5rem, 6vw, 5.5rem);
+  gap: clamp(1.2rem, 2vw, 1.8rem);
+
+  .shirtLabel {
+    margin: 0;
+    font-family: var(--atelier-ui);
+    font-size: clamp(0.82rem, 1.1vw, 1rem);
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(185, 218, 200, 0.55);
+  }
+
+  h2 {
+    margin: 0;
+    font-family: var(--atelier-display);
+    font-weight: 500;
+    font-size: clamp(3.8rem, 8vw, 7.5rem);
+    line-height: 1.0;
+    letter-spacing: 0.01em;
+    color: #f5ede0;
+  }
+
+  .shirtDesc {
+    margin: 0;
+    font-family: var(--atelier-body);
+    font-size: clamp(1.1rem, 1.8vw, 1.42rem);
+    line-height: 1.75;
+    color: rgba(222, 240, 228, 0.88);
+    max-width: 30ch;
+  }
+
+  a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    padding: 1.2rem 2.8rem;
+    min-height: 3.5rem;
+    background: transparent;
+    color: #f5ede0 !important;
+    font-family: var(--atelier-ui);
+    font-size: clamp(0.86rem, 1.15vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid rgba(245, 237, 224, 0.45);
+    transition:
+      background 0.45s ${easeOutExpo},
+      border-color 0.45s ${easeOutExpo},
+      transform 0.45s ${easeOutExpo};
+
+    &:hover {
+      background: rgba(245, 237, 224, 0.1);
+      border-color: #f5ede0;
+      transform: translateY(-3px);
+    }
+
+    ${customMedia.lessThan("tablet")`
+      transition: background 0.25s ease, border-color 0.25s ease;
+      &:hover { transform: none; }
+    `}
+
+    &:focus-visible {
+      outline: 2px solid #f5ede0;
+      outline-offset: 3px;
+    }
+  }
+
+  ${customMedia.lessThan("notebook")`
+    align-items: center;
+    text-align: center;
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(3.5rem, 7vw, 5rem);
+    h2 { font-size: clamp(3.2rem, 11vw, 5.5rem); line-height: 1.0; }
+    .shirtDesc { max-width: none; }
+    a { align-self: stretch; }
+  `}
+`;
+
 export const GalleryBlock = styled.section`
   width: 100%;
   padding-bottom: clamp(3rem, 6vw, 5rem);
-  background: ${(p) =>
-    p.$ink ? "var(--atelier-ink-soft)" : "var(--atelier-paper)"};
+  background: ${(p) => {
+    if (p.$wine) return "#4a1220";
+    if (p.$mist) return "var(--atelier-mist)";
+    if (p.$ink) return "var(--atelier-ink-soft)";
+    return "var(--atelier-paper)";
+  }};
   color: ${(p) =>
-    p.$ink ? "var(--atelier-text-on-dark)" : "var(--atelier-ink)"};
+    p.$wine || p.$ink ? "var(--atelier-text-on-dark)" : "var(--atelier-ink)"};
 `;
 
 export const EmblaRoot = styled.div`
@@ -853,13 +1002,8 @@ export const AboutSection = styled.section`
   align-items: center;
   width: 100%;
   padding: clamp(4rem, 8vw, 7rem) clamp(1.75rem, 7vw, 6rem);
-  background: linear-gradient(
-    125deg,
-    var(--atelier-mist) 0%,
-    var(--atelier-paper) 46%,
-    #ddd7cf 100%
-  );
-  color: var(--atelier-ink);
+  background: var(--atelier-ink);
+  color: var(--atelier-text-on-dark);
 
   ${customMedia.lessThan("tablet")`
     grid-template-columns: 1fr;
@@ -883,14 +1027,14 @@ export const AboutSection = styled.section`
       font-weight: 500;
       font-size: clamp(2.4rem, 5vw, 3.85rem);
       line-height: 1.05;
-      color: var(--atelier-ink);
+      color: var(--atelier-text-on-dark);
     }
 
     p {
       margin: 0;
       font-size: clamp(1.15rem, 2.1vw, 1.45rem);
       line-height: 1.75;
-      color: var(--atelier-graphite);
+      color: var(--atelier-text-on-dark);
       font-family: var(--atelier-body);
       font-weight: 400;
     }
@@ -972,6 +1116,402 @@ export const GeoFacts = styled.section`
     line-height: 1.7;
     color: var(--atelier-muted-on-dark);
   }
+`;
+
+export const SewingSection = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  min-height: clamp(600px, 84vh, 960px);
+  background: #2c4a38;
+  overflow: hidden;
+
+  ${customMedia.lessThan("tablet")`
+    grid-template-columns: 1fr;
+    min-height: auto;
+  `}
+`;
+
+export const SewingCopy = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  padding: clamp(3.5rem, 7vw, 6.5rem) clamp(2.5rem, 6vw, 5.5rem);
+  gap: clamp(1.2rem, 2vw, 1.8rem);
+
+  .sewingLabel {
+    margin: 0;
+    font-family: var(--atelier-ui);
+    font-size: clamp(0.82rem, 1.1vw, 1rem);
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(185, 218, 200, 0.55);
+  }
+
+  .sewingTag {
+    margin: 0;
+    font-family: var(--atelier-ui);
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #c8a060;
+  }
+
+  h2 {
+    margin: 0;
+    font-family: var(--atelier-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(5rem, 11vw, 10.5rem);
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+    color: #f5ede0;
+  }
+
+  .sewingDesc {
+    margin: 0;
+    font-family: var(--atelier-body);
+    font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+    line-height: 1.72;
+    color: rgba(222, 240, 228, 0.88);
+    max-width: 32ch;
+  }
+
+  .sewingCta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    padding: 1.2rem 2.8rem;
+    min-height: 3.5rem;
+    background: transparent;
+    color: #f5ede0 !important;
+    font-family: var(--atelier-ui);
+    font-size: clamp(0.86rem, 1.15vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid rgba(245, 237, 224, 0.45);
+    transition:
+      background 0.45s ${easeOutExpo},
+      border-color 0.45s ${easeOutExpo},
+      transform 0.45s ${easeOutExpo};
+
+    &:hover {
+      background: rgba(245, 237, 224, 0.1);
+      border-color: #f5ede0;
+      transform: translateY(-3px);
+    }
+
+    ${customMedia.lessThan("tablet")`
+      transition: background 0.25s ease, border-color 0.25s ease;
+      &:hover { transform: none; }
+    `}
+
+    &:focus-visible {
+      outline: 2px solid #f5ede0;
+      outline-offset: 3px;
+    }
+  }
+
+  ${customMedia.lessThan("tablet")`
+    align-items: center;
+    text-align: center;
+    padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 5vw, 3rem);
+    h2 { font-size: clamp(3.8rem, 13vw, 6rem); }
+    .sewingDesc { max-width: none; }
+  `}
+`;
+
+export const SewingMedia = styled.div`
+  position: relative;
+  margin: clamp(2rem, 3.5vw, 3rem) 0;
+  border-radius: clamp(20px, 3vw, 36px) 0 0 clamp(20px, 3vw, 36px);
+  overflow: hidden;
+
+  ${customMedia.lessThan("tablet")`
+    margin: 0;
+    border-radius: 0;
+    min-height: clamp(360px, 65vw, 520px);
+  `}
+`;
+
+export const SewingImage = styled(Image)`
+  object-fit: cover;
+  object-position: center top;
+`;
+
+export const TailoringSection = styled.section`
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  min-height: clamp(620px, 88vh, 980px);
+  background: #4a1220;
+  overflow: hidden;
+
+  ${customMedia.lessThan("notebook")`
+    grid-template-columns: 1fr;
+    min-height: auto;
+  `}
+`;
+
+export const TailoringCopy = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(3.5rem, 7vw, 6.5rem) clamp(2.5rem, 6vw, 5.5rem);
+  gap: clamp(1.2rem, 2vw, 1.8rem);
+
+  .tailLabel {
+    margin: 0;
+    font-family: var(--atelier-ui);
+    font-size: clamp(0.82rem, 1.1vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: rgba(226, 201, 144, 0.7);
+  }
+
+  h2 {
+    margin: 0;
+    font-family: var(--atelier-display);
+    font-weight: 500;
+    font-size: clamp(4.2rem, 9vw, 8.5rem);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    color: #faf9f7;
+  }
+
+  .tailDesc {
+    margin: 0;
+    font-family: var(--atelier-body);
+    font-size: clamp(1.1rem, 1.8vw, 1.42rem);
+    line-height: 1.75;
+    color: rgba(250, 249, 247, 0.78);
+    max-width: 32ch;
+  }
+
+  a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    padding: 1.2rem 2.8rem;
+    min-height: 3.5rem;
+    background: transparent;
+    color: #faf9f7 !important;
+    font-family: var(--atelier-ui);
+    font-size: clamp(0.86rem, 1.15vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid rgba(250, 249, 247, 0.45);
+    transition:
+      background 0.45s ${easeOutExpo},
+      border-color 0.45s ${easeOutExpo},
+      transform 0.45s ${easeOutExpo};
+
+    &:hover {
+      background: rgba(250, 249, 247, 0.1);
+      border-color: #faf9f7;
+      transform: translateY(-3px);
+    }
+
+    ${customMedia.lessThan("tablet")`
+      transition: background 0.25s ease, border-color 0.25s ease;
+      &:hover { transform: none; }
+    `}
+
+    &:focus-visible {
+      outline: 2px solid rgba(226, 201, 144, 0.7);
+      outline-offset: 3px;
+    }
+  }
+
+  ${customMedia.lessThan("notebook")`
+    align-items: center;
+    text-align: center;
+    padding: clamp(3.5rem, 7vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(2rem, 4vw, 3rem);
+    h2 { font-size: clamp(3.8rem, 13vw, 6rem); }
+    .tailDesc { max-width: none; }
+  `}
+`;
+
+export const TailoringGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.6rem, 1.2vw, 1rem);
+  padding: clamp(2rem, 3.5vw, 3rem) 0 clamp(2rem, 3.5vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+
+  ${customMedia.lessThan("notebook")`
+    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3rem) 0;
+  `}
+`;
+
+export const TailoringCard = styled.div`
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  margin-top: ${(p) => (p.$offset ? "clamp(1.5rem, 3vw, 2.5rem)" : "0")};
+  overflow: hidden;
+  background: #f5f0ea;
+  box-shadow: 0 16px 48px rgba(30, 4, 12, 0.28), 0 3px 10px rgba(30, 4, 12, 0.16);
+  transition: transform 0.8s ${easeOutExpo}, box-shadow 0.8s ${easeOutExpo};
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: 0 24px 60px rgba(30, 4, 12, 0.36), 0 5px 16px rgba(30, 4, 12, 0.2);
+    }
+  }
+
+  ${customMedia.lessThan("tablet")`
+    transition: none;
+    transform: none !important;
+    margin-top: ${(p) => (p.$offset ? "clamp(1rem, 2vw, 1.5rem)" : "0")};
+  `}
+`;
+
+export const TailoringImg = styled(Image)`
+  object-fit: cover;
+  object-position: center top;
+`;
+
+export const ComboSection = styled.section`
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  min-height: clamp(600px, 84vh, 960px);
+  background: #ede8e1;
+  overflow: hidden;
+
+  ${customMedia.lessThan("notebook")`
+    grid-template-columns: 1fr;
+    min-height: auto;
+  `}
+`;
+
+export const ComboCopy = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(3.5rem, 7vw, 6.5rem) clamp(2.5rem, 6vw, 5.5rem);
+  gap: clamp(1.2rem, 2vw, 1.8rem);
+
+  .comboLabel {
+    margin: 0;
+    font-family: var(--atelier-ui);
+    font-size: clamp(0.82rem, 1.1vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: #5c1b32;
+    opacity: 0.75;
+  }
+
+  h2 {
+    margin: 0;
+    font-family: var(--atelier-display);
+    font-weight: 500;
+    font-size: clamp(3.4rem, 7vw, 6.5rem);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    color: #3d1020;
+
+    em {
+      font-style: italic;
+      color: #5c1b32;
+    }
+  }
+
+  .comboDesc {
+    margin: 0;
+    font-family: var(--atelier-body);
+    font-size: clamp(1.1rem, 1.8vw, 1.42rem);
+    line-height: 1.75;
+    color: #5a3a3a;
+    max-width: 32ch;
+  }
+
+  a {
+    ${ctaLuxury}
+    margin-top: 0.5rem;
+    background: #5c1b32;
+    border-color: #5c1b32;
+    color: var(--atelier-text-on-dark) !important;
+
+    &:hover {
+      background: #7a2342;
+      border-color: #7a2342;
+      color: var(--atelier-text-on-dark) !important;
+      transform: translateY(-3px);
+    }
+  }
+
+  ${customMedia.lessThan("notebook")`
+    align-items: center;
+    text-align: center;
+    padding: clamp(3.5rem, 7vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(2rem, 4vw, 3rem);
+    h2 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+    .comboDesc { max-width: none; }
+    a { align-self: stretch; }
+  `}
+`;
+
+export const ComboHeader = styled.div``;
+
+export const ComboGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: clamp(0.6rem, 1.2vw, 1rem);
+  padding: clamp(2rem, 3.5vw, 3rem) clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 3.5vw, 3rem) 0;
+
+  ${customMedia.lessThan("notebook")`
+    padding: 0 clamp(1.5rem, 5vw, 3rem) clamp(3rem, 6vw, 4.5rem);
+  `}
+`;
+
+export const ComboImgWrap = styled.div`
+  position: relative;
+  width: 100%;
+  ${(p) =>
+    p.$main
+      ? "grid-row: 1 / 3; align-self: stretch;"
+      : "aspect-ratio: 3 / 4;"}
+  margin-top: ${(p) => (p.$offset ? "clamp(1rem, 2vw, 1.5rem)" : "0")};
+  border-radius: clamp(14px, 1.8vw, 24px);
+  overflow: hidden;
+  box-shadow: 0 20px 52px rgba(40, 8, 18, 0.13), 0 3px 10px rgba(40, 8, 18, 0.07);
+  transition: transform 0.8s ${easeOutExpo}, box-shadow 0.8s ${easeOutExpo};
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translateY(-6px) scale(1.012);
+      box-shadow: 0 28px 68px rgba(40, 8, 18, 0.2), 0 5px 16px rgba(40, 8, 18, 0.1);
+    }
+  }
+
+  ${customMedia.lessThan("tablet")`
+    transition: none;
+    transform: none !important;
+    margin-top: ${(p) => (p.$offset ? "clamp(1rem, 2vw, 1.5rem)" : "0")};
+  `}
+`;
+
+export const ComboImg = styled(Image)`
+  object-fit: cover;
+  object-position: center center;
 `;
 
 /* Back-compat aliases */

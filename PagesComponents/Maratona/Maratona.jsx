@@ -9,7 +9,6 @@ import m05 from "../../public/images/maratona/05.PNG";
 import m06 from "../../public/images/maratona/06.PNG";
 import m07 from "../../public/images/maratona/07.PNG";
 import m08 from "../../public/images/maratona/08.PNG";
-import cover09 from "../../public/images/capa05.png";
 
 import * as S from "./style";
 
@@ -178,21 +177,7 @@ export default function MaratonaPage() {
           </Link>
         </div>
       </S.ContainerSocialMedia>
-      <S.Container03>
-        <S.ImageCover04
-          src={cover09}
-          alt="imagem de Grazyela Couto segurando uma máquina de costura"
-        />
-        <div className="containerData">
-          <div className="title">Quem será a Prof?</div>
-          <div className="data">
-            Grazyela Couto, Estilista, Modelista e Costureira, a mais de 4 anos
-            trabalhando nesse ramo, onde teve sua marca de roupas durantes 2
-            anos e encontrou a paixão em ensinar. Ela diz e deixa o incentivo
-            que costurar não é dom! Vem comigo Agulhinha!!
-          </div>
-        </div>
-      </S.Container03>
+      <S.BlackBackground />
     </S.GeneralContainer>
   );
 }

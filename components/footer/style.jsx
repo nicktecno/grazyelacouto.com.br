@@ -13,19 +13,17 @@ const customMedia = generateMedia({
 });
 
 export const Footer = styled.nav`
-  max-width: 1920px;
-  align-self: center;
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background: var(--footer-background-color);
   width: 100%;
-  justify-content: space-between;
+  align-self: stretch;
+  justify-content: center;
   align-items: center;
   padding: 0px 20px;
-  flex-direction: column;
   box-shadow: var(--box-shadow);
-  margin-top: 50px;
+  margin-top: 0;
 
   img {
     width: 125px;

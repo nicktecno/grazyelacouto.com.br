@@ -724,6 +724,12 @@ export const ImageCover04 = styled(Image)`
         `}
 `;
 
+export const BlackBackground = styled.div`
+  width: 100%;
+  background: #000;
+  height: 80px;
+`;
+
 export const Container03 = styled.div`
   display: flex;
   width: 100%;
@@ -731,6 +737,7 @@ export const Container03 = styled.div`
   align-items: center;
   margin-top: 50px;
   padding: 0px 10px;
+  background: #000;
 
   .title {
     display: flex;
@@ -738,6 +745,7 @@ export const Container03 = styled.div`
     font-family: "Cormorant Garamond", Georgia, serif !important;
     font-weight: bold;
     line-height: 50px;
+    color: #fff;
 
     ${customMedia.lessThan("tablet")`
           font-size:40px;
@@ -756,6 +764,7 @@ export const Container03 = styled.div`
     margin-top: 25px;
     line-height: 35px;
     font-family: "Cormorant Garamond", Georgia, serif !important;
+    color: #fff;
 
     ${customMedia.lessThan("mobile")`
     line-height:25px;

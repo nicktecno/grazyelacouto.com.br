@@ -3,9 +3,17 @@ import useEmblaCarousel from "embla-carousel-react";
 
 import cover01 from "../../public/images/capa01.jpg";
 import cover02 from "../../public/images/capa02.jpg";
-import cover03 from "../../public/images/capa03.jpg";
-import cover04 from "../../public/images/capa04.jpg";
 import cover05 from "../../public/images/capa05.png";
+import alfaiataria01 from "../../public/images/alfaiataria01.png";
+import alfaiataria02 from "../../public/images/alfaiataria02.png";
+import alfaiataria03 from "../../public/images/alfaiataria03.png";
+import alfaiataria04 from "../../public/images/alfaiataria04.png";
+import camisa01 from "../../public/images/camisa01.png";
+import camisa02 from "../../public/images/camisa02.png";
+import camisa03 from "../../public/images/camisa03.png";
+import combo01 from "../../public/images/combo01.jpg";
+import combo02 from "../../public/images/combo02.png";
+import combo03 from "../../public/images/combo03.jpg";
 
 import * as S from "./style";
 
@@ -13,6 +21,7 @@ const COURSE_SEWING = "https://pay.hotmart.com/M72976409H?checkoutMode=10";
 const COURSE_TAILORING =
   "https://grazyela1467.kpages.online/pagina-de-vendas-0d6785df-66ec-4cfb-929f-d37e4340020a";
 const COURSE_COMBO = "https://pay.hotmart.com/X73383978V";
+const MOLDE_CAMISA = "https://pay.hotmart.com/R106672757A?fbclid=PAZnRzaATLZ-tmdHNoBL9XaXBkb2YCZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGnxneSZmnYA5-p6xX5YhVm3_2Kd4UgXr_78weBosHH2vQXifW-1wB5Qe10Qg8_aem_UCxOxNu_aza9T8bi_-USsQ&bid=1783789579638&mcp_token=eyJwaWQiOjQ1NDgyMTksInNpZCI6MzM1Mjg4NTIwLCJheCI6IjM5ODE1ODdiOWM4YjQ3ZjFhYzA1NTI4ZTlhMGQ5ZGZlIiwidHMiOjE3ODQ1ODAyNDUsImV4cCI6MTc4Njk5OTQ0NX0.g6EmjKSNk-sYnRmvRJgHen_kvPMVL7QU2CEGgOX0NjY";
 
 function importAll(r) {
   let images = {};
@@ -181,9 +190,9 @@ export default function HomePage() {
         </S.HeroMedia>
         <S.HeroContent>
           <p className="welcome">— Bem Vindas</p>
-          <p className="brand">Grazyela Couto</p>
+          <p className="brand">Costura e Modelagem<br />com Grazyela Couto</p>
           <span className="brandLine" aria-hidden="true" />
-          <h1>Realize seu Sonho de Fazer Suas Próprias Roupas!</h1>
+          <h1>Costure com confiança. Crie peças que você terá orgulho de vestir.</h1>
           <a className="cta" href="/#cursos">
             Quero agora meu curso!
           </a>
@@ -197,7 +206,9 @@ export default function HomePage() {
 
       <S.VideoSection className="reveal">
         <div className="videoCue">
-          <img alt="seta para a direita" />
+          <p className="cueLabel">Assista agora</p>
+          <p className="cueHeading">Conheça os<br />cursos em<br />vídeo</p>
+          <span className="cueArrow" aria-hidden="true">→</span>
         </div>
         <div className="videoFrame">
           <iframe
@@ -212,92 +223,166 @@ export default function HomePage() {
         </div>
       </S.VideoSection>
 
-      <S.CourseSection className="reveal">
-        <div className="copy">
-          <h2>Aprenda a Costurar</h2>
-          <p>
-            Nesse curso mesmo que você saiba pouco ou nada sobre costura, vamos
-            aprender juntinhas, Costurar e Modelar seus moldes base, para
-            modelos de blusa, saia, vestidos! Transformaremos esses moldes para
-            executar outras lindas peças do mesmo nicho. Com todo o meu auxilio
-            e mostro como você pode se apaixonar por esse mundo da Costura.
+      <S.SewingSection className="reveal">
+        <S.SewingCopy>
+          <p className="sewingLabel">Sua base para a costura profissional</p>
+          <p className="sewingTag">Curso Online</p>
+          <h2>"Aprenda a<br />Costurar"</h2>
+          <p className="sewingDesc">
+            Do Zero ao Avançado<br />
+            Um método completo que reúne modelagem, técnicas de costura e
+            acabamento para você evoluir do básico ao avançado com confiança.
           </p>
-          <a href={COURSE_SEWING} target="_blank" rel="noopener noreferrer">
+          <a className="sewingCta" href={COURSE_SEWING} target="_blank" rel="noopener noreferrer">
             Quero agora!
           </a>
-        </div>
-        <S.CourseImage
-          src={cover02}
-          alt="Grazyela Couto costurando em uma máquina de costura industrial"
-          width={1600}
-          height={1066}
-        />
-      </S.CourseSection>
+        </S.SewingCopy>
+        <S.SewingMedia>
+          <S.SewingImage
+            src={cover02}
+            alt="Grazyela Couto costurando em uma máquina de costura"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </S.SewingMedia>
+      </S.SewingSection>
 
-      <S.CourseSection $reverse className="reveal">
-        <div className="copy">
-          <h2>Peças de Alfaiataria</h2>
-          <p>
+      <S.TailoringSection className="reveal">
+        <S.TailoringGrid>
+          <S.TailoringCard>
+            <S.TailoringImg src={alfaiataria01} alt="Ilustração de moda — saia midi xadrez com camisa" fill sizes="(max-width: 768px) 50vw, 25vw" />
+          </S.TailoringCard>
+          <S.TailoringCard $offset>
+            <S.TailoringImg src={alfaiataria02} alt="Ilustração de moda — blazer verde com calça wide leg" fill sizes="(max-width: 768px) 50vw, 25vw" />
+          </S.TailoringCard>
+          <S.TailoringCard>
+            <S.TailoringImg src={alfaiataria03} alt="Ilustração de moda — conjunto vermelho com saia longa" fill sizes="(max-width: 768px) 50vw, 25vw" />
+          </S.TailoringCard>
+          <S.TailoringCard $offset>
+            <S.TailoringImg src={alfaiataria04} alt="Ilustração de moda — blazer alfaiataria close-up" fill sizes="(max-width: 768px) 50vw, 25vw" />
+          </S.TailoringCard>
+        </S.TailoringGrid>
+        <S.TailoringCopy>
+          <p className="tailLabel">Curso Online</p>
+          <h2>Peças de<br />Alfaiataria</h2>
+          <p className="tailDesc">
             Quer desenvolver suas habilidades na costura, produzindo peças de
             alfaiataria, como um blazer, uma calça e uma salopete? Você irá
             aprender tudo isso nesse curso, desde a modelagem, corte e costura e
             até mesmo aprender a fazer seu desenho fashion, o famoso croqui de
-            moda. Esse curso tem o nível intermediário para avançado. Você não
-            vai perder esssa oportunidade né?
+            moda. Nível intermediário a avançado.
           </p>
           <a href={COURSE_TAILORING} target="_blank" rel="noopener noreferrer">
             Quero agora!
           </a>
-        </div>
-        <S.CourseImage
-          src={cover03}
-          alt="Grazyela Couto ao lado de um manequim com uma tesoura na mão"
-          width={600}
-          height={337}
-        />
-      </S.CourseSection>
+        </S.TailoringCopy>
+      </S.TailoringSection>
 
-      <S.CourseSection className="reveal">
-        <div className="copy">
-          <h2>Combo Torne-se uma Estilista do Zero</h2>
-          <p>
-            Sabe aquele famoso 2 em 1? É exatamente o que esse combo significa.
-            Nele você terá acesso aos meus dois cursos, vai sair do total zero e
-            chegar ao nível de fazer peças alfaiataria.
+      <S.ComboSection className="reveal">
+        <S.ComboCopy>
+          <p className="comboLabel">Acesso de 5 anos</p>
+          <h2>Tenha acesso<br />aos 2 em um <em>COMBO</em></h2>
+          <p className="comboDesc">
+            Combine os dois cursos e domine desde a costura básica até as peças
+            de alfaiataria mais sofisticadas — tudo em um único acesso.
           </p>
           <a href={COURSE_COMBO} target="_blank" rel="noopener noreferrer">
             Quero agora!
           </a>
-        </div>
-        <S.CourseImage
-          src={cover04}
-          alt="Grazyela Couto segurando uma máquina de costura"
-          width={1024}
-          height={576}
-        />
-      </S.CourseSection>
+        </S.ComboCopy>
+        <S.ComboGrid>
+          <S.ComboImgWrap $main>
+            <S.ComboImg
+              src={combo01}
+              alt="Grazyela Couto sorrindo com máquina de costura Singer"
+              fill
+              sizes="(max-width: 768px) 50vw, 28vw"
+            />
+          </S.ComboImgWrap>
+          <S.ComboImgWrap>
+            <S.ComboImg
+              src={combo02}
+              alt="Mão apontando para máquina de costura Singer"
+              fill
+              sizes="(max-width: 768px) 50vw, 28vw"
+            />
+          </S.ComboImgWrap>
+          <S.ComboImgWrap $offset>
+            <S.ComboImg
+              src={combo03}
+              alt="Grazyela Couto com as mãos no rosto olhando para a câmera"
+              fill
+              sizes="(max-width: 768px) 50vw, 28vw"
+            />
+          </S.ComboImgWrap>
+        </S.ComboGrid>
+      </S.ComboSection>
 
-      <S.GalleryBlock>
-        <S.SectionIntro className="reveal">
-          <S.SectionLabel>Comunidade</S.SectionLabel>
+      <S.ShirtSection className="reveal">
+        <S.ShirtGrid>
+          <S.ShirtCard $main>
+            <S.ShirtImg
+              src={camisa01}
+              alt="Grazyela Couto vestindo camisa clássica rosa — frente"
+              fill
+              sizes="(max-width: 768px) 50vw, 28vw"
+              style={{ objectPosition: "center 20%" }}
+            />
+          </S.ShirtCard>
+          <S.ShirtCard>
+            <S.ShirtImg
+              src={camisa02}
+              alt="Grazyela Couto vestindo camisa clássica rosa — costas"
+              fill
+              sizes="(max-width: 768px) 50vw, 28vw"
+              style={{ objectPosition: "center 18%" }}
+            />
+          </S.ShirtCard>
+          <S.ShirtCard $offset>
+            <S.ShirtImg
+              src={camisa03}
+              alt="Grazyela Couto — close-up da camisa clássica rosa"
+              fill
+              sizes="(max-width: 768px) 50vw, 28vw"
+              style={{ objectPosition: "center 15%" }}
+            />
+          </S.ShirtCard>
+        </S.ShirtGrid>
+        <S.ShirtCopy>
+          <p className="shirtLabel">Molde Digital</p>
+          <h2>Faça sua<br />Camisa<br />Clássica</h2>
+          <p className="shirtDesc">
+            Molde pronto para baixar e costurar a camisa clássica perfeita.
+            Disponível em vários tamanhos, com instruções completas de
+            modelagem, corte e montagem.
+          </p>
+          <a href={MOLDE_CAMISA} target="_blank" rel="noopener noreferrer">
+            Molde Pronto
+          </a>
+        </S.ShirtCopy>
+      </S.ShirtSection>
+
+      <S.GalleryBlock $wine>
+        <S.SectionIntro $light className="reveal">
+          <S.SectionLabel $light>Comunidade</S.SectionLabel>
           <h2>Vem ver o que as agulhinhas estão fazendo!</h2>
         </S.SectionIntro>
         <GalleryCarousel
           images={imagesList01}
           altPrefix="Foto da aluna — trabalhos e peças da comunidade Grazyela Couto"
-          light={false}
+          light={true}
         />
       </S.GalleryBlock>
 
-      <S.GalleryBlock $ink>
-        <S.SectionIntro $light className="reveal">
-          <S.SectionLabel $light>Coleção</S.SectionLabel>
+      <S.GalleryBlock $mist>
+        <S.SectionIntro className="reveal">
+          <S.SectionLabel>Coleção</S.SectionLabel>
           <h2>Algumas das peças que você irá aprender</h2>
         </S.SectionIntro>
         <GalleryCarousel
           images={imagesList02}
           altPrefix="Peça de roupa que você aprende nos cursos de modelagem e costura"
-          light={true}
+          light={false}
         />
       </S.GalleryBlock>
 

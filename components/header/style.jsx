@@ -13,8 +13,6 @@ const customMedia = generateMedia({
 });
 
 export const Header = styled.nav`
-  max-width: 1920px;
-  align-self: center;
   position: relative;
   display: flex;
   flex-direction: row;
