@@ -117,6 +117,8 @@ export const HeroContent = styled.div`
     padding: 2.5rem 1.5rem 4.5rem;
     background: ${PRETO};
     width: 100%;
+    align-items: center;
+    text-align: center;
   `}
 `;
 
