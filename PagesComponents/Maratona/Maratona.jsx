@@ -65,9 +65,9 @@ export default function MaratonaPage() {
         <S.HeroContent>
           <p className="welcome">— Evento Online</p>
           <p className="brand">
-            Maratona Vestido
+            Maratona
             <br />
-            Verona
+            Vestido Verona
           </p>
           <span className="brandLine" aria-hidden="true" />
           <h1>Dos dias 28/09 a 12/10</h1>
