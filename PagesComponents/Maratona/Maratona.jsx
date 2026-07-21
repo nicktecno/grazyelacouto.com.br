@@ -1,183 +1,244 @@
-import React from "react";
-
-import m00 from "../../public/images/maratona/00.PNG";
-import m01 from "../../public/images/maratona/01.PNG";
-import m02 from "../../public/images/maratona/02.PNG";
-import m03 from "../../public/images/maratona/03.PNG";
-import m04 from "../../public/images/maratona/04.PNG";
-import m05 from "../../public/images/maratona/05.PNG";
-import m06 from "../../public/images/maratona/06.PNG";
-import m07 from "../../public/images/maratona/07.PNG";
-import m08 from "../../public/images/maratona/08.PNG";
-
+import React, { useEffect } from "react";
 import * as S from "./style";
 
-import { Telegram } from "@styled-icons/boxicons-logos/Telegram";
-import { Whatsapp } from "@styled-icons/boxicons-logos/Whatsapp";
-import Link from "next/link";
-
-const cover01 = m00;
-const cover02 = m01;
-const cover03 = m02;
-const cover04 = m03;
-const cover05 = m04;
-const cover06 = m05;
-const cover07 = m06;
-const cover08 = m07;
-const cover11 = m08;
+import heroImg from "../../public/images/maratona/00.PNG";
+import cardFront from "../../public/images/maratona/01.PNG";
+import cardSide from "../../public/images/maratona/02.PNG";
+import cardTrio from "../../public/images/maratona/03.PNG";
+import featuresImg from "../../public/images/maratona/04.PNG";
+import variacoesImg from "../../public/images/maratona/05.PNG";
 
 const HOTMART_CHECKOUT =
-  "https://pay.hotmart.com/G105717138M?bid=1778094668954";
+  "https://pay.hotmart.com/B101360900J?sck=HOTMART_PRODUCT_PAGE&off=r00dm5jg&hotfeature=32&_gl=1*dr6n49*_gcl_au*MTkwMTQ3ODY4OC4xNzg0MjEzNjI2*_ga*NTc4MDYwMzUzLjE3ODQyMTM2MjY.*_ga_GQH2V1F11Q*czE3ODQ2NDA0NjEkbzckZzEkdDE3ODQ2NDA0NjEkajYwJGwwJGgxNTEyMDUwMzg1&bid=1784640468512";
 
 export default function MaratonaPage() {
+  const [motionReady, setMotionReady] = React.useState(false);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const isNarrow = window.matchMedia("(max-width: 768px)").matches;
+    const skipReveal = reduceMotion || isCoarsePointer || isNarrow;
+
+    const nodes = document.querySelectorAll(".reveal");
+
+    if (skipReveal) {
+      nodes.forEach((node) => node.classList.add("is-visible"));
+      setMotionReady(false);
+      return undefined;
+    }
+
+    setMotionReady(true);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+    );
+
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <S.GeneralContainer>
-      <S.Container01>
-        <div className="primary">
-          <S.ImageHitboxWrap>
-            <S.ImageCoverFill
-              src={cover01}
-              priority={true}
-              alt="imagem de Grazyela Couto com o Casaco Perfeito"
-            />
-            <S.CtaHitArea
-              href={HOTMART_CHECKOUT}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Quero minha vaga na maratona Casaco Perfeito"
-              title="Quero minha vaga"
-              $top="71%"
-              $left="5%"
-              $width="38%"
-              $height="11%"
-            />
-          </S.ImageHitboxWrap>
-          {/* <div className="containerText">
-            <span className="bold">Maratona</span>
-            <span>Casaco Perfeito</span> */}
-          {/* <span className="lemon">Especial</span> */}
-          {/* </div> */}
-        </div>
-      </S.Container01>
-      {/* <S.Container01 className="secondary">
-        <div className="containerData secondary">
+    <S.GeneralContainer $motionReady={motionReady}>
+      {/* ── HERO ── */}
+      <S.Hero as="header" aria-label="Maratona Vestido Verona — inscrições abertas">
+        <S.HeroMedia>
+          <S.HeroImage
+            src={heroImg}
+            alt="Grazyela Couto vestindo o Vestido Verona borgonha, segurando a gola com as mãos"
+            priority
+            fill
+            sizes="100vw"
+          />
+          <S.HeroShade aria-hidden="true" />
+        </S.HeroMedia>
+        <S.HeroContent>
+          <p className="welcome">— Evento Online</p>
+          <p className="brand">
+            Maratona Vestido
+            <br />
+            Verona
+          </p>
+          <span className="brandLine" aria-hidden="true" />
+          <h1>Dos dias 28/09 a 12/10</h1>
           <a
-            target="_blank"
+            className="cta"
             href={HOTMART_CHECKOUT}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Começar inscrição na Maratona Vestido Verona"
           >
-            Inscreva-se
+            Começar
+          </a>
+        </S.HeroContent>
+      </S.Hero>
+
+      {/* ── BANNER CLÁSSICO ── */}
+      <S.ClassicBanner className="reveal">
+        <p>
+          Crie seu vestido{" "}
+          <strong>Clássico e Atemporal&nbsp;!</strong>
+        </p>
+      </S.ClassicBanner>
+
+      {/* ── CARDS ILUSTRAÇÕES ── */}
+      <S.CardsSection
+        className="reveal"
+        aria-label="Ilustrações do Vestido Verona"
+      >
+        <div className="cardsGrid">
+          <S.IllustrationCard>
+            <S.IllustrationImg
+              src={cardFront}
+              alt="Ilustração do Vestido Verona — vista frontal, vestido branco com cinto vermelho"
+              fill
+              sizes="(max-width: 768px) 80vw, 28vw"
+            />
+          </S.IllustrationCard>
+          <S.IllustrationCard>
+            <S.IllustrationImg
+              src={cardSide}
+              alt="Ilustração do Vestido Verona — vista lateral, destacando a saia rodada"
+              fill
+              sizes="(max-width: 768px) 80vw, 28vw"
+            />
+          </S.IllustrationCard>
+          <S.IllustrationCard>
+            <S.IllustrationImg
+              src={cardTrio}
+              alt="Ilustração do Vestido Verona — três perspectivas: frente, diagonal e lateral"
+              fill
+              sizes="(max-width: 768px) 80vw, 28vw"
+            />
+          </S.IllustrationCard>
+        </div>
+
+        <a
+          className="accessCta"
+          href={HOTMART_CHECKOUT}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Quero meu acesso à Maratona Vestido Verona"
+        >
+          Meu acesso&nbsp;→
+        </a>
+      </S.CardsSection>
+
+      {/* ── O QUE É A MARATONA ── */}
+      <S.AboutSection className="reveal" aria-labelledby="about-title">
+        <div className="copy">
+          <S.SectionLabel>Sobre o evento</S.SectionLabel>
+          <h2 id="about-title">O que seria a maratona?</h2>
+          <p>
+            A Maratona é uma experiência prática e guiada, criada para que você
+            desenvolva uma peça completa do zero, aprendendo cada etapa da
+            modelagem e da costura de forma clara, organizada e sem
+            complicações.
+          </p>
+          <p>
+            Durante os encontros, você acompanha todo o processo, tira dúvidas
+            e evolui junto com outras alunas apaixonadas por costura.
+          </p>
+        </div>
+      </S.AboutSection>
+
+      {/* ── O QUE VOU ENCONTRAR ── */}
+      <S.FeaturesSection className="reveal" aria-labelledby="features-title">
+        <div className="featuresCopy">
+          <S.SectionLabelLight>Conteúdo</S.SectionLabelLight>
+          <h2 id="features-title">O que vou encontrar?</h2>
+          <ul>
+            <li>Aulas práticas e didáticas, do início ao fim.</li>
+            <li>Modelagem completa da peça.</li>
+            <li>
+              Técnicas de corte e preparação do tecido. Passo a passo detalhado
+              da costura.
+            </li>
+            <li>Acabamentos profissionais.</li>
+            <li>Dicas de caimento, ajustes e modelagem.</li>
+            <li>Explicações sobre materiais e tecidos ideais.</li>
+            <li>Suporte e interação durante a maratona.</li>
+            <li>
+              A oportunidade de concluir uma peça linda, feita por você.
+            </li>
+          </ul>
+        </div>
+        <S.FeaturesMedia>
+          <S.FeaturesImg
+            src={featuresImg}
+            alt="Três perspectivas do Vestido Verona em ilustração — frente, diagonal e lateral"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </S.FeaturesMedia>
+      </S.FeaturesSection>
+
+      {/* ── CRONOGRAMA ── */}
+      <S.ScheduleSection className="reveal" aria-labelledby="schedule-title">
+        <h2 id="schedule-title">Cronograma</h2>
+        <div className="scheduleItems">
+          <div className="scheduleItem">
+            <span className="week">1ª Semana</span>
+            <p>de Modelagem e Corte.</p>
+          </div>
+          <div className="divider" aria-hidden="true" />
+          <div className="scheduleItem">
+            <span className="week">2ª Semana</span>
+            <p>de Costura</p>
+          </div>
+          <div className="divider" aria-hidden="true" />
+          <div className="scheduleItem highlight">
+            <span className="week">15 dias</span>
+            <p>de Acesso e Live de Suporte</p>
+          </div>
+        </div>
+
+        <div className="accessInfo">
+          <p>
+            <strong>Acesso Dentro da Plataforma da Hotmart</strong>
+          </p>
+          <p>
+            Ao fazer seu cadastro você receberá um e-mail de acesso às aulas que
+            se iniciam dia{" "}
+            <strong>28/09&nbsp;—&nbsp;12/10</strong>.
+          </p>
+        </div>
+      </S.ScheduleSection>
+
+      {/* ── VARIAÇÕES + CTA FINAL ── */}
+      <S.VariationsSection
+        className="reveal"
+        aria-label="Vestido Verona e suas variações"
+      >
+        <S.VariationsMedia>
+          <S.VariationsImg
+            src={variacoesImg}
+            alt="Vestido Verona e Suas Variações — coleção de estilos: azul, borgonha, marinho e verde"
+            fill
+            sizes="(max-width: 768px) 100vw, 60vw"
+          />
+        </S.VariationsMedia>
+        <div className="variationsCta">
+          <a
+            href={HOTMART_CHECKOUT}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Quero meu acesso à Maratona Vestido Verona"
+          >
+            Meu acesso&nbsp;→
           </a>
         </div>
-      </S.Container01> */}
-      <S.Container01 className="third">
-        <S.ImageCoverFill
-          src={cover02}
-          priority={false}
-          alt="imagem de Grazyela Couto com o Casaco Perfeito anunciando a data da maratona"
-        />
-      </S.Container01>
-
-      <S.Container01 className="third">
-        <S.ImageHitboxWrap>
-          <S.ImageCoverFill
-            src={cover03}
-            priority={false}
-            alt="imagem de Grazyela Couto com o Casaco Perfeito anunciando a data da maratona que vai ser um sucesso"
-          />
-          <S.CtaHitArea
-            href={HOTMART_CHECKOUT}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Quero participar da maratona Casaco Perfeito"
-            title="Quero participar"
-            $bottom="5.5%"
-            $left="8%"
-            $width="84%"
-            $height="12%"
-          />
-        </S.ImageHitboxWrap>
-      </S.Container01>
-
-      <S.Container01 className="third">
-        <S.ImageCover05
-          src={cover04}
-          alt="Montagem com 3 Grazyelas usando o Casaco Perfeito representando os processos de modelagem, corte e costura"
-        />
-      </S.Container01>
-
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05
-            src={cover05}
-            alt="Tres imagens da Grazyela Couto usando o Casaco Perfeito"
-          />
-        </div>
-      </S.Container01>
-      <S.Container01 className="third">
-        <S.ImageHitboxWrap className="containerImageOnly">
-          <S.ImageCover05
-            src={cover06}
-            alt="A verdade é: nunca deixamos de aprender"
-          />
-          <S.CtaHitArea
-            href={HOTMART_CHECKOUT}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Inscreva-se na maratona Casaco Perfeito"
-            title="Inscreva-se"
-            $top="42%"
-            $left="28%"
-            $width="44%"
-            $height="12%"
-            $radius="9999px"
-          />
-        </S.ImageHitboxWrap>
-      </S.Container01>
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05
-            src={cover07}
-            alt="Esse evento é para você que é iniciante na costura ou quer se profissionalizar!"
-          />
-        </div>
-      </S.Container01>
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05
-            src={cover08}
-            alt="Para quem é a maratona Casaco Perfeito"
-          />
-        </div>
-      </S.Container01>
-      {/* <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05
-            src={cover10}
-            alt="Inspiração para o Casaco Perfeito"
-          />
-        </div>
-      </S.Container01> */}
-      <S.Container01 className="third">
-        <div className="containerImageOnly">
-          <S.ImageCover05
-            src={cover11}
-            alt="Aulas 100% online na plataforma Hotmart"
-          />
-        </div>
-      </S.Container01>
-      <S.ContainerSocialMedia>
-        <div className="title">Entrem nos grupos de suporte:</div>
-
-        <div className="containerLinks">
-          <Link href={"https://chat.whatsapp.com/Cb6bMW1TNl3HYmOAQjaNHh"}>
-            <Whatsapp />
-          </Link>
-          <Link href={"https://t.me/+JVToDD5513MyYjVh"}>
-            <Telegram />
-          </Link>
-        </div>
-      </S.ContainerSocialMedia>
-      <S.BlackBackground />
+      </S.VariationsSection>
     </S.GeneralContainer>
   );
 }
