@@ -261,6 +261,10 @@ export const HeroContent = styled.div`
     letter-spacing: 0.01em;
     color: var(--atelier-text-on-dark);
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
+
+    ${customMedia.lessThan("mobile")`
+      white-space: nowrap;
+    `}
   }
 
   .brandLine {
