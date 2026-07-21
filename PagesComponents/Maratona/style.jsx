@@ -149,6 +149,10 @@ export const Hero = styled.section`
   ${customMedia.lessThan("tablet")`
     align-items: center;
   `}
+
+  ${customMedia.lessThan("mobile")`
+    min-height: 60vh;
+  `}
 `;
 
 export const HeroMedia = styled.div`
@@ -658,6 +662,10 @@ export const FeaturesMedia = styled.div`
   ${customMedia.lessThan("tablet")`
     min-height: clamp(380px, 70vw, 580px);
   `}
+
+  ${customMedia.lessThan("mobile")`
+    min-height: clamp(150px, 30vw, 250px);
+  `}
 `;
 
 export const FeaturesImg = styled(Image)`
@@ -674,16 +682,21 @@ export const FeaturesImg = styled(Image)`
   }
 
   ${customMedia.lessThan("notebook")`
-    object-fit: cover;
-    object-position: right center;
+    object-fit: contain;
+    object-position: center center;
   `}
 
   ${customMedia.lessThan("tablet")`
     transition: none;
     transform: none !important;
     filter: none !important;
+    object-fit: contain;
+    object-position: center center;
+  `}
+
+  ${customMedia.lessThan("mobile")`
     object-fit: cover;
-    object-position: right center;
+    object-position: center 40%;
   `}
 `;
 
