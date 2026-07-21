@@ -76,9 +76,9 @@ export default function MaratonaPage() {
             href={HOTMART_CHECKOUT}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Começar inscrição na Maratona Vestido Verona"
+            aria-label="Quero meu Vestido Verona - inscrição na Maratona"
           >
-            Começar
+            Quero meu Vestido Verona!
           </a>
         </S.HeroContent>
       </S.Hero>
