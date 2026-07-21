@@ -664,7 +664,7 @@ export const FeaturesMedia = styled.div`
   `}
 
   ${customMedia.lessThan("mobile")`
-    min-height: clamp(150px, 30vw, 250px);
+    min-height: clamp(380px, 80vw, 600px);
   `}
 `;
 
@@ -692,11 +692,6 @@ export const FeaturesImg = styled(Image)`
     filter: none !important;
     object-fit: contain;
     object-position: center center;
-  `}
-
-  ${customMedia.lessThan("mobile")`
-    object-fit: cover;
-    object-position: center 40%;
   `}
 `;
 
