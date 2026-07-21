@@ -362,7 +362,8 @@ export default function HomePage() {
         </S.ShirtCopy>
       </S.ShirtSection>
 
-      <S.GalleryBlock $wine>
+      {/* TODO: Mover seção "Comunidade" para outra página */}
+      {/* <S.GalleryBlock $wine>
         <S.SectionIntro $light className="reveal">
           <S.SectionLabel $light>Comunidade</S.SectionLabel>
           <h2>Vem ver o que as agulhinhas estão fazendo!</h2>
@@ -372,9 +373,10 @@ export default function HomePage() {
           altPrefix="Foto da aluna — trabalhos e peças da comunidade Grazyela Couto"
           light={true}
         />
-      </S.GalleryBlock>
+      </S.GalleryBlock> */}
 
-      <S.GalleryBlock $mist>
+      {/* TODO: Mover seção "Coleção" para outra página */}
+      {/* <S.GalleryBlock $mist>
         <S.SectionIntro className="reveal">
           <S.SectionLabel>Coleção</S.SectionLabel>
           <h2>Algumas das peças que você irá aprender</h2>
@@ -384,7 +386,7 @@ export default function HomePage() {
           altPrefix="Peça de roupa que você aprende nos cursos de modelagem e costura"
           light={false}
         />
-      </S.GalleryBlock>
+      </S.GalleryBlock> */}
 
       <S.AboutSection className="reveal" aria-labelledby="prof-title">
         <S.AboutPortrait

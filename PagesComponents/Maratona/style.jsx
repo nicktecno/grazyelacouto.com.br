@@ -68,10 +68,10 @@ const tokens = css`
   --atelier-ui:      "DM Sans", system-ui, sans-serif;
 
   /* Verona-specific */
-  --verona-wine:      #5c1620;
-  --verona-wine-dark: #3d0e16;
+  --verona-wine:      #572443;
+  --verona-wine-dark: #3d1828;
   --verona-sage:      #5b6545;
-  --verona-sage-dark: #3f4a30;
+  --verona-sage-dark: #8d9a74;
   --verona-cream:     #f5f0e8;
   --verona-olive-text:#4a5535;
 `;
