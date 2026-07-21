@@ -690,7 +690,7 @@ export const ShirtSection = styled.section`
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   min-height: clamp(600px, 84vh, 960px);
-  background: #2c4a38;
+  background: #8d9a74;
   overflow: hidden;
 
   ${customMedia.lessThan("notebook")`
@@ -707,7 +707,8 @@ export const ShirtGrid = styled.div`
   padding: clamp(2rem, 3.5vw, 3rem) 0 clamp(2rem, 3.5vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
 
   ${customMedia.lessThan("notebook")`
-    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3rem) 0;
+    order: 2;
+    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3rem) clamp(4rem, 8vw, 6rem);
   `}
 `;
 
@@ -757,7 +758,7 @@ export const ShirtCopy = styled.div`
     font-weight: 500;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: rgba(185, 218, 200, 0.55);
+    color: rgba(50, 60, 45, 0.85);
   }
 
   h2 {
@@ -767,7 +768,7 @@ export const ShirtCopy = styled.div`
     font-size: clamp(3.8rem, 8vw, 7.5rem);
     line-height: 1.0;
     letter-spacing: 0.01em;
-    color: #f5ede0;
+    color: #2a3222;
   }
 
   .shirtDesc {
@@ -775,7 +776,7 @@ export const ShirtCopy = styled.div`
     font-family: var(--atelier-body);
     font-size: clamp(1.1rem, 1.8vw, 1.42rem);
     line-height: 1.75;
-    color: rgba(222, 240, 228, 0.88);
+    color: rgba(42, 50, 34, 0.92);
     max-width: 30ch;
   }
 
@@ -820,6 +821,7 @@ export const ShirtCopy = styled.div`
   }
 
   ${customMedia.lessThan("notebook")`
+    order: 1;
     align-items: center;
     text-align: center;
     padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(3.5rem, 7vw, 5rem);
@@ -833,7 +835,7 @@ export const GalleryBlock = styled.section`
   width: 100%;
   padding-bottom: clamp(3rem, 6vw, 5rem);
   background: ${(p) => {
-    if (p.$wine) return "#4a1220";
+    if (p.$wine) return "#572443";
     if (p.$mist) return "var(--atelier-mist)";
     if (p.$ink) return "var(--atelier-ink-soft)";
     return "var(--atelier-paper)";
@@ -1126,7 +1128,7 @@ export const SewingSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   min-height: clamp(600px, 84vh, 960px);
-  background: #2c4a38;
+  background: #8d9a74;
   overflow: hidden;
 
   ${customMedia.lessThan("tablet")`
@@ -1151,7 +1153,7 @@ export const SewingCopy = styled.div`
     font-weight: 500;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: rgba(185, 218, 200, 0.55);
+    color: rgba(50, 60, 45, 0.85);
   }
 
   .sewingTag {
@@ -1161,7 +1163,7 @@ export const SewingCopy = styled.div`
     font-weight: 700;
     letter-spacing: 0.26em;
     text-transform: uppercase;
-    color: #c8a060;
+    color: #3d5c2e;
   }
 
   h2 {
@@ -1172,7 +1174,7 @@ export const SewingCopy = styled.div`
     font-size: clamp(5rem, 11vw, 10.5rem);
     line-height: 0.88;
     letter-spacing: -0.01em;
-    color: #f5ede0;
+    color: #2a3222;
   }
 
   .sewingDesc {
@@ -1255,7 +1257,7 @@ export const TailoringSection = styled.section`
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
   min-height: clamp(620px, 88vh, 980px);
-  background: #4a1220;
+  background: #572443;
   overflow: hidden;
 
   ${customMedia.lessThan("notebook")`
@@ -1279,7 +1281,7 @@ export const TailoringCopy = styled.div`
     font-weight: 600;
     letter-spacing: 0.36em;
     text-transform: uppercase;
-    color: rgba(226, 201, 144, 0.7);
+    color: #d4af7f;
   }
 
   h2 {
@@ -1342,6 +1344,7 @@ export const TailoringCopy = styled.div`
   }
 
   ${customMedia.lessThan("notebook")`
+    order: 1;
     align-items: center;
     text-align: center;
     padding: clamp(3.5rem, 7vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(2rem, 4vw, 3rem);
@@ -1358,7 +1361,8 @@ export const TailoringGrid = styled.div`
   align-items: start;
 
   ${customMedia.lessThan("notebook")`
-    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3rem) 0;
+    order: 2;
+    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3rem) clamp(4rem, 8vw, 6rem);
   `}
 `;
 
@@ -1515,7 +1519,7 @@ export const ComboImgWrap = styled.div`
 
 export const ComboImg = styled(Image)`
   object-fit: cover;
-  object-position: center center;
+  object-position: 25% center;
 `;
 
 /* Back-compat aliases */
