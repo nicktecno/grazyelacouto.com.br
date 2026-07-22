@@ -263,7 +263,9 @@ export const HeroContent = styled.div`
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
 
     ${customMedia.lessThan("mobile")`
-      white-space: nowrap;
+      font-size: clamp(2rem, 10vw, 3rem);
+      line-height: 1.1;
+      white-space: normal;
     `}
   }
 
