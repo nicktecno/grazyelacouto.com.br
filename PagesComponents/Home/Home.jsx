@@ -190,7 +190,7 @@ export default function HomePage() {
         </S.HeroMedia>
         <S.HeroContent>
           <p className="welcome">— Bem Vindas</p>
-          <p className="brand">Modelagem com<br />Grazyela Couto</p>
+          <p className="brand">Modelagem e costura com<br />Grazyela Couto</p>
           <span className="brandLine" aria-hidden="true" />
           <h1>Costure com confiança. Crie peças que você terá orgulho de vestir.</h1>
           <a className="cta" href="/#cursos">
