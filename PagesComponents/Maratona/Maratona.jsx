@@ -70,7 +70,7 @@ export default function MaratonaPage() {
             Vestido Verona
           </p>
           <span className="brandLine" aria-hidden="true" />
-          <h1>Dos dias 28/09 a 12/10</h1>
+          <h1>Dos dias 23/09 a 12/10</h1>
           <a
             className="cta"
             href={HOTMART_CHECKOUT}
@@ -210,7 +210,7 @@ export default function MaratonaPage() {
           <p>
             Ao fazer seu cadastro você receberá um e-mail de acesso às aulas que
             se iniciam dia{" "}
-            <strong>28/09&nbsp;—&nbsp;12/10</strong>.
+            <strong>23/09&nbsp;—&nbsp;12/10</strong>.
           </p>
         </div>
       </S.ScheduleSection>
