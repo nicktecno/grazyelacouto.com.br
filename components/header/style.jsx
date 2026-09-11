@@ -36,18 +36,26 @@ export const Header = styled.nav`
 
   .containerLinks {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
     gap: 20px;
     font-size: 18px;
     font-family: var(--ui-font, "DM Sans", system-ui, sans-serif);
 
+    ${customMedia.lessThan("tablet")`
+      gap: 14px;
+      font-size: 15px;
+    `}
+
     ${customMedia.lessThan("mobile")`
-      gap: 12px;
-      font-size: 13px;
+      gap: 10px;
+      font-size: 12px;
     `}
 
     ${customMedia.lessThan("ipobre")`
-      gap: 8px;
-      font-size: 11px;
+      gap: 6px;
+      font-size: 10px;
     `}
 
     a {

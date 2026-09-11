@@ -14,6 +14,10 @@ function Header() {
       />
       <div className="containerLinks">
         <Link href={"/"}>Início</Link>
+        <Link href={"/aprenda-a-costurar"}>Aprenda a Costurar</Link>
+        <Link href={"/pecas-de-alfaiataria"}>
+          Peças de Alfaiataria
+        </Link>
         <Link href={"/modulo-blazer"}>Módulo Blazer</Link>
         <Link href={"/maratona"}>Maratona</Link>
       </div>

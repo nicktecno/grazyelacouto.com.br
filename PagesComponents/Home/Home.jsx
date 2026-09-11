@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback } from "react";
+import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 
 import cover01 from "../../public/images/capa01.jpg";
@@ -18,8 +19,7 @@ import combo03 from "../../public/images/combo03.jpg";
 import * as S from "./style";
 
 const COURSE_SEWING = "https://pay.hotmart.com/M72976409H?checkoutMode=10";
-const COURSE_TAILORING =
-  "https://grazyela1467.kpages.online/pagina-de-vendas-0d6785df-66ec-4cfb-929f-d37e4340020a";
+const COURSE_TAILORING = "/pecas-de-alfaiataria";
 const COURSE_COMBO = "https://pay.hotmart.com/X73383978V";
 const MOLDE_CAMISA = "https://pay.hotmart.com/R106672757A?fbclid=PAZnRzaATLZ-tmdHNoBL9XaXBkb2YCZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGnxneSZmnYA5-p6xX5YhVm3_2Kd4UgXr_78weBosHH2vQXifW-1wB5Qe10Qg8_aem_UCxOxNu_aza9T8bi_-USsQ&bid=1783789579638&mcp_token=eyJwaWQiOjQ1NDgyMTksInNpZCI6MzM1Mjg4NTIwLCJheCI6IjM5ODE1ODdiOWM4YjQ3ZjFhYzA1NTI4ZTlhMGQ5ZGZlIiwidHMiOjE3ODQ1ODAyNDUsImV4cCI6MTc4Njk5OTQ0NX0.g6EmjKSNk-sYnRmvRJgHen_kvPMVL7QU2CEGgOX0NjY";
 
@@ -233,9 +233,14 @@ export default function HomePage() {
             Um método completo que reúne modelagem, técnicas de costura e
             acabamento para você evoluir do básico ao avançado com confiança.
           </p>
-          <a className="sewingCta" href={COURSE_SEWING} target="_blank" rel="noopener noreferrer">
-            Quero agora!
-          </a>
+          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+            <a className="sewingCta" href="/aprenda-a-costurar">
+              Conhecer o Curso
+            </a>
+            <a className="sewingCta" href={COURSE_SEWING} target="_blank" rel="noopener noreferrer">
+              Quero agora!
+            </a>
+          </div>
         </S.SewingCopy>
         <S.SewingMedia>
           <S.SewingImage
@@ -272,9 +277,14 @@ export default function HomePage() {
             até mesmo aprender a fazer seu desenho fashion, o famoso croqui de
             moda. Nível intermediário a avançado.
           </p>
-          <a href={COURSE_TAILORING} target="_blank" rel="noopener noreferrer">
-            Quero agora!
-          </a>
+          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+            <Link href={COURSE_TAILORING}>
+              Conhecer o Curso
+            </Link>
+            <a href="https://pay.hotmart.com/M70669236F?hotfeature=51" target="_blank" rel="noopener noreferrer">
+              Quero agora!
+            </a>
+          </div>
         </S.TailoringCopy>
       </S.TailoringSection>
 

@@ -74,7 +74,7 @@ export async function getStaticProps() {
             description:
               "Curso intermediário a avançado: blazer, calça, salopete, modelagem, corte, costura e croqui de moda.",
             provider: { "@id": `${origin}/#person` },
-            url: "https://grazyela1467.kpages.online/pagina-de-vendas-0d6785df-66ec-4cfb-929f-d37e4340020a",
+            url: `${origin}/pecas-de-alfaiataria`,
             inLanguage: "pt-BR",
           },
         },
