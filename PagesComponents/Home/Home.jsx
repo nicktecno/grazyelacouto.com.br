@@ -233,14 +233,14 @@ export default function HomePage() {
             Um método completo que reúne modelagem, técnicas de costura e
             acabamento para você evoluir do básico ao avançado com confiança.
           </p>
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+          <S.SewingCtaGroup>
             <a className="sewingCta" href="/aprenda-a-costurar">
               Conhecer o Curso
             </a>
             <a className="sewingCta" href={COURSE_SEWING} target="_blank" rel="noopener noreferrer">
               Quero agora!
             </a>
-          </div>
+          </S.SewingCtaGroup>
         </S.SewingCopy>
         <S.SewingMedia>
           <S.SewingImage
@@ -277,14 +277,14 @@ export default function HomePage() {
             até mesmo aprender a fazer seu desenho fashion, o famoso croqui de
             moda. Nível intermediário a avançado.
           </p>
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+          <S.TailoringCtaGroup>
             <Link href={COURSE_TAILORING}>
               Conhecer o Curso
             </Link>
             <a href="https://pay.hotmart.com/M70669236F?hotfeature=51" target="_blank" rel="noopener noreferrer">
               Quero agora!
             </a>
-          </div>
+          </S.TailoringCtaGroup>
         </S.TailoringCopy>
       </S.TailoringSection>
 

@@ -364,14 +364,23 @@ export const HeroContent = styled.div`
     }
   }
 
-  ${customMedia.lessThan("mobile")`
+  ${customMedia.lessThan("tablet")`
     max-width: 100%;
+    align-items: center;
+    text-align: center;
+
+    .brandLine {
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     h1 { max-width: none; }
 
     .cta {
       align-self: stretch;
+      width: 100%;
       text-align: center;
+      box-sizing: border-box;
     }
   `}
 `;
@@ -829,7 +838,12 @@ export const ShirtCopy = styled.div`
     padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(3.5rem, 7vw, 5rem);
     h2 { font-size: clamp(3.2rem, 11vw, 5.5rem); line-height: 1.0; }
     .shirtDesc { max-width: none; }
-    a { align-self: stretch; }
+    a {
+      align-self: stretch;
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+    }
   `}
 `;
 
@@ -1219,6 +1233,10 @@ export const SewingCopy = styled.div`
 
     ${customMedia.lessThan("tablet")`
       transition: background 0.25s ease, border-color 0.25s ease;
+      width: 100%;
+      align-self: stretch;
+      text-align: center;
+      box-sizing: border-box;
       &:hover { transform: none; }
     `}
 
@@ -1234,6 +1252,34 @@ export const SewingCopy = styled.div`
     padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 5vw, 3rem);
     h2 { font-size: clamp(3.8rem, 13vw, 6rem); }
     .sewingDesc { max-width: none; }
+    .sewingCta {
+      width: 100%;
+      align-self: stretch;
+      text-align: center;
+      box-sizing: border-box;
+    }
+  `}
+`;
+
+export const SewingCtaGroup = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+
+  ${customMedia.lessThan("tablet")`
+    flex-direction: column;
+    width: 100%;
+    align-self: stretch;
+    align-items: stretch;
+
+    .sewingCta {
+      width: 100%;
+      align-self: stretch;
+      text-align: center;
+      box-sizing: border-box;
+      margin-top: 0;
+    }
   `}
 `;
 
@@ -1336,6 +1382,10 @@ export const TailoringCopy = styled.div`
 
     ${customMedia.lessThan("tablet")`
       transition: background 0.25s ease, border-color 0.25s ease;
+      width: 100%;
+      align-self: stretch;
+      text-align: center;
+      box-sizing: border-box;
       &:hover { transform: none; }
     `}
 
@@ -1352,6 +1402,34 @@ export const TailoringCopy = styled.div`
     padding: clamp(3.5rem, 7vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(2rem, 4vw, 3rem);
     h2 { font-size: clamp(3.8rem, 13vw, 6rem); }
     .tailDesc { max-width: none; }
+    a {
+      width: 100%;
+      align-self: stretch;
+      text-align: center;
+      box-sizing: border-box;
+    }
+  `}
+`;
+
+export const TailoringCtaGroup = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+
+  ${customMedia.lessThan("notebook")`
+    flex-direction: column;
+    width: 100%;
+    align-self: stretch;
+    align-items: stretch;
+
+    a {
+      width: 100%;
+      align-self: stretch;
+      text-align: center;
+      box-sizing: border-box;
+      margin-top: 0;
+    }
   `}
 `;
 
@@ -1474,7 +1552,12 @@ export const ComboCopy = styled.div`
     padding: clamp(3.5rem, 7vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(2rem, 4vw, 3rem);
     h2 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
     .comboDesc { max-width: none; }
-    a { align-self: stretch; }
+    a {
+      align-self: stretch;
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+    }
   `}
 `;
 
