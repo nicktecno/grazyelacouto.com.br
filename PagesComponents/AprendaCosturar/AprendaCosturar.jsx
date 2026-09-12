@@ -11,7 +11,9 @@ import modulo09 from "../../public/images/aprenda_a_costurar/modulos/09_camisa_c
 import modulo10 from "../../public/images/aprenda_a_costurar/modulos/10_saias.jpeg";
 import modulo11 from "../../public/images/aprenda_a_costurar/modulos/11_calca_italiana.jpeg";
 import modulo12 from "../../public/images/aprenda_a_costurar/modulos/12_ciganinha_summer.jpeg";
+import modulo13 from "../../public/images/aprenda_a_costurar/modulos/13_vestido_dolce_gabanna.jpeg";
 import modulo14 from "../../public/images/aprenda_a_costurar/modulos/14_short_alexander.jpeg";
+import modulo15 from "../../public/images/aprenda_a_costurar/modulos/15_saia_com_pregas.jpeg";
 import modulo16 from "../../public/images/aprenda_a_costurar/modulos/16_jaquetinha_chanel.jpeg";
 import modulo17 from "../../public/images/aprenda_a_costurar/modulos/17_vestido_midi.jpeg";
 import modulo18 from "../../public/images/aprenda_a_costurar/modulos/18_macacao_de_grife.jpeg";
@@ -30,7 +32,6 @@ import adicionalBlusaLaco from "../../public/images/aprenda_a_costurar/modulos/3
 import profFoto from "../../public/images/aprenda_a_costurar/IMG_7632.JPG";
 import img7723 from "../../public/images/aprenda_a_costurar/IMG_7723.jpg";
 import img7725 from "../../public/images/aprenda_a_costurar/IMG_7725.jpg";
-import img7726 from "../../public/images/aprenda_a_costurar/IMG_7726.jpg";
 
 const CHECKOUT = "https://pay.hotmart.com/M72976409H?checkoutMode=10";
 
@@ -96,10 +97,22 @@ const coursePieces = [
     alt: "Blusa e vestidos Ciganinha Summer com decote ombro a ombro",
   },
   {
+    title: "Vestido Dolce & Gabbana",
+    tag: "Módulo 13",
+    image: modulo13,
+    alt: "Vestido Dolce & Gabbana evasê floral com decote quadrado e bônus cropped com saia magenta",
+  },
+  {
     title: "Short Alexander",
     tag: "Módulo 14",
     image: modulo14,
     alt: "Short Alexander alfaiataria com pregas e barra italiana",
+  },
+  {
+    title: "Saia com Pregas",
+    tag: "Módulo 15",
+    image: modulo15,
+    alt: "Saia com Pregas midi xadrez com abotoamento frontal e camisa clássica",
   },
   {
     title: "Jaquetinha Chanel",
@@ -385,34 +398,53 @@ export default function AprendaCosturarPage() {
         </S.DarkRight>
       </S.DarkSection>
 
-      {/* ── 5. PARA QUEM / COMPLETO ── */}
+      {/* ── 5. UM MÉTODO QUE LIBERTA ── */}
       <S.CompleteSection>
-        <S.CompletePhoto>
-          <Image
-            src={img7726}
-            alt="Grazyela Couto com máquina Singer — Mais do que moldes, entenda a roupa"
-            style={{
-              width: "100%",
-              maxWidth: "480px",
-              height: "auto",
-              maxHeight: "82vh",
-              objectFit: "contain",
-              borderRadius: "8px",
-              boxShadow: "0 16px 40px rgba(0, 0, 0, 0.12)",
-              display: "block",
-            }}
-            priority
-          />
-        </S.CompletePhoto>
-        <S.CompleteText>
-          <S.CompleteEyebrow>Um método que liberta</S.CompleteEyebrow>
-          <S.CompleteTitle>Mais do que moldes, entenda a roupa</S.CompleteTitle>
-          <S.CompleteBody>
-            Você não vai apenas aprender a reproduzir um molde pronto. Vai aprender a
-            olhar para uma roupa e entender exatamente como transformá-la e criá-la
-            com caimento sob medida para o seu corpo.
-          </S.CompleteBody>
-        </S.CompleteText>
+        <S.CompleteInner>
+          <S.CompleteBadge>
+            <S.CompleteBadgeLine />
+            <S.CompleteEyebrow>Um método que liberta</S.CompleteEyebrow>
+            <S.CompleteBadgeLine />
+          </S.CompleteBadge>
+
+          <S.CompleteTitle>
+            Mais do que moldes,<br />
+            <span>entenda a roupa</span>
+          </S.CompleteTitle>
+
+          <S.CompleteQuoteBox>
+            <S.CompleteQuoteMark>“</S.CompleteQuoteMark>
+            <S.CompleteBody>
+              Você não vai apenas aprender a reproduzir um molde pronto. Vai aprender a
+              olhar para qualquer roupa e entender exatamente como transformá-la e criá-la
+              com caimento sob medida para o seu corpo.
+            </S.CompleteBody>
+          </S.CompleteQuoteBox>
+
+          <S.CompletePillars>
+            <S.CompletePillarItem>
+              <span className="icon">✦</span>
+              <div>
+                <strong>Autonomia Criativa</strong>
+                <p>Crie sem depender de moldes prontos que não vestem bem o seu corpo.</p>
+              </div>
+            </S.CompletePillarItem>
+            <S.CompletePillarItem>
+              <span className="icon">✦</span>
+              <div>
+                <strong>Olhar Clínico</strong>
+                <p>Interprete proporções, pences, caimentos e o comportamento de cada tecido.</p>
+              </div>
+            </S.CompletePillarItem>
+            <S.CompletePillarItem>
+              <span className="icon">✦</span>
+              <div>
+                <strong>Acabamento de Ateliê</strong>
+                <p>Domine técnicas finas e corte com precisão do zero ao resultado impecável.</p>
+              </div>
+            </S.CompletePillarItem>
+          </S.CompletePillars>
+        </S.CompleteInner>
       </S.CompleteSection>
 
       {/* ── 6. COLEÇÃO DE PEÇAS ── */}

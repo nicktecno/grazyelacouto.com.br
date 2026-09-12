@@ -427,45 +427,42 @@ export const DarkPhoto = styled.div`
   width: 100%;
 `;
 
-/* ── COMPLETO / PASSO A PASSO ───────────────────────────────────────────── */
+/* ── UM MÉTODO QUE LIBERTA (MANIFESTO EDITORIAL) ────────────────────────── */
 export const CompleteSection = styled.section`
   background: ${CREME_ESC};
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-
-  ${media.lessThan("tablet")`
-    grid-template-columns: 1fr;
-  `}
-`;
-
-export const CompletePhoto = styled.div`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem 4rem 5vw;
+  padding: clamp(6rem, 10vw, 9rem) 1.5rem;
+  overflow: hidden;
 
   ${media.lessThan("tablet")`
-    order: 2;
-    padding: 1rem 1.5rem 4rem;
+    padding: 5rem 1.25rem;
   `}
 `;
 
-export const CompleteText = styled.div`
+export const CompleteInner = styled.div`
+  max-width: 960px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 6rem 5vw 6rem 2rem;
-  gap: 2rem;
+  align-items: center;
+  text-align: center;
+  gap: 2.25rem;
+  position: relative;
+  z-index: 2;
+`;
 
-  ${media.lessThan("tablet")`
-    order: 1;
-    padding: 4.5rem 1.5rem 1.5rem;
-    gap: 1.5rem;
-    align-items: center;
-    text-align: center;
-  `}
+export const CompleteBadge = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+`;
+
+export const CompleteBadgeLine = styled.div`
+  width: 42px;
+  height: 1.5px;
+  background: ${GOLD};
+  opacity: 0.85;
 `;
 
 export const CompleteEyebrow = styled.span`
@@ -479,25 +476,124 @@ export const CompleteEyebrow = styled.span`
 
 export const CompleteTitle = styled.h2`
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2.25rem, 6vw, 5.5rem);
+  font-size: clamp(2.35rem, 5.2vw, 4.4rem);
   font-weight: 600;
   font-style: italic;
   color: ${PRETO};
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.15;
+  max-width: 820px;
+
+  span {
+    color: ${WINE};
+    display: inline-block;
+    position: relative;
+  }
 
   ${media.lessThan("mobile")`
-    font-size: clamp(1.85rem, 8vw, 2.5rem);
+    font-size: clamp(1.9rem, 7.5vw, 2.5rem);
     line-height: 1.2;
   `}
 `;
 
+export const CompleteQuoteBox = styled.div`
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+
+  ${media.lessThan("mobile")`
+    padding: 1rem 0.5rem;
+  `}
+`;
+
+export const CompleteQuoteMark = styled.span`
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 7rem;
+  line-height: 1;
+  color: ${GOLD};
+  opacity: 0.2;
+  user-select: none;
+  pointer-events: none;
+`;
+
 export const CompleteBody = styled.p`
-  font-family: var(--main-font);
-  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-  line-height: 2;
-  color: #444;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.25rem, 2.3vw, 1.6rem);
+  font-style: italic;
+  line-height: 1.8;
+  color: #383032;
   margin: 0;
+  position: relative;
+  z-index: 1;
+
+  ${media.lessThan("mobile")`
+    font-size: 1.2rem;
+    line-height: 1.7;
+  `}
+`;
+
+export const CompletePillars = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 1rem;
+
+  ${media.lessThan("tablet")`
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 480px;
+  `}
+`;
+
+export const CompletePillarItem = styled.div`
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(197, 155, 39, 0.28);
+  border-radius: 8px;
+  padding: 1.6rem 1.4rem;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: ${GOLD};
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.07);
+    background: #ffffff;
+  }
+
+  .icon {
+    color: ${GOLD};
+    font-size: 1.15rem;
+    line-height: 1.3;
+    flex-shrink: 0;
+  }
+
+  strong {
+    display: block;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: ${PRETO};
+    margin-bottom: 0.35rem;
+  }
+
+  p {
+    font-family: var(--main-font, sans-serif);
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+  }
 `;
 
 /* ── COLEÇÃO DE PEÇAS (GRADE EM PORTRAIT) ───────────────────────────────── */
