@@ -1024,7 +1024,7 @@ export const AboutSection = styled.section`
   align-items: center;
   width: 100%;
   padding: clamp(4rem, 8vw, 7rem) clamp(1.75rem, 7vw, 6rem);
-  background: var(--atelier-ink);
+  background: #572443;
   color: var(--atelier-text-on-dark);
 
   ${customMedia.lessThan("tablet")`
@@ -1066,9 +1066,10 @@ export const AboutSection = styled.section`
 export const AboutPortrait = styled(Image)`
   width: min(100%, 380px);
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
   justify-self: center;
-  filter: drop-shadow(0 22px 44px rgba(16, 14, 12, 0.22));
+  border-radius: 500px 500px 0 0;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
   transition: transform 0.9s ${easeOutExpo};
 
   @media (hover: hover) and (pointer: fine) {
@@ -1078,6 +1079,8 @@ export const AboutPortrait = styled(Image)`
   }
 
   ${customMedia.lessThan("tablet")`
+    width: min(100%, 320px);
+    margin: 0 auto;
     transition: none;
     transform: none !important;
   `}
@@ -1087,8 +1090,9 @@ export const GeoFacts = styled.section`
   width: 100%;
   padding: clamp(3.5rem, 7vw, 5.5rem) clamp(1.75rem, 7vw, 6rem)
     clamp(4.5rem, 8vw, 7rem);
-  background: var(--atelier-ink);
+  background: #572443;
   color: var(--atelier-text-on-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 
   h2 {
     margin: 0 0 2.25rem;

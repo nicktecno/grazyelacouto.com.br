@@ -34,7 +34,7 @@ export async function getStaticProps() {
       description:
         "Estilista, modelista e costureira com mais de 4 anos de experiência, marca própria de roupas e foco em ensinar costura e modelagem online.",
       url: origin,
-      image: absoluteUrl("/images/capa05.png"),
+      image: absoluteUrl("/images/aprenda_a_costurar/IMG_7632.JPG"),
       sameAs: [
         "https://www.youtube.com/channel/UCNOwoaQLPOdoXDZKd_ztOaA",
         "https://www.instagram.com/grazy.gr/",

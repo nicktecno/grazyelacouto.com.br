@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 
 import cover01 from "../../public/images/capa01.jpg";
 import cover02 from "../../public/images/capa02.jpg";
-import cover05 from "../../public/images/capa05.png";
+import profFoto from "../../public/images/aprenda_a_costurar/IMG_7632.JPG";
 import alfaiataria01 from "../../public/images/alfaiataria01.png";
 import alfaiataria02 from "../../public/images/alfaiataria02.png";
 import alfaiataria03 from "../../public/images/alfaiataria03.png";
@@ -400,10 +400,10 @@ export default function HomePage() {
 
       <S.AboutSection className="reveal" aria-labelledby="prof-title">
         <S.AboutPortrait
-          src={cover05}
-          alt="Grazyela Couto, estilista, modelista e costureira, segurando uma máquina de costura"
-          width={330}
-          height={442}
+          src={profFoto}
+          alt="Grazyela Couto, professora, modelista e costureira"
+          width={380}
+          height={675}
         />
         <div className="aboutCopy">
           <h2 id="prof-title">Quem será a Prof?</h2>

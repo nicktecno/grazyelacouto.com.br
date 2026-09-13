@@ -31,7 +31,7 @@ import adicionalMaratonaCasaco from "../../public/images/aprenda_a_costurar/modu
 import adicionalBlusaLaco from "../../public/images/aprenda_a_costurar/modulos/30_adicional_blusa_gola_laco.jpeg";
 import profFoto from "../../public/images/aprenda_a_costurar/IMG_7632.JPG";
 import img7723 from "../../public/images/aprenda_a_costurar/IMG_7723.jpg";
-import img7725 from "../../public/images/aprenda_a_costurar/IMG_7725.jpg";
+import img7832 from "../../public/images/aprenda_a_costurar/IMG_7832.JPG";
 
 const CHECKOUT = "https://pay.hotmart.com/M72976409H?checkoutMode=10";
 
@@ -297,12 +297,11 @@ export default function AprendaCosturarPage() {
       {/* ── 1. HERO (Layout e responsividade idênticos ao Módulo Blazer) ── */}
       <S.Hero>
         <S.HeroBg>
-          <Image
+          <S.HeroImage
             src={heroCostureira}
             alt="Ilustração artística de costureira na máquina — Aprenda a Costurar"
             fill
             priority
-            style={{ objectFit: "cover", objectPosition: "center center" }}
           />
           <S.HeroOverlay />
         </S.HeroBg>
@@ -315,7 +314,7 @@ export default function AprendaCosturarPage() {
           <S.HeroSub>
             Você não precisa ter dom para costurar, precisa de alguém que ensine o caminho
           </S.HeroSub>
-          <S.Cta href={CHECKOUT} target="_blank" rel="noopener noreferrer">
+          <S.Cta href={CHECKOUT} target="_blank" rel="noopener noreferrer" $light>
             Quero aprender agora
           </S.Cta>
           <S.HeroNota>Acesso imediato · Plataforma Hotmart</S.HeroNota>
@@ -364,7 +363,7 @@ export default function AprendaCosturarPage() {
         </S.FeatureQuote>
       </S.FeatureSection>
 
-      {/* ── 4. SEÇÃO ESCURA — A PROPOSTA ── */}
+      {/* ── 4. A PROPOSTA ── */}
       <S.DarkSection>
         <S.DarkLeft>
           <S.DarkEyebrow>A proposta</S.DarkEyebrow>
@@ -382,7 +381,7 @@ export default function AprendaCosturarPage() {
         </S.DarkLeft>
         <S.DarkRight>
           <Image
-            src={img7725}
+            src={img7832}
             alt="Grazyela Couto — Costura Descomplicada com Técnica e Amor"
             style={{
               width: "100%",
@@ -415,35 +414,18 @@ export default function AprendaCosturarPage() {
           <S.CompleteQuoteBox>
             <S.CompleteQuoteMark>“</S.CompleteQuoteMark>
             <S.CompleteBody>
-              Você não vai apenas aprender a reproduzir um molde pronto. Vai aprender a
-              olhar para qualquer roupa e entender exatamente como transformá-la e criá-la
-              com caimento sob medida para o seu corpo.
+              Mais do que reproduzir um molde pronto, você começa a entender como uma peça é construída.
             </S.CompleteBody>
+            <S.CompleteText>
+              A ideia é que, com o tempo, você consiga olhar para uma roupa e pensar:
+            </S.CompleteText>
+            <S.CompletePromptCard>
+              “Como essa peça foi construída? Como posso transformar uma base para chegar nesse modelo?”
+            </S.CompletePromptCard>
+            <S.CompleteHighlight>
+              Você não vai apenas aprender a costurar. <span>Vai aprender a entender a roupa.</span>
+            </S.CompleteHighlight>
           </S.CompleteQuoteBox>
-
-          <S.CompletePillars>
-            <S.CompletePillarItem>
-              <span className="icon">✦</span>
-              <div>
-                <strong>Autonomia Criativa</strong>
-                <p>Crie sem depender de moldes prontos que não vestem bem o seu corpo.</p>
-              </div>
-            </S.CompletePillarItem>
-            <S.CompletePillarItem>
-              <span className="icon">✦</span>
-              <div>
-                <strong>Olhar Clínico</strong>
-                <p>Interprete proporções, pences, caimentos e o comportamento de cada tecido.</p>
-              </div>
-            </S.CompletePillarItem>
-            <S.CompletePillarItem>
-              <span className="icon">✦</span>
-              <div>
-                <strong>Acabamento de Ateliê</strong>
-                <p>Domine técnicas finas e corte com precisão do zero ao resultado impecável.</p>
-              </div>
-            </S.CompletePillarItem>
-          </S.CompletePillars>
         </S.CompleteInner>
       </S.CompleteSection>
 
@@ -540,7 +522,7 @@ export default function AprendaCosturarPage() {
         <S.CtaSub>
           Garanta seu acesso com 2,5 anos de suporte e comece hoje mesmo a transformar sua costura.
         </S.CtaSub>
-        <S.Cta href={CHECKOUT} target="_blank" rel="noopener noreferrer">
+        <S.Cta $light href={CHECKOUT} target="_blank" rel="noopener noreferrer">
           Inscreva-se aqui
         </S.Cta>
         <S.HeroNota>Acesso imediato · Plataforma Hotmart</S.HeroNota>
