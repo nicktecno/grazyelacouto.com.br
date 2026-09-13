@@ -408,7 +408,7 @@ export default function AprendaCosturarPage() {
 
           <S.CompleteTitle>
             Mais do que moldes,<br />
-            <span>entenda a roupa</span>
+            <span>entenda a roupa!</span>
           </S.CompleteTitle>
 
           <S.CompleteQuoteBox>
@@ -476,7 +476,7 @@ export default function AprendaCosturarPage() {
       <S.ContentSection>
         <S.ContentHeader>
           <S.ContentEyebrow>Conteúdo do curso</S.ContentEyebrow>
-          <S.ContentTitle>O que você vai encontrar</S.ContentTitle>
+          <S.ContentTitle>O que você vai encontrar?</S.ContentTitle>
         </S.ContentHeader>
         <S.ContentGrid>
           {CONTEUDO.map((item, i) => (
