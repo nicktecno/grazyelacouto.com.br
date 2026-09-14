@@ -134,7 +134,7 @@ export default function LinksComponent() {
               style={{ objectFit: "cover", objectPosition: "center 73%" }}
             />
             <svg viewBox="0 0 500 40" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0,40 Q250,0 500,40 L500,40 L0,40 Z" fill="#FAF7EA" />
+              <path d="M0,40 Q250,0 500,40 L500,40 L0,40 Z" fill="#FFECA9" />
             </svg>
           </S.BannerWrapper>
 

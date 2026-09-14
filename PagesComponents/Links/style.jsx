@@ -9,7 +9,7 @@ const media = generateMedia({
 export const PageWrapper = styled.main`
   min-height: 100vh;
   width: 100%;
-  background: radial-gradient(circle at 50% 12%, #FAF4E5 0%, #EDE4CD 60%, #E3D7BF 100%);
+  background: radial-gradient(circle at 50% 12%, #FFF8DD 0%, #F8E8B4 55%, #EED793 100%);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -18,7 +18,7 @@ export const PageWrapper = styled.main`
   font-family: var(--atelier-ui, "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
 
   ${media.lessThan("tablet")`
-    background: #FAF7EA;
+    background: #FFECA9;
     padding: 0 0 3rem;
   `}
 `;
@@ -30,7 +30,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  background: #FAF7EA;
+  background: #FFECA9;
   margin: 0 auto;
   border-radius: 36px;
   overflow: hidden;
@@ -185,7 +185,7 @@ export const LinkPill = styled.a`
   width: 100%;
   min-height: 72px;
   background: linear-gradient(135deg, #5c2748 0%, #4e1d3b 100%);
-  color: #ffffff !important;
+  color: #FFECA9 !important;
   border-radius: 9999px;
   padding: 0.45rem 0.65rem;
   text-decoration: none !important;
@@ -243,7 +243,7 @@ export const LinkLabel = styled.span`
   font-size: clamp(0.85rem, 2.5vw, 0.98rem);
   font-weight: 500;
   line-height: 1.34;
-  color: #ffffff;
+  color: #FFECA9;
   flex: 1;
   text-align: center;
   padding: 0 0.75rem;
