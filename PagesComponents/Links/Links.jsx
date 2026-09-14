@@ -160,7 +160,7 @@ export default function LinksComponent() {
             {/* Redes sociais */}
             <S.SocialRow>
               <a
-                href="https://www.instagram.com/grazy.gr/"
+                href="https://www.instagram.com/grazyelacouto/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram da Grazyela Couto"
@@ -168,7 +168,7 @@ export default function LinksComponent() {
                 <Instagram />
               </a>
               <a
-                href="https://www.tiktok.com/@grazy.gr"
+                href="https://www.tiktok.com/@grazy.couto?lang=pt-BR"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok da Grazyela Couto"

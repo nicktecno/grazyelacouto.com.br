@@ -37,7 +37,8 @@ export async function getStaticProps() {
       image: absoluteUrl("/images/aprenda_a_costurar/IMG_7632.JPG"),
       sameAs: [
         "https://www.youtube.com/channel/UCNOwoaQLPOdoXDZKd_ztOaA",
-        "https://www.instagram.com/grazy.gr/",
+        "https://www.instagram.com/grazyelacouto/",
+        "https://www.tiktok.com/@grazy.couto?lang=pt-BR",
       ],
       knowsAbout: [
         "costura",

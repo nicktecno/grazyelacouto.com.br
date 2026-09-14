@@ -21,8 +21,10 @@ function buildJsonLd(extraNodes = []) {
         logo: absoluteUrl("/images/192.png"),
         sameAs: [
           "https://www.youtube.com/channel/UCNOwoaQLPOdoXDZKd_ztOaA",
-          "https://www.instagram.com/grazy.gr/",
+          "https://www.instagram.com/grazyelacouto/",
+          "https://www.tiktok.com/@grazy.couto?lang=pt-BR",
           "https://t.me/+JVToDD5513MyYjVh",
+          "https://chat.whatsapp.com/Cb6bMW1TNl3HYmOAQjaNHh?mode=gi_t",
         ],
       },
       {
