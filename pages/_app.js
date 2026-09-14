@@ -110,7 +110,7 @@ function MyApp({ Component, pageProps }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
-      <Header />
+      {!Component.noLayout && <Header />}
       <GlobalStyles
         colors={
           process.env.NEXT_PUBLIC_REACT_APP_MMP_STATE === "true"
@@ -119,7 +119,7 @@ function MyApp({ Component, pageProps }) {
         }
       />
       <Component {...pageProps} />
-      <Footer />
+      {!Component.noLayout && <Footer />}
     </>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Youtube } from "@styled-icons/boxicons-logos/Youtube";
 import { Instagram } from "@styled-icons/boxicons-logos/Instagram";
 import { Telegram } from "@styled-icons/boxicons-logos/Telegram";
+import { Whatsapp } from "@styled-icons/boxicons-logos/Whatsapp";
 
 import * as S from "./style";
 
@@ -19,13 +20,16 @@ function Footer() {
         height={500}
       />
       <div className="containerLinks">
-        <Link href={"https://www.youtube.com/channel/UCNOwoaQLPOdoXDZKd_ztOaA"}>
+        <Link href={"https://www.youtube.com/channel/UCNOwoaQLPOdoXDZKd_ztOaA"} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <Youtube />
         </Link>
-        <Link href={"https://www.instagram.com/grazy.gr/"}>
+        <Link href={"https://www.instagram.com/grazy.gr/"} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <Instagram />
         </Link>
-        <Link href={"https://t.me/+JVToDD5513MyYjVh"}>
+        <Link href={"https://chat.whatsapp.com/Cb6bMW1TNl3HYmOAQjaNHh?mode=gi_t"} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <Whatsapp />
+        </Link>
+        <Link href={"https://t.me/+JVToDD5513MyYjVh"} target="_blank" rel="noopener noreferrer" aria-label="Telegram">
           <Telegram />
         </Link>
       </div>
