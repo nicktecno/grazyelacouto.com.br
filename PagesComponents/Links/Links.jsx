@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Head from "next/head";
+import Link from "next/link";
 import { Instagram } from "@styled-icons/boxicons-logos/Instagram";
 import { Tiktok } from "@styled-icons/boxicons-logos/Tiktok";
 import { Youtube } from "@styled-icons/boxicons-logos/Youtube";
@@ -29,11 +30,11 @@ const LINKS_DATA = [
     alt: "Maratona Vestido Verona",
   },
   {
-    title: "Curso de Modelagem e Costura",
-    href: "https://pay.hotmart.com/M72976409H?checkoutMode=10",
+    title: "Curso de Modelagem e Costura (Aprenda a Costurar)",
+    href: "/aprenda-a-costurar",
     image: thumbModelagem,
     objectPosition: "center 22%",
-    alt: "Curso de Modelagem e Costura — Grazyela Couto",
+    alt: "Curso de Modelagem e Costura (Aprenda a Costurar) — Grazyela Couto",
   },
   {
     title: "Canal do YouTube",
@@ -180,35 +181,48 @@ export default function LinksComponent() {
 
           {/* Lista de botões pílula perfeitamente balanceados */}
           <S.LinksList>
-            {LINKS_DATA.map((item, idx) => (
-              <S.LinkPill
-                key={idx}
-                href={item.href}
-                target={item.href.startsWith("http") ? "_blank" : undefined}
-                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              >
-                <S.Thumbnail>
-                  {item.image ? (
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      width={54}
-                      height={54}
-                      style={{
-                        objectFit: "cover",
-                        objectPosition: item.objectPosition || "center center",
-                        width: "100%",
-                        height: "100%",
-                      }}
-                    />
-                  ) : (
-                    item.icon
-                  )}
-                </S.Thumbnail>
-                <S.LinkLabel>{item.title}</S.LinkLabel>
-                <S.EndSpacer aria-hidden="true" />
-              </S.LinkPill>
-            ))}
+            {LINKS_DATA.map((item, idx) => {
+              const isExternal = item.href.startsWith("http");
+              const pillContent = (
+                <>
+                  <S.Thumbnail>
+                    {item.image ? (
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        width={54}
+                        height={54}
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: item.objectPosition || "center center",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      />
+                    ) : (
+                      item.icon
+                    )}
+                  </S.Thumbnail>
+                  <S.LinkLabel>{item.title}</S.LinkLabel>
+                  <S.EndSpacer aria-hidden="true" />
+                </>
+              );
+
+              return isExternal ? (
+                <S.LinkPill
+                  key={idx}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {pillContent}
+                </S.LinkPill>
+              ) : (
+                <Link key={idx} href={item.href} passHref legacyBehavior>
+                  <S.LinkPill>{pillContent}</S.LinkPill>
+                </Link>
+              );
+            })}
           </S.LinksList>
 
           {/* Mini rodapé */}
