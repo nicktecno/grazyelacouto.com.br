@@ -50,6 +50,8 @@ export async function getStaticProps() {
     "vestido coreana",
     "casaco perfeito",
     "blusa gola laço",
+    "vestido verona",
+    "vestido summer",
     "curso de costura hotmart",
   ]
     .filter(Boolean)

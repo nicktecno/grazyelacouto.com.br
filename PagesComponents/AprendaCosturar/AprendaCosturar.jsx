@@ -29,6 +29,9 @@ import adicionalVestidoFlower from "../../public/images/aprenda_a_costurar/modul
 import adicionalVestidoCoreana from "../../public/images/aprenda_a_costurar/modulos/28_adicional_vestido_coreana.jpeg";
 import adicionalMaratonaCasaco from "../../public/images/aprenda_a_costurar/modulos/29_adicional_maratona_casaco_perfeito.jpeg";
 import adicionalBlusaLaco from "../../public/images/aprenda_a_costurar/modulos/30_adicional_blusa_gola_laco.jpeg";
+import adicionalVestidoVerona from "../../public/images/aprenda_a_costurar/modulos/31_adicional_vestido_verona.jpeg";
+import adicionalVestidoSummer from "../../public/images/aprenda_a_costurar/modulos/32_adicional_vestido_summer.jpeg";
+import adicionalCasacoPerfeito from "../../public/images/aprenda_a_costurar/modulos/33_adicional_casaco_perfeito.jpeg";
 import profFoto from "../../public/images/aprenda_a_costurar/IMG_7632.JPG";
 import img7723 from "../../public/images/aprenda_a_costurar/IMG_7723.jpg";
 import img7832 from "../../public/images/aprenda_a_costurar/IMG_7832.JPG";
@@ -203,6 +206,24 @@ const coursePieces = [
     tag: "Módulo Adicional",
     image: adicionalBlusaLaco,
     alt: "Blusa feminina rendada com gola laço e punhos trabalhados",
+  },
+  {
+    title: "Vestido Verona",
+    tag: "Módulo Adicional",
+    image: adicionalVestidoVerona,
+    alt: "Vestido Verona evasê midi com abotoamento frontal e versão mullet mangas bufantes",
+  },
+  {
+    title: "Vestido Summer",
+    tag: "Módulo Adicional",
+    image: adicionalVestidoSummer,
+    alt: "Vestido Summer com decote quadrado, lastex e saia com entremeios de renda",
+  },
+  {
+    title: "Casaco Perfeito",
+    tag: "Módulo Adicional",
+    image: adicionalCasacoPerfeito,
+    alt: "Casaco Perfeito sobretudo alongado alfaiataria com faixa de amarrar e gola smoking",
   },
 ];
 
