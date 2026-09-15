@@ -30,11 +30,11 @@ const LINKS_DATA = [
     alt: "Maratona Vestido Verona",
   },
   {
-    title: "Curso de Modelagem e Costura (Aprenda a Costurar)",
+    title: "Curso de Modelagem e Costura - Aprenda a Costurar",
     href: "/aprenda-a-costurar",
     image: thumbModelagem,
     objectPosition: "center 22%",
-    alt: "Curso de Modelagem e Costura (Aprenda a Costurar) — Grazyela Couto",
+    alt: "Curso de Modelagem e Costura - Aprenda a Costurar — Grazyela Couto",
   },
   {
     title: "Canal do YouTube",
