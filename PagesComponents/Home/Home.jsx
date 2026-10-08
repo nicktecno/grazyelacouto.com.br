@@ -9,9 +9,9 @@ import alfaiataria01 from "../../public/images/alfaiataria01.png";
 import alfaiataria02 from "../../public/images/alfaiataria02.png";
 import alfaiataria03 from "../../public/images/alfaiataria03.png";
 import alfaiataria04 from "../../public/images/alfaiataria04.png";
-import camisa01 from "../../public/images/camisa01.png";
-import camisa02 from "../../public/images/camisa02.png";
-import camisa03 from "../../public/images/camisa03.png";
+import ebookCover from "../../public/images/ebook-materiais/pagina_1.png";
+import ebookPreview1 from "../../public/images/ebook-materiais/pagina_5.png";
+import ebookPreview2 from "../../public/images/ebook-materiais/pagina_7.png";
 import combo01 from "../../public/images/combo01.jpg";
 import combo02 from "../../public/images/combo02.png";
 import combo03 from "../../public/images/combo03.jpg";
@@ -21,7 +21,6 @@ import * as S from "./style";
 const COURSE_SEWING = "https://pay.hotmart.com/M72976409H?checkoutMode=10";
 const COURSE_TAILORING = "/pecas-de-alfaiataria";
 const COURSE_COMBO = "https://pay.hotmart.com/X73383978V";
-const MOLDE_CAMISA = "https://pay.hotmart.com/R106672757A?fbclid=PAZnRzaATLZ-tmdHNoBL9XaXBkb2YCZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGnxneSZmnYA5-p6xX5YhVm3_2Kd4UgXr_78weBosHH2vQXifW-1wB5Qe10Qg8_aem_UCxOxNu_aza9T8bi_-USsQ&bid=1783789579638&mcp_token=eyJwaWQiOjQ1NDgyMTksInNpZCI6MzM1Mjg4NTIwLCJheCI6IjM5ODE1ODdiOWM4YjQ3ZjFhYzA1NTI4ZTlhMGQ5ZGZlIiwidHMiOjE3ODQ1ODAyNDUsImV4cCI6MTc4Njk5OTQ0NX0.g6EmjKSNk-sYnRmvRJgHen_kvPMVL7QU2CEGgOX0NjY";
 
 function importAll(r) {
   let images = {};
@@ -140,6 +139,34 @@ function GalleryCarousel({ images, light, altPrefix }) {
 
 export default function HomePage() {
   const [motionReady, setMotionReady] = React.useState(false);
+  const [downloadCount, setDownloadCount] = React.useState(2847);
+  const [hasDownloaded, setHasDownloaded] = React.useState(false);
+
+  useEffect(() => {
+    fetch("/api/download-count")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.count) {
+          setDownloadCount(data.count);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const handleDownload = () => {
+    setDownloadCount((prev) => prev + 1);
+    setHasDownloaded(true);
+    setTimeout(() => setHasDownloaded(false), 5000);
+
+    fetch("/api/download-count", { method: "POST" })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.count) {
+          setDownloadCount(data.count);
+        }
+      })
+      .catch(() => {});
+  };
 
   useEffect(() => {
     const reduceMotion = window.matchMedia(
@@ -328,49 +355,104 @@ export default function HomePage() {
         </S.ComboGrid>
       </S.ComboSection>
 
-      <S.ShirtSection className="reveal">
-        <S.ShirtGrid>
-          <S.ShirtCard $main>
-            <S.ShirtImg
-              src={camisa01}
-              alt="Grazyela Couto vestindo camisa clássica rosa — frente"
+      {/* ── SEÇÃO E-BOOK: LISTA DE MATERIAIS BÁSICOS ── */}
+      <S.EbookSection id="ebook-materiais" className="reveal">
+        <S.EbookGrid>
+          <S.EbookCard $main>
+            <S.EbookImg
+              src={ebookCover}
+              alt="Capa do E-book: Lista de Materiais Básicos Para Iniciantes — Grazyela Couto"
               fill
               sizes="(max-width: 768px) 50vw, 28vw"
-              style={{ objectPosition: "center 20%" }}
+              style={{ objectPosition: "center top" }}
             />
-          </S.ShirtCard>
-          <S.ShirtCard>
-            <S.ShirtImg
-              src={camisa02}
-              alt="Grazyela Couto vestindo camisa clássica rosa — costas"
+          </S.EbookCard>
+          <S.EbookCard>
+            <S.EbookImg
+              src={ebookPreview1}
+              alt="Página de réguas e modelagem do Guia de Materiais Básicos"
               fill
-              sizes="(max-width: 768px) 50vw, 28vw"
-              style={{ objectPosition: "center 18%" }}
+              sizes="(max-width: 768px) 50vw, 24vw"
+              style={{ objectPosition: "center top" }}
             />
-          </S.ShirtCard>
-          <S.ShirtCard $offset>
-            <S.ShirtImg
-              src={camisa03}
-              alt="Grazyela Couto — close-up da camisa clássica rosa"
+          </S.EbookCard>
+          <S.EbookCard $offset>
+            <S.EbookImg
+              src={ebookPreview2}
+              alt="Página de tecidos recomendados do Guia de Materiais Básicos"
               fill
-              sizes="(max-width: 768px) 50vw, 28vw"
-              style={{ objectPosition: "center 15%" }}
+              sizes="(max-width: 768px) 50vw, 24vw"
+              style={{ objectPosition: "center top" }}
             />
-          </S.ShirtCard>
-        </S.ShirtGrid>
-        <S.ShirtCopy>
-          <p className="shirtLabel">Molde Digital</p>
-          <h2>Faça sua<br />Camisa<br />Clássica</h2>
-          <p className="shirtDesc">
-            Molde pronto para baixar e costurar a camisa clássica perfeita.
-            Disponível em vários tamanhos, com instruções completas de
-            modelagem, corte e montagem.
+          </S.EbookCard>
+        </S.EbookGrid>
+        <S.EbookCopy>
+          <S.EbookCounterBadge>
+            <span className="pulseDot" />
+            <span className="countNumber">+{downloadCount.toLocaleString("pt-BR")}</span>
+            <span className="countText">Downloads Realizados</span>
+          </S.EbookCounterBadge>
+
+          <p className="ebookLabel">E-book Gratuito • Guia Prático</p>
+          <h2>
+            Lista de<br />
+            Materiais<br />
+            Básicos
+            <span>Para Iniciantes</span>
+          </h2>
+          <p className="ebookDesc">
+            Tudo o que você realmente precisa para começar a costurar com segurança
+            sem gastar com itens desnecessários: indicação de máquinas, réguas de
+            modelagem, agulhas, tecidos e cupons de desconto exclusivos.
           </p>
-          <a href={MOLDE_CAMISA} target="_blank" rel="noopener noreferrer">
-            Molde Pronto
-          </a>
-        </S.ShirtCopy>
-      </S.ShirtSection>
+
+          <S.EbookFeatures>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>Máquinas testadas e recomendadas (Singer Facilita Pro e mais)</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>Kit indispensável de corte e réguas de modelagem</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>Guia dos melhores tecidos para suas primeiras peças</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>Cupons de desconto exclusivos em lojas parceiras</span>
+            </li>
+          </S.EbookFeatures>
+
+          <S.EbookDownloadBtn
+            href="/downloads/lista-de-materiais-basicos-grazyela-couto.pdf"
+            download="Lista-de-Materiais-Basicos-Grazyela-Couto.pdf"
+            onClick={handleDownload}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Baixar E-book Gratuito (PDF)
+          </S.EbookDownloadBtn>
+
+          {hasDownloaded && (
+            <S.EbookDownloadFeedback>
+              ✓ Download iniciado! Arquivo PDF salvo no seu dispositivo.
+            </S.EbookDownloadFeedback>
+          )}
+        </S.EbookCopy>
+      </S.EbookSection>
 
       {/* TODO: Mover seção "Comunidade" para outra página */}
       {/* <S.GalleryBlock $wine>

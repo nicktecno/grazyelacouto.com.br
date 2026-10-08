@@ -697,12 +697,13 @@ export const CourseImage = styled(Image).attrs({ className: "courseMedia" })`
   object-position: center;
 `;
 
-export const ShirtSection = styled.section`
+export const EbookSection = styled.section`
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  min-height: clamp(600px, 84vh, 960px);
-  background: #8d9a74;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  min-height: clamp(620px, 86vh, 980px);
+  background: #85936e;
   overflow: hidden;
+  position: relative;
 
   ${customMedia.lessThan("notebook")`
     grid-template-columns: 1fr;
@@ -710,35 +711,41 @@ export const ShirtSection = styled.section`
   `}
 `;
 
-export const ShirtGrid = styled.div`
+export const EbookGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.15fr 0.85fr;
   grid-template-rows: auto auto;
-  gap: clamp(0.6rem, 1.2vw, 1rem);
-  padding: clamp(2rem, 3.5vw, 3rem) 0 clamp(2rem, 3.5vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  gap: clamp(0.75rem, 1.4vw, 1.25rem);
+  padding: clamp(2.5rem, 4vw, 4rem) 0 clamp(2.5rem, 4vw, 4rem) clamp(1.5rem, 3.5vw, 3rem);
 
   ${customMedia.lessThan("notebook")`
     order: 2;
-    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3rem) clamp(4rem, 8vw, 6rem);
+    padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 2.5rem) clamp(3.5rem, 7vw, 5rem);
   `}
 `;
 
-export const ShirtCard = styled.div`
+export const EbookCard = styled.div`
   position: relative;
   width: 100%;
   ${(p) =>
     p.$main
-      ? "grid-row: 1 / 3; align-self: stretch;"
-      : "aspect-ratio: 3 / 4;"}
-  margin-top: ${(p) => (p.$offset ? "clamp(1rem, 2vw, 1.5rem)" : "0")};
+      ? "grid-row: 1 / 3; align-self: stretch; min-height: clamp(480px, 60vh, 720px);"
+      : "aspect-ratio: 1 / 1.414;"}
+  margin-top: ${(p) => (p.$offset ? "clamp(1.2rem, 2.5vw, 2.2rem)" : "0")};
   overflow: hidden;
-  box-shadow: 0 20px 52px rgba(16, 14, 12, 0.1), 0 3px 10px rgba(16, 14, 12, 0.06);
+  border-radius: 4px;
+  background: #fbf9f5;
+  box-shadow:
+    0 22px 54px rgba(16, 20, 12, 0.18),
+    0 4px 14px rgba(16, 20, 12, 0.08);
   transition: transform 0.8s ${easeOutExpo}, box-shadow 0.8s ${easeOutExpo};
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      transform: translateY(-6px) scale(1.012);
-      box-shadow: 0 28px 68px rgba(16, 14, 12, 0.16), 0 5px 16px rgba(16, 14, 12, 0.08);
+      transform: translateY(-8px) scale(1.015);
+      box-shadow:
+        0 32px 72px rgba(16, 20, 12, 0.24),
+        0 8px 22px rgba(16, 20, 12, 0.12);
     }
   }
 
@@ -749,103 +756,235 @@ export const ShirtCard = styled.div`
   `}
 `;
 
-export const ShirtImg = styled(Image)`
+export const EbookImg = styled(Image)`
   object-fit: cover;
-  object-position: center center;
+  object-position: center top;
 `;
 
-export const ShirtCopy = styled.div`
+export const EbookCopy = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(3.5rem, 7vw, 6.5rem) clamp(2.5rem, 6vw, 5.5rem);
-  gap: clamp(1.2rem, 2vw, 1.8rem);
+  padding: clamp(3rem, 6vw, 6rem) clamp(2.5rem, 5.5vw, 5rem);
+  gap: clamp(1.1rem, 1.8vw, 1.6rem);
 
-  .shirtLabel {
+  .ebookLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     margin: 0;
     font-family: var(--atelier-ui);
-    font-size: clamp(0.82rem, 1.1vw, 1rem);
-    font-weight: 500;
-    letter-spacing: 0.32em;
+    font-size: clamp(0.78rem, 1vw, 0.92rem);
+    font-weight: 600;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: rgba(50, 60, 45, 0.85);
+    color: rgba(32, 42, 24, 0.88);
   }
 
   h2 {
     margin: 0;
     font-family: var(--atelier-display);
     font-weight: 500;
-    font-size: clamp(3.8rem, 8vw, 7.5rem);
-    line-height: 1.0;
+    font-size: clamp(3.2rem, 6.2vw, 5.8rem);
+    line-height: 1.02;
     letter-spacing: 0.01em;
-    color: #2a3222;
+    color: #1a2214;
+
+    span {
+      display: block;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 0.9em;
+      color: #283620;
+    }
   }
 
-  .shirtDesc {
+  .ebookDesc {
     margin: 0;
     font-family: var(--atelier-body);
-    font-size: clamp(1.1rem, 1.8vw, 1.42rem);
-    line-height: 1.75;
-    color: rgba(42, 50, 34, 0.92);
-    max-width: 30ch;
-  }
-
-  a {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-top: 0.5rem;
-    padding: 1.2rem 2.8rem;
-    min-height: 3.5rem;
-    background: transparent;
-    color: #f5ede0 !important;
-    font-family: var(--atelier-ui);
-    font-size: clamp(0.86rem, 1.15vw, 1rem);
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 1.5px solid rgba(245, 237, 224, 0.45);
-    transition:
-      background 0.45s ${easeOutExpo},
-      border-color 0.45s ${easeOutExpo},
-      transform 0.45s ${easeOutExpo};
-
-    &:hover {
-      background: rgba(245, 237, 224, 0.1);
-      border-color: #f5ede0;
-      transform: translateY(-3px);
-    }
-
-    ${customMedia.lessThan("tablet")`
-      transition: background 0.25s ease, border-color 0.25s ease;
-      &:hover { transform: none; }
-    `}
-
-    &:focus-visible {
-      outline: 2px solid #f5ede0;
-      outline-offset: 3px;
-    }
+    font-size: clamp(1.05rem, 1.55vw, 1.3rem);
+    line-height: 1.7;
+    color: rgba(28, 36, 22, 0.92);
+    max-width: 36ch;
   }
 
   ${customMedia.lessThan("notebook")`
     order: 1;
     align-items: center;
     text-align: center;
-    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(3.5rem, 7vw, 5rem);
-    h2 { font-size: clamp(3.2rem, 11vw, 5.5rem); line-height: 1.0; }
-    .shirtDesc { max-width: none; }
-    a {
-      align-self: stretch;
-      width: 100%;
-      text-align: center;
-      box-sizing: border-box;
-    }
+    padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(2rem, 4vw, 3rem);
+    h2 { font-size: clamp(2.8rem, 10vw, 4.4rem); line-height: 1.05; }
+    .ebookDesc { max-width: none; }
   `}
 `;
+
+export const EbookCounterBadge = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(20, 28, 14, 0.08);
+
+  .pulseDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2e7d32;
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+    animation: counterPulse 2s infinite;
+  }
+
+  @keyframes counterPulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 7px rgba(46, 125, 50, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+    }
+  }
+
+  .countNumber {
+    font-family: var(--atelier-ui);
+    font-weight: 700;
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    color: #1a2214;
+    letter-spacing: 0.02em;
+  }
+
+  .countText {
+    font-family: var(--atelier-ui);
+    font-size: clamp(0.76rem, 0.9vw, 0.88rem);
+    font-weight: 500;
+    color: rgba(30, 38, 24, 0.85);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+`;
+
+export const EbookFeatures = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0.3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--atelier-body);
+    font-size: clamp(0.98rem, 1.2vw, 1.14rem);
+    color: rgba(26, 34, 20, 0.95);
+
+    svg {
+      flex-shrink: 0;
+      color: #1a2214;
+    }
+  }
+
+  ${customMedia.lessThan("notebook")`
+    align-items: flex-start;
+    text-align: left;
+    max-width: 320px;
+  `}
+`;
+
+export const EbookDownloadBtn = styled.a`
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  overflow: hidden;
+  margin-top: 0.4rem;
+  padding: 1.2rem 2.8rem;
+  min-height: 3.5rem;
+  background: #1a2214;
+  color: #fbf9f5 !important;
+  font-family: var(--atelier-ui);
+  font-size: clamp(0.86rem, 1.1vw, 0.98rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  box-shadow: 0 10px 28px rgba(18, 24, 14, 0.22);
+  cursor: pointer;
+  transition:
+    background 0.45s ${easeOutExpo},
+    transform 0.45s ${easeOutExpo},
+    box-shadow 0.45s ${easeOutExpo};
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: #28351e;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(18, 24, 14, 0.3);
+
+    svg {
+      transform: translateY(2px);
+    }
+  }
+
+  ${customMedia.lessThan("notebook")`
+    width: 100%;
+    box-sizing: border-box;
+  `}
+
+  ${customMedia.lessThan("tablet")`
+    transition: background 0.25s ease;
+    &:hover { transform: none; }
+  `}
+
+  &:focus-visible {
+    outline: 2px solid #fbf9f5;
+    outline-offset: 3px;
+  }
+`;
+
+export const EbookDownloadFeedback = styled.div`
+  margin-top: 0.2rem;
+  font-family: var(--atelier-ui);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #14200e;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 4px;
+  animation: feedbackFadeIn 0.35s ease;
+
+  @keyframes feedbackFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+`;
+
+// Aliases para compatibilidade reversa
+export const ShirtSection = EbookSection;
+export const ShirtGrid = EbookGrid;
+export const ShirtCard = EbookCard;
+export const ShirtImg = EbookImg;
+export const ShirtCopy = EbookCopy;
 
 export const GalleryBlock = styled.section`
   width: 100%;
