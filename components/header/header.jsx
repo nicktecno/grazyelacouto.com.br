@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: "/aprenda-a-costurar", label: "Aprenda a Costurar" },
   { href: "/pecas-de-alfaiataria", label: "Peças de Alfaiataria" },
   { href: "/modulo-blazer", label: "Módulo Blazer" },
+  { href: "/moldes", label: "Moldes" },
   { href: "/maratona", label: "Maratona" },
 ];
 
