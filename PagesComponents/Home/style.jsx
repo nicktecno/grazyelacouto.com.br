@@ -713,46 +713,42 @@ export const EbookSection = styled.section`
 
 export const EbookGrid = styled.div`
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: clamp(0.75rem, 1.4vw, 1.25rem);
-  padding: clamp(2.5rem, 4vw, 4rem) 0 clamp(2.5rem, 4vw, 4rem) clamp(1.5rem, 3.5vw, 3rem);
+  gap: clamp(0.75rem, 1.2vw, 1.2rem);
+  padding: clamp(2rem, 3.5vw, 3.5rem) 0 clamp(2rem, 3.5vw, 3.5rem) clamp(1.5rem, 3vw, 2.5rem);
 
   ${customMedia.lessThan("notebook")`
     order: 2;
-    padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 2.5rem) clamp(3.5rem, 7vw, 5rem);
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 2rem) clamp(3rem, 6vw, 4.5rem);
+    gap: clamp(0.6rem, 1.5vw, 1rem);
   `}
 `;
 
 export const EbookCard = styled.div`
   position: relative;
   width: 100%;
-  ${(p) =>
-    p.$main
-      ? "grid-row: 1 / 3; align-self: stretch; min-height: clamp(480px, 60vh, 720px);"
-      : "aspect-ratio: 1 / 1.414;"}
-  margin-top: ${(p) => (p.$offset ? "clamp(1.2rem, 2.5vw, 2.2rem)" : "0")};
+  aspect-ratio: 1 / 1.414;
   overflow: hidden;
   border-radius: 4px;
   background: #fbf9f5;
   box-shadow:
-    0 22px 54px rgba(16, 20, 12, 0.18),
-    0 4px 14px rgba(16, 20, 12, 0.08);
-  transition: transform 0.8s ${easeOutExpo}, box-shadow 0.8s ${easeOutExpo};
+    0 16px 36px rgba(16, 20, 12, 0.16),
+    0 3px 10px rgba(16, 20, 12, 0.08);
+  transition: transform 0.6s ${easeOutExpo}, box-shadow 0.6s ${easeOutExpo};
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      transform: translateY(-8px) scale(1.015);
+      transform: translateY(-5px) scale(1.015);
       box-shadow:
-        0 32px 72px rgba(16, 20, 12, 0.24),
-        0 8px 22px rgba(16, 20, 12, 0.12);
+        0 24px 50px rgba(16, 20, 12, 0.22),
+        0 6px 16px rgba(16, 20, 12, 0.1);
     }
   }
 
   ${customMedia.lessThan("tablet")`
     transition: none;
     transform: none !important;
-    margin-top: ${(p) => (p.$offset ? "clamp(1rem, 2vw, 1.5rem)" : "0")};
   `}
 `;
 

@@ -9,9 +9,10 @@ import alfaiataria01 from "../../public/images/alfaiataria01.png";
 import alfaiataria02 from "../../public/images/alfaiataria02.png";
 import alfaiataria03 from "../../public/images/alfaiataria03.png";
 import alfaiataria04 from "../../public/images/alfaiataria04.png";
-import ebookCover from "../../public/images/ebook-materiais/pagina_1.png";
-import ebookPreview1 from "../../public/images/ebook-materiais/pagina_5.png";
-import ebookPreview2 from "../../public/images/ebook-materiais/pagina_7.png";
+import ebookPage1 from "../../public/images/ebook-materiais/pagina_1.png";
+import ebookPage3 from "../../public/images/ebook-materiais/pagina_3.png";
+import ebookPage5 from "../../public/images/ebook-materiais/pagina_5.png";
+import ebookPage7 from "../../public/images/ebook-materiais/pagina_7.png";
 import combo01 from "../../public/images/combo01.jpg";
 import combo02 from "../../public/images/combo02.png";
 import combo03 from "../../public/images/combo03.jpg";
@@ -358,30 +359,39 @@ export default function HomePage() {
       {/* ── SEÇÃO E-BOOK: LISTA DE MATERIAIS BÁSICOS ── */}
       <S.EbookSection id="ebook-materiais" className="reveal">
         <S.EbookGrid>
-          <S.EbookCard $main>
+          <S.EbookCard>
             <S.EbookImg
-              src={ebookCover}
+              src={ebookPage1}
               alt="Capa do E-book: Lista de Materiais Básicos Para Iniciantes — Grazyela Couto"
               fill
-              sizes="(max-width: 768px) 50vw, 28vw"
+              sizes="(max-width: 768px) 50vw, 22vw"
               style={{ objectPosition: "center top" }}
             />
           </S.EbookCard>
           <S.EbookCard>
             <S.EbookImg
-              src={ebookPreview1}
-              alt="Página de réguas e modelagem do Guia de Materiais Básicos"
+              src={ebookPage3}
+              alt="Máquinas e ferramentas essenciais para costura — Guia Básico"
               fill
-              sizes="(max-width: 768px) 50vw, 24vw"
+              sizes="(max-width: 768px) 50vw, 22vw"
               style={{ objectPosition: "center top" }}
             />
           </S.EbookCard>
-          <S.EbookCard $offset>
+          <S.EbookCard>
             <S.EbookImg
-              src={ebookPreview2}
-              alt="Página de tecidos recomendados do Guia de Materiais Básicos"
+              src={ebookPage5}
+              alt="Kit de réguas e ferramentas de modelagem — Guia Básico"
               fill
-              sizes="(max-width: 768px) 50vw, 24vw"
+              sizes="(max-width: 768px) 50vw, 22vw"
+              style={{ objectPosition: "center top" }}
+            />
+          </S.EbookCard>
+          <S.EbookCard>
+            <S.EbookImg
+              src={ebookPage7}
+              alt="Guia dos melhores tecidos para começar — Guia Básico"
+              fill
+              sizes="(max-width: 768px) 50vw, 22vw"
               style={{ objectPosition: "center top" }}
             />
           </S.EbookCard>
