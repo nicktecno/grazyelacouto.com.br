@@ -85,9 +85,9 @@ export const Cta = styled.a`
 export const Hero = styled.section`
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
   background: var(--atelier-ink, #100e0c);
   color: var(--atelier-text-on-dark);
@@ -179,7 +179,7 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0 6vw 7rem;
+  padding: clamp(3.5rem, 7vh, 6rem) 6vw clamp(3rem, 6vh, 4.5rem);
   max-width: min(52rem, 94vw);
   animation: ${fadeUp} 0.9s ease both;
 
@@ -196,12 +196,12 @@ export const HeroContent = styled.div`
 
 export const HeroEyebrow = styled.span`
   font-family: var(--atelier-ui, var(--ui-font, sans-serif));
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--atelier-gold-bright, #e2c990);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   text-shadow: 0 1px 6px rgba(0,0,0,0.6);
 
   ${media.lessThan("mobile")`
@@ -213,11 +213,11 @@ export const HeroEyebrow = styled.span`
 
 export const HeroTitle = styled.h1`
   font-family: var(--atelier-display, "Cormorant Garamond", Georgia, serif);
-  font-size: clamp(4.5rem, 11vw, 11rem);
+  font-size: clamp(3.8rem, 8.5vw, 7.5rem);
   font-weight: 300;
-  line-height: 0.92;
+  line-height: 0.94;
   color: ${BRANCO};
-  margin: 0 0 2.25rem;
+  margin: 0 0 1.75rem;
   letter-spacing: -0.02em;
   text-shadow: 0 2px 20px rgba(0,0,0,0.4);
 
@@ -235,13 +235,13 @@ export const HeroItalic = styled.span`
 
 export const HeroSub = styled.p`
   font-family: var(--atelier-body, var(--main-font));
-  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
   color: var(--atelier-muted-on-dark, rgba(250, 249, 247, 0.9));
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin: 0 0 3rem;
+  margin: 0 0 2.25rem;
   max-width: 780px;
-  line-height: 1.6;
+  line-height: 1.55;
   text-shadow: 0 1px 8px rgba(0,0,0,0.8);
 
   ${media.lessThan("mobile")`
@@ -254,7 +254,7 @@ export const HeroSub = styled.p`
 
 export const HeroNota = styled.span`
   display: block;
-  margin-top: 1.25rem;
+  margin-top: 1rem;
   font-family: var(--atelier-ui, var(--ui-font, sans-serif));
   font-size: 0.78rem;
   letter-spacing: 0.18em;

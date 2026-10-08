@@ -209,23 +209,6 @@ export const ProductCard = styled.article`
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
     border-color: var(--atelier-gold);
   }
-
-  .badgePopular {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    z-index: 2;
-    padding: 0.35rem 0.85rem;
-    background: var(--atelier-accent);
-    color: #ffffff;
-    font-family: var(--atelier-ui);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(143, 26, 32, 0.3);
-  }
 `;
 
 export const CardMedia = styled.div`
@@ -638,3 +621,153 @@ export const FaqAnswer = styled.div`
   border-top: 1px solid #f6f0ea;
   padding-top: 1rem;
 `;
+
+/* ─────────────────────────────────────────
+   7. TABELA DE MEDIDAS
+───────────────────────────────────────── */
+export const TabelaSection = styled.section`
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto clamp(3.5rem, 6vw, 5.5rem);
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+  box-sizing: border-box;
+`;
+
+export const TabelaCard = styled.div`
+  background: #ffffff;
+  border: 1px solid #ebdccb;
+  border-radius: 12px;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
+export const TabelaHeader = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  .eyebrow {
+    font-family: var(--atelier-ui);
+    font-size: 0.82rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--atelier-accent);
+  }
+
+  h2 {
+    margin: 0;
+    font-family: var(--atelier-display);
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    font-weight: 600;
+    color: #100e0c;
+  }
+
+  .subtitle {
+    margin: 0;
+    font-family: var(--atelier-body);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    color: #423b36;
+    font-style: italic;
+  }
+`;
+
+export const TabelaWrapper = styled.div`
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 0.5rem;
+  border: 1.5px solid #332d29;
+  border-radius: 4px;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f4efe9;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #c4a46a;
+    border-radius: 4px;
+  }
+`;
+
+export const StyledTable = styled.table`
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  font-family: var(--atelier-ui, "DM Sans", system-ui, sans-serif);
+  font-size: 0.95rem;
+
+  thead tr.rowSiglas th {
+    background: #baa996;
+    color: #1a1614;
+    font-weight: 700;
+    padding: 0.85rem 0.5rem;
+    text-align: center;
+    border: 1px solid #332d29;
+    letter-spacing: 0.04em;
+
+    &:first-child {
+      background: #baa996;
+    }
+  }
+
+  thead tr.rowNumeros th {
+    background: #baa996;
+    color: #1a1614;
+    font-weight: 700;
+    padding: 0.85rem 0.5rem;
+    text-align: center;
+    border: 1px solid #332d29;
+
+    &:first-child {
+      text-align: left;
+      padding-left: 1.25rem;
+      font-weight: 700;
+    }
+  }
+
+  tbody tr {
+    transition: background 0.2s ease;
+
+    &:nth-child(even) {
+      background: #faf8f5;
+    }
+
+    &:hover {
+      background: #f3ece3;
+    }
+
+    td {
+      padding: 0.75rem 0.6rem;
+      border: 1px solid #332d29;
+      color: #1a1614;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+
+      &:first-child {
+        text-align: left;
+        padding-left: 1.25rem;
+        font-weight: 600;
+        color: #100e0c;
+        background: #fdfcfb;
+      }
+    }
+  }
+`;
+
+export const TabelaFooterNote = styled.p`
+  margin: 0;
+  text-align: center;
+  font-family: var(--atelier-ui);
+  font-size: 0.84rem;
+  color: #7a7068;
+  letter-spacing: 0.02em;
+`;
+

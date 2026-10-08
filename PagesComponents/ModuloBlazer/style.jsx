@@ -61,9 +61,9 @@ export const Cta = styled.a`
 export const Hero = styled.section`
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
   background: ${PRETO};
 
@@ -110,7 +110,7 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0 6vw 7rem;
+  padding: clamp(3.5rem, 7vh, 6rem) 6vw clamp(3rem, 6vh, 4.5rem);
   animation: ${fadeUp} 0.9s ease both;
 
   ${media.lessThan("tablet")`
@@ -124,22 +124,22 @@ export const HeroContent = styled.div`
 
 export const HeroEyebrow = styled.span`
   font-family: var(--ui-font, sans-serif);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: ${GOLD};
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   text-shadow: 0 1px 6px rgba(0,0,0,0.6);
 `;
 
 export const HeroTitle = styled.h1`
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(5.5rem, 14vw, 13rem);
+  font-size: clamp(4.5rem, 10vw, 8.5rem);
   font-weight: 300;
-  line-height: 0.9;
+  line-height: 0.92;
   color: ${BRANCO};
-  margin: 0 0 2.25rem;
+  margin: 0 0 1.75rem;
   letter-spacing: -0.02em;
   text-shadow: 0 2px 20px rgba(0,0,0,0.4);
 `;

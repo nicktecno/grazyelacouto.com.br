@@ -14,7 +14,6 @@ const MOLDES_DATA = [
     category: "Camisas",
     categoryKey: "camisas",
     sizes: "Tamanhos 38 ao 54",
-    badge: "Mais Vendido",
     image: thumbCamisa,
     alt: "Molde Digital Camisa Clássica Feminina — Grazyela Couto",
     description:
@@ -34,7 +33,6 @@ const MOLDES_DATA = [
     category: "Saias",
     categoryKey: "saias",
     sizes: "Tamanhos 38 ao 54",
-    badge: "Tendência de Ateliê",
     image: thumbSaia,
     alt: "Molde Digital Saia Enviesada — Grazyela Couto",
     description:
@@ -54,7 +52,6 @@ const MOLDES_DATA = [
     category: "Blusas",
     categoryKey: "blusas",
     sizes: "Grade Multitamanhos",
-    badge: "Essencial & Prática",
     image: thumbBlusa,
     alt: "Molde Digital Blusa Simples — Grazyela Couto",
     description:
@@ -178,10 +175,6 @@ export default function MoldesPage() {
       <S.ProductsSection>
         {filteredMoldes.map((molde) => (
           <S.ProductCard key={molde.id}>
-            {molde.badge && (
-              <span className="badgePopular">{molde.badge}</span>
-            )}
-
             <S.CardMedia>
               <Image
                 src={molde.image}
@@ -219,11 +212,184 @@ export default function MoldesPage() {
                 <span className="formatNote">
                   Download em PDF · Acesso Vitalício na Hotmart
                 </span>
+                <a
+                  href="#tabela-de-medidas"
+                  style={{
+                    textAlign: "center",
+                    fontSize: "0.82rem",
+                    color: "#6b5d50",
+                    textDecoration: "underline",
+                    fontFamily: "var(--atelier-ui)",
+                    fontWeight: "600",
+                    marginTop: "0.35rem",
+                    cursor: "pointer",
+                  }}
+                >
+                  Consultar tabela de medidas (cm) 📏
+                </a>
               </div>
             </S.CardBody>
           </S.ProductCard>
         ))}
       </S.ProductsSection>
+
+      {/* ── 3.1 TABELA DE MEDIDAS (REFERÊNCIA DE ATELIÊ) ── */}
+      <S.TabelaSection id="tabela-de-medidas">
+        <S.TabelaCard>
+          <S.TabelaHeader>
+            <span className="eyebrow">Referência de Modelagem</span>
+            <h2>Tabela de medidas</h2>
+            <p className="subtitle">
+              As medidas são sem folga de vestibilidade.
+            </p>
+          </S.TabelaHeader>
+
+          <S.TabelaWrapper>
+            <S.StyledTable>
+              <thead>
+                <tr className="rowSiglas">
+                  <th scope="col" aria-label="Medida"></th>
+                  <th scope="col">PP</th>
+                  <th scope="col">P</th>
+                  <th scope="col">M</th>
+                  <th scope="col">M</th>
+                  <th scope="col">G</th>
+                  <th scope="col">G</th>
+                  <th scope="col">GG</th>
+                  <th scope="col">GG</th>
+                </tr>
+                <tr className="rowNumeros">
+                  <th scope="row">Tamanho</th>
+                  <th scope="col">36</th>
+                  <th scope="col">38</th>
+                  <th scope="col">40</th>
+                  <th scope="col">42</th>
+                  <th scope="col">44</th>
+                  <th scope="col">46</th>
+                  <th scope="col">48</th>
+                  <th scope="col">50</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Busto</td>
+                  <td>82</td>
+                  <td>86</td>
+                  <td>90</td>
+                  <td>94</td>
+                  <td>98</td>
+                  <td>102</td>
+                  <td>106</td>
+                  <td>110</td>
+                </tr>
+                <tr>
+                  <td>Cintura</td>
+                  <td>66</td>
+                  <td>70</td>
+                  <td>74</td>
+                  <td>78</td>
+                  <td>82</td>
+                  <td>86</td>
+                  <td>90</td>
+                  <td>94</td>
+                </tr>
+                <tr>
+                  <td>Quadril</td>
+                  <td>88</td>
+                  <td>92</td>
+                  <td>96</td>
+                  <td>100</td>
+                  <td>104</td>
+                  <td>108</td>
+                  <td>112</td>
+                  <td>116</td>
+                </tr>
+                <tr>
+                  <td>Altura do corpo</td>
+                  <td>39</td>
+                  <td>40</td>
+                  <td>41</td>
+                  <td>42</td>
+                  <td>43</td>
+                  <td>44</td>
+                  <td>45</td>
+                  <td>46</td>
+                </tr>
+                <tr>
+                  <td>Altura do Quadril</td>
+                  <td>18</td>
+                  <td>19</td>
+                  <td>19</td>
+                  <td>20</td>
+                  <td>20</td>
+                  <td>21</td>
+                  <td>21</td>
+                  <td>21</td>
+                </tr>
+                <tr>
+                  <td>Costas</td>
+                  <td>34</td>
+                  <td>35</td>
+                  <td>36</td>
+                  <td>37</td>
+                  <td>38</td>
+                  <td>39</td>
+                  <td>39</td>
+                  <td>40</td>
+                </tr>
+                <tr>
+                  <td>Ombro</td>
+                  <td>11</td>
+                  <td>11,5</td>
+                  <td>12</td>
+                  <td>12,5</td>
+                  <td>13</td>
+                  <td>13,5</td>
+                  <td>14</td>
+                  <td>14,5</td>
+                </tr>
+                <tr>
+                  <td>Altura da Cava</td>
+                  <td>16,5</td>
+                  <td>17</td>
+                  <td>17,5</td>
+                  <td>18</td>
+                  <td>19</td>
+                  <td>20</td>
+                  <td>21</td>
+                  <td>22</td>
+                </tr>
+                <tr>
+                  <td>Altura do busto</td>
+                  <td>22</td>
+                  <td>23</td>
+                  <td>24</td>
+                  <td>25</td>
+                  <td>26</td>
+                  <td>27</td>
+                  <td>28</td>
+                  <td>29</td>
+                </tr>
+                <tr>
+                  <td>Separação busto</td>
+                  <td>16</td>
+                  <td>17</td>
+                  <td>18</td>
+                  <td>19</td>
+                  <td>20</td>
+                  <td>21</td>
+                  <td>22</td>
+                  <td>23</td>
+                </tr>
+              </tbody>
+            </S.StyledTable>
+          </S.TabelaWrapper>
+
+          <S.TabelaFooterNote>
+            * Medidas em centímetros (cm). Meça o corpo com fita métrica rente e sem folga.
+          </S.TabelaFooterNote>
+        </S.TabelaCard>
+      </S.TabelaSection>
 
       {/* ── 4. COMO FUNCIONA O MOLDE DIGITAL ── */}
       <S.HowItWorksSection>
