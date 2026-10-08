@@ -140,30 +140,62 @@ function GalleryCarousel({ images, light, altPrefix }) {
 
 export default function HomePage() {
   const [motionReady, setMotionReady] = React.useState(false);
-  const [downloadCount, setDownloadCount] = React.useState(null);
+  const [downloadCount, setDownloadCount] = React.useState(0);
   const [hasDownloaded, setHasDownloaded] = React.useState(false);
 
   useEffect(() => {
+    let localVal = 0;
+    try {
+      const saved = localStorage.getItem("ebook_download_count");
+      if (saved) {
+        localVal = parseInt(saved, 10) || 0;
+        setDownloadCount(localVal);
+      }
+    } catch (e) {}
+
     fetch("/api/download-count")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("Status " + res.status);
+        return res.json();
+      })
       .then((data) => {
         if (data && typeof data.count === "number") {
-          setDownloadCount(data.count);
+          const finalVal = Math.max(data.count, localVal);
+          setDownloadCount(finalVal);
+          try {
+            localStorage.setItem("ebook_download_count", String(finalVal));
+          } catch (e) {}
         }
       })
       .catch(() => {});
   }, []);
 
   const handleDownload = () => {
-    setDownloadCount((prev) => (typeof prev === "number" ? prev + 1 : 1));
+    setDownloadCount((prev) => {
+      const next = (prev || 0) + 1;
+      try {
+        localStorage.setItem("ebook_download_count", String(next));
+      } catch (e) {}
+      return next;
+    });
+
     setHasDownloaded(true);
     setTimeout(() => setHasDownloaded(false), 5000);
 
     fetch("/api/download-count", { method: "POST" })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("Status " + res.status);
+        return res.json();
+      })
       .then((data) => {
         if (data && typeof data.count === "number") {
-          setDownloadCount(data.count);
+          setDownloadCount((prev) => {
+            const finalVal = Math.max(data.count, prev || 0);
+            try {
+              localStorage.setItem("ebook_download_count", String(finalVal));
+            } catch (e) {}
+            return finalVal;
+          });
         }
       })
       .catch(() => {});
