@@ -13,21 +13,29 @@ import * as S from "./style";
 // Imagens
 import bannerPhoto from "../../public/images/aprenda_a_costurar/IMG_7632.JPG";
 import avatarPhoto from "../../public/images/aprenda_a_costurar/IMG_7723.jpg";
-import thumbVerona from "../../public/images/bio/verona.jpeg";
+import thumbEbook from "../../public/images/ebook-materiais/pagina_1.png";
 import thumbModelagem from "../../public/images/bio/modelagem_costura.jpeg";
 import thumbCamisa from "../../public/images/bio/molde_camisa_classica.webp";
-import thumbSaia from "../../public/images/bio/molde_saia_enviesada.webp";
-import thumbBlusa from "../../public/images/bio/molde_blusa_simples.webp";
 import thumbBlazer from "../../public/images/bio/blazer.jpeg";
 import thumbAlfaiataria from "../../public/images/bio/alfaiataria.jpeg";
 
+const EBOOK_URL = "/downloads/lista-de-materiais-basicos-grazyela-couto.pdf";
+
+function trackEbookDownload() {
+  try {
+    fetch("/api/download-count", { method: "POST", keepalive: true }).catch(() => {});
+  } catch (e) {}
+}
+
 const LINKS_DATA = [
   {
-    title: "Maratonas de Costura (Em Breve Novidades)",
-    href: "/maratona",
-    image: thumbVerona,
-    objectPosition: "center 20%",
-    alt: "Maratonas de Costura Grazyela Couto — Em Breve Novidades",
+    title: "Comece aqui!",
+    href: EBOOK_URL,
+    download: true,
+    onClick: trackEbookDownload,
+    image: thumbEbook,
+    objectPosition: "center top",
+    alt: "Lista de Materiais Básicos Para Iniciantes — Comece aqui!",
   },
   {
     title: "Curso de Modelagem e Costura - Aprenda a Costurar",
@@ -67,25 +75,11 @@ const LINKS_DATA = [
     alt: "Grupo Exclusivo do WhatsApp",
   },
   {
-    title: "Molde Digital- Camisa Clássica Feminina TAMANHO 38 a 54 - Grazyela Rodrigues Couto | Hotmart",
-    href: "https://hotmart.com/pt-br/marketplace/produtos/molde-digital-camisa-classica-feminina/R106672757A",
+    title: "Loja de Moldes",
+    href: "/moldes",
     image: thumbCamisa,
     objectPosition: "center center",
-    alt: "Molde Digital Camisa Clássica Feminina",
-  },
-  {
-    title: "Molde Digital- Saia Enviesada TAMANHO 38 a 54 - Grazyela Rodrigues Couto | Hotmart",
-    href: "https://hotmart.com/pt-br/marketplace/produtos/molde-digital-saia-enviesada-tamanho-38-a-54/Y107019938P",
-    image: thumbSaia,
-    objectPosition: "center center",
-    alt: "Molde Digital Saia Enviesada",
-  },
-  {
-    title: "Molde Blusa simples",
-    href: "https://pay.hotmart.com/U107233693H?bid=1787171331094",
-    image: thumbBlusa,
-    objectPosition: "center center",
-    alt: "Molde Blusa simples",
+    alt: "Loja de Moldes Digitais Grazyela Couto",
   },
   {
     title: "Módulo Blazer",
@@ -183,6 +177,7 @@ export default function LinksComponent() {
           <S.LinksList>
             {LINKS_DATA.map((item, idx) => {
               const isExternal = item.href.startsWith("http");
+              const isDownload = Boolean(item.download);
               const pillContent = (
                 <>
                   <S.Thumbnail>
@@ -207,6 +202,19 @@ export default function LinksComponent() {
                   <S.EndSpacer aria-hidden="true" />
                 </>
               );
+
+              if (isDownload) {
+                return (
+                  <S.LinkPill
+                    key={idx}
+                    href={item.href}
+                    download
+                    onClick={item.onClick}
+                  >
+                    {pillContent}
+                  </S.LinkPill>
+                );
+              }
 
               return isExternal ? (
                 <S.LinkPill
