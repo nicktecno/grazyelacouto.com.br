@@ -139,14 +139,14 @@ function GalleryCarousel({ images, light, altPrefix }) {
 
 export default function HomePage() {
   const [motionReady, setMotionReady] = React.useState(false);
-  const [downloadCount, setDownloadCount] = React.useState(2847);
+  const [downloadCount, setDownloadCount] = React.useState(null);
   const [hasDownloaded, setHasDownloaded] = React.useState(false);
 
   useEffect(() => {
     fetch("/api/download-count")
       .then((res) => res.json())
       .then((data) => {
-        if (data && data.count) {
+        if (data && typeof data.count === "number") {
           setDownloadCount(data.count);
         }
       })
@@ -154,14 +154,14 @@ export default function HomePage() {
   }, []);
 
   const handleDownload = () => {
-    setDownloadCount((prev) => prev + 1);
+    setDownloadCount((prev) => (typeof prev === "number" ? prev + 1 : 1));
     setHasDownloaded(true);
     setTimeout(() => setHasDownloaded(false), 5000);
 
     fetch("/api/download-count", { method: "POST" })
       .then((res) => res.json())
       .then((data) => {
-        if (data && data.count) {
+        if (data && typeof data.count === "number") {
           setDownloadCount(data.count);
         }
       })
@@ -389,7 +389,11 @@ export default function HomePage() {
         <S.EbookCopy>
           <S.EbookCounterBadge>
             <span className="pulseDot" />
-            <span className="countNumber">+{downloadCount.toLocaleString("pt-BR")}</span>
+            <span className="countNumber">
+              {typeof downloadCount === "number"
+                ? `+${downloadCount.toLocaleString("pt-BR")}`
+                : "+0"}
+            </span>
             <span className="countText">Downloads Realizados</span>
           </S.EbookCounterBadge>
 

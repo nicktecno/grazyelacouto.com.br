@@ -1,57 +1,107 @@
-// API Route para rastreamento e contagem de downloads do E-book
-// Suporta Upstash Redis e Vercel KV automaticamente caso configurado.
+import { Redis } from "@upstash/redis";
+import RedisIo from "ioredis";
 
-const BASE_COUNT = 2847;
-let memoryCount = BASE_COUNT;
+const REDIS_KEY =
+  process.env.REDIS_DOWNLOAD_KEY ||
+  process.env.DOWNLOADS_KEY ||
+  "ebook_materiais_downloads";
 
-export default async function handler(req, res) {
-  // Lê as variáveis do Upstash Redis ou Vercel KV
-  const redisUrl =
+let memoryCount = 0;
+let upstashClient = null;
+let ioRedisClient = null;
+
+function getRedisClient() {
+  const restUrl =
     process.env.UPSTASH_REDIS_REST_URL ||
     process.env.KV_REST_API_URL;
-  const redisToken =
+  const restToken =
     process.env.UPSTASH_REDIS_REST_TOKEN ||
     process.env.KV_REST_API_TOKEN;
 
-  if (redisUrl && redisToken) {
+  if (restUrl && restToken) {
+    if (!upstashClient) {
+      upstashClient = new Redis({
+        url: restUrl,
+        token: restToken,
+      });
+    }
+    return { type: "upstash", client: upstashClient };
+  }
+
+  const rawUrl = process.env.REDIS_URL || process.env.KV_URL;
+  if (rawUrl) {
+    if (!ioRedisClient) {
+      ioRedisClient = new RedisIo(rawUrl, {
+        lazyConnect: true,
+        connectTimeout: 5000,
+        maxRetriesPerRequest: 1,
+      });
+    }
+    return { type: "ioredis", client: ioRedisClient };
+  }
+
+  return null;
+}
+
+export default async function handler(req, res) {
+  res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+
+  const redisInstance = getRedisClient();
+
+  if (redisInstance) {
     try {
-      const headers = { Authorization: `Bearer ${redisToken}` };
+      if (redisInstance.type === "upstash") {
+        const client = redisInstance.client;
 
-      // Garante que a chave existe e tem valor inicial se for a primeira vez
-      // SETNX só atribui se a chave ainda não existir
-      await fetch(`${redisUrl}/setnx/ebook_materiais_downloads/${BASE_COUNT}`, {
-        headers,
-      }).catch(() => {});
+        if (req.method === "POST") {
+          const newCount = await client.incr(REDIS_KEY);
+          return res.status(200).json({ count: Number(newCount), source: "redis" });
+        } else {
+          let val = await client.get(REDIS_KEY);
 
-      if (req.method === "POST") {
-        // Incrementa em +1 atomicamente
-        const resp = await fetch(`${redisUrl}/incr/ebook_materiais_downloads`, {
-          method: "POST",
-          headers,
-        });
-        const data = await resp.json();
-        const current = typeof data.result === "number" ? data.result : BASE_COUNT + 1;
-        return res.status(200).json({ count: current });
-      } else {
-        // Busca contagem atual
-        const resp = await fetch(`${redisUrl}/get/ebook_materiais_downloads`, {
-          headers,
-        });
-        const data = await resp.json();
-        const current = data.result ? parseInt(data.result, 10) : BASE_COUNT;
-        return res.status(200).json({ count: isNaN(current) ? BASE_COUNT : current });
+          // Verifica chave alternativa caso a principal esteja vazia
+          if (val === null || val === undefined) {
+            const alt = await client.get("ebook_downloads");
+            if (alt !== null && alt !== undefined) {
+              val = alt;
+            }
+          }
+
+          const count = val !== null && val !== undefined ? Number(val) : 0;
+          return res.status(200).json({ count: isNaN(count) ? 0 : count, source: "redis" });
+        }
+      } else if (redisInstance.type === "ioredis") {
+        const client = redisInstance.client;
+        if (client.status !== "ready") {
+          await client.connect().catch(() => {});
+        }
+
+        if (req.method === "POST") {
+          const newCount = await client.incr(REDIS_KEY);
+          return res.status(200).json({ count: Number(newCount), source: "redis" });
+        } else {
+          let val = await client.get(REDIS_KEY);
+          if (val === null || val === undefined) {
+            const alt = await client.get("ebook_downloads");
+            if (alt !== null && alt !== undefined) {
+              val = alt;
+            }
+          }
+
+          const count = val !== null && val !== undefined ? Number(val) : 0;
+          return res.status(200).json({ count: isNaN(count) ? 0 : count, source: "redis" });
+        }
       }
     } catch (err) {
-      console.error("Erro ao conectar ao Redis:", err);
-      // Fallback gracioso em caso de erro de rede no Redis
+      console.error("[Redis Error]", err);
     }
   }
 
-  // Fallback in-memory quando o Redis não estiver configurado (desenvolvimento / teste local)
+  // Fallback in-memory caso Redis não esteja conectado nas variáveis de ambiente
   if (req.method === "POST") {
     memoryCount += 1;
-    return res.status(200).json({ count: memoryCount });
+    return res.status(200).json({ count: memoryCount, source: "memory" });
   }
 
-  return res.status(200).json({ count: memoryCount });
+  return res.status(200).json({ count: memoryCount, source: "memory" });
 }
