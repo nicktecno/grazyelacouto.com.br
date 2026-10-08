@@ -20,6 +20,7 @@ import thumbBlazer from "../../public/images/bio/blazer.jpeg";
 import thumbAlfaiataria from "../../public/images/bio/alfaiataria.jpeg";
 
 const EBOOK_URL = "/downloads/lista-de-materiais-basicos-grazyela-couto.pdf";
+const EBOOK_DOWNLOAD_FILENAME = "Lista-de-Materiais-Basicos-Grazyela-Couto.pdf";
 
 function trackEbookDownload() {
   try {
@@ -31,7 +32,7 @@ const LINKS_DATA = [
   {
     title: "Comece aqui!",
     href: EBOOK_URL,
-    download: true,
+    download: EBOOK_DOWNLOAD_FILENAME,
     onClick: trackEbookDownload,
     image: thumbEbook,
     objectPosition: "center top",
@@ -208,7 +209,7 @@ export default function LinksComponent() {
                   <S.LinkPill
                     key={idx}
                     href={item.href}
-                    download
+                    download={item.download || "Lista-de-Materiais-Basicos-Grazyela-Couto.pdf"}
                     onClick={item.onClick}
                   >
                     {pillContent}
