@@ -21,6 +21,10 @@ import modulo19 from "../../public/images/aprenda_a_costurar/modulos/19_vestido_
 import modulo20 from "../../public/images/aprenda_a_costurar/modulos/20_vestido_fenda.jpeg";
 import modulo21 from "../../public/images/aprenda_a_costurar/modulos/21_tubinho_beckman.jpeg";
 import modulo22 from "../../public/images/aprenda_a_costurar/modulos/22_blusa_europeia.jpeg";
+import modulo23 from "../../public/images/aprenda_a_costurar/modulos/23_colete_alexandra.jpeg";
+import modulo24 from "../../public/images/aprenda_a_costurar/modulos/24_vestido_nesgas.jpeg";
+import modulo25 from "../../public/images/aprenda_a_costurar/modulos/25_vestido_capri.jpeg";
+import modulo26 from "../../public/images/aprenda_a_costurar/modulos/26_vestido_vogue.jpeg";
 import adicionalColete from "../../public/images/aprenda_a_costurar/modulos/23_adicional_colete_alfaiataria.jpeg";
 import adicionalCasaqueto from "../../public/images/aprenda_a_costurar/modulos/24_adicional_casaqueto_chanel_lady.jpeg";
 import adicionalJaqueta from "../../public/images/aprenda_a_costurar/modulos/25_adicional_jaqueta_zara.jpeg";
@@ -158,6 +162,30 @@ const coursePieces = [
     tag: "Módulo 22",
     image: modulo22,
     alt: "Blusa Europeia drapeada de gola alta em três versões elegantes",
+  },
+  {
+    title: "Colete Alexandra",
+    tag: "Módulo 23",
+    image: modulo23,
+    alt: "Colete Alexandra em alfaiataria linho com decote transpassado e gola smoking",
+  },
+  {
+    title: "Vestido Nesgas",
+    tag: "Módulo 24",
+    image: modulo24,
+    alt: "Vestido Nesgas midi e longo fluido com nesgas e caimento impecável",
+  },
+  {
+    title: "Vestido Capri",
+    tag: "Módulo 25",
+    image: modulo25,
+    alt: "Vestido Capri tubinho clássico com decote quadrado e versão com saia plissada",
+  },
+  {
+    title: "Vestido Vogue",
+    tag: "Módulo 26",
+    image: modulo26,
+    alt: "Vestido Vogue sofisticado com decote em V profundo e gola estruturada",
   },
   {
     title: "Colete Alfaiataria",

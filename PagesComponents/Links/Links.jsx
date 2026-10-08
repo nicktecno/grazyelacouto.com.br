@@ -23,11 +23,11 @@ import thumbAlfaiataria from "../../public/images/bio/alfaiataria.jpeg";
 
 const LINKS_DATA = [
   {
-    title: "Grazyela Couto - Maratona Vestido Verona",
+    title: "Maratonas de Costura (Em Breve Novidades)",
     href: "/maratona",
     image: thumbVerona,
     objectPosition: "center 20%",
-    alt: "Maratona Vestido Verona",
+    alt: "Maratonas de Costura Grazyela Couto — Em Breve Novidades",
   },
   {
     title: "Curso de Modelagem e Costura - Aprenda a Costurar",
