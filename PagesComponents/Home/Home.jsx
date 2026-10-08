@@ -138,6 +138,24 @@ function GalleryCarousel({ images, light, altPrefix }) {
   );
 }
 
+let cachedHomeEbookBlobPromise = null;
+
+function getHomeEbookBlob() {
+  if (typeof window === "undefined") return Promise.reject();
+  if (!cachedHomeEbookBlobPromise) {
+    cachedHomeEbookBlobPromise = fetch("/downloads/lista-de-materiais-basicos-grazyela-couto.pdf")
+      .then((res) => {
+        if (!res.ok) throw new Error("Erro ao carregar PDF");
+        return res.blob();
+      })
+      .catch((err) => {
+        cachedHomeEbookBlobPromise = null;
+        throw err;
+      });
+  }
+  return cachedHomeEbookBlobPromise;
+}
+
 export default function HomePage() {
   const [motionReady, setMotionReady] = React.useState(false);
   const [downloadCount, setDownloadCount] = React.useState(0);
@@ -168,9 +186,15 @@ export default function HomePage() {
         }
       })
       .catch(() => {});
+
+    // Aquece o cache do PDF em segundo plano
+    const timer = setTimeout(() => {
+      getHomeEbookBlob();
+    }, 1500);
+    return () => clearTimeout(timer);
   }, []);
 
-  const handleDownload = () => {
+  const handleDownload = async (e) => {
     setDownloadCount((prev) => {
       const next = (prev || 0) + 1;
       try {
@@ -199,6 +223,32 @@ export default function HomePage() {
         }
       })
       .catch(() => {});
+
+    // No iOS / Safari / Instagram, tenta acionar o Web Share nativo da Apple (com 'Salvar em Arquivos')
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+      try {
+        const blob = await getHomeEbookBlob();
+        const file = new File([blob], "Lista-de-Materiais-Basicos-Grazyela-Couto.pdf", {
+          type: "application/pdf",
+          lastModified: Date.now(),
+        });
+
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          if (e && e.preventDefault) e.preventDefault();
+          await navigator.share({
+            files: [file],
+            title: "Lista de Materiais Básicos Para Iniciantes — Grazyela Couto",
+          });
+          return;
+        }
+      } catch (shareErr) {
+        if (shareErr && shareErr.name === "AbortError") {
+          if (e && e.preventDefault) e.preventDefault();
+          return;
+        }
+        console.warn("Share API falhou, continuando para fluxo nativo:", shareErr);
+      }
+    }
   };
 
   useEffect(() => {

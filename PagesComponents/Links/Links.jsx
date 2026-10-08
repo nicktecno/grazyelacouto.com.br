@@ -22,10 +22,58 @@ import thumbAlfaiataria from "../../public/images/bio/alfaiataria.jpeg";
 const EBOOK_URL = "/downloads/lista-de-materiais-basicos-grazyela-couto.pdf";
 const EBOOK_DOWNLOAD_FILENAME = "Lista-de-Materiais-Basicos-Grazyela-Couto.pdf";
 
+let cachedBlobPromise = null;
+
+function getEbookBlob() {
+  if (typeof window === "undefined") return Promise.reject();
+  if (!cachedBlobPromise) {
+    cachedBlobPromise = fetch(EBOOK_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error("Erro ao carregar PDF");
+        return res.blob();
+      })
+      .catch((err) => {
+        cachedBlobPromise = null;
+        throw err;
+      });
+  }
+  return cachedBlobPromise;
+}
+
 function trackEbookDownload() {
   try {
     fetch("/api/download-count", { method: "POST", keepalive: true }).catch(() => {});
   } catch (e) {}
+}
+
+async function handleEbookDownload(e) {
+  trackEbookDownload();
+
+  // No iOS / Safari / Instagram, tenta acionar o Web Share nativo da Apple (com 'Salvar em Arquivos')
+  if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+    try {
+      const blob = await getEbookBlob();
+      const file = new File([blob], EBOOK_DOWNLOAD_FILENAME, {
+        type: "application/pdf",
+        lastModified: Date.now(),
+      });
+
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        if (e && e.preventDefault) e.preventDefault();
+        await navigator.share({
+          files: [file],
+          title: "Lista de Materiais Básicos Para Iniciantes — Grazyela Couto",
+        });
+        return;
+      }
+    } catch (shareErr) {
+      if (shareErr && shareErr.name === "AbortError") {
+        if (e && e.preventDefault) e.preventDefault();
+        return;
+      }
+      console.warn("Web Share falhou ou não suportado, seguindo fluxo normal:", shareErr);
+    }
+  }
 }
 
 const LINKS_DATA = [
@@ -33,7 +81,7 @@ const LINKS_DATA = [
     title: "Comece aqui!",
     href: EBOOK_URL,
     download: EBOOK_DOWNLOAD_FILENAME,
-    onClick: trackEbookDownload,
+    onClick: handleEbookDownload,
     image: thumbEbook,
     objectPosition: "center top",
     alt: "Lista de Materiais Básicos Para Iniciantes — Comece aqui!",
@@ -100,6 +148,14 @@ const LINKS_DATA = [
 
 export default function LinksComponent() {
   const date = new Date().getFullYear();
+
+  React.useEffect(() => {
+    // Aquece o cache do PDF em segundo plano para resposta instantânea ao clique
+    const timer = setTimeout(() => {
+      getEbookBlob();
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
