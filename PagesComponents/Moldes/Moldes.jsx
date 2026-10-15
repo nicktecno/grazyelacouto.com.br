@@ -3,11 +3,31 @@ import Image from "next/image";
 import Link from "next/link";
 import * as S from "./style";
 
+import thumbBlazerRusso from "../../public/images/bio/molde_blazer_russo.webp";
 import thumbCamisa from "../../public/images/bio/molde_camisa_classica.webp";
 import thumbSaia from "../../public/images/bio/molde_saia_enviesada.webp";
 import thumbBlusa from "../../public/images/bio/molde_blusa_simples.webp";
 
 const MOLDES_DATA = [
+  {
+    id: "blazer-russo",
+    title: "Blazer de Alfaiataria Russo",
+    category: "Blazers",
+    categoryKey: "blazers",
+    sizes: "Tamanhos 38 ao 54",
+    image: thumbBlazerRusso,
+    alt: "Molde Digital Blazer Russo de Alfaiataria — Grazyela Couto",
+    description:
+      "Peça de alfaiataria que une elegância, sofisticação e acabamento profissional. Modelagem estruturada com transpasse clássico, excelente caimento e atenção minuciosa aos detalhes.",
+    features: [
+      "Grade completa do tamanho 38 ao 54",
+      "Manga com fenda funcional, vista da fenda e transpasse",
+      "Construção completa estruturada com forro",
+      "Arquivo PDF pronto para imprimir em folha A4 com gabarito",
+    ],
+    buyUrl:
+      "https://hotmart.com/pt-br/marketplace/produtos/molde-blazer-russo/K108013877Y",
+  },
   {
     id: "camisa-classica",
     title: "Camisa Clássica Feminina",
@@ -147,6 +167,13 @@ export default function MoldesPage() {
           onClick={() => setSelectedCategory("todos")}
         >
           Todos os Moldes
+        </S.FilterBtn>
+        <S.FilterBtn
+          type="button"
+          $active={selectedCategory === "blazers"}
+          onClick={() => setSelectedCategory("blazers")}
+        >
+          Blazers
         </S.FilterBtn>
         <S.FilterBtn
           type="button"

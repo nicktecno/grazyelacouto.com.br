@@ -180,7 +180,7 @@ export const ProductsSection = styled.section`
   margin: 0 auto;
   padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: clamp(1.5rem, 3vw, 2.5rem);
 
   ${customMedia.lessThan("notebook")`

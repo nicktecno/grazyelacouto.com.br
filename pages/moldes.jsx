@@ -14,6 +14,7 @@ export async function getStaticProps() {
     "moldes digitais",
     "loja de moldes",
     "moldes de costura em PDF",
+    "molde blazer russo",
     "molde camisa clássica",
     "molde saia enviesada",
     "molde blusa simples",
@@ -26,7 +27,7 @@ export async function getStaticProps() {
     .join(", ");
 
   const metaDescription =
-    "Compre moldes digitais prontos em PDF da Grazyela Couto: Camisa Clássica, Saia Enviesada e Blusa Simples. Tamanhos do 38 ao 54 com margens inclusas, prontos para imprimir em folha A4.";
+    "Compre moldes digitais prontos em PDF da Grazyela Couto: Blazer Russo, Camisa Clássica, Saia Enviesada e Blusa Simples. Tamanhos do 38 ao 54 com margens inclusas, prontos para imprimir em folha A4.";
 
   const jsonLd = [
     {
@@ -45,6 +46,14 @@ export async function getStaticProps() {
         {
           "@type": "Product",
           position: 1,
+          name: "Molde Digital Blazer Russo de Alfaiataria",
+          description:
+            "Molde digital em PDF de blazer de alfaiataria estruturado com manga com fenda funcional e forro completo.",
+          url: "https://hotmart.com/pt-br/marketplace/produtos/molde-blazer-russo/K108013877Y",
+        },
+        {
+          "@type": "Product",
+          position: 2,
           name: "Molde Digital Camisa Clássica Feminina",
           description:
             "Molde digital em PDF com grade completa do 38 ao 54, margens inclusas e gabarito A4.",
@@ -52,7 +61,7 @@ export async function getStaticProps() {
         },
         {
           "@type": "Product",
-          position: 2,
+          position: 3,
           name: "Molde Digital Saia Enviesada",
           description:
             "Molde digital de saia no corte enviesado em PDF do 38 ao 54 com caimento fluido.",
@@ -60,7 +69,7 @@ export async function getStaticProps() {
         },
         {
           "@type": "Product",
-          position: 3,
+          position: 4,
           name: "Molde Digital Blusa Simples",
           description:
             "Molde digital de blusa regata com pence de busto em PDF pronto para imprimir.",
