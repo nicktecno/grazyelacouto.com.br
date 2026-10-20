@@ -144,6 +144,16 @@ const LINKS_DATA = [
     objectPosition: "center 22%",
     alt: "Curso Peças de Alfaiataria Grazyela Couto",
   },
+  {
+    title: "Mídia Kit Comercial (Marcas & Parcerias)",
+    href: "/midia-kit",
+    icon: (
+      <div style={{ width: "100%", height: "100%", background: "#CE171F", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <Instagram style={{ color: "#FFFFFF", width: "28px", height: "28px" }} />
+      </div>
+    ),
+    alt: "Mídia Kit Comercial — Grazyela Couto",
+  },
 ];
 
 export default function LinksComponent() {

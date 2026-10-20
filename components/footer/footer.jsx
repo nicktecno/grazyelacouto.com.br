@@ -37,6 +37,11 @@ function Footer() {
           <Telegram />
         </Link>
       </div>
+      <div style={{ margin: "10px 0", fontSize: "0.85rem" }}>
+        <Link href="/midia-kit" style={{ color: "inherit", textDecoration: "underline", opacity: 0.85 }}>
+          Mídia Kit Comercial (Marcas & Parcerias)
+        </Link>
+      </div>
       <div className="copyright">Copyright © {date} Grazyela Couto</div>
     </S.Footer>
   );
