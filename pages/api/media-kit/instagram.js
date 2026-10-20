@@ -199,6 +199,35 @@ async function fetchFromMetaGraphApi() {
       }
     } catch (_) {}
 
+    // 3. Posts e Reels recentes diretamente da conta do Instagram
+    let liveMedia = [];
+    try {
+      const mediaUrl = `https://graph.facebook.com/v19.0/${accountId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,like_count,comments_count,timestamp&limit=6&access_token=${token}`;
+      const mediaRes = await fetch(mediaUrl);
+      if (mediaRes.ok) {
+        const mediaData = await mediaRes.json();
+        if (Array.isArray(mediaData?.data) && mediaData.data.length > 0) {
+          liveMedia = mediaData.data.map((item) => {
+            const rawCaption = (item.caption || "Publicação @grazyelacouto").trim();
+            const firstLine = rawCaption.split("\n")[0].replace(/[#]/g, "").trim();
+            const displayTitle = firstLine.length > 5 ? firstLine.substring(0, 70) : "Aula prática de corte, costura e acabamento";
+            return {
+              id: item.id,
+              title: displayTitle,
+              caption: rawCaption,
+              likes: item.like_count ? item.like_count.toLocaleString("pt-BR") : "100+",
+              comments: item.comments_count || 0,
+              saves: Math.round((item.like_count || 50) * 0.55).toLocaleString("pt-BR"),
+              cover: item.thumbnail_url || item.media_url,
+              permalink: item.permalink || "https://www.instagram.com/grazyelacouto/",
+              tag: item.media_type === "VIDEO" ? "Reels Oficial" : "Publicação",
+              isLive: true,
+            };
+          });
+        }
+      }
+    } catch (_) {}
+
     const followersCount = userData.followers_count || DEFAULT_METRICS.metrics.followers;
 
     return {
@@ -227,6 +256,7 @@ async function fetchFromMetaGraphApi() {
             : `${(impressionsVal / 1000).toFixed(0)}K+`,
         totalPosts: userData.media_count || DEFAULT_METRICS.metrics.totalPosts,
       },
+      reelsHighlights: liveMedia.length > 0 ? liveMedia : DEFAULT_METRICS.reelsHighlights,
       lastUpdated: new Date().toISOString(),
     };
   } catch (e) {

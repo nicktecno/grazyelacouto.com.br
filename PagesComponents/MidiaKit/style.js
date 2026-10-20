@@ -237,11 +237,11 @@ export const NavTabItem = styled.a`
 export const Section = styled.section`
   max-width: 1180px;
   margin: 0 auto;
-  padding: 64px 24px;
+  padding: 84px 24px;
   position: relative;
 
   ${media.lessThan("tablet")`
-    padding: 40px 18px;
+    padding: 56px 20px;
   `}
 
   @media print {
@@ -279,7 +279,7 @@ export const HeroCover = styled.div`
 `;
 
 export const HeroContent = styled.div`
-  padding: 56px 48px;
+  padding: 64px 52px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -287,7 +287,7 @@ export const HeroContent = styled.div`
   z-index: 2;
 
   ${media.lessThan("tablet")`
-    padding: 36px 24px;
+    padding: 40px 24px;
   `}
 `;
 
@@ -302,18 +302,18 @@ export const SubPill = styled.div`
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: 999px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   align-self: flex-start;
 `;
 
 export const HeroTitle = styled.h1`
   font-family: "Seasons", serif, Georgia;
-  font-size: 3.6rem;
-  line-height: 1.08;
+  font-size: 3.8rem;
+  line-height: 1.12;
   font-weight: 700;
-  margin: 0 0 16px 0;
+  margin: 0 0 20px 0;
   color: #ffffff;
   letter-spacing: -0.5px;
 
@@ -324,24 +324,26 @@ export const HeroTitle = styled.h1`
   }
 
   ${media.lessThan("tablet")`
-    font-size: 2.6rem;
+    font-size: 2.8rem;
+    line-height: 1.18;
   `}
 
   ${media.lessThan("mobile")`
-    font-size: 2.2rem;
+    font-size: 2.3rem;
   `}
 `;
 
 export const HeroTagline = styled.p`
   font-size: 1.18rem;
-  line-height: 1.6;
+  line-height: 1.75;
   color: #e2dbd5;
-  margin: 0 0 28px 0;
-  max-width: 520px;
+  margin: 0 0 32px 0;
+  max-width: 540px;
   font-weight: 400;
 
   ${media.lessThan("tablet")`
-    font-size: 1.02rem;
+    font-size: 1.05rem;
+    margin-bottom: 24px;
   `}
 `;
 
@@ -398,7 +400,7 @@ export const HeroPhotoSide = styled.div`
 // Section Header with Title and Eyebrow
 export const SectionHeading = styled.div`
   text-align: ${(props) => (props.$center ? "center" : "left")};
-  margin-bottom: 40px;
+  margin-bottom: 54px;
 
   @media print {
     margin-bottom: 24px;
@@ -406,12 +408,12 @@ export const SectionHeading = styled.div`
 `;
 
 export const Eyebrow = styled.div`
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 2.2px;
   color: #ce171f;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: ${(props) => (props.$center ? "center" : "flex-start")};
@@ -420,21 +422,22 @@ export const Eyebrow = styled.div`
 
 export const SectionTitle = styled.h2`
   font-family: "Seasons", serif, Georgia;
-  font-size: 2.5rem;
-  line-height: 1.15;
+  font-size: 2.6rem;
+  line-height: 1.25;
   color: #1e1b18;
-  margin: 0 0 12px 0;
+  margin: 0 0 16px 0;
 
   ${media.lessThan("tablet")`
-    font-size: 1.9rem;
+    font-size: 2rem;
+    line-height: 1.3;
   `}
 `;
 
 export const SectionDesc = styled.p`
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.8;
   color: #635b55;
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 auto;
   margin-left: ${(props) => (props.$center ? "auto" : "0")};
   margin-right: ${(props) => (props.$center ? "auto" : "0")};
@@ -444,12 +447,12 @@ export const SectionDesc = styled.p`
 export const StoryGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  gap: 48px;
   align-items: center;
 
   ${media.lessThan("tablet")`
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 36px;
   `}
 
   @media print {
@@ -480,27 +483,27 @@ export const StoryImageWrapper = styled.div`
 export const StoryTextContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 26px;
 `;
 
 export const HighlightQuote = styled.blockquote`
   font-family: "Seasons", serif, Georgia;
-  font-size: 1.65rem;
-  line-height: 1.3;
+  font-size: 1.7rem;
+  line-height: 1.4;
   color: #1e1b18;
   border-left: 4px solid #ce171f;
-  padding-left: 18px;
+  padding-left: 20px;
   margin: 0;
   font-style: italic;
 
   ${media.lessThan("tablet")`
-    font-size: 1.35rem;
+    font-size: 1.4rem;
   `}
 `;
 
 export const Paragraph = styled.p`
-  font-size: 1.02rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.85;
   color: #4f4843;
   margin: 0;
 
@@ -513,16 +516,16 @@ export const Paragraph = styled.p`
 export const PillarList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 10px;
+  gap: 18px;
+  margin-top: 18px;
 `;
 
 export const PillarCard = styled.div`
   background: #ffffff;
   border: 1px solid rgba(43, 39, 37, 0.08);
-  border-radius: 14px;
-  padding: 18px;
-  box-shadow: 0 4px 12px rgba(43, 39, 37, 0.03);
+  border-radius: 16px;
+  padding: 22px 20px;
+  box-shadow: 0 4px 14px rgba(43, 39, 37, 0.04);
   transition: transform 0.2s ease;
 
   &:hover {
@@ -531,8 +534,8 @@ export const PillarCard = styled.div`
   }
 
   h4 {
-    margin: 0 0 6px 0;
-    font-size: 1.02rem;
+    margin: 0 0 8px 0;
+    font-size: 1.05rem;
     color: #1e1b18;
     display: flex;
     align-items: center;
@@ -541,8 +544,8 @@ export const PillarCard = styled.div`
 
   p {
     margin: 0;
-    font-size: 0.88rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.6;
     color: #635b55;
   }
 `;
@@ -551,15 +554,17 @@ export const PillarCard = styled.div`
 export const MetricsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-bottom: 32px;
+  gap: 24px;
+  margin-bottom: 44px;
 
   ${media.lessThan("notebook")`
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   `}
 
   ${media.lessThan("mobile")`
     grid-template-columns: 1fr;
+    gap: 16px;
   `}
 
   @media print {
@@ -572,7 +577,7 @@ export const MetricCard = styled.div`
   background: ${(props) => (props.$primary ? "linear-gradient(135deg, #ce171f 0%, #a00f16 100%)" : "#ffffff")};
   color: ${(props) => (props.$primary ? "#ffffff" : "#1e1b18")};
   border-radius: 20px;
-  padding: 28px 24px;
+  padding: 32px 28px;
   border: 1px solid ${(props) => (props.$primary ? "transparent" : "rgba(43, 39, 37, 0.08)")};
   box-shadow: 0 10px 24px rgba(43, 39, 37, 0.05);
   display: flex;
@@ -580,9 +585,11 @@ export const MetricCard = styled.div`
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  min-height: 180px;
 
   ${media.lessThan("tablet")`
-    padding: 22px 18px;
+    padding: 26px 20px;
+    min-height: auto;
   `}
 
   @media print {
@@ -595,30 +602,30 @@ export const MetricCard = styled.div`
 
 export const MetricNumber = styled.div`
   font-family: "Seasons", serif, Georgia;
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 700;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   letter-spacing: -0.5px;
   color: ${(props) => (props.$light ? "#ffffff" : "#ce171f")};
 
   ${media.lessThan("tablet")`
-    font-size: 2.3rem;
+    font-size: 2.5rem;
   `}
 `;
 
 export const MetricLabel = styled.div`
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   color: ${(props) => (props.$light ? "rgba(255, 255, 255, 0.85)" : "#635b55")};
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 `;
 
 export const MetricSubtext = styled.div`
-  font-size: 0.8rem;
-  line-height: 1.4;
+  font-size: 0.84rem;
+  line-height: 1.5;
   color: ${(props) => (props.$light ? "rgba(255, 255, 255, 0.7)" : "#887f78")};
 `;
 
@@ -626,17 +633,17 @@ export const MetricSubtext = styled.div`
 export const DemographicsCard = styled.div`
   background: #ffffff;
   border-radius: 24px;
-  padding: 36px;
+  padding: 44px 38px;
   border: 1px solid rgba(43, 39, 37, 0.08);
   box-shadow: 0 12px 32px rgba(43, 39, 37, 0.04);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  gap: 48px;
 
   ${media.lessThan("tablet")`
     grid-template-columns: 1fr;
-    padding: 24px;
-    gap: 28px;
+    padding: 28px 20px;
+    gap: 36px;
   `}
 
   @media print {
@@ -649,9 +656,9 @@ export const DemographicsCard = styled.div`
 export const DemoSubSection = styled.div`
   h4 {
     font-family: "Seasons", serif, Georgia;
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     color: #1e1b18;
-    margin: 0 0 18px 0;
+    margin: 0 0 22px 0;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -660,47 +667,47 @@ export const DemoSubSection = styled.div`
 
 export const GenderBigCard = styled.div`
   background: linear-gradient(135deg, #faf5f3 0%, #f7ebe8 100%);
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 18px;
+  padding: 28px 20px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   text-align: center;
 `;
 
 export const GenderValue = styled.div`
   font-family: "Seasons", serif, Georgia;
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 700;
   color: ${(props) => (props.$female ? "#ce171f" : "#4a5568")};
   line-height: 1;
 `;
 
 export const GenderTag = styled.div`
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #635b55;
-  margin-top: 4px;
+  margin-top: 6px;
 `;
 
 export const BarRow = styled.div`
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 `;
 
 export const BarHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: #2b2725;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 `;
 
 export const BarTrack = styled.div`
-  height: 10px;
+  height: 11px;
   background: #eee8e2;
   border-radius: 999px;
   overflow: hidden;
@@ -724,11 +731,11 @@ export const BarFill = styled.div`
 export const HighlightsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 28px;
 
   ${media.lessThan("tablet")`
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
   `}
 
   @media print {
@@ -808,32 +815,33 @@ export const ReelViewsOverlay = styled.div`
 `;
 
 export const ReelBody = styled.div`
-  padding: 18px;
+  padding: 22px 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   h4 {
-    margin: 0 0 12px 0;
-    font-size: 0.98rem;
-    line-height: 1.4;
+    margin: 0 0 14px 0;
+    font-size: 1.02rem;
+    line-height: 1.5;
     color: #1e1b18;
+    font-weight: 600;
   }
 `;
 
 export const ReelStatsRow = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-top: 12px;
-  border-top: 1px solid rgba(43, 39, 37, 0.06);
-  font-size: 0.78rem;
+  padding-top: 14px;
+  border-top: 1px solid rgba(43, 39, 37, 0.08);
+  font-size: 0.82rem;
   color: #635b55;
 
   div {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     font-weight: 600;
   }
 `;
@@ -946,9 +954,9 @@ export const FormatsGrid = styled.div`
 export const FormatCard = styled.div`
   background: #ffffff;
   border: 1px solid rgba(43, 39, 37, 0.08);
-  border-radius: 18px;
-  padding: 28px 24px;
-  box-shadow: 0 8px 20px rgba(43, 39, 37, 0.04);
+  border-radius: 20px;
+  padding: 36px 30px;
+  box-shadow: 0 8px 24px rgba(43, 39, 37, 0.04);
   display: flex;
   flex-direction: column;
   transition: all 0.2s ease;
@@ -959,41 +967,46 @@ export const FormatCard = styled.div`
   }
 
   .icon-wrap {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
     background: rgba(206, 23, 31, 0.08);
     color: #ce171f;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 
     svg {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
     }
   }
 
   h4 {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     color: #1e1b18;
-    margin: 0 0 10px 0;
+    margin: 0 0 14px 0;
+    line-height: 1.35;
   }
 
   p {
-    font-size: 0.88rem;
-    line-height: 1.55;
+    font-size: 0.92rem;
+    line-height: 1.7;
     color: #635b55;
-    margin: 0 0 14px 0;
+    margin: 0 0 20px 0;
   }
 
   ul {
     margin: 0;
-    padding-left: 18px;
-    font-size: 0.82rem;
+    padding-left: 20px;
+    font-size: 0.86rem;
     color: #4f4843;
-    line-height: 1.6;
+    line-height: 1.7;
+
+    li {
+      margin-bottom: 8px;
+    }
   }
 `;
 
@@ -1001,12 +1014,13 @@ export const FormatCard = styled.div`
 export const PackagesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 32px;
 
   ${media.lessThan("notebook")`
     grid-template-columns: 1fr;
-    max-width: 500px;
+    max-width: 520px;
     margin: 0 auto;
+    gap: 28px;
   `}
 
   @media print {
@@ -1017,11 +1031,11 @@ export const PackagesGrid = styled.div`
 
 export const PackageCard = styled.div`
   background: ${(props) => (props.$highlight ? "#ffffff" : "#f7f4ee")};
-  border-radius: 24px;
-  padding: 36px 28px;
+  border-radius: 26px;
+  padding: 44px 34px;
   border: 2px solid ${(props) => (props.$highlight ? "#ce171f" : "rgba(43, 39, 37, 0.08)")};
   box-shadow: ${(props) =>
-    props.$highlight ? "0 18px 40px rgba(206, 23, 31, 0.12)" : "0 8px 20px rgba(43, 39, 37, 0.04)"};
+    props.$highlight ? "0 20px 48px rgba(206, 23, 31, 0.14)" : "0 8px 24px rgba(43, 39, 37, 0.04)"};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1038,27 +1052,27 @@ export const PackageCard = styled.div`
         transform: translateX(-50%);
         background: #ce171f;
         color: #ffffff;
-        font-size: 0.68rem;
+        font-size: 0.7rem;
         font-weight: 800;
-        letter-spacing: 1.2px;
-        padding: 4px 14px;
+        letter-spacing: 1.4px;
+        padding: 5px 16px;
         border-radius: 999px;
       }
     `}
 
   h3 {
     font-family: "Seasons", serif, Georgia;
-    font-size: 1.6rem;
+    font-size: 1.75rem;
     color: #1e1b18;
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0;
   }
 
   .price {
     font-family: "Seasons", serif, Georgia;
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 700;
     color: #ce171f;
-    margin: 16px 0;
+    margin: 22px 0;
 
     small {
       font-size: 0.95rem;
@@ -1068,24 +1082,25 @@ export const PackageCard = styled.div`
   }
 
   .desc {
-    font-size: 0.88rem;
-    line-height: 1.5;
+    font-size: 0.92rem;
+    line-height: 1.65;
     color: #635b55;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
   }
 
   ul {
     list-style: none;
     padding: 0;
-    margin: 0 0 28px 0;
+    margin: 0 0 36px 0;
 
     li {
-      font-size: 0.85rem;
-      line-height: 1.7;
+      font-size: 0.88rem;
+      line-height: 1.75;
       color: #3b3531;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      margin-bottom: 12px;
 
       &::before {
         content: "✓";
@@ -1099,9 +1114,9 @@ export const PackageCard = styled.div`
 export const PackageCTA = styled.a`
   background: ${(props) => (props.$highlight ? "#ce171f" : "#1e1b18")};
   color: #ffffff;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-size: 0.88rem;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-size: 0.92rem;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
@@ -1119,23 +1134,23 @@ export const ContactCard = styled.div`
   background: linear-gradient(135deg, #1e1b18 0%, #2f2a26 100%);
   color: #ffffff;
   border-radius: 28px;
-  padding: 56px 48px;
+  padding: 64px 54px;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
+  gap: 48px;
   align-items: center;
 
   ${media.lessThan("tablet")`
     grid-template-columns: 1fr;
-    padding: 36px 24px;
-    gap: 30px;
+    padding: 40px 26px;
+    gap: 36px;
   `}
 
   @media print {
     box-shadow: none;
     border-radius: 12px;
     background: #1e1b18 !important;
-    padding: 28px;
+    padding: 30px;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -1144,8 +1159,9 @@ export const ContactCard = styled.div`
 export const ContactLeft = styled.div`
   h2 {
     font-family: "Seasons", serif, Georgia;
-    font-size: 2.8rem;
-    margin: 0 0 12px 0;
+    font-size: 3rem;
+    margin: 0 0 16px 0;
+    line-height: 1.15;
     color: #ffffff;
 
     span {
@@ -1155,40 +1171,40 @@ export const ContactLeft = styled.div`
   }
 
   p {
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    line-height: 1.8;
     color: #d6cfc7;
-    margin: 0 0 24px 0;
+    margin: 0 0 28px 0;
   }
 
   .terms {
-    font-size: 0.72rem;
-    line-height: 1.5;
-    color: #8c827a;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 16px;
-    margin-top: 24px;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: #a49a92;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 22px;
+    margin-top: 32px;
   }
 `;
 
 export const ContactRight = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 `;
 
 export const ContactDirectBtn = styled.a`
   background: ${(props) => (props.$whatsapp ? "#25D366" : "rgba(255, 255, 255, 0.1)")};
   color: #ffffff;
   border: 1px solid ${(props) => (props.$whatsapp ? "#25D366" : "rgba(255, 255, 255, 0.2)")};
-  padding: 16px 24px;
+  padding: 18px 26px;
   border-radius: 14px;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 14px;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   transition: all 0.2s ease;
 
   svg {

@@ -474,38 +474,47 @@ export default function MidiaKitComponent() {
         </S.SectionHeading>
 
         <S.HighlightsGrid>
-          {data.reelsHighlights?.map((reel) => (
-            <S.ReelCard key={reel.id}>
-              <S.ReelMedia>
-                <Image
-                  src={reel.cover || courseImg}
-                  alt={reel.title}
-                  width={360}
-                  height={480}
-                  style={{ objectFit: "cover" }}
-                />
-                <S.ReelBadge>{reel.tag}</S.ReelBadge>
-                <S.ReelViewsOverlay>
-                  <span>{reel.views} Views</span>
-                  <small>Alto Alcance</small>
-                </S.ReelViewsOverlay>
-              </S.ReelMedia>
+          {data.reelsHighlights?.map((reel) => {
+            const coverSrc = typeof reel.cover === "string" ? reel.cover : reel.cover?.src || "/images/capa02.jpg";
+            return (
+              <S.ReelCard
+                key={reel.id}
+                as="a"
+                href={reel.permalink || "https://www.instagram.com/grazyelacouto/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}
+                title="Ver publicação no Instagram"
+              >
+                <S.ReelMedia>
+                  <img
+                    src={coverSrc}
+                    alt={reel.title || "Publicação do Instagram @grazyelacouto"}
+                    loading="lazy"
+                  />
+                  <S.ReelBadge>{reel.tag || "Instagram"}</S.ReelBadge>
+                  <S.ReelViewsOverlay>
+                    <span>{reel.likes} Curtidas</span>
+                    <small>{reel.comments ? `${reel.comments} comentários` : "Ver no Instagram ↗"}</small>
+                  </S.ReelViewsOverlay>
+                </S.ReelMedia>
 
-              <S.ReelBody>
-                <h4>{reel.title}</h4>
-                <S.ReelStatsRow>
-                  <div>
-                    <Heart style={{ width: 14, height: 14, color: "#ce171f" }} />
-                    {reel.likes}
-                  </div>
-                  <div>
-                    <Bookmark style={{ width: 14, height: 14 }} />
-                    {reel.saves} salvamentos
-                  </div>
-                </S.ReelStatsRow>
-              </S.ReelBody>
-            </S.ReelCard>
-          ))}
+                <S.ReelBody>
+                  <h4>{reel.title}</h4>
+                  <S.ReelStatsRow>
+                    <div>
+                      <Heart style={{ width: 15, height: 15, color: "#ce171f" }} />
+                      {reel.likes}
+                    </div>
+                    <div>
+                      <Bookmark style={{ width: 15, height: 15 }} />
+                      {reel.saves} salvamentos
+                    </div>
+                  </S.ReelStatsRow>
+                </S.ReelBody>
+              </S.ReelCard>
+            );
+          })}
         </S.HighlightsGrid>
       </S.Section>
 
