@@ -20,10 +20,25 @@ const shimmer = keyframes`
 `;
 
 export const Page = styled.div`
+  --atelier-ink: #100e0c;
+  --atelier-ink-soft: #1c1815;
+  --atelier-graphite: #3a342f;
+  --atelier-stone: #cfc9c2;
+  --atelier-mist: #e8e4df;
+  --atelier-paper: #faf9f7;
+  --atelier-accent: #8f1a20;
+  --atelier-accent-hover: #6b1217;
+  --atelier-gold: #c4a46a;
+  --atelier-gold-bright: #e2c990;
+  --atelier-gold-deep: #7a5d2e;
+  --atelier-display: "Cormorant Garamond", "Seasons", Georgia, serif;
+  --atelier-body: "Lora", Georgia, "Times New Roman", serif;
+  --atelier-ui: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
   min-height: 100vh;
-  background-color: #fbf9f5;
-  color: #2b2725;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--atelier-paper, #faf9f7);
+  color: var(--atelier-graphite, #3a342f);
+  font-family: var(--atelier-body, "Lora", Georgia, serif);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   position: relative;
@@ -39,10 +54,10 @@ export const TopBar = styled.header`
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(251, 249, 245, 0.92);
+  background: rgba(250, 249, 247, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(43, 39, 37, 0.08);
+  border-bottom: 1px solid rgba(58, 52, 47, 0.08);
   padding: 14px 28px;
   display: flex;
   align-items: center;
@@ -67,11 +82,11 @@ export const BrandGroup = styled.div`
 `;
 
 export const BrandTitle = styled.span`
-  font-family: "Seasons", serif, Georgia;
-  font-size: 1.4rem;
+  font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
+  font-size: 1.45rem;
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: #1e1b18;
+  color: var(--atelier-ink, #100e0c);
 
   ${media.lessThan("mobile")`
     font-size: 1.2rem;
@@ -79,8 +94,9 @@ export const BrandTitle = styled.span`
 `;
 
 export const Badge = styled.span`
-  background: #ce171f;
+  background: var(--atelier-accent, #8f1a20);
   color: #ffffff;
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -130,10 +146,11 @@ export const TopActions = styled.div`
 
 export const SecondaryBtn = styled.button`
   background: #ffffff;
-  color: #2b2725;
-  border: 1px solid rgba(43, 39, 37, 0.16);
+  color: var(--atelier-ink, #100e0c);
+  border: 1px solid var(--atelier-stone, #cfc9c2);
   padding: 8px 14px;
   border-radius: 8px;
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
@@ -148,8 +165,8 @@ export const SecondaryBtn = styled.button`
   }
 
   &:hover {
-    background: #f3efe8;
-    border-color: rgba(43, 39, 37, 0.3);
+    background: var(--atelier-mist, #e8e4df);
+    border-color: var(--atelier-graphite, #3a342f);
     transform: translateY(-1px);
   }
 
@@ -165,17 +182,18 @@ export const SecondaryBtn = styled.button`
 `;
 
 export const PrimaryBtn = styled.a`
-  background: #ce171f;
+  background: var(--atelier-accent, #8f1a20);
   color: #ffffff;
   padding: 8px 18px;
   border-radius: 8px;
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 4px 14px rgba(206, 23, 31, 0.25);
+  box-shadow: 0 4px 14px rgba(143, 26, 32, 0.25);
   transition: all 0.2s ease;
 
   svg {
@@ -184,8 +202,8 @@ export const PrimaryBtn = styled.a`
   }
 
   &:hover {
-    background: #b51219;
-    box-shadow: 0 6px 18px rgba(206, 23, 31, 0.35);
+    background: var(--atelier-accent-hover, #6b1217);
+    box-shadow: 0 6px 18px rgba(143, 26, 32, 0.35);
     transform: translateY(-1px);
     color: #ffffff;
   }
@@ -200,7 +218,7 @@ export const PrimaryBtn = styled.a`
 // Navigation Anchor Pill Row
 export const NavTabs = styled.nav`
   background: #ffffff;
-  border-bottom: 1px solid rgba(43, 39, 37, 0.06);
+  border-bottom: 1px solid rgba(58, 52, 47, 0.06);
   padding: 10px 24px;
   display: flex;
   justify-content: center;
@@ -219,8 +237,9 @@ export const NavTabs = styled.nav`
 `;
 
 export const NavTabItem = styled.a`
-  color: #665f5a;
+  color: var(--atelier-graphite, #3a342f);
   text-decoration: none;
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.82rem;
   font-weight: 600;
   padding: 6px 14px;
@@ -228,8 +247,8 @@ export const NavTabItem = styled.a`
   transition: all 0.2s ease;
 
   &:hover {
-    color: #ce171f;
-    background: rgba(206, 23, 31, 0.06);
+    color: var(--atelier-accent, #8f1a20);
+    background: rgba(143, 26, 32, 0.06);
   }
 `;
 
@@ -255,11 +274,12 @@ export const Section = styled.section`
 
 // Slide 1: Hero Cover
 export const HeroCover = styled.div`
-  background: linear-gradient(135deg, #1e1b18 0%, #352f2a 100%);
+  background: linear-gradient(135deg, #100e0c 0%, #1c1815 60%, #3a342f 100%);
   color: #ffffff;
   border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 20px 48px rgba(30, 27, 24, 0.22);
+  border: 1px solid rgba(196, 164, 106, 0.22);
+  box-shadow: 0 20px 48px rgba(16, 14, 12, 0.25);
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   min-height: 580px;
@@ -272,7 +292,7 @@ export const HeroCover = styled.div`
   @media print {
     box-shadow: none;
     border-radius: 12px;
-    background: #1e1b18 !important;
+    background: #100e0c !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -295,9 +315,10 @@ export const SubPill = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  color: #f7d6d8;
+  background: rgba(196, 164, 106, 0.12);
+  border: 1px solid rgba(196, 164, 106, 0.35);
+  color: var(--atelier-gold-bright, #e2c990);
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -309,7 +330,7 @@ export const SubPill = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  font-family: "Seasons", serif, Georgia;
+  font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
   font-size: 3.8rem;
   line-height: 1.12;
   font-weight: 700;
@@ -318,7 +339,7 @@ export const HeroTitle = styled.h1`
   letter-spacing: -0.5px;
 
   span {
-    color: #f19a9e;
+    color: var(--atelier-gold-bright, #e2c990);
     font-style: italic;
     font-weight: 400;
   }
@@ -336,7 +357,7 @@ export const HeroTitle = styled.h1`
 export const HeroTagline = styled.p`
   font-size: 1.18rem;
   line-height: 1.75;
-  color: #e2dbd5;
+  color: var(--atelier-mist, #e8e4df);
   margin: 0 0 32px 0;
   max-width: 540px;
   font-weight: 400;
@@ -356,19 +377,30 @@ export const HeroMetaList = styled.div`
 
 export const MetaTag = styled.div`
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(196, 164, 106, 0.25);
   padding: 8px 14px;
   border-radius: 999px;
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.85rem;
   color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  transition: all 0.2s ease;
 
   svg {
     width: 16px;
     height: 16px;
-    color: #f19a9e;
+    color: var(--atelier-gold, #c4a46a);
+  }
+
+  &:hover {
+    background: rgba(196, 164, 106, 0.2);
+    border-color: var(--atelier-gold, #c4a46a);
+    transform: translateY(-1px);
+    color: #ffffff;
   }
 `;
 
@@ -388,11 +420,11 @@ export const HeroPhotoSide = styled.div`
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, #1e1b18 0%, rgba(30, 27, 24, 0.1) 40%, transparent 100%);
+    background: linear-gradient(to right, #100e0c 0%, rgba(16, 14, 12, 0.2) 40%, transparent 100%);
     pointer-events: none;
 
     ${media.lessThan("notebook")`
-      background: linear-gradient(to bottom, transparent 0%, #1e1b18 100%);
+      background: linear-gradient(to bottom, transparent 0%, #100e0c 100%);
     `}
   }
 `;
@@ -408,11 +440,12 @@ export const SectionHeading = styled.div`
 `;
 
 export const Eyebrow = styled.div`
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2.2px;
-  color: #ce171f;
+  color: var(--atelier-accent, #8f1a20);
   margin-bottom: 12px;
   display: flex;
   align-items: center;
@@ -421,10 +454,10 @@ export const Eyebrow = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
-  font-family: "Seasons", serif, Georgia;
+  font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
   font-size: 2.6rem;
   line-height: 1.25;
-  color: #1e1b18;
+  color: var(--atelier-ink, #100e0c);
   margin: 0 0 16px 0;
 
   ${media.lessThan("tablet")`
@@ -436,7 +469,7 @@ export const SectionTitle = styled.h2`
 export const SectionDesc = styled.p`
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #635b55;
+  color: var(--atelier-graphite, #3a342f);
   max-width: 700px;
   margin: 0 auto;
   margin-left: ${(props) => (props.$center ? "auto" : "0")};
@@ -464,7 +497,7 @@ export const StoryImageWrapper = styled.div`
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 16px 36px rgba(43, 39, 37, 0.12);
+  box-shadow: 0 16px 36px rgba(16, 14, 12, 0.12);
   aspect-ratio: 4 / 4.8;
 
   img {
@@ -487,11 +520,11 @@ export const StoryTextContent = styled.div`
 `;
 
 export const HighlightQuote = styled.blockquote`
-  font-family: "Seasons", serif, Georgia;
+  font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
   font-size: 1.7rem;
   line-height: 1.4;
-  color: #1e1b18;
-  border-left: 4px solid #ce171f;
+  color: var(--atelier-ink, #100e0c);
+  border-left: 4px solid var(--atelier-accent, #8f1a20);
   padding-left: 20px;
   margin: 0;
   font-style: italic;
@@ -504,11 +537,11 @@ export const HighlightQuote = styled.blockquote`
 export const Paragraph = styled.p`
   font-size: 1.05rem;
   line-height: 1.85;
-  color: #4f4843;
+  color: var(--atelier-graphite, #3a342f);
   margin: 0;
 
   strong {
-    color: #1e1b18;
+    color: var(--atelier-ink, #100e0c);
     font-weight: 700;
   }
 `;
@@ -522,21 +555,22 @@ export const PillarList = styled.div`
 
 export const PillarCard = styled.div`
   background: #ffffff;
-  border: 1px solid rgba(43, 39, 37, 0.08);
+  border: 1px solid var(--atelier-mist, #e8e4df);
   border-radius: 16px;
   padding: 22px 20px;
-  box-shadow: 0 4px 14px rgba(43, 39, 37, 0.04);
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 14px rgba(16, 14, 12, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
-    border-color: rgba(206, 23, 31, 0.3);
+    border-color: rgba(143, 26, 32, 0.3);
   }
 
   h4 {
     margin: 0 0 8px 0;
-    font-size: 1.05rem;
-    color: #1e1b18;
+    font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
+    font-size: 1.15rem;
+    color: var(--atelier-ink, #100e0c);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -546,7 +580,7 @@ export const PillarCard = styled.div`
     margin: 0;
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #635b55;
+    color: var(--atelier-graphite, #3a342f);
   }
 `;
 
@@ -574,12 +608,13 @@ export const MetricsGrid = styled.div`
 `;
 
 export const MetricCard = styled.div`
-  background: ${(props) => (props.$primary ? "linear-gradient(135deg, #ce171f 0%, #a00f16 100%)" : "#ffffff")};
-  color: ${(props) => (props.$primary ? "#ffffff" : "#1e1b18")};
+  background: ${(props) =>
+    props.$primary ? "linear-gradient(135deg, #8f1a20 0%, #6b1217 100%)" : "#ffffff"};
+  color: ${(props) => (props.$primary ? "#ffffff" : "var(--atelier-ink, #100e0c)")};
   border-radius: 20px;
   padding: 32px 28px;
-  border: 1px solid ${(props) => (props.$primary ? "transparent" : "rgba(43, 39, 37, 0.08)")};
-  box-shadow: 0 10px 24px rgba(43, 39, 37, 0.05);
+  border: 1px solid ${(props) => (props.$primary ? "transparent" : "var(--atelier-mist, #e8e4df)")};
+  box-shadow: 0 10px 24px rgba(16, 14, 12, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -601,13 +636,13 @@ export const MetricCard = styled.div`
 `;
 
 export const MetricNumber = styled.div`
-  font-family: "Seasons", serif, Georgia;
+  font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
   font-size: 3.2rem;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 12px;
   letter-spacing: -0.5px;
-  color: ${(props) => (props.$light ? "#ffffff" : "#ce171f")};
+  color: ${(props) => (props.$light ? "#ffffff" : "var(--atelier-accent, #8f1a20)")};
 
   ${media.lessThan("tablet")`
     font-size: 2.5rem;
@@ -615,18 +650,19 @@ export const MetricNumber = styled.div`
 `;
 
 export const MetricLabel = styled.div`
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  color: ${(props) => (props.$light ? "rgba(255, 255, 255, 0.85)" : "#635b55")};
+  color: ${(props) => (props.$light ? "rgba(255, 255, 255, 0.9)" : "var(--atelier-graphite, #3a342f)")};
   margin-bottom: 8px;
 `;
 
 export const MetricSubtext = styled.div`
   font-size: 0.84rem;
   line-height: 1.5;
-  color: ${(props) => (props.$light ? "rgba(255, 255, 255, 0.7)" : "#887f78")};
+  color: ${(props) => (props.$light ? "rgba(255, 255, 255, 0.75)" : "#7a726b")};
 `;
 
 // Slide 4: Audience Demographics (Like PDF Page 5)
@@ -634,8 +670,8 @@ export const DemographicsCard = styled.div`
   background: #ffffff;
   border-radius: 24px;
   padding: 44px 38px;
-  border: 1px solid rgba(43, 39, 37, 0.08);
-  box-shadow: 0 12px 32px rgba(43, 39, 37, 0.04);
+  border: 1px solid var(--atelier-mist, #e8e4df);
+  box-shadow: 0 12px 32px rgba(16, 14, 12, 0.04);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
@@ -655,9 +691,9 @@ export const DemographicsCard = styled.div`
 
 export const DemoSubSection = styled.div`
   h4 {
-    font-family: "Seasons", serif, Georgia;
-    font-size: 1.35rem;
-    color: #1e1b18;
+    font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
+    font-size: 1.45rem;
+    color: var(--atelier-ink, #100e0c);
     margin: 0 0 22px 0;
     display: flex;
     align-items: center;
@@ -667,6 +703,7 @@ export const DemoSubSection = styled.div`
 
 export const GenderBigCard = styled.div`
   background: linear-gradient(135deg, #faf5f3 0%, #f7ebe8 100%);
+  border: 1px solid var(--atelier-mist, #e8e4df);
   border-radius: 18px;
   padding: 28px 20px;
   display: flex;
@@ -677,19 +714,20 @@ export const GenderBigCard = styled.div`
 `;
 
 export const GenderValue = styled.div`
-  font-family: "Seasons", serif, Georgia;
+  font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
   font-size: 3rem;
   font-weight: 700;
-  color: ${(props) => (props.$female ? "#ce171f" : "#4a5568")};
+  color: ${(props) => (props.$female ? "var(--atelier-accent, #8f1a20)" : "var(--atelier-graphite, #3a342f)")};
   line-height: 1;
 `;
 
 export const GenderTag = styled.div`
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #635b55;
+  color: var(--atelier-graphite, #3a342f);
   margin-top: 6px;
 `;
 
@@ -700,15 +738,16 @@ export const BarRow = styled.div`
 export const BarHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.88rem;
   font-weight: 600;
-  color: #2b2725;
+  color: var(--atelier-ink, #100e0c);
   margin-bottom: 8px;
 `;
 
 export const BarTrack = styled.div`
   height: 11px;
-  background: #eee8e2;
+  background: var(--atelier-mist, #e8e4df);
   border-radius: 999px;
   overflow: hidden;
   position: relative;
@@ -717,7 +756,7 @@ export const BarTrack = styled.div`
 export const BarFill = styled.div`
   height: 100%;
   width: ${(props) => props.$percentage}%;
-  background: ${(props) => props.$color || "#ce171f"};
+  background: ${(props) => props.$color || "var(--atelier-accent, #8f1a20)"};
   border-radius: 999px;
   transition: width 0.8s ease-out;
 
@@ -748,15 +787,19 @@ export const ReelCard = styled.div`
   background: #ffffff;
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(43, 39, 37, 0.08);
-  box-shadow: 0 10px 24px rgba(43, 39, 37, 0.05);
+  border: 1px solid var(--atelier-mist, #e8e4df);
+  box-shadow: 0 10px 24px rgba(16, 14, 12, 0.05);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.25s ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 32px rgba(43, 39, 37, 0.09);
+    box-shadow: 0 16px 32px rgba(16, 14, 12, 0.09);
+    border-color: rgba(143, 26, 32, 0.3);
   }
 
   @media print {
@@ -769,7 +812,7 @@ export const ReelMedia = styled.div`
   position: relative;
   aspect-ratio: 9 / 12;
   overflow: hidden;
-  background: #1e1b18;
+  background: var(--atelier-ink, #100e0c);
 
   img {
     width: 100%;
@@ -782,9 +825,10 @@ export const ReelBadge = styled.span`
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(30, 27, 24, 0.85);
+  background: rgba(16, 14, 12, 0.85);
   backdrop-filter: blur(8px);
   color: #ffffff;
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -798,7 +842,7 @@ export const ReelViewsOverlay = styled.div`
   bottom: 12px;
   left: 12px;
   right: 12px;
-  background: rgba(30, 27, 24, 0.85);
+  background: rgba(16, 14, 12, 0.85);
   backdrop-filter: blur(8px);
   color: #ffffff;
   padding: 8px 14px;
@@ -806,11 +850,12 @@ export const ReelViewsOverlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.85rem;
   font-weight: 700;
 
   span {
-    color: #f19a9e;
+    color: var(--atelier-gold-bright, #e2c990);
   }
 `;
 
@@ -823,9 +868,10 @@ export const ReelBody = styled.div`
 
   h4 {
     margin: 0 0 14px 0;
-    font-size: 1.02rem;
-    line-height: 1.5;
-    color: #1e1b18;
+    font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
+    font-size: 1.15rem;
+    line-height: 1.45;
+    color: var(--atelier-ink, #100e0c);
     font-weight: 600;
   }
 `;
@@ -834,9 +880,10 @@ export const ReelStatsRow = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 14px;
-  border-top: 1px solid rgba(43, 39, 37, 0.08);
+  border-top: 1px solid var(--atelier-mist, #e8e4df);
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.82rem;
-  color: #635b55;
+  color: var(--atelier-graphite, #3a342f);
 
   div {
     display: flex;
@@ -860,31 +907,47 @@ export const PlatformRow = styled.div`
 
 export const PlatformCard = styled.div`
   background: #ffffff;
-  border: 1px solid rgba(43, 39, 37, 0.08);
+  border: 1px solid var(--atelier-mist, #e8e4df);
   border-radius: 18px;
   padding: 24px;
   display: flex;
   align-items: center;
   gap: 18px;
-  box-shadow: 0 6px 18px rgba(43, 39, 37, 0.03);
+  box-shadow: 0 6px 18px rgba(16, 14, 12, 0.03);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.25s ease;
 
   svg {
     width: 38px;
     height: 38px;
-    color: ${(props) => props.$iconColor || "#ce171f"};
+    color: ${(props) => props.$iconColor || "var(--atelier-accent, #8f1a20)"};
     flex-shrink: 0;
   }
 
   h4 {
     margin: 0 0 4px 0;
-    font-size: 1.05rem;
-    color: #1e1b18;
+    font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
+    font-size: 1.18rem;
+    color: var(--atelier-ink, #100e0c);
+    transition: color 0.2s ease;
   }
 
   p {
     margin: 0;
-    font-size: 0.82rem;
-    color: #635b55;
+    font-size: 0.84rem;
+    color: var(--atelier-graphite, #3a342f);
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--atelier-accent, #8f1a20);
+    box-shadow: 0 10px 24px rgba(16, 14, 12, 0.08);
+
+    h4 {
+      color: var(--atelier-accent, #8f1a20);
+    }
   }
 `;
 
@@ -912,8 +975,8 @@ export const TestimonialBubble = styled.div`
   background: #ffffff;
   border-radius: 18px;
   padding: 22px;
-  border: 1px solid rgba(43, 39, 37, 0.08);
-  box-shadow: 0 6px 16px rgba(43, 39, 37, 0.03);
+  border: 1px solid var(--atelier-mist, #e8e4df);
+  box-shadow: 0 6px 16px rgba(16, 14, 12, 0.03);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -922,16 +985,17 @@ export const TestimonialBubble = styled.div`
 
   p {
     margin: 0;
-    font-size: 0.92rem;
-    line-height: 1.55;
-    color: #3b3531;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--atelier-ink-soft, #1c1815);
     font-style: italic;
   }
 
   span {
-    font-size: 0.78rem;
+    font-family: var(--atelier-ui, "DM Sans", sans-serif);
+    font-size: 0.8rem;
     font-weight: 700;
-    color: #ce171f;
+    color: var(--atelier-accent, #8f1a20);
   }
 `;
 
@@ -953,16 +1017,16 @@ export const FormatsGrid = styled.div`
 
 export const FormatCard = styled.div`
   background: #ffffff;
-  border: 1px solid rgba(43, 39, 37, 0.08);
+  border: 1px solid var(--atelier-mist, #e8e4df);
   border-radius: 20px;
   padding: 36px 30px;
-  box-shadow: 0 8px 24px rgba(43, 39, 37, 0.04);
+  box-shadow: 0 8px 24px rgba(16, 14, 12, 0.04);
   display: flex;
   flex-direction: column;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 
   &:hover {
-    border-color: rgba(206, 23, 31, 0.35);
+    border-color: rgba(143, 26, 32, 0.35);
     transform: translateY(-3px);
   }
 
@@ -970,8 +1034,8 @@ export const FormatCard = styled.div`
     width: 52px;
     height: 52px;
     border-radius: 14px;
-    background: rgba(206, 23, 31, 0.08);
-    color: #ce171f;
+    background: rgba(143, 26, 32, 0.08);
+    color: var(--atelier-accent, #8f1a20);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -984,25 +1048,26 @@ export const FormatCard = styled.div`
   }
 
   h4 {
-    font-size: 1.2rem;
-    color: #1e1b18;
+    font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
+    font-size: 1.35rem;
+    color: var(--atelier-ink, #100e0c);
     margin: 0 0 14px 0;
     line-height: 1.35;
   }
 
   p {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
     line-height: 1.7;
-    color: #635b55;
+    color: var(--atelier-graphite, #3a342f);
     margin: 0 0 20px 0;
   }
 
   ul {
     margin: 0;
     padding-left: 20px;
-    font-size: 0.86rem;
-    color: #4f4843;
-    line-height: 1.7;
+    font-size: 0.88rem;
+    color: var(--atelier-graphite, #3a342f);
+    line-height: 1.75;
 
     li {
       margin-bottom: 8px;
@@ -1030,18 +1095,18 @@ export const PackagesGrid = styled.div`
 `;
 
 export const PackageCard = styled.div`
-  background: ${(props) => (props.$highlight ? "#ffffff" : "#f7f4ee")};
+  background: ${(props) => (props.$highlight ? "#ffffff" : "#fcfbfa")};
   border-radius: 26px;
   padding: 44px 34px;
-  border: 2px solid ${(props) => (props.$highlight ? "#ce171f" : "rgba(43, 39, 37, 0.08)")};
+  border: 2px solid ${(props) => (props.$highlight ? "var(--atelier-accent, #8f1a20)" : "var(--atelier-mist, #e8e4df)")};
   box-shadow: ${(props) =>
-    props.$highlight ? "0 20px 48px rgba(206, 23, 31, 0.14)" : "0 8px 24px rgba(43, 39, 37, 0.04)"};
+    props.$highlight ? "0 20px 48px rgba(143, 26, 32, 0.12)" : "0 8px 24px rgba(16, 14, 12, 0.04)"};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
 
-  ${props =>
+  ${(props) =>
     props.$highlight &&
     css`
       &::before {
@@ -1050,8 +1115,9 @@ export const PackageCard = styled.div`
         top: -14px;
         left: 50%;
         transform: translateX(-50%);
-        background: #ce171f;
+        background: var(--atelier-accent, #8f1a20);
         color: #ffffff;
+        font-family: var(--atelier-ui, "DM Sans", sans-serif);
         font-size: 0.7rem;
         font-weight: 800;
         letter-spacing: 1.4px;
@@ -1061,30 +1127,30 @@ export const PackageCard = styled.div`
     `}
 
   h3 {
-    font-family: "Seasons", serif, Georgia;
-    font-size: 1.75rem;
-    color: #1e1b18;
+    font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
+    font-size: 1.85rem;
+    color: var(--atelier-ink, #100e0c);
     margin: 0 0 10px 0;
   }
 
   .price {
-    font-family: "Seasons", serif, Georgia;
-    font-size: 2.4rem;
+    font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
+    font-size: 2.1rem;
     font-weight: 700;
-    color: #ce171f;
-    margin: 22px 0;
+    color: var(--atelier-accent, #8f1a20);
+    margin: 20px 0;
 
     small {
       font-size: 0.95rem;
-      color: #635b55;
-      font-family: sans-serif;
+      color: var(--atelier-graphite, #3a342f);
+      font-family: var(--atelier-ui, "DM Sans", sans-serif);
     }
   }
 
   .desc {
     font-size: 0.92rem;
     line-height: 1.65;
-    color: #635b55;
+    color: var(--atelier-graphite, #3a342f);
     margin-bottom: 28px;
   }
 
@@ -1096,7 +1162,7 @@ export const PackageCard = styled.div`
     li {
       font-size: 0.88rem;
       line-height: 1.75;
-      color: #3b3531;
+      color: var(--atelier-ink-soft, #1c1815);
       display: flex;
       align-items: center;
       gap: 12px;
@@ -1104,7 +1170,7 @@ export const PackageCard = styled.div`
 
       &::before {
         content: "✓";
-        color: #ce171f;
+        color: var(--atelier-accent, #8f1a20);
         font-weight: bold;
       }
     }
@@ -1112,10 +1178,11 @@ export const PackageCard = styled.div`
 `;
 
 export const PackageCTA = styled.a`
-  background: ${(props) => (props.$highlight ? "#ce171f" : "#1e1b18")};
+  background: ${(props) => (props.$highlight ? "var(--atelier-accent, #8f1a20)" : "var(--atelier-ink, #100e0c)")};
   color: #ffffff;
   padding: 14px 22px;
   border-radius: 12px;
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.92rem;
   font-weight: 700;
   text-align: center;
@@ -1123,7 +1190,7 @@ export const PackageCTA = styled.a`
   transition: all 0.2s ease;
 
   &:hover {
-    background: ${(props) => (props.$highlight ? "#b51219" : "#3b3531")};
+    background: ${(props) => (props.$highlight ? "var(--atelier-accent-hover, #6b1217)" : "var(--atelier-graphite, #3a342f)")};
     color: #ffffff;
     transform: translateY(-2px);
   }
@@ -1131,10 +1198,12 @@ export const PackageCTA = styled.a`
 
 // Slide 10: Final Contact & Terms (Like PDF Page 13)
 export const ContactCard = styled.div`
-  background: linear-gradient(135deg, #1e1b18 0%, #2f2a26 100%);
+  background: linear-gradient(135deg, #100e0c 0%, #1c1815 60%, #3a342f 100%);
   color: #ffffff;
   border-radius: 28px;
   padding: 64px 54px;
+  border: 1px solid rgba(196, 164, 106, 0.22);
+  box-shadow: 0 20px 48px rgba(16, 14, 12, 0.25);
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 48px;
@@ -1149,7 +1218,7 @@ export const ContactCard = styled.div`
   @media print {
     box-shadow: none;
     border-radius: 12px;
-    background: #1e1b18 !important;
+    background: #100e0c !important;
     padding: 30px;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -1158,14 +1227,14 @@ export const ContactCard = styled.div`
 
 export const ContactLeft = styled.div`
   h2 {
-    font-family: "Seasons", serif, Georgia;
+    font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
     font-size: 3rem;
     margin: 0 0 16px 0;
     line-height: 1.15;
     color: #ffffff;
 
     span {
-      color: #f19a9e;
+      color: var(--atelier-gold-bright, #e2c990);
       font-style: italic;
     }
   }
@@ -1173,14 +1242,14 @@ export const ContactLeft = styled.div`
   p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #d6cfc7;
+    color: var(--atelier-mist, #e8e4df);
     margin: 0 0 28px 0;
   }
 
   .terms {
     font-size: 0.78rem;
     line-height: 1.7;
-    color: #a49a92;
+    color: var(--atelier-stone, #cfc9c2);
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     padding-top: 22px;
     margin-top: 32px;
@@ -1194,15 +1263,16 @@ export const ContactRight = styled.div`
 `;
 
 export const ContactDirectBtn = styled.a`
-  background: ${(props) => (props.$whatsapp ? "#25D366" : "rgba(255, 255, 255, 0.1)")};
+  background: ${(props) => (props.$whatsapp ? "#25D366" : "rgba(255, 255, 255, 0.08)")};
   color: #ffffff;
-  border: 1px solid ${(props) => (props.$whatsapp ? "#25D366" : "rgba(255, 255, 255, 0.2)")};
+  border: 1px solid ${(props) => (props.$whatsapp ? "#25D366" : "rgba(196, 164, 106, 0.3)")};
   padding: 18px 26px;
   border-radius: 14px;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 14px;
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-weight: 700;
   font-size: 0.98rem;
   transition: all 0.2s ease;
@@ -1213,7 +1283,8 @@ export const ContactDirectBtn = styled.a`
   }
 
   &:hover {
-    background: ${(props) => (props.$whatsapp ? "#20ba59" : "rgba(255, 255, 255, 0.18)")};
+    background: ${(props) => (props.$whatsapp ? "#20ba59" : "rgba(196, 164, 106, 0.2)")};
+    border-color: ${(props) => (props.$whatsapp ? "#20ba59" : "var(--atelier-gold, #c4a46a)")};
     transform: translateY(-2px);
     color: #ffffff;
   }
@@ -1223,13 +1294,18 @@ export const ContactDirectBtn = styled.a`
 export const SyncFooter = styled.div`
   text-align: center;
   padding: 30px 16px;
-  font-size: 0.8rem;
-  color: #887f78;
+  font-family: var(--atelier-ui, "DM Sans", sans-serif);
+  font-size: 0.82rem;
+  color: var(--atelier-graphite, #3a342f);
 
   a {
-    color: #ce171f;
+    color: var(--atelier-accent, #8f1a20);
     text-decoration: none;
     font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   @media print {

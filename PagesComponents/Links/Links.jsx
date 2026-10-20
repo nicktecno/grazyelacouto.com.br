@@ -148,7 +148,7 @@ const LINKS_DATA = [
     title: "Mídia Kit Comercial (Marcas & Parcerias)",
     href: "/midia-kit",
     icon: (
-      <div style={{ width: "100%", height: "100%", background: "#CE171F", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ width: "100%", height: "100%", background: "#8f1a20", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <Instagram style={{ color: "#FFFFFF", width: "28px", height: "28px" }} />
       </div>
     ),

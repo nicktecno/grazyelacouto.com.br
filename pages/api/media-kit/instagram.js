@@ -67,6 +67,7 @@ const DEFAULT_METRICS = {
       shares: "8.900",
       saves: "15.200",
       cover: "/images/pecas-de-alfaiataria/modulos/07_camisa_classica.jpeg",
+      permalink: "https://www.instagram.com/grazyelacouto/",
       tag: "Viral Didático",
     },
     {
@@ -77,6 +78,7 @@ const DEFAULT_METRICS = {
       shares: "6.200",
       saves: "12.800",
       cover: "/images/capa02.jpg",
+      permalink: "https://www.instagram.com/grazyelacouto/",
       tag: "Alta Utilidade",
     },
     {
@@ -87,6 +89,7 @@ const DEFAULT_METRICS = {
       shares: "5.400",
       saves: "11.400",
       cover: "/images/bio/blazer.jpeg",
+      permalink: "https://www.instagram.com/grazyelacouto/",
       tag: "Autoridade",
     },
   ],

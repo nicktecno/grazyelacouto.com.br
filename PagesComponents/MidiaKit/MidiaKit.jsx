@@ -27,9 +27,9 @@ import atelierImg from "../../public/images/capa02.jpg";
 import tailoringImg from "../../public/images/bio/blazer.jpeg";
 import courseImg from "../../public/images/aprenda_a_costurar/IMG_7725.jpg";
 
-const WHATSAPP_COMERCIAL =
-  "https://api.whatsapp.com/send?phone=5531988888888&text=Ol%C3%A1%20Grazyela!%20Acessei%20seu%20M%C3%ADdia%20Kit%20e%20gostaria%20de%20conversar%20sobre%20uma%20parceria%20comercial.";
-const EMAIL_COMERCIAL = "assessoria@grazyelacouto.com.br";
+const WHATSAPP_BASE = "https://api.whatsapp.com/send?phone=5531988888888";
+const WHATSAPP_COMERCIAL = `${WHATSAPP_BASE}&text=Ol%C3%A1%20Grazyela!%20Acessei%20seu%20M%C3%ADdia%20Kit%20e%20gostaria%20de%20conversar%20sobre%20uma%20parceria%20comercial.`;
+const EMAIL_COMERCIAL = "suportegrazycouto@gmail.com";
 
 export default function MidiaKitComponent() {
   const [data, setData] = useState({
@@ -76,6 +76,7 @@ export default function MidiaKitComponent() {
         saves: "15.200",
         tag: "Viral Didático",
         cover: "/images/pecas-de-alfaiataria/modulos/07_camisa_classica.jpeg",
+        permalink: "https://www.instagram.com/grazyelacouto/",
       },
       {
         id: "reel-2",
@@ -85,6 +86,7 @@ export default function MidiaKitComponent() {
         saves: "12.800",
         tag: "Alta Conversão",
         cover: "/images/capa02.jpg",
+        permalink: "https://www.instagram.com/grazyelacouto/",
       },
       {
         id: "reel-3",
@@ -94,6 +96,7 @@ export default function MidiaKitComponent() {
         saves: "11.400",
         tag: "Autoridade",
         cover: "/images/bio/blazer.jpeg",
+        permalink: "https://www.instagram.com/grazyelacouto/",
       },
     ],
     lastUpdated: new Date().toISOString(),
@@ -226,11 +229,23 @@ export default function MidiaKitComponent() {
             </S.HeroTagline>
 
             <S.HeroMetaList>
-              <S.MetaTag>
+              <S.MetaTag
+                as="a"
+                href="https://www.instagram.com/grazyelacouto/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Acessar Instagram @grazyelacouto"
+              >
                 <Instagram />
                 @{data.username || "grazyelacouto"}
               </S.MetaTag>
-              <S.MetaTag>
+              <S.MetaTag
+                as="a"
+                href="https://www.tiktok.com/@grazy.couto?lang=pt-BR"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Acessar TikTok @grazy.couto"
+              >
                 <Tiktok />
                 @grazy.couto
               </S.MetaTag>
@@ -361,27 +376,45 @@ export default function MidiaKitComponent() {
 
         {/* Expansão Multiplataforma (PDF p.7) */}
         <S.PlatformRow>
-          <S.PlatformCard>
+          <S.PlatformCard
+            as="a"
+            href="https://www.instagram.com/grazyelacouto/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Acessar Instagram de Grazyela Couto"
+          >
             <Instagram style={{ color: "#E1306C" }} />
             <div>
               <h4>Instagram Principal</h4>
-              <p>@{data.username || "grazyelacouto"} · Stories diários & Reels virais</p>
+              <p>@{data.username || "grazyelacouto"} · Stories diários & Reels virais ↗</p>
             </div>
           </S.PlatformCard>
 
-          <S.PlatformCard>
+          <S.PlatformCard
+            as="a"
+            href="https://www.tiktok.com/@grazy.couto?lang=pt-BR"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Acessar TikTok de Grazyela Couto"
+          >
             <Tiktok style={{ color: "#000000" }} />
             <div>
               <h4>TikTok Criativo</h4>
-              <p>@grazy.couto · Formatos rápidos, desafios e bastidores</p>
+              <p>@grazy.couto · Formatos rápidos, desafios e bastidores ↗</p>
             </div>
           </S.PlatformCard>
 
-          <S.PlatformCard>
+          <S.PlatformCard
+            as="a"
+            href="https://www.youtube.com/channel/UCNOwoaQLPOdoXDZKd_ztOaA"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Acessar canal do YouTube de Grazyela Couto"
+          >
             <Youtube style={{ color: "#FF0000" }} />
             <div>
               <h4>YouTube Aulas</h4>
-              <p>Grazyela Couto · Conteúdo aprofundado e aulas completas</p>
+              <p>Grazyela Couto · Conteúdo aprofundado e aulas completas ↗</p>
             </div>
           </S.PlatformCard>
         </S.PlatformRow>
@@ -421,7 +454,7 @@ export default function MidiaKitComponent() {
                   <span>{item.percentage}%</span>
                 </S.BarHeader>
                 <S.BarTrack>
-                  <S.BarFill $percentage={item.percentage * 2} $color={idx === 1 || idx === 2 ? "#ce171f" : "#b09f95"} />
+                  <S.BarFill $percentage={item.percentage * 2} $color={idx === 1 || idx === 2 ? "#8f1a20" : "#cfc9c2"} />
                 </S.BarTrack>
               </S.BarRow>
             ))}
@@ -436,7 +469,7 @@ export default function MidiaKitComponent() {
                   <span>{loc.percentage}%</span>
                 </S.BarHeader>
                 <S.BarTrack>
-                  <S.BarFill $percentage={loc.percentage * 2.5} $color={idx === 0 ? "#ce171f" : "#8c7e75"} />
+                  <S.BarFill $percentage={loc.percentage * 2.5} $color={idx === 0 ? "#8f1a20" : "#8c7e75"} />
                 </S.BarTrack>
               </S.BarRow>
             ))}
@@ -503,7 +536,7 @@ export default function MidiaKitComponent() {
                   <h4>{reel.title}</h4>
                   <S.ReelStatsRow>
                     <div>
-                      <Heart style={{ width: 15, height: 15, color: "#ce171f" }} />
+                      <Heart style={{ width: 15, height: 15, color: "#8f1a20" }} />
                       {reel.likes}
                     </div>
                     <div>
@@ -703,7 +736,7 @@ export default function MidiaKitComponent() {
                 Ideal para promoções pontuais, lançamentos com cupom e geração direta de tráfego para a loja da sua marca.
               </p>
               <div className="price">
-                R$ 1.800 <small>/ disparo</small>
+                A Consultar
               </div>
               <ul>
                 <li>Sequência de 4 Stories com narrativa fluida</li>
@@ -713,11 +746,11 @@ export default function MidiaKitComponent() {
               </ul>
             </div>
             <S.PackageCTA
-              href={`${WHATSAPP_COMERCIAL}&text=Ol%C3%A1%20Grazyela!%20Tenho%20interesse%20no%20Combo%20Stories.`}
+              href={`${WHATSAPP_BASE}&text=Ol%C3%A1%20Grazyela!%20Gostaria%20de%20consultar%20uma%20proposta%20para%20o%20Combo%20Stories.`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Contratar Combo Stories
+              Consultar Combo Stories
             </S.PackageCTA>
           </S.PackageCard>
 
@@ -728,7 +761,7 @@ export default function MidiaKitComponent() {
                 O formato com maior entrega orgânica, alcance viral e retenção de marca na mente das seguidoras.
               </p>
               <div className="price">
-                R$ 3.900 <small>/ campanha</small>
+                A Consultar
               </div>
               <ul>
                 <li>1 Reels dedicado com foco no produto</li>
@@ -740,11 +773,11 @@ export default function MidiaKitComponent() {
             </div>
             <S.PackageCTA
               $highlight
-              href={`${WHATSAPP_COMERCIAL}&text=Ol%C3%A1%20Grazyela!%20Tenho%20interesse%20no%20pacote%20Reels%20%2B%20Stories.`}
+              href={`${WHATSAPP_BASE}&text=Ol%C3%A1%20Grazyela!%20Gostaria%20de%20consultar%20uma%20proposta%20para%20o%20pacote%20Reels%20%2B%20Stories.`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Escolher Reels + Stories
+              Consultar Reels + Stories
             </S.PackageCTA>
           </S.PackageCard>
 
@@ -755,7 +788,7 @@ export default function MidiaKitComponent() {
                 Associação de alto impacto, garantindo presença contínua da sua marca no ateliê durante 3 meses.
               </p>
               <div className="price">
-                R$ 3.200 <small>/ mês</small>
+                A Consultar
               </div>
               <ul>
                 <li>1 Reels mensal de alto valor didático</li>
@@ -766,11 +799,11 @@ export default function MidiaKitComponent() {
               </ul>
             </div>
             <S.PackageCTA
-              href={`${WHATSAPP_COMERCIAL}&text=Ol%C3%A1%20Grazyela!%20Gostaria%20de%20proposta%20para%20Embaixadora%20Trimestral.`}
+              href={`${WHATSAPP_BASE}&text=Ol%C3%A1%20Grazyela!%20Gostaria%20de%20consultar%20uma%20proposta%20para%20a%20Parceria%20Trimestral.`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Solicitar Parceria Contínua
+              Consultar Parceria Trimestral
             </S.PackageCTA>
           </S.PackageCard>
         </S.PackagesGrid>
