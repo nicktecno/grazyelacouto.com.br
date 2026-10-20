@@ -206,31 +206,87 @@ async function fetchFromMetaGraphApi() {
       }
     } catch (_) {}
 
-    // 3. Posts e Reels recentes diretamente da conta do Instagram
+    // 3. Posts e Reels da conta do Instagram (curadoria dos melhores destaques únicos)
     let liveMedia = [];
     try {
-      const mediaUrl = `https://graph.facebook.com/v19.0/${accountId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,like_count,comments_count,timestamp&limit=6&access_token=${token}`;
+      const mediaUrl = `https://graph.facebook.com/v19.0/${accountId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,like_count,comments_count,timestamp&limit=30&access_token=${token}`;
       const mediaRes = await fetch(mediaUrl);
       if (mediaRes.ok) {
         const mediaData = await mediaRes.json();
         if (Array.isArray(mediaData?.data) && mediaData.data.length > 0) {
-          liveMedia = mediaData.data.map((item) => {
+          // Ordena por engajamento (mais curtidos para evidenciar os melhores destaques de performance)
+          const sorted = [...mediaData.data].sort(
+            (a, b) => (b.like_count || 0) - (a.like_count || 0)
+          );
+
+          const seen = new Set();
+          const selected = [];
+
+          for (const item of sorted) {
             const rawCaption = (item.caption || "Publicação @grazyelacouto").trim();
-            const firstLine = rawCaption.split("\n")[0].replace(/[#]/g, "").trim();
-            const displayTitle = firstLine.length > 5 ? firstLine.substring(0, 70) : "Aula prática de corte, costura e acabamento";
-            return {
+            const lines = rawCaption.split("\n").map((l) => l.trim()).filter(Boolean);
+            let displayTitle = "";
+
+            for (const line of lines) {
+              const withoutTags = line.replace(/#[a-zA-Z0-9_À-ÿ]+/g, "").replace(/\s+/g, " ").trim();
+              if (withoutTags.replace(/[^a-zA-Z0-9À-ÿ]/g, "").length >= 5) {
+                displayTitle = withoutTags;
+                break;
+              }
+            }
+
+            if (!displayTitle) {
+              const tags = rawCaption.match(/#[a-zA-Z0-9_À-ÿ]+/g) || [];
+              if (tags.length > 0) {
+                displayTitle = tags.slice(0, 3).map((t) => t.replace("#", "")).join(" • ");
+              }
+            }
+
+            displayTitle = (displayTitle || lines[0] || "Técnicas de Modelagem e Costura").replace(/[#]/g, "").trim();
+            if (displayTitle.replace(/[^a-zA-Z0-9À-ÿ]/g, "").length < 4) {
+              displayTitle = "Elegância e acabamento profissional";
+            }
+            displayTitle = displayTitle.charAt(0).toUpperCase() + displayTitle.slice(1, 65);
+
+            const coverUrl = item.thumbnail_url || item.media_url;
+            if (!coverUrl) continue;
+
+            // Chave para evitar capas ou títulos repetidos de posts repostados
+            const titleKey = displayTitle
+              .toLowerCase()
+              .replace(/[^a-z0-9]/g, "")
+              .substring(0, 16);
+
+            if (seen.has(titleKey)) continue;
+            seen.add(titleKey);
+
+            const likesNum = item.like_count || 0;
+            let tag = "Reels Oficial";
+            if (likesNum >= 1000) tag = "Viral Didático";
+            else if (displayTitle.toLowerCase().includes("tutorial") || displayTitle.toLowerCase().includes("saia"))
+              tag = "Alta Utilidade";
+            else if (displayTitle.toLowerCase().includes("molde"))
+              tag = "Modelagem & Molde";
+            else if (likesNum >= 500)
+              tag = "Alta Performance";
+
+            selected.push({
               id: item.id,
               title: displayTitle,
               caption: rawCaption,
-              likes: item.like_count ? item.like_count.toLocaleString("pt-BR") : "100+",
+              likes: likesNum ? likesNum.toLocaleString("pt-BR") : "100+",
               comments: item.comments_count || 0,
-              saves: Math.round((item.like_count || 50) * 0.55).toLocaleString("pt-BR"),
-              cover: item.thumbnail_url || item.media_url,
+              saves: Math.round((likesNum || 50) * 0.55).toLocaleString("pt-BR"),
+              cover: coverUrl,
               permalink: item.permalink || "https://www.instagram.com/grazyelacouto/",
-              tag: item.media_type === "VIDEO" ? "Reels Oficial" : "Publicação",
+              tag,
               isLive: true,
-            };
-          });
+            });
+
+            if (selected.length === 6) break;
+          }
+
+          liveMedia = selected;
         }
       }
     } catch (_) {}
