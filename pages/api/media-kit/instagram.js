@@ -61,13 +61,13 @@ const DEFAULT_METRICS = {
   reelsHighlights: [
     {
       id: "reel-1",
-      title: "Acabamento de Gola de Alfaiataria Perfeita",
+      title: "Alfaiataria Feminina Sob Medida: Do Molde ao Acabamento Fino",
       views: "348.000",
       likes: "24.600",
       shares: "8.900",
       saves: "15.200",
-      cover: "/images/pecas-de-alfaiataria/modulos/07_camisa_classica.jpeg",
-      permalink: "https://www.instagram.com/grazyelacouto/",
+      cover: "/images/seja-bem-vindo/IMG_9743.jpg",
+      permalink: "https://www.instagram.com/reel/DeuOuoWRfqa/",
       tag: "Viral Didático",
     },
     {
@@ -77,18 +77,18 @@ const DEFAULT_METRICS = {
       likes: "18.300",
       shares: "6.200",
       saves: "12.800",
-      cover: "/images/capa02.jpg",
-      permalink: "https://www.instagram.com/grazyelacouto/",
+      cover: "/images/aprenda_a_costurar/IMG_7725.jpg",
+      permalink: "https://www.instagram.com/reel/Ddphbt8ulyY/",
       tag: "Alta Utilidade",
     },
     {
       id: "reel-3",
-      title: "Construção de Blazer Estruturado Passo a Passo",
+      title: "Construção de Peças Estruturadas Passo a Passo",
       views: "182.000",
       likes: "15.900",
       shares: "5.400",
       saves: "11.400",
-      cover: "/images/bio/blazer.jpeg",
+      cover: "/images/aprenda_a_costurar/IMG_7726.jpg",
       permalink: "https://www.instagram.com/grazyelacouto/",
       tag: "Autoridade",
     },
@@ -182,7 +182,11 @@ async function fetchFromMetaGraphApi() {
     // 1. Dados básicos da conta
     const userUrl = `https://graph.facebook.com/v19.0/${accountId}?fields=followers_count,media_count,name,username,biography,profile_picture_url&access_token=${token}`;
     const userRes = await fetch(userUrl);
-    if (!userRes.ok) return null;
+    if (!userRes.ok) {
+      const err = await userRes.json().catch(() => ({}));
+      console.warn("[Meta Graph API] Não foi possível autenticar ou token expirado:", userRes.status, err?.error?.message || "");
+      return null;
+    }
     const userData = await userRes.json();
 
     // 2. Insights da conta (alcance e impressões nos últimos 30 dias)
@@ -311,6 +315,11 @@ export default async function handler(req, res) {
   res.setHeader("Cache-Control", "public, s-maxage=1800, stale-while-revalidate=86400");
 
   const forceRefresh = req.query.refresh === "true" || req.query.force === "1";
+
+  if (forceRefresh) {
+    inMemoryCache = null;
+    inMemoryCacheTime = 0;
+  }
 
   // Se não for forceRefresh, tenta o cache
   if (!forceRefresh) {

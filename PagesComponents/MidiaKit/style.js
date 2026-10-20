@@ -810,6 +810,10 @@ export const ReelCard = styled.div`
     transform: translateY(-4px);
     box-shadow: 0 16px 32px rgba(16, 14, 12, 0.09);
     border-color: rgba(143, 26, 32, 0.3);
+
+    img {
+      transform: scale(1.04);
+    }
   }
 
   @media print {
@@ -828,6 +832,8 @@ export const ReelMedia = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%;
+    transition: transform 0.4s ease;
   }
 `;
 

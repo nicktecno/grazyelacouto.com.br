@@ -70,13 +70,13 @@ export default function MidiaKitComponent() {
     reelsHighlights: [
       {
         id: "reel-1",
-        title: "Acabamento de Gola de Alfaiataria Perfeita",
+        title: "Alfaiataria Feminina Sob Medida: Do Molde ao Acabamento Fino",
         views: "348.000",
         likes: "24.600",
         saves: "15.200",
         tag: "Viral Didático",
-        cover: "/images/pecas-de-alfaiataria/modulos/07_camisa_classica.jpeg",
-        permalink: "https://www.instagram.com/grazyelacouto/",
+        cover: "/images/seja-bem-vindo/IMG_9743.jpg",
+        permalink: "https://www.instagram.com/reel/DeuOuoWRfqa/",
       },
       {
         id: "reel-2",
@@ -84,18 +84,18 @@ export default function MidiaKitComponent() {
         views: "215.000",
         likes: "18.300",
         saves: "12.800",
-        tag: "Alta Conversão",
-        cover: "/images/capa02.jpg",
-        permalink: "https://www.instagram.com/grazyelacouto/",
+        tag: "Alta Utilidade",
+        cover: "/images/aprenda_a_costurar/IMG_7725.jpg",
+        permalink: "https://www.instagram.com/reel/Ddphbt8ulyY/",
       },
       {
         id: "reel-3",
-        title: "Construção de Blazer Estruturado Passo a Passo",
+        title: "Construção de Peças Estruturadas Passo a Passo",
         views: "182.000",
         likes: "15.900",
         saves: "11.400",
         tag: "Autoridade",
-        cover: "/images/bio/blazer.jpeg",
+        cover: "/images/aprenda_a_costurar/IMG_7726.jpg",
         permalink: "https://www.instagram.com/grazyelacouto/",
       },
     ],
@@ -508,7 +508,7 @@ export default function MidiaKitComponent() {
 
         <S.HighlightsGrid>
           {data.reelsHighlights?.map((reel) => {
-            const coverSrc = typeof reel.cover === "string" ? reel.cover : reel.cover?.src || "/images/capa02.jpg";
+            const coverSrc = typeof reel.cover === "string" ? reel.cover : reel.cover?.src || "/images/seja-bem-vindo/IMG_9743.jpg";
             return (
               <S.ReelCard
                 key={reel.id}
@@ -524,6 +524,10 @@ export default function MidiaKitComponent() {
                     src={coverSrc}
                     alt={reel.title || "Publicação do Instagram @grazyelacouto"}
                     loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "/images/seja-bem-vindo/IMG_9743.jpg";
+                    }}
                   />
                   <S.ReelBadge>{reel.tag || "Instagram"}</S.ReelBadge>
                   <S.ReelViewsOverlay>
