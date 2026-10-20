@@ -95,7 +95,7 @@ export const BrandTitle = styled.span`
 
 export const Badge = styled.span`
   background: var(--atelier-accent, #8f1a20);
-  color: #ffffff;
+  color: #ffffff !important;
   font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.7rem;
   font-weight: 700;
@@ -146,7 +146,7 @@ export const TopActions = styled.div`
 
 export const SecondaryBtn = styled.button`
   background: #ffffff;
-  color: var(--atelier-ink, #100e0c);
+  color: var(--atelier-ink, #100e0c) !important;
   border: 1px solid var(--atelier-stone, #cfc9c2);
   padding: 8px 14px;
   border-radius: 8px;
@@ -162,10 +162,12 @@ export const SecondaryBtn = styled.button`
   svg {
     width: 16px;
     height: 16px;
+    color: var(--atelier-accent, #8f1a20) !important;
   }
 
   &:hover {
     background: var(--atelier-mist, #e8e4df);
+    color: var(--atelier-ink, #100e0c) !important;
     border-color: var(--atelier-graphite, #3a342f);
     transform: translateY(-1px);
   }
@@ -183,13 +185,13 @@ export const SecondaryBtn = styled.button`
 
 export const PrimaryBtn = styled.a`
   background: var(--atelier-accent, #8f1a20);
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 8px 18px;
   border-radius: 8px;
   font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.85rem;
   font-weight: 700;
-  text-decoration: none;
+  text-decoration: none !important;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -199,13 +201,15 @@ export const PrimaryBtn = styled.a`
   svg {
     width: 18px;
     height: 18px;
+    color: #ffffff !important;
+    fill: currentColor !important;
   }
 
   &:hover {
     background: var(--atelier-accent-hover, #6b1217);
     box-shadow: 0 6px 18px rgba(143, 26, 32, 0.35);
     transform: translateY(-1px);
-    color: #ffffff;
+    color: #ffffff !important;
   }
 
   ${media.lessThan("mobile")`
@@ -237,8 +241,8 @@ export const NavTabs = styled.nav`
 `;
 
 export const NavTabItem = styled.a`
-  color: var(--atelier-graphite, #3a342f);
-  text-decoration: none;
+  color: var(--atelier-graphite, #3a342f) !important;
+  text-decoration: none !important;
   font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.82rem;
   font-weight: 600;
@@ -247,8 +251,8 @@ export const NavTabItem = styled.a`
   transition: all 0.2s ease;
 
   &:hover {
-    color: var(--atelier-accent, #8f1a20);
-    background: rgba(143, 26, 32, 0.06);
+    color: var(--atelier-accent, #8f1a20) !important;
+    background: rgba(143, 26, 32, 0.08);
   }
 `;
 
@@ -315,9 +319,9 @@ export const SubPill = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(196, 164, 106, 0.12);
-  border: 1px solid rgba(196, 164, 106, 0.35);
-  color: var(--atelier-gold-bright, #e2c990);
+  background: rgba(196, 164, 106, 0.16);
+  border: 1px solid rgba(196, 164, 106, 0.45);
+  color: var(--atelier-gold-bright, #e2c990) !important;
   font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.78rem;
   font-weight: 700;
@@ -327,6 +331,11 @@ export const SubPill = styled.div`
   border-radius: 999px;
   margin-bottom: 28px;
   align-self: flex-start;
+
+  svg {
+    color: var(--atelier-gold-bright, #e2c990) !important;
+    fill: currentColor !important;
+  }
 `;
 
 export const HeroTitle = styled.h1`
@@ -376,14 +385,15 @@ export const HeroMetaList = styled.div`
 `;
 
 export const MetaTag = styled.div`
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(196, 164, 106, 0.25);
-  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(196, 164, 106, 0.35);
+  padding: 8px 16px;
   border-radius: 999px;
   font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-size: 0.85rem;
-  color: #ffffff;
-  text-decoration: none;
+  font-weight: 600;
+  color: #ffffff !important;
+  text-decoration: none !important;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -393,14 +403,14 @@ export const MetaTag = styled.div`
   svg {
     width: 16px;
     height: 16px;
-    color: var(--atelier-gold, #c4a46a);
+    color: var(--atelier-gold-bright, #e2c990) !important;
   }
 
   &:hover {
-    background: rgba(196, 164, 106, 0.2);
+    background: rgba(196, 164, 106, 0.25);
     border-color: var(--atelier-gold, #c4a46a);
     transform: translateY(-1px);
-    color: #ffffff;
+    color: #ffffff !important;
   }
 `;
 
@@ -914,8 +924,8 @@ export const PlatformCard = styled.div`
   align-items: center;
   gap: 18px;
   box-shadow: 0 6px 18px rgba(16, 14, 12, 0.03);
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none !important;
+  color: inherit !important;
   cursor: pointer;
   transition: all 0.25s ease;
 
@@ -930,14 +940,14 @@ export const PlatformCard = styled.div`
     margin: 0 0 4px 0;
     font-family: var(--atelier-display, "Cormorant Garamond", "Seasons", serif);
     font-size: 1.18rem;
-    color: var(--atelier-ink, #100e0c);
+    color: var(--atelier-ink, #100e0c) !important;
     transition: color 0.2s ease;
   }
 
   p {
     margin: 0;
     font-size: 0.84rem;
-    color: var(--atelier-graphite, #3a342f);
+    color: var(--atelier-graphite, #3a342f) !important;
   }
 
   &:hover {
@@ -946,7 +956,7 @@ export const PlatformCard = styled.div`
     box-shadow: 0 10px 24px rgba(16, 14, 12, 0.08);
 
     h4 {
-      color: var(--atelier-accent, #8f1a20);
+      color: var(--atelier-accent, #8f1a20) !important;
     }
   }
 `;
@@ -1116,7 +1126,7 @@ export const PackageCard = styled.div`
         left: 50%;
         transform: translateX(-50%);
         background: var(--atelier-accent, #8f1a20);
-        color: #ffffff;
+        color: #ffffff !important;
         font-family: var(--atelier-ui, "DM Sans", sans-serif);
         font-size: 0.7rem;
         font-weight: 800;
@@ -1179,19 +1189,23 @@ export const PackageCard = styled.div`
 
 export const PackageCTA = styled.a`
   background: ${(props) => (props.$highlight ? "var(--atelier-accent, #8f1a20)" : "var(--atelier-ink, #100e0c)")};
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 14px 22px;
   border-radius: 12px;
   font-family: var(--atelier-ui, "DM Sans", sans-serif);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
+  letter-spacing: 0.3px;
   text-align: center;
-  text-decoration: none;
+  text-decoration: none !important;
+  display: block;
+  box-shadow: ${(props) =>
+    props.$highlight ? "0 4px 16px rgba(143, 26, 32, 0.3)" : "0 4px 16px rgba(16, 14, 12, 0.2)"};
   transition: all 0.2s ease;
 
   &:hover {
     background: ${(props) => (props.$highlight ? "var(--atelier-accent-hover, #6b1217)" : "var(--atelier-graphite, #3a342f)")};
-    color: #ffffff;
+    color: #ffffff !important;
     transform: translateY(-2px);
   }
 `;
@@ -1263,30 +1277,34 @@ export const ContactRight = styled.div`
 `;
 
 export const ContactDirectBtn = styled.a`
-  background: ${(props) => (props.$whatsapp ? "#25D366" : "rgba(255, 255, 255, 0.08)")};
-  color: #ffffff;
-  border: 1px solid ${(props) => (props.$whatsapp ? "#25D366" : "rgba(196, 164, 106, 0.3)")};
+  background: ${(props) => (props.$whatsapp ? "#25D366" : "rgba(255, 255, 255, 0.12)")};
+  color: ${(props) => (props.$whatsapp ? "#0d1b10" : "#ffffff")} !important;
+  border: 1px solid ${(props) => (props.$whatsapp ? "#25D366" : "rgba(196, 164, 106, 0.45)")};
   padding: 18px 26px;
   border-radius: 14px;
-  text-decoration: none;
+  text-decoration: none !important;
   display: flex;
   align-items: center;
   gap: 14px;
   font-family: var(--atelier-ui, "DM Sans", sans-serif);
   font-weight: 700;
   font-size: 0.98rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
   transition: all 0.2s ease;
 
   svg {
     width: 24px;
     height: 24px;
+    color: ${(props) => (props.$whatsapp ? "#0d1b10" : "var(--atelier-gold-bright, #e2c990)")} !important;
+    fill: currentColor !important;
+    flex-shrink: 0;
   }
 
   &:hover {
-    background: ${(props) => (props.$whatsapp ? "#20ba59" : "rgba(196, 164, 106, 0.2)")};
+    background: ${(props) => (props.$whatsapp ? "#20ba59" : "rgba(196, 164, 106, 0.25)")};
     border-color: ${(props) => (props.$whatsapp ? "#20ba59" : "var(--atelier-gold, #c4a46a)")};
     transform: translateY(-2px);
-    color: #ffffff;
+    color: ${(props) => (props.$whatsapp ? "#0d1b10" : "#ffffff")} !important;
   }
 `;
 

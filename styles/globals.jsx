@@ -231,12 +231,12 @@ const GlobalStyles = createGlobalStyle`
     }
     
     a{
-      color:var(--font-color) !important;
-        text-decoration: none !important;
-        &:hover{
-            color: #333;
-            text-decoration: none !important;
-        }
+      color: var(--font-color);
+      text-decoration: none !important;
+      &:hover{
+          color: var(--font-color-hover, #333);
+          text-decoration: none !important;
+      }
     }
     blockquote, q {
         quotes: none;

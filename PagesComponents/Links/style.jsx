@@ -243,7 +243,7 @@ export const LinkLabel = styled.span`
   font-size: clamp(0.85rem, 2.5vw, 0.98rem);
   font-weight: 500;
   line-height: 1.34;
-  color: #FFECA9;
+  color: #FFECA9 !important;
   flex: 1;
   text-align: center;
   padding: 0 0.75rem;
