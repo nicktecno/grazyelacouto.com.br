@@ -17,7 +17,10 @@ import { ShoppingBag } from "@styled-icons/boxicons-regular/ShoppingBag";
 import { Award } from "@styled-icons/boxicons-regular/Award";
 import { UserCheck } from "@styled-icons/boxicons-regular/UserCheck";
 import { MailSend } from "@styled-icons/boxicons-regular/MailSend";
+import { Slideshow } from "@styled-icons/boxicons-regular/Slideshow";
+import { Download } from "@styled-icons/boxicons-regular/Download";
 
+import MediaKitDeck from "./MediaKitDeck";
 import * as S from "./style";
 
 // Imagens do projeto
@@ -162,6 +165,21 @@ export default function MidiaKitComponent() {
           property="og:description"
           content="Parcerias comerciais e conexão autêntica com mais de 30 mil mulheres apaixonadas por moda, modelagem e costura."
         />
+        <style>{`
+          @page {
+            size: 297mm 210mm;
+            margin: 0;
+          }
+          @media print {
+            body {
+              margin: 0 !important;
+              padding: 0 !important;
+              background: #faf9f7 !important;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            }
+          }
+        `}</style>
       </Head>
 
       {/* ── BARRA SUPERIOR EXECUTIVA ── */}
@@ -180,7 +198,22 @@ export default function MidiaKitComponent() {
             {loadingSync ? "Atualizando..." : "Sincronizar"}
           </S.SecondaryBtn>
 
-          <S.SecondaryBtn onClick={handlePrint} title="Exportar este Mídia Kit em PDF">
+          <S.SecondaryBtn
+            as="a"
+            href="/midia-kit-grazyela-couto.pdf"
+            download="Midia-Kit-Grazyela-Couto.pdf"
+            title="Baixar PDF de Apresentação Diagramado"
+          >
+            <Download />
+            Baixar PDF
+          </S.SecondaryBtn>
+
+          <S.SecondaryBtn as={Link} href="/midia-kit/deck" title="Ver apresentação de slides widescreen">
+            <Slideshow />
+            Ver Slides
+          </S.SecondaryBtn>
+
+          <S.SecondaryBtn onClick={handlePrint} title="Imprimir / Salvar PDF da Apresentação">
             <Printer />
             Exportar PDF
           </S.SecondaryBtn>
@@ -197,8 +230,9 @@ export default function MidiaKitComponent() {
         </S.TopActions>
       </S.TopBar>
 
-      {/* ── NAVEGAÇÃO DE ÂNCORAS ── */}
-      <S.NavTabs aria-label="Navegação do Mídia Kit">
+      <S.ScreenLayoutWrapper>
+        {/* ── NAVEGAÇÃO DE ÂNCORAS ── */}
+        <S.NavTabs aria-label="Navegação do Mídia Kit">
         <S.NavTabItem href="#apresentacao">Apresentação</S.NavTabItem>
         <S.NavTabItem href="#sobre">Sobre a Criadora</S.NavTabItem>
         <S.NavTabItem href="#metricas">Audiência & Números</S.NavTabItem>
@@ -867,6 +901,11 @@ export default function MidiaKitComponent() {
           <Link href="/">Voltar para a página inicial</Link>
         </S.SyncFooter>
       </S.Section>
+      </S.ScreenLayoutWrapper>
+
+      <S.PrintDeckWrapper>
+        <MediaKitDeck data={data} />
+      </S.PrintDeckWrapper>
     </S.Page>
   );
 }

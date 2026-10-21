@@ -1336,3 +1336,23 @@ export const SyncFooter = styled.div`
     display: none !important;
   }
 `;
+
+export const ScreenLayoutWrapper = styled.div`
+  display: block;
+
+  @media print {
+    display: none !important;
+  }
+`;
+
+export const PrintDeckWrapper = styled.div`
+  display: none;
+
+  @media print {
+    display: block !important;
+    width: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+`;
+
