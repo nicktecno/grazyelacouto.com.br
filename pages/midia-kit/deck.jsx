@@ -165,38 +165,16 @@ export default function MidiaKitDeckPage() {
           </span>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <a
-            href="/midia-kit-grazyela-couto.pdf"
-            download="Midia-Kit-Grazyela-Couto.pdf"
-            style={{
-              background: "rgba(255, 255, 255, 0.1)",
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-              color: "#ffffff",
-              padding: "8px 16px",
-              borderRadius: "8px",
-              fontSize: "0.85rem",
-              fontWeight: 600,
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-              textDecoration: "none",
-              cursor: "pointer",
-            }}
-          >
-            <Download style={{ width: 16, height: 16 }} />
-            Baixar PDF Direto
-          </a>
-
+        <div>
           <button
             onClick={handlePrint}
             style={{
               background: "linear-gradient(135deg, #8f1a20 0%, #6b1217 100%)",
               border: "none",
               color: "#ffffff",
-              padding: "8px 20px",
+              padding: "9px 22px",
               borderRadius: "8px",
-              fontSize: "0.85rem",
+              fontSize: "0.88rem",
               fontWeight: 700,
               display: "flex",
               alignItems: "center",
@@ -204,9 +182,10 @@ export default function MidiaKitDeckPage() {
               cursor: "pointer",
               boxShadow: "0 4px 12px rgba(143, 26, 32, 0.4)",
             }}
+            title="Baixar Mídia Kit em PDF de Apresentação"
           >
-            <Printer style={{ width: 16, height: 16 }} />
-            Imprimir / Salvar PDF
+            <Download style={{ width: 18, height: 18 }} />
+            Baixar PDF
           </button>
         </div>
       </div>

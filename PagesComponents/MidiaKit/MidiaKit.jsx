@@ -242,12 +242,7 @@ export default function MidiaKitComponent() {
             {loadingSync ? "Atualizando..." : "Sincronizar"}
           </S.SecondaryBtn>
 
-          <S.SecondaryBtn
-            as="a"
-            href="/midia-kit-grazyela-couto.pdf"
-            download="Midia-Kit-Grazyela-Couto.pdf"
-            title="Baixar PDF de Apresentação Diagramado"
-          >
+          <S.SecondaryBtn onClick={handlePrint} title="Baixar Mídia Kit em PDF de Apresentação">
             <Download />
             Baixar PDF
           </S.SecondaryBtn>
@@ -255,11 +250,6 @@ export default function MidiaKitComponent() {
           <S.SecondaryBtn as={Link} href="/midia-kit/deck" title="Ver apresentação de slides widescreen">
             <Slideshow />
             Ver Slides
-          </S.SecondaryBtn>
-
-          <S.SecondaryBtn onClick={handlePrint} title="Imprimir / Salvar PDF da Apresentação">
-            <Printer />
-            Exportar PDF
           </S.SecondaryBtn>
 
           <S.PrimaryBtn
