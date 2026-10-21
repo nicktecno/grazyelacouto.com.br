@@ -182,7 +182,12 @@ export default function MidiaKitComponent() {
 
   const handlePrint = () => {
     if (typeof window !== "undefined") {
+      const originalTitle = document.title;
+      document.title = `Midia-Kit-Grazyela-Couto-${new Date().getFullYear()}`;
       window.print();
+      setTimeout(() => {
+        document.title = originalTitle;
+      }, 1500);
     }
   };
 
