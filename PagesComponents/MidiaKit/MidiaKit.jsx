@@ -38,13 +38,15 @@ export default function MidiaKitComponent() {
   const [data, setData] = useState({
     username: "grazyelacouto",
     name: "Grazyela Couto",
+    profilePicUrl: "/images/instagram/profile_pic.jpg",
     metrics: {
-      followersFormatted: "32.8K+",
+      followersFormatted: "126,8K+",
       monthlyReachFormatted: "890K+",
-      monthlyImpressionsFormatted: "1.8M+",
+      monthlyImpressionsFormatted: "1,9M+",
       engagementRate: "4.9%",
-      avgReelsViews: "45K - 320K",
+      avgReelsViews: "45K - 348K",
       avgStoryViews: "3.2K - 5.8K",
+      totalPosts: 941,
     },
     demographics: {
       gender: { female: 96, male: 4 },
@@ -60,7 +62,7 @@ export default function MidiaKitComponent() {
         { name: "Minas Gerais", percentage: 18 },
         { name: "Rio de Janeiro", percentage: 14 },
         { name: "Paraná & Sul", percentage: 16 },
-        { name: "Demais Estados", percentage: 20 },
+        { name: "Demais Estados (BR)", percentage: 20 },
       ],
       interests: [
         "Costura & Modelagem Profissional",
@@ -68,38 +70,75 @@ export default function MidiaKitComponent() {
         "Máquinas de Costura & Ferramentas",
         "Tecidos Nobres & Aviamentos",
         "Empreendedorismo na Moda",
+        "Estilo Elegante & Atemporal",
       ],
     },
     reelsHighlights: [
       {
-        id: "reel-1",
-        title: "Alfaiataria Feminina Sob Medida: Do Molde ao Acabamento Fino",
+        id: "17882138958622821",
+        title: "Tecido que vira arte, e beleza, que prazer transformar ✨",
         views: "348.000",
-        likes: "24.600",
-        saves: "15.200",
+        likes: "1.285",
+        comments: 44,
+        saves: "707",
         tag: "Viral Didático",
-        cover: "/images/seja-bem-vindo/IMG_9743.jpg",
-        permalink: "https://www.instagram.com/reel/DeuOuoWRfqa/",
+        cover: "/images/instagram/reel_1.jpg",
+        permalink: "https://www.instagram.com/reel/DduHj-IR-d8/",
       },
       {
-        id: "reel-2",
-        title: "Segredos da Máquina: Regulagem de Tensão sem Mistério",
+        id: "18167679745464993",
+        title: "80 de tecido e uma máquina reta 🪡",
         views: "215.000",
-        likes: "18.300",
-        saves: "12.800",
-        tag: "Alta Utilidade",
-        cover: "/images/aprenda_a_costurar/IMG_7725.jpg",
-        permalink: "https://www.instagram.com/reel/Ddphbt8ulyY/",
+        likes: "1.123",
+        comments: 32,
+        saves: "618",
+        tag: "Viral Didático",
+        cover: "/images/instagram/reel_2.jpg",
+        permalink: "https://www.instagram.com/reel/DeZYD4HuQ-t/",
       },
       {
-        id: "reel-3",
-        title: "Construção de Peças Estruturadas Passo a Passo",
+        id: "17980406424004507",
+        title: "Molde disponível na loja de molde ⬆️",
         views: "182.000",
-        likes: "15.900",
-        saves: "11.400",
-        tag: "Autoridade",
-        cover: "/images/aprenda_a_costurar/IMG_7726.jpg",
-        permalink: "https://www.instagram.com/grazyelacouto/",
+        likes: "1.110",
+        comments: 28,
+        saves: "611",
+        tag: "Modelagem & Molde",
+        cover: "/images/instagram/reel_3.jpg",
+        permalink: "https://www.instagram.com/reel/Deh-7XtoFnY/",
+      },
+      {
+        id: "18125330861510405",
+        title: "Saia transpassada🪡",
+        views: "145.000",
+        likes: "728",
+        comments: 28,
+        saves: "400",
+        tag: "Alta Utilidade",
+        cover: "/images/instagram/reel_4.jpg",
+        permalink: "https://www.instagram.com/reel/DenSJhKIF5f/",
+      },
+      {
+        id: "18191290138394582",
+        title: "Costura • costureira • costurainiciantes",
+        views: "128.000",
+        likes: "672",
+        comments: 107,
+        saves: "370",
+        tag: "Alta Performance",
+        cover: "/images/instagram/reel_5.jpg",
+        permalink: "https://www.instagram.com/reel/Ddw9HOUI0Fq/",
+      },
+      {
+        id: "17988997791027321",
+        title: "Tutorial • corteecostura • costurices",
+        views: "98.000",
+        likes: "592",
+        comments: 11,
+        saves: "326",
+        tag: "Alta Utilidade",
+        cover: "/images/instagram/reel_6.jpg",
+        permalink: "https://www.instagram.com/reel/DdrMn9UuAR4/",
       },
     ],
     lastUpdated: new Date().toISOString(),
@@ -541,8 +580,9 @@ export default function MidiaKitComponent() {
         </S.SectionHeading>
 
         <S.HighlightsGrid>
-          {data.reelsHighlights?.map((reel) => {
-            const coverSrc = typeof reel.cover === "string" ? reel.cover : reel.cover?.src || "/images/seja-bem-vindo/IMG_9743.jpg";
+          {data.reelsHighlights?.map((reel, idx) => {
+            const fallbackReel = `/images/instagram/reel_${(idx % 6) + 1}.jpg`;
+            const coverSrc = typeof reel.cover === "string" ? reel.cover : reel.cover?.src || fallbackReel;
             return (
               <S.ReelCard
                 key={reel.id}
@@ -560,7 +600,7 @@ export default function MidiaKitComponent() {
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = "/images/seja-bem-vindo/IMG_9743.jpg";
+                      e.currentTarget.src = fallbackReel;
                     }}
                   />
                   <S.ReelBadge>{reel.tag || "Instagram"}</S.ReelBadge>

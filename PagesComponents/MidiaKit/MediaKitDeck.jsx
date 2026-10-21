@@ -222,7 +222,7 @@ export default function MediaKitDeck({ data = {} }) {
             <D.PhoneMockupSide>
               <div className="phone-header">
                 <img
-                  src={data.profilePicUrl || "/images/aprenda_a_costurar/IMG_7723.jpg"}
+                  src={data.profilePicUrl || "/images/instagram/profile_pic.jpg"}
                   alt="Grazyela Couto"
                   className="phone-avatar"
                 />
