@@ -4,17 +4,18 @@ export default function Home(props) {
   return <MaratonaPage />;
 }
 export async function getStaticProps() {
-  const title = "Maratonas de Costura — Inscrições Encerradas | Grazyela Couto";
+  const title =
+    "Mini Curso Gratuito Vestido Vintage — Modelagem e Costura | Grazyela Couto";
   const baseKeywords =
     process.env.NEXT_PUBLIC_REACT_APP_GENERAL_KEYWORDS || "";
   const metaKeywords = [
     baseKeywords,
-    "Maratona de Costura, Grazyela Couto, curso de costura, aprender a costurar do zero, maratonas de costura online, lista de espera maratona, vestido verona",
+    "Mini Curso Gratuito, Vestido Vintage, Maratona de Costura, Grazyela Couto, curso de costura gratuito, aprender a costurar, saia enviesada, blusa simples, combo de moldes, youtube",
   ]
     .filter(Boolean)
     .join(", ");
   const metaDescription =
-    "A última Maratona de Costura com Grazyela Couto foi finalizada com sucesso! Inscrições encerradas no momento. Em breve teremos novas maratonas e projetos especiais.";
+    "Participe do Mini Curso Gratuito Vestido Vintage com Grazyela Couto no YouTube! Aprenda o passo a passo da modelagem e costura, e garanta seu combo especial de moldes do tamanho 38 ao 54.";
 
   return {
     props: {
@@ -23,7 +24,7 @@ export async function getStaticProps() {
         metaDescription,
         metaKeywords,
         canonicalPath: "/maratona",
-        ogImagePath: "/images/maratona/00.PNG",
+        ogImagePath: "/images/maratona/vestido_vintage_banner.jpg",
       },
     },
     revalidate: 3600,
